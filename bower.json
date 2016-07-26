@@ -18,7 +18,6 @@
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.2",
     "parallax.js": "^1.4.2",
-    "owl.carousel": "^2.1.6",
     "counter-up": "^1.0.0",
     "wow": "^1.1.2",
     "mixitup": "^2.1.11",

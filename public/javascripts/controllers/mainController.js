@@ -4,7 +4,7 @@
   function mainController () {
     var vm = this;
 
-    vm.hello = 'Hello World with Angular.js!';
+    vm.hello = 'My Portfolio';
   }
 
   angular.module('app')
