@@ -23,3 +23,21 @@
 </section>
 
 <owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, stagePadding: 50, autoplay: true, autoplayHoverPause: true}"></owl-carousel>
+
+<div class="container">
+  <div class="row">
+    <div class="controls">
+      <label>Filter:</label>
+      <button class="filter" data-filter="all">All</button>
+      <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+
+      <label>Sort:</label>
+      <button class="sort" data-sort="myorder:asc">Asc</button>
+      <button class="sort" data-sort="myorder:desc">Desc</button>
+    </div>
+    <hr />
+    <mixitup entities='vm.drawings'>
+      <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">Value : {{drawing.name}}</mixitup>
+    </div>
+  </div>
+</div>
