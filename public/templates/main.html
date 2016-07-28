@@ -22,22 +22,44 @@
   </div>
 </section>
 
-<owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, stagePadding: 50, autoplay: true, autoplayHoverPause: true}"></owl-carousel>
-
-<div class="container">
-  <div class="row">
-    <div class="controls">
-      <label>Filter:</label>
-      <button class="filter" data-filter="all">All</button>
-      <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
-
-      <label>Sort:</label>
-      <button class="sort" data-sort="myorder:asc">Asc</button>
-      <button class="sort" data-sort="myorder:desc">Desc</button>
-    </div>
-    <hr />
-    <mixitup entities='vm.drawings'>
-      <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">Value : {{drawing.name}}</mixitup>
+<section id="accomplishments">
+  <div class="container">
+    <div class="row">
+      <owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, stagePadding: 50, autoplay: true, autoplayHoverPause: true}"></owl-carousel>
     </div>
   </div>
-</div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="row">
+      <div class="controls">
+        <label>Filter:</label>
+        <button class="filter" data-filter="all">All</button>
+        <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+
+        <label>Sort:</label>
+        <button class="sort" data-sort="myorder:asc">Asc</button>
+        <button class="sort" data-sort="myorder:desc">Desc</button>
+      </div>
+      <hr />
+      <mixitup entities='vm.drawings'>
+        <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
+          <div class="card-deck-wrapper">
+            <div class="card-deck">
+              <div class="card">
+                <img src="images/maya.JPG" alt="Image" class="card-img-top img-fluid" />
+                <div class="card-block">
+                  <h4 class="card-title">{{drawing.name}}</h4>
+                  <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mixitup>
+    </div>
+  </div>
+</section>
