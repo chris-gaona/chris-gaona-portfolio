@@ -1,66 +1,64 @@
-<section id="header">
-  <div class="jumbotron">
-    <div class="container">
-      <div class="row">
-        <h1 class="text-xs-center">{{vm.hello}}</h1>
-        <p class="text-xs-center">
-          So much amazing fun to learn...better get to it!
-        </p>
-      </div>
-    </div>
+<div class="container-fluid col-xs-12 cg-header">
+  <div class="row">
+    <h1 class="text-xs-center">Chris Gaona Portfolio</h1>
+    <hr class="star-light">
+    <p class="brief-info">
+      Web Developer - Full-Stack JavaScript - MEAN Stack
+    </p>
   </div>
-</section>
+</div>
 
-<section id="about-me">
-  <div class="container">
-    <div class="row">
-      <h2 class="text-xs-center">About Me</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+<div class="container-fluid col-xs-12 cg-portfolio">
+  <div class="row">
+    <h2>Portfolio</h2>
+    <hr class="star-primary">
+    <div class="controls">
+      <label>Filter:</label>
+      <button class="filter" data-filter="all">All</button>
+      <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+
+      <label>Sort:</label>
+      <button class="sort" data-sort="myorder:asc">Asc</button>
+      <button class="sort" data-sort="myorder:desc">Desc</button>
     </div>
-  </div>
-</section>
-
-<section id="accomplishments">
-  <div class="container">
-    <div class="row">
-      <owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, stagePadding: 50, autoplay: true, autoplayHoverPause: true}"></owl-carousel>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <div class="row">
-      <h2>My Projects</h2>
-      <div class="controls">
-        <label>Filter:</label>
-        <button class="filter" data-filter="all">All</button>
-        <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
-
-        <label>Sort:</label>
-        <button class="sort" data-sort="myorder:asc">Asc</button>
-        <button class="sort" data-sort="myorder:desc">Desc</button>
-      </div>
-      <hr />
-      <mixitup entities='vm.drawings'>
-        <div class="mix category-{{drawing.category}} wow slideInLeft" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
-          <div class="card-deck-wrapper">
-            <div class="card-deck">
-              <div class="card">
-                <img src="images/maya.JPG" alt="Image" class="card-img-top img-fluid" />
-                <div class="card-block">
-                  <h4 class="card-title">{{drawing.name}}</h4>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                </div>
+    <hr />
+    <mixitup entities='vm.drawings'>
+      <div class="mix category-{{drawing.category}} wow slideInLeft" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+            <div class="card">
+              <img src="images/maya.JPG" alt="Image" class="card-img-top img-fluid" />
+              <div class="card-block">
+                <h4 class="card-title">{{drawing.name}}</h4>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </mixitup>
-    </div>
+      </div>
+    </mixitup>
   </div>
-</section>
+</div>
+
+<div class="container-fluid col-xs-12 cg-carousel">
+  <div class="row">
+    <owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, autoplay: true, autoplayHoverPause: true}"></owl-carousel>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 cg-aboutme">
+  <div class="row">
+    <h2 class="text-xs-center">About Me</h2>
+    <hr class="star-primary">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</div>
+<div class="container-fluid col-md-12 cg-aboutme-image">
+  <div class="row">
+    <div class="cg-myimage"></div>
+  </div>
+</div>
