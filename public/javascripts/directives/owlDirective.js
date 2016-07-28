@@ -14,8 +14,8 @@
       },
       // adds template url for modal
       templateUrl: '../templates/owlCarousel.html' // See below
-      };
-    }
+    };
+  }
 
   angular.module('app')
   .directive('owlCarousel', owlDirective);
