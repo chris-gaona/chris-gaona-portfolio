@@ -7,9 +7,7 @@
   width: 31.33333%;
   margin: 1em 1%;
 }
-/*.container .mix.category-Elements {
-    color:red;
+
+#about-me, #accomplishments, #projects {
+  padding: 50px 10px;
 }
-.container .mix.category-Soft {
-    color:blue;
-}*/

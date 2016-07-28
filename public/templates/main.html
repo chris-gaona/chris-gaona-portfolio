@@ -33,6 +33,7 @@
 <section id="projects">
   <div class="container">
     <div class="row">
+      <h2>My Projects</h2>
       <div class="controls">
         <label>Filter:</label>
         <button class="filter" data-filter="all">All</button>
@@ -44,7 +45,7 @@
       </div>
       <hr />
       <mixitup entities='vm.drawings'>
-        <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
+        <div class="mix category-{{drawing.category}} wow slideInLeft" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
           <div class="card-deck-wrapper">
             <div class="card-deck">
               <div class="card">
