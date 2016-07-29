@@ -94,6 +94,7 @@ button.cg-github {
 }
 
 .cg-portfolio {
+  background-color: #fff;
   padding: 7em 5em 5em 5em;
 }
 
@@ -126,14 +127,41 @@ button.cg-github {
   font-size: 1.2em;
 }
 
+.cg-parallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/nature-pic-7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+
 .cg-carousel-container {
   border-right: 2px solid #ddd;
 }
 
 .cg-carousel {
+  /*position: relative;*/
   padding: 5em;
-  background-color: #eee;
+  color: #000;
+  background: transparent;
 }
+
+/*.cg-carousel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/nature-pic-7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+}*/
 
 .cg-carousel span {
   font-size: 4em;
@@ -220,11 +248,13 @@ h2.cg-company-codeschool::before {
 }
 
 .cg-aboutme {
+  background-color: #fff;
   padding: 5em 6em 1em 6em;
 }
 
 .cg-aboutme-image {
-  padding: 1em 3em 1em 3em;
+  background-color: #fff;
+  padding: 1em 3em 0 3em;
 }
 
 .cg-aboutme p {
@@ -244,12 +274,12 @@ h2.cg-company-codeschool::before {
   background-position: center;
   background-color: #000;
   border-radius: 50%;
-  box-shadow: 0 10px 15px #000;
+  border: 10px solid #0099ff;
   z-index: 1000;
 }
 
 .cg-footer {
-  padding: 2em 5em 2em 5em;
+  padding: 1em 5em 1em 5em;
   background-color: #0099ff;
 }
 
