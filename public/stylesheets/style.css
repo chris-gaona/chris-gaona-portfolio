@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Varela Round', sans-serif;
+  color: #666;
+}
+
 h1 {
   font-size: 4.5em;
 }
@@ -17,6 +22,7 @@ h2 {
 }
 
 hr.star-light,
+hr.star-gray,
 hr.star-primary {
   padding: 0;
   border: none;
@@ -27,6 +33,7 @@ hr.star-primary {
 }
 
 hr.star-light:after,
+hr.star-gray:after,
 hr.star-primary:after {
   content: "\f121";
   font-family: FontAwesome;
@@ -35,6 +42,15 @@ hr.star-primary:after {
   top: -0.8em;
   font-size: 2em;
   padding: 0 0.25em;
+}
+
+hr.star-gray {
+  border-color: #2C3E50;
+}
+
+hr.star-gray:after {
+  background-color: #eee;
+  color: #2C3E50;
 }
 
 hr.star-light {
@@ -53,10 +69,22 @@ hr.star-primary:after {
   color: #2C3E50;
 }
 
-.container-fluid .mix {
-  display: none;
-  width: 31.33333%;
-  margin: 1em 1%;
+span.fa-github {
+  margin-right: 5px;
+}
+
+button.cg-github {
+  position: relative;
+  top: 0;
+  left: 50%;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-left: -105px;
+  font-size: 1.1em;
+  background-color: #fff;
+  border: 3px solid #fd7d5f;
+  color: #fd7d5f;
 }
 
 .cg-header {
@@ -66,11 +94,129 @@ hr.star-primary:after {
 }
 
 .cg-portfolio {
-  padding: 10em 5em 5em 5em;
+  padding: 7em 5em 5em 5em;
+}
+
+.container-fluid .mix {
+  display: none;
+  width: 31%;
+  margin: 1em 1%;
+}
+
+.controls {
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 530px;
+  margin-left: -265px;
+  margin-bottom: 40px;
+}
+
+.controls label {
+  font-size: 1.2em;
+}
+
+.controls button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 3px solid #fd7d5f;
+  outline: none;
+  margin: 0 5px;
+  font-size: 1.2em;
+}
+
+.cg-carousel-container {
+  border-right: 2px solid #ddd;
 }
 
 .cg-carousel {
   padding: 5em;
+  background-color: #eee;
+}
+
+.cg-carousel span {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+.cg-carousel span.fa-check-circle {
+  color: #14aa13;
+}
+
+.cg-carousel span.fa-laptop {
+  color: #0099ff;
+}
+
+.cg-carousel span.fa-star {
+  color: gold;
+}
+
+.cg-carousel span.fa-certificate {
+  color: #fd7d5f;
+}
+
+.cg-carousel p {
+  font-size: 2em;
+  text-align: center;
+}
+
+h2.cg-company-treehouse,
+h2.cg-company-codeschool {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 400px;
+  padding-left: 90px;
+  margin-left: -200px;
+}
+
+h2.cg-company-github {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 300px;
+  padding-left: 90px;
+  margin-left: -150px;
+}
+
+h2.cg-company-treehouse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('../images/treehouse.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+}
+
+h2.cg-company-codeschool::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('../images/codeschool.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+}
+
+.cg-company-github::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('../images/github.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
 }
 
 .cg-aboutme {
@@ -78,12 +224,16 @@ hr.star-primary:after {
 }
 
 .cg-aboutme-image {
-  padding: 1em 3em 5em 3em;
+  padding: 1em 3em 1em 3em;
+}
+
+.cg-aboutme p {
+  font-size: 1.5em;
 }
 
 .cg-myimage {
   position: relative;
-  top: 0;
+  top: 3.5em;
   left: 50%;
   margin-left: -137.5px;
   height: 275px;
@@ -94,6 +244,13 @@ hr.star-primary:after {
   background-position: center;
   background-color: #000;
   border-radius: 50%;
+  box-shadow: 0 10px 15px #000;
+  z-index: 1000;
+}
+
+.cg-footer {
+  padding: 2em 5em 2em 5em;
+  background-color: #0099ff;
 }
 
 /*#fd7d5f*/

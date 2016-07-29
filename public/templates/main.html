@@ -5,6 +5,9 @@
     <p class="brief-info">
       Web Developer - Full-Stack JavaScript - MEAN Stack
     </p>
+    <a href="https://github.com/chris-gaona">
+      <button class="cg-github"><span class="fa fa-github"></span>GitHub Repository</button>
+    </a>
   </div>
 </div>
 
@@ -21,9 +24,8 @@
       <button class="sort" data-sort="myorder:asc">Asc</button>
       <button class="sort" data-sort="myorder:desc">Desc</button>
     </div>
-    <hr />
     <mixitup entities='vm.drawings'>
-      <div class="mix category-{{drawing.category}} wow slideInLeft" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
+      <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
         <div class="card-deck-wrapper">
           <div class="card-deck">
             <div class="card">
@@ -44,7 +46,8 @@
 
 <div class="container-fluid col-xs-12 cg-carousel">
   <div class="row">
-    <owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, autoplay: true, autoplayHoverPause: true}"></owl-carousel>
+    <owl-carousel class="owl-carousel owl-theme" data-options="{loop: true, items: 1, autoplayHoverPause: true, margin: 20}"></owl-carousel>
+    <!-- autoplay: true -->
   </div>
 </div>
 
@@ -53,12 +56,20 @@
     <h2 class="text-xs-center">About Me</h2>
     <hr class="star-primary">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Hi, my name is Chris Gaona, and I'm a Full-Stack JavaScript Developer. Over the past 2 years I have been learning as much as I can about web development using languages such as JavaScript, HTML, CSS, Node.js, and others. I am looking for a web development role in a company that is truly making a difference in the world and on a team that enjoys learning new technologies, languages, and platforms as much as I do. You can see the various projects I have worked on on my GitHub page by clicking on the button below.
     </p>
   </div>
 </div>
-<div class="container-fluid col-md-12 cg-aboutme-image">
+<div class="container-fluid col-xs-12 cg-aboutme-image">
   <div class="row">
     <div class="cg-myimage"></div>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 cg-footer">
+  <div class="row">
+    <p>
+      Footer
+    </p>
   </div>
 </div>
