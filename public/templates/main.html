@@ -27,15 +27,15 @@
       <button class="sort" data-sort="myorder:desc">Desc</button>
     </div>
     <mixitup entities='vm.drawings'>
-      <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.value}}" ng-repeat="drawing in vm.drawings">
+      <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.name}}" ng-repeat="drawing in vm.drawings">
         <div class="card-deck-wrapper">
           <div class="card-deck">
             <div class="card">
-              <img src="images/maya.JPG" alt="Image" class="card-img-top img-fluid" />
+              <img src="{{drawing.image}}" alt="Image" class="card-img-top img-fluid" />
               <div class="card-block">
                 <h4 class="card-title">{{drawing.name}}</h4>
                 <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                  <small class="text-muted">Last Updated: {{drawing.updated_at}}</small>
                 </p>
               </div>
             </div>

@@ -10,25 +10,30 @@
     vm.categories = ['Soft', 'Elements'];
 
     vm.drawings = [{
-        name: 'Water',
+        name: 'Random Quote Generator',
         category: 'Elements',
-        value: '2'
+        image: '../images/random-quote-generator.png',
+        updated_at: 'July 23, 2016'
     }, {
-        name: 'Fire',
+        name: 'Pagination Filter',
         category: 'Elements',
-        value: '1'
+        image: 'images/pagination-filter.png',
+        updated_at: 'September 5, 2015'
     }, {
-        name: 'Air',
+        name: 'Interactive Form',
         category: 'Elements',
-        value: '4'
+        image: 'images/interactive-form.png',
+        updated_at: 'March 5, 2016'
     }, {
-        name: 'Coton',
+        name: 'Tic Tac Toe Game',
         category: 'Soft',
-        value: '3'
+        image: 'images/tic-tac-toe.png',
+        updated_at: 'April 10, 2016'
     }, {
-        name: 'Whool',
+        name: 'Movie Search',
         category: 'Soft',
-        value: '5'
+        image: 'images/movie-search.png',
+        updated_at: 'April 28, 2016'
     }];
   }
 
