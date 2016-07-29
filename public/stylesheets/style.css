@@ -127,6 +127,20 @@ button.cg-github {
   font-size: 1.2em;
 }
 
+.show-more {
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 3px solid #fd7d5f;
+}
+
 .cg-parallax {
   position: fixed;
   top: 0;
