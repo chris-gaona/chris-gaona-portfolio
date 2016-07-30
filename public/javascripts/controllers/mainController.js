@@ -12,7 +12,7 @@
     vm.drawings = [{
         name: 'Random Quote Generator',
         category: 'Elements',
-        image: '../images/random-quote-generator.png',
+        image: 'images/random-quote-generator.png',
         created_on: 'July 23, 2016',
         link: 'http://amazon.com',
         github_link: 'https://github.com/chris-gaona/random-quote',

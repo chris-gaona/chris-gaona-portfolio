@@ -20,5 +20,8 @@
     "octonode": "^0.7.6",
     "request": "^2.74.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "mongoose-seeder": "^1.2.1"
   }
 }
