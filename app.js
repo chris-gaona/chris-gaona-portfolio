@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('../routes/index');
-var users = require('../routes/users');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -25,10 +25,10 @@ app.use('/', express.static('public'));
 
 // vendor scripts
 app.get('/vendor/angular.js', function(req, res) {
-  res.sendFile(path.join(__dirname, '../node_modules', 'angular', 'angular.js'));
+  res.sendFile(path.join(__dirname, './node_modules', 'angular', 'angular.js'));
 });
 app.get('/vendor/angular-route.js', function(req, res) {
-  res.sendFile(path.join(__dirname, '../node_modules', 'angular-route', 'angular-route.js'));
+  res.sendFile(path.join(__dirname, './node_modules', 'angular-route', 'angular-route.js'));
 });
 // app.get('/vendor/angular-animate.js', function(req, res) {
 //   res.sendFile(path.join(__dirname, '../node_modules', 'angular-animate', 'angular-animate.js'));
