@@ -10,7 +10,11 @@ router.get('/projects', function (req, res, next) {
   //
   //     res.json(projects);
   //   });
-  res.status(200).json('You hit the projects api route');
+  res.status(200).json('You hit the GET projects api route');
+});
+
+router.post('/projects', function (req, res, next) {
+  res.status(201).json('You hit the POST projects api route');
 });
 
 module.exports = router;
