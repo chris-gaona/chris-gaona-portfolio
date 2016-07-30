@@ -14,7 +14,10 @@
         category: 'Elements',
         image: '../images/random-quote-generator.png',
         updated_at: 'July 23, 2016',
-        link: 'http://amazon.com'
+        link: 'http://amazon.com',
+        github_link: 'https://github.com/chris-gaona/random-quote',
+        comments: 'Chris, great work on your Random Quotes Generator! You really went above and beyond to meet the Exceeds requirements. I hope you enjoyed this project and learn so much throughout the rest of the TechDegree. Keep pushing yourself for Exceeds! :)',
+        grade: 'Exceeds Expectations'
     }, {
         name: 'Pagination Filter',
         category: 'Elements',
@@ -40,6 +43,16 @@
         updated_at: 'April 28, 2016',
         link: ''
     }];
+
+    vm.expandProject = false;
+
+    vm.getProject = function (project) {
+      console.log(project);
+      vm.chosenProject = project;
+
+      // modalShown variable is toggled between true & false
+      vm.expandProject = !vm.expandProject;
+    };
   }
 
   angular.module('app')

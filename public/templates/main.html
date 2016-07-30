@@ -31,37 +31,63 @@
   <div class="row">
     <h2>Portfolio</h2>
     <hr class="star-primary">
-    <div class="controls">
-      <label>Filter:</label>
-      <button class="filter" data-filter="all">All</button>
-      <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+    <div class="portfolio-wrapper" ng-class="{'fade-out': vm.expandProject}" du-smooth-scroll="portfolio" du-scrollspy offset="-100">
+      <div class="controls" >
+        <label>Filter:</label>
+        <button class="filter" data-filter="all">All</button>
+        <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
 
-      <label>Sort:</label>
-      <button class="sort" data-sort="myorder:asc">Asc</button>
-      <button class="sort" data-sort="myorder:desc">Desc</button>
+        <label>Sort:</label>
+        <button class="sort" data-sort="myorder:asc">Asc</button>
+        <button class="sort" data-sort="myorder:desc">Desc</button>
+      </div>
+      <mixitup entities='vm.drawings' ng-repeat="drawing in vm.drawings">
+        <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.name}}" ng-click="vm.getProject(drawing)">
+          <div class="card-deck-wrapper cg-project-main">
+            <div class="card-deck">
+              <div class="card">
+                <img src="{{drawing.image}}" alt="Image" class="card-img-top img-fluid" />
+                <div class="card-block">
+                  <h4 class="card-title">{{drawing.name}}</h4>
+                  <p class="card-text">
+                    <small class="text-muted">Last Updated: {{drawing.updated_at}}</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mixitup>
+      <p>
+        <button class="show-more">Show More</button>
+      </p>
     </div>
-    <mixitup entities='vm.drawings'>
-      <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.name}}" ng-repeat="drawing in vm.drawings">
-        <a href="{{drawing.link}}">
-        <div class="card-deck-wrapper">
+    <div class="expand-wrapper" ng-class="{'fade-in': vm.expandProject}">
+      <expand-project show='vm.expandProject'>
+        <div class="card-deck-wrapper cg-project-details">
           <div class="card-deck">
             <div class="card">
-              <img src="{{drawing.image}}" alt="Image" class="card-img-top img-fluid" />
+              <span class="fa fa-times" ng-click="vm.expandProject = false"></span>
+              <img src="{{vm.chosenProject.image}}" alt="Image" class="card-img-top img-fluid" />
               <div class="card-block">
-                <h4 class="card-title">{{drawing.name}}</h4>
+                <a href="{{vm.chosenProject.github_link}}" target="_blank" class="cg-github-repo">GitHub Repo</a>
+                <h4 class="card-title">{{vm.chosenProject.name}}</h4>
                 <p class="card-text">
-                  <small class="text-muted">Last Updated: {{drawing.updated_at}}</small>
+                  <span class="fa fa-check-circle"></span> {{vm.chosenProject.grade}}
+                </p>
+                <p class="card-text">
+                  <b>Treehouse Reviewer Comments: </b>
+                  {{vm.chosenProject.comments}}
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last Updated: {{vm.chosenProject.updated_at}}</small>
                 </p>
               </div>
             </div>
           </div>
         </div>
-        </a>
-      </div>
-    </mixitup>
-    <p>
-      <button class="show-more">Show More</button>
-    </p>
+      </expand-project>
+    </div>
   </div>
 </div>
 
