@@ -6,6 +6,8 @@
 
     vm.hello = 'My Portfolio';
 
+    // vm.editing = false;
+
     vm.projects = MainService.projects;
     console.log(vm.projects);
 
