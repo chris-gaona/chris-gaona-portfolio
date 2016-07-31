@@ -50,7 +50,7 @@
                 <div class="card-block">
                   <h4 class="card-title">{{project.name}}</h4>
                   <p class="card-text">
-                    <small class="text-muted">Created on: {{project.created_on}}</small>
+                    <small class="text-muted">Created on: {{project.created_on | date: 'MMM d, yyyy'}}</small>
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                   {{vm.chosenProject.comments}}
                 </p>
                 <p class="card-text">
-                  <small class="text-muted">Created on: {{vm.chosenProject.created_on}}</small>
+                  <small class="text-muted">Created on: {{vm.chosenProject.created_on | date: 'MMM d, yyyy'}}</small>
                 </p>
               </div>
             </div>
