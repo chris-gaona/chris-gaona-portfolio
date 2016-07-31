@@ -6,7 +6,7 @@
       <span class="fa fa-check-circle"></span>
     </p>
     <p>
-      78 badges
+      {{vm.treehouse.badges}} badges
     </p>
   </div>
   <div class="col-xs-4 m-t-3 cg-carousel-container">
@@ -14,7 +14,7 @@
       <span class="fa fa-star"></span>
     </p>
     <p>
-      16,000 points
+      {{vm.treehouse.points}} points
     </p>
   </div>
   <div class="col-xs-4 m-t-3">
@@ -34,7 +34,7 @@
       <span class="fa fa-check-circle"></span>
     </p>
     <p>
-      24 badges
+      {{vm.codeschool.badges.length}} badges
     </p>
   </div>
   <div class="col-xs-4 m-t-3 cg-carousel-container">
@@ -42,7 +42,7 @@
       <span class="fa fa-star"></span>
     </p>
     <p>
-      49,530 points
+      {{vm.codeschool.user.total_score}} points
     </p>
   </div>
   <div class="col-xs-4 m-t-3">
@@ -50,7 +50,7 @@
       <span class="fa fa-laptop"></span>
     </p>
     <p>
-      Real-time Web with Node.js
+      {{vm.codeschool.courses.completed[0].title}}
     </p>
   </div>
 </div>
@@ -62,7 +62,7 @@
       <span class="fa fa-folder-open"></span>
     </p>
     <p>
-      29 Public Repos
+      {{vm.github.public_repos}} Public Repos
     </p>
   </div>
   <div class="col-xs-6 m-t-3">

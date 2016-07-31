@@ -7,6 +7,31 @@
     vm.hello = 'My Portfolio';
 
     vm.projects = MainService.projects;
+    console.log(vm.projects);
+
+    MainService.getTreehouse().then(function (response) {
+      vm.treehouse = response.data;
+      console.log(vm.treehouse);
+    }, function (error) {
+      // log the error to the console
+      $log.error('Error ' + error);
+    });
+
+    MainService.getCodeschool().then(function (response) {
+      vm.codeschool = response.data;
+      console.log(vm.codeschool);
+    }, function (error) {
+      // log the error to the console
+      $log.error('Error ' + error);
+    });
+
+    MainService.getGithub().then(function (response) {
+      vm.github = response.data;
+      console.log(vm.github);
+    }, function (error) {
+      // log the error to the console
+      $log.error('Error ' + error);
+    });
 
     //mixitup
     vm.categories = ['Soft', 'Elements'];
