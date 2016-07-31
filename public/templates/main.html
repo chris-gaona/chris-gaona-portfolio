@@ -31,7 +31,7 @@
   <div class="row">
     <h2>Portfolio</h2>
     <hr class="star-primary">
-    <div class="portfolio-wrapper" ng-class="{'fade-out': vm.expandProject}" du-smooth-scroll="portfolio" du-scrollspy offset="-100">
+    <div class="portfolio-wrapper" ng-class="{'fade-out': vm.expandProject}">
       <div class="controls" >
         <label>Filter:</label>
         <button class="filter" data-filter="all">All</button>
@@ -41,16 +41,16 @@
         <button class="sort" data-sort="myorder:asc">Asc</button>
         <button class="sort" data-sort="myorder:desc">Desc</button>
       </div>
-      <mixitup entities='vm.drawings' ng-repeat="drawing in vm.drawings">
-        <div class="mix category-{{drawing.category}}" data-myorder="{{drawing.name}}" ng-click="vm.getProject(drawing)">
+      <mixitup entities='vm.projects'>
+        <div ng-repeat="project in vm.projects" class="mix category-{{project.category}}" data-myorder="{{project.name}}" ng-click="vm.getProject(project)" du-smooth-scroll="portfolio" du-scrollspy offset="-100">
           <div class="card-deck-wrapper cg-project-main">
             <div class="card-deck">
               <div class="card">
-                <img src="{{drawing.image}}" alt="Image" class="card-img-top img-fluid" />
+                <img src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
                 <div class="card-block">
-                  <h4 class="card-title">{{drawing.name}}</h4>
+                  <h4 class="card-title">{{project.name}}</h4>
                   <p class="card-text">
-                    <small class="text-muted">Last Updated: {{drawing.updated_at}}</small>
+                    <small class="text-muted">Created on: {{project.created_on | date: 'MMM d, yyyy'}}</small>
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                   {{vm.chosenProject.comments}}
                 </p>
                 <p class="card-text">
-                  <small class="text-muted">Last Updated: {{vm.chosenProject.updated_at}}</small>
+                  <small class="text-muted">Created on: {{vm.chosenProject.created_on | date: 'MMM d, yyyy'}}</small>
                 </p>
               </div>
             </div>
