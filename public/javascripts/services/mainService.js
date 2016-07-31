@@ -8,26 +8,27 @@
 
     // get project info from mongodb
     mainService.getAll = function () {
-      return $http.get('/api/projects').success(function(response) {
-        if (response.length > 0) {
-          angular.copy(response, mainService.projects);
-          // postService.message = '';
-        } else {
-          // console.log('Sorry no posts yet!');
-          // postService.message = 'Sorry no posts yet!';
-          angular.copy(response, mainService.projects);
-        }
-      }).error(function(response, status){
-        console.log('Error' + response + status);
-        // postService.message = 'Oops, something went wrong!';
+      return $http.get('/api/projects').then(function successCallback (response) {
+        angular.copy(response.data, mainService.projects);
+      }, function errorCallback (response, status) {
+        $log.error('Error ' + response + status);
       });
     };
 
     // get treehouse info
+    mainService.getTreehouse = function () {
+      return $http.get('/api/treehouse');
+    };
 
     // get codeschool info
+    mainService.getCodeschool = function () {
+      return $http.get('/api/codeschool');
+    };
 
     // get github info
+    mainService.getGithub = function () {
+      return $http.get('/api/github');
+    };
 
     return mainService;
   }

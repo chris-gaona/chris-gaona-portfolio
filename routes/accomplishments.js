@@ -10,7 +10,10 @@ router.get('/treehouse', function (req, res, next) {
 
     if (!err && response.statusCode == 200) {
       var treehouse = JSON.parse(body);
-      res.status(200).send(treehouse);
+      var newObject = {};
+      newObject.badges = treehouse.badges.length;
+      newObject.points = treehouse.points.total;
+      res.status(200).send(newObject);
     }
   });
 });
