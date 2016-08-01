@@ -14,7 +14,14 @@ router.get('/projects', function (req, res, next) {
 });
 
 router.post('/projects', function (req, res, next) {
-  res.status(201).json('You hit the POST projects api route');
+  var project = new Project(req.body);
+
+  project.save(function(err, project){
+      if(err){ return next(err); }
+
+      res.json('Success!: ' + project);
+    });
+  // res.status(201).json('You hit the POST projects api route');
 });
 
 module.exports = router;

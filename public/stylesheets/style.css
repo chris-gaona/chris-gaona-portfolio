@@ -367,6 +367,30 @@ span.fa-times {
   border: 3px solid #fd7d5f;
 }
 
+.form-wrapper {
+  padding: 5em 0;
+}
+
+.form-wrapper input {
+  width: 49%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 1em 0;
+  border-radius: 5px;
+}
+
+.form-wrapper textarea {
+  width: 99%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 1em 0;
+  border-radius: 5px;
+}
+
+.cg-submit-btn {
+  display: block;
+}
+
 .cg-parallax {
   position: fixed;
   top: 0;

@@ -6,7 +6,7 @@
       <span class="fa fa-check-circle"></span>
     </p>
     <p>
-      {{vm.treehouse.badges}} badges
+      {{vm.treehouse.badges | number}} badges
     </p>
   </div>
   <div class="col-xs-4 m-t-3 cg-carousel-container">
@@ -14,7 +14,7 @@
       <span class="fa fa-star"></span>
     </p>
     <p>
-      {{vm.treehouse.points}} points
+      {{vm.treehouse.points | number}} points
     </p>
   </div>
   <div class="col-xs-4 m-t-3">
@@ -34,7 +34,7 @@
       <span class="fa fa-check-circle"></span>
     </p>
     <p>
-      {{vm.codeschool.badges.length}} badges
+      {{vm.codeschool.badges.length | number}} badges
     </p>
   </div>
   <div class="col-xs-4 m-t-3 cg-carousel-container">
@@ -42,7 +42,7 @@
       <span class="fa fa-star"></span>
     </p>
     <p>
-      {{vm.codeschool.user.total_score}} points
+      {{vm.codeschool.user.total_score | number}} points
     </p>
   </div>
   <div class="col-xs-4 m-t-3">

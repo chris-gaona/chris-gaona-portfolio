@@ -63,23 +63,17 @@
       </p>
     </div>
     <div class="form-wrapper">
-      <form class="" action="index.html" method="post">
-        <label for="name">Name:</label>
-        <input id="name" type="text" name="name" ng-model="vm.name">
-        <label for="category">Category:</label>
-        <input id="category" type="text" name="category" ng-model="vm.category">
-        <label for="image">Image:</label>
-        <input id="image" type="text" name="image" ng-model="vm.image">
-        <label for="created_on">Created On:</label>
-        <input id="created_on" type="text" name="created_on" ng-model="vm.created_on">
-        <label for="link">Link:</label>
-        <input id="link" type="text" name="link" ng-model="vm.link">
-        <label for="github_link">GitHub Link:</label>
-        <input id="github_link"type="text" name="github_link" ng-model="vm.github_link">
-        <label for="comments">Comments:</label>
-        <input id="comments" type="text" name="comments" ng-model="vm.comments">
-        <label for="grade">Grade: </label>
-        <input id="grade" type="text" name="grade" ng-model="vm.grade">
+      <h4>Add New Project</h4>
+      <form ng-submit="vm.addProject()">
+        <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name">
+        <input id="category" type="text" name="category" ng-model="vm.category" placeholder="Category">
+        <input id="image" type="text" name="image" ng-model="vm.image" placeholder="Image URL">
+        <input id="created_on" type="text" name="created_on" ng-model="vm.created_on" placeholder="Created On Date">
+        <input id="link" type="text" name="link" ng-model="vm.link" placeholder="Live Preview Link">
+        <input id="github_link"type="text" name="github_link" ng-model="vm.github_link" placeholder="GitHub Link">
+        <textarea id="comments" type="text" name="comments" ng-model="vm.comments" placeholder="Comments"></textarea>
+        <input id="grade" type="text" name="grade" ng-model="vm.grade" placeholder="Grade">
+        <button type="submit" class="btn btn-primary cg-submit-btn">Submit</button>
       </form>
     </div>
     <div class="expand-wrapper" ng-class="{'fade-in': vm.expandProject}">

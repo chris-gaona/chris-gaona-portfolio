@@ -87,6 +87,25 @@
       // modalShown variable is toggled between true & false
       vm.expandProject = !vm.expandProject;
     };
+
+    vm.addProject = function () {
+      MainService.create({
+        name: vm.name,
+        category: vm.category,
+        image: vm.image,
+        created_on: vm.created_on,
+        link: vm.link,
+        github_link: vm.github_link,
+        comments: vm.comments,
+        grade: vm.grade
+      }).then(function (response) {
+        vm.message = response.data;
+        console.log(vm.message);
+      }, function (error) {
+        // log the error to the console
+        $log.error('Error ' + error);
+      });
+    };
   }
 
   angular.module('app')
