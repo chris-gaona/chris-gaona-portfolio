@@ -279,7 +279,36 @@ span.fa-times {
   color: #fd7d5f;
 }
 
+.cg-new {
+  color: #fff;
+  background-color: #0099ff;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.cg-new:hover {
+  text-decoration: none;
+}
+
+.cg-edit-small {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background-color: #fd7d5f;
+  padding: 5px;
+  border-radius: 0 5px 0 5px;
+  z-index: 999;
+}
+
+.cg-edit-small a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .cg-project-main {
+  position: relative;
   cursor: pointer;
 }
 
