@@ -97,28 +97,6 @@
     vm.editProject = function (id) {
       $location.path('/edit/' + id);
     };
-
-    vm.addProject = function () {
-      var newProjectObject = {};
-      newProjectObject.name = vm.name;
-      newProjectObject.category = vm.category;
-      newProjectObject.image = vm.image;
-      newProjectObject.created_on = vm.created_on;
-      newProjectObject.link = vm.link;
-      newProjectObject.github_link = vm.github_link;
-      newProjectObject.comments = vm.comments;
-      newProjectObject.grade = vm.grade;
-
-      MainService.create(newProjectObject)
-      .then(function (project) {
-        vm.message = project.data;
-        vm.projects.push(project.data);
-        console.log(vm.projects);
-      }, function (error) {
-        // log the error to the console
-        $log.error('Error ' + error);
-      });
-    };
   }
 
   angular.module('app')

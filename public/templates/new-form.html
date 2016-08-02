@@ -1,6 +1,6 @@
-<div id="cg-form" class="form-wrapper" ng-show="vm.newProject">
-  <h4>Add New Project</h4>
-  <form ng-submit="vm.addProject()">
+<div id="cg-form" class="form-wrapper">
+  <h2>{{ vm.project ? vm.project.name : 'Add New Project' }}</h2>
+  <form ng-submit="vm.saveProject()">
     <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name">
     <input id="category" type="text" name="category" ng-model="vm.category" placeholder="Category">
     <input id="image" type="text" name="image" ng-model="vm.image" placeholder="Image URL">

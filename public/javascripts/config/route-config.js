@@ -18,12 +18,12 @@
       }
     })
     .when('/new', {
-      controller: 'MainController',
+      controller: 'ProjectController',
       controllerAs: 'vm',
       templateUrl: 'templates/new-form.html'
     })
     .when('/edit/:id', {
-      controller: 'MainController',
+      controller: 'ProjectController',
       controllerAs: 'vm',
       templateUrl: 'templates/new-form.html'
     })

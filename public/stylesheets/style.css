@@ -295,18 +295,19 @@ span.fa-times {
 
 .cg-edit-small {
   position: absolute;
-  top: 0;
-  right: 20px;
+  top: 5px;
+  right: 25px;
   background-color: #fd7d5f;
   padding: 5px;
-  border-radius: 0 5px 0 5px;
+  border-radius: 5px;
+  color: #fff;
   z-index: 999;
 }
 
-.cg-edit-small a {
+/*.cg-edit-small a {
   color: #fff;
   text-decoration: none;
-}
+}*/
 
 .cg-project-main {
   position: relative;
