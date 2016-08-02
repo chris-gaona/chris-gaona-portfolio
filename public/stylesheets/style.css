@@ -286,11 +286,12 @@ span.fa-times {
   padding: 5px 10px;
   margin-left: 10px;
   border-radius: 5px;
+  border: none;
 }
 
-.cg-new:hover {
+/*.cg-new:hover {
   text-decoration: none;
-}
+}*/
 
 .cg-edit-small {
   position: absolute;

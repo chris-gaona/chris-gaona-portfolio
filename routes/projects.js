@@ -17,10 +17,10 @@ router.post('/projects', function (req, res, next) {
   var project = new Project(req.body);
 
   project.save(function(err, project){
-      if(err){ return next(err); }
+    if(err){ return next(err); }
 
-      res.json('Success!: ' + project);
-    });
+    res.json(project);
+  });
   // res.status(201).json('You hit the POST projects api route');
 });
 

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function mainController (MainService) {
+  function mainController ($location, $log, MainService) {
     var vm = this;
 
     vm.hello = 'My Portfolio';
@@ -78,6 +78,8 @@
         link: ''
     }];
 
+    // vm.gradeOptions = ['Meets Expectations', 'Exceeds Expectations'];
+
     vm.expandProject = false;
 
     vm.getProject = function (project) {
@@ -88,19 +90,30 @@
       vm.expandProject = !vm.expandProject;
     };
 
+    vm.newProject = function () {
+      $location.path('/new');
+    };
+
+    vm.editProject = function (id) {
+      $location.path('/edit/' + id);
+    };
+
     vm.addProject = function () {
-      MainService.create({
-        name: vm.name,
-        category: vm.category,
-        image: vm.image,
-        created_on: vm.created_on,
-        link: vm.link,
-        github_link: vm.github_link,
-        comments: vm.comments,
-        grade: vm.grade
-      }).then(function (response) {
-        vm.message = response.data;
-        console.log(vm.message);
+      var newProjectObject = {};
+      newProjectObject.name = vm.name;
+      newProjectObject.category = vm.category;
+      newProjectObject.image = vm.image;
+      newProjectObject.created_on = vm.created_on;
+      newProjectObject.link = vm.link;
+      newProjectObject.github_link = vm.github_link;
+      newProjectObject.comments = vm.comments;
+      newProjectObject.grade = vm.grade;
+
+      MainService.create(newProjectObject)
+      .then(function (project) {
+        vm.message = project.data;
+        vm.projects.push(project.data);
+        console.log(vm.projects);
       }, function (error) {
         // log the error to the console
         $log.error('Error ' + error);
@@ -109,5 +122,5 @@
   }
 
   angular.module('app')
-  .controller('MainController', ['MainService', mainController]);
+  .controller('MainController', ['$location', '$log', 'MainService', mainController]);
 })();

@@ -42,15 +42,13 @@
         <button class="sort" data-sort="myorder:desc">Desc</button>
       </div>
       <p>
-        <a href="/#/new" class="cg-new">+ Add new project</a>
+        <button class="cg-new" ng-click="vm.newProject()">+ Add new project</button>
       </p>
       <mixitup entities='vm.projects'>
         <div ng-repeat="project in vm.projects" class="mix category-{{project.category}}" data-myorder="{{project.name}}">
           <div class="card-deck-wrapper cg-project-main">
-            <p class="cg-edit-small">
-              <a href="/#/update/{{ project._id }}">
-                <span class="fa fa-edit"></span> EDIT
-              </a>
+            <p class="cg-edit-small" ng-click="vm.editProject(project._id)">
+              <span class="fa fa-edit"></span> EDIT
             </p>
             <div class="card-deck" du-smooth-scroll="portfolio" du-scrollspy offset="-100" ng-click="vm.getProject(project)">
               <div class="card">
@@ -96,20 +94,6 @@
         </div>
       </expand-project>
     </div>
-    <!-- <div class="form-wrapper">
-      <h4>Add New Project</h4>
-      <form ng-submit="vm.addProject()">
-        <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name">
-        <input id="category" type="text" name="category" ng-model="vm.category" placeholder="Category">
-        <input id="image" type="text" name="image" ng-model="vm.image" placeholder="Image URL">
-        <input id="created_on" type="text" name="created_on" ng-model="vm.created_on" placeholder="Created On Date">
-        <input id="link" type="text" name="link" ng-model="vm.link" placeholder="Live Preview Link">
-        <input id="github_link"type="text" name="github_link" ng-model="vm.github_link" placeholder="GitHub Link">
-        <textarea id="comments" type="text" name="comments" ng-model="vm.comments" placeholder="Comments"></textarea>
-        <input id="grade" type="text" name="grade" ng-model="vm.grade" placeholder="Grade">
-        <button type="submit" class="btn btn-primary cg-submit-btn">Submit</button>
-      </form>
-    </div> -->
   </div>
 </div>
 
