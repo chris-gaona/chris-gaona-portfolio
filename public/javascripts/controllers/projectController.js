@@ -25,34 +25,40 @@
     }
 
     vm.saveProject = function () {
-      var newProjectObject = {};
-      newProjectObject.name = vm.name;
-      newProjectObject.category = vm.category;
-      newProjectObject.image = vm.image;
-      newProjectObject.created_on = vm.created_on;
-      newProjectObject.link = vm.link;
-      newProjectObject.github_link = vm.github_link;
-      newProjectObject.comments = vm.comments;
-      newProjectObject.grade = vm.grade;
+      var projectObject = {};
+      projectObject.name = vm.name;
+      projectObject.category = vm.category;
+      projectObject.image = vm.image;
+      projectObject.created_on = vm.created_on;
+      projectObject.link = vm.link;
+      projectObject.github_link = vm.github_link;
+      projectObject.comments = vm.comments;
+      projectObject.grade = vm.grade;
 
       if ($routeParams.id) {
-        MainService.edit($routeParams.id, newProjectObject)
+        MainService.edit($routeParams.id, projectObject)
         .then(function (project) {
+          $location.path('/');
           $log.log('Updated!');
         }, function (err) {
           // log the error to the console
           $log.error('Error ' + err);
         });
       } else {
-        MainService.create(newProjectObject)
+        MainService.create(projectObject)
         .then(function (project) {
           // vm.message = project.data;
+          $location.path('/');
           $log.log('Created!');
         }, function (err) {
           // log the error to the console
           $log.error('Error ' + err);
         });
       }
+    };
+
+    vm.goBack = function () {
+      $location.path('/');
     };
   }
 

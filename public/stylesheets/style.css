@@ -289,10 +289,6 @@ span.fa-times {
   border: none;
 }
 
-/*.cg-new:hover {
-  text-decoration: none;
-}*/
-
 .cg-edit-small {
   position: absolute;
   top: 5px;
@@ -303,11 +299,6 @@ span.fa-times {
   color: #fff;
   z-index: 999;
 }
-
-/*.cg-edit-small a {
-  color: #fff;
-  text-decoration: none;
-}*/
 
 .cg-project-main {
   position: relative;
@@ -398,24 +389,53 @@ span.fa-times {
   border: 3px solid #fd7d5f;
 }
 
+.cg-save-title {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  color: #fff;
+}
+
 .form-wrapper {
-  padding: 5em 0;
+  padding: 5em 2em;
+  background-color: #0099ff;
 }
 
-.form-wrapper input {
-  width: 49%;
+.cg-form-container {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 4em 4em 2em 4em;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.cg-form-container input {
+  width: 100%;
   font-size: 18px;
   padding: 10px;
   margin: 1em 0;
   border-radius: 5px;
+  border: 2px solid #fd7d5f;
 }
 
-.form-wrapper textarea {
-  width: 99%;
+.cg-form-container textarea {
+  width: 100%;
   font-size: 18px;
   padding: 10px;
   margin: 1em 0;
   border-radius: 5px;
+  border: 2px solid #fd7d5f;
+}
+
+.cg-back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 18px;
 }
 
 .cg-submit-btn {
