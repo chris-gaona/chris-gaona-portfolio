@@ -389,11 +389,37 @@ span.fa-times {
   border: 3px solid #fd7d5f;
 }
 
-.cg-save-title {
+.cg-title {
   position: absolute;
-  top: 25px;
-  left: 25px;
-  color: #fff;
+  top: 0;
+  left: 50%;
+  margin-left: -25px;
+  transform: rotate(90deg);
+  z-index: 1001;
+}
+
+.cg-title-c {
+  position: relative;
+  color: #fd7d5f;
+  font-size: 50px;
+  z-index: 10;
+}
+
+.cg-title-g {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  font-size: 36px;
+  color: #fd7d5f;
+  z-index: 10;
+}
+
+.cg-title-p {
+  position: absolute;
+  top: 6px;
+  left: 26px;
+  font-size: 40px;
+  color: #d0cdcd;
 }
 
 .form-wrapper {
