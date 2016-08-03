@@ -269,8 +269,8 @@ webpackJsonp([0],[
 	      };
 	    }
 	    // adds template url for modal
-	    // templateUrl: '../templates/modal.html' // See below
-	  }
+	    // templateUrl: '../templates/expand-project.html' // See below
+	  };
 	}
 	
 	angular.module('app')
