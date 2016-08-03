@@ -15,6 +15,21 @@
       });
     };
 
+    // get an existing project
+    mainService.getOne = function (id) {
+      return $http.get('/api/project/' + id);
+    };
+
+    // create a new project
+    mainService.create = function (project) {
+      return $http.post('/api/new', project);
+    };
+
+    // edit existing project
+    mainService.edit = function (id, project) {
+      return $http.put('/api/edit/' + id, project);
+    };
+
     // get treehouse info
     mainService.getTreehouse = function () {
       return $http.get('/api/treehouse');

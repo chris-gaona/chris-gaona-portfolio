@@ -1,10 +1,12 @@
 (function () {
   'use strict';
 
-  function mainController (MainService) {
+  function mainController ($location, $log, MainService) {
     var vm = this;
 
     vm.hello = 'My Portfolio';
+
+    // vm.editing = false;
 
     vm.projects = MainService.projects;
     console.log(vm.projects);
@@ -76,6 +78,8 @@
         link: ''
     }];
 
+    // vm.gradeOptions = ['Meets Expectations', 'Exceeds Expectations'];
+
     vm.expandProject = false;
 
     vm.getProject = function (project) {
@@ -85,8 +89,16 @@
       // modalShown variable is toggled between true & false
       vm.expandProject = !vm.expandProject;
     };
+
+    vm.newProject = function () {
+      $location.path('/new');
+    };
+
+    vm.editProject = function (id) {
+      $location.path('/edit/' + id);
+    };
   }
 
   angular.module('app')
-  .controller('MainController', ['MainService', mainController]);
+  .controller('MainController', ['$location', '$log', 'MainService', mainController]);
 })();

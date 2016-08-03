@@ -41,10 +41,16 @@
         <button class="sort" data-sort="myorder:asc">Asc</button>
         <button class="sort" data-sort="myorder:desc">Desc</button>
       </div>
+      <p>
+        <button class="cg-new" ng-click="vm.newProject()">+ Add new project</button>
+      </p>
       <mixitup entities='vm.projects'>
-        <div ng-repeat="project in vm.projects" class="mix category-{{project.category}}" data-myorder="{{project.name}}" ng-click="vm.getProject(project)" du-smooth-scroll="portfolio" du-scrollspy offset="-100">
+        <div ng-repeat="project in vm.projects" class="mix category-{{project.category}}" data-myorder="{{project.name}}">
           <div class="card-deck-wrapper cg-project-main">
-            <div class="card-deck">
+            <p class="cg-edit-small" ng-click="vm.editProject(project._id)">
+              <span class="fa fa-edit"></span> EDIT
+            </p>
+            <div class="card-deck" du-smooth-scroll="portfolio" du-scrollspy offset="-100" ng-click="vm.getProject(project)">
               <div class="card">
                 <img src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
                 <div class="card-block">

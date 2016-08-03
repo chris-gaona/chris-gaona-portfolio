@@ -14,8 +14,14 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <body ng-app="app">
+    <img class="logo" src="../images/logo.png" alt="logo" />
+    <!-- <div class="cg-title">
+      <span class="cg-title-c">C</span>
+      <span class="cg-title-g">G</span>
+      <span class="cg-title-p">P</span>
+    </div> -->
 
-    <div ng-view></div>
+    <div ng-view autoscroll="true"></div>
 
     <script src="vendor/angular.js"></script>
     <script src="vendor/angular-route.js"></script>
@@ -31,6 +37,8 @@
     <script src="bower_components/mixitup/build/jquery.mixitup.min.js"></script>
     <!-- CONTROLLERS -->
     <script src="javascripts/controllers/mainController.js"></script>
+    <script src="javascripts/controllers/projectController.js"></script>
+
     <!-- FACTORIES -->
     <script src="javascripts/services/mainService.js"></script>
     <!-- DIRECTIVES -->

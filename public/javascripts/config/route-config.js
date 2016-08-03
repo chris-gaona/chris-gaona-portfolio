@@ -16,6 +16,19 @@
           return MainService.getAll();
         }]
       }
+    })
+    .when('/new', {
+      controller: 'ProjectController',
+      controllerAs: 'vm',
+      templateUrl: 'templates/new-form.html'
+    })
+    .when('/edit/:id', {
+      controller: 'ProjectController',
+      controllerAs: 'vm',
+      templateUrl: 'templates/new-form.html'
+    })
+    .otherwise({
+      redirectTo: '/'
     });
   }
 })();
