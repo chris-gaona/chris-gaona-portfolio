@@ -10,11 +10,9 @@ function mainController ($location, $log, MainService) {
   // vm.editing = false;
 
   vm.projects = MainService.projects;
-  console.log(vm.projects);
 
   MainService.getTreehouse().then(function (response) {
     vm.treehouse = response.data;
-    console.log(vm.treehouse);
   }, function (error) {
     // log the error to the console
     $log.error('Error ' + error);
@@ -22,7 +20,6 @@ function mainController ($location, $log, MainService) {
 
   MainService.getCodeschool().then(function (response) {
     vm.codeschool = response.data;
-    console.log(vm.codeschool);
   }, function (error) {
     // log the error to the console
     $log.error('Error ' + error);
@@ -30,7 +27,6 @@ function mainController ($location, $log, MainService) {
 
   MainService.getGithub().then(function (response) {
     vm.github = response.data;
-    console.log(vm.github);
   }, function (error) {
     // log the error to the console
     $log.error('Error ' + error);
@@ -84,7 +80,6 @@ function mainController ($location, $log, MainService) {
   vm.expandProject = false;
 
   vm.getProject = function (project) {
-    console.log(project);
     vm.chosenProject = project;
 
     // modalShown variable is toggled between true & false

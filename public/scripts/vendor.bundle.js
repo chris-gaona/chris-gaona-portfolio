@@ -33640,9 +33640,8 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
-	/*!
-	 * jQuery JavaScript Library v3.1.0
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * jQuery JavaScript Library v3.0.0
 	 * https://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -33652,7 +33651,7 @@
 	 * Released under the MIT license
 	 * https://jquery.org/license
 	 *
-	 * Date: 2016-07-07T21:44Z
+	 * Date: 2016-06-09T18:02Z
 	 */
 	( function( global, factory ) {
 	
@@ -33680,7 +33679,7 @@
 		}
 	
 	// Pass this if window is not defined yet
-	} )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+	}( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 	
 	// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
 	// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
@@ -33724,14 +33723,10 @@
 			script.text = code;
 			doc.head.appendChild( script ).parentNode.removeChild( script );
 		}
-	/* global Symbol */
-	// Defining this global in .eslintrc would create a danger of using the global
-	// unguarded in another place, it seems safer to define global only for this module
-	
 	
 	
 	var
-		version = "3.1.0",
+		version = "3.0.0",
 	
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -33963,11 +33958,7 @@
 		},
 	
 		isEmptyObject: function( obj ) {
-	
-			/* eslint-disable no-unused-vars */
-			// See https://github.com/eslint/eslint/issues/6125
 			var name;
-	
 			for ( name in obj ) {
 				return false;
 			}
@@ -34157,9 +34148,15 @@
 		support: support
 	} );
 	
+	// JSHint would error on this code due to the Symbol not being defined in ES5.
+	// Defining this global in .jshintrc would create a danger of using the global
+	// unguarded in another place, it seems safer to just disable JSHint for these
+	// three lines.
+	/* jshint ignore: start */
 	if ( typeof Symbol === "function" ) {
 		jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
 	}
+	/* jshint ignore: end */
 	
 	// Populate the class2type map
 	jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
@@ -36398,7 +36395,6 @@
 	
 	
 	
-	
 	var dir = function( elem, dir, until ) {
 		var matched = [],
 			truncate = until !== undefined;
@@ -36440,6 +36436,7 @@
 	function winnow( elements, qualifier, not ) {
 		if ( jQuery.isFunction( qualifier ) ) {
 			return jQuery.grep( elements, function( elem, i ) {
+				/* jshint -W018 */
 				return !!qualifier.call( elem, i, elem ) !== not;
 			} );
 	
@@ -37065,7 +37062,7 @@
 		// For Promises/A+, convert exceptions into rejections
 		// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing in
 		// Deferred#then to conditionally suppress rejection.
-		} catch ( value ) {
+		} catch ( /*jshint -W002 */ value ) {
 	
 			// Support: Android 4.0 only
 			// Strict mode functions invoked without .call/.apply get global-object context
@@ -37430,29 +37427,12 @@
 	
 	
 	
-	jQuery.readyException = function( error ) {
-		window.setTimeout( function() {
-			throw error;
-		} );
-	};
-	
-	
-	
-	
 	// The deferred used on DOM ready
 	var readyList = jQuery.Deferred();
 	
 	jQuery.fn.ready = function( fn ) {
 	
-		readyList
-			.then( fn )
-	
-			// Wrap jQuery.readyException in a function so that the lookup
-			// happens at the time of error handling instead of callback
-			// registration.
-			.catch( function( error ) {
-				jQuery.readyException( error );
-			} );
+		readyList.then( fn );
 	
 		return this;
 	};
@@ -37592,6 +37572,7 @@
 		//    - Node.DOCUMENT_NODE
 		//  - Object
 		//    - Any
+		/* jshint -W018 */
 		return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
 	};
 	
@@ -38092,12 +38073,8 @@
 			scale = 1,
 			maxIterations = 20,
 			currentValue = tween ?
-				function() {
-					return tween.cur();
-				} :
-				function() {
-					return jQuery.css( elem, prop, "" );
-				},
+				function() { return tween.cur(); } :
+				function() { return jQuery.css( elem, prop, "" ); },
 			initial = currentValue(),
 			unit = valueParts && valueParts[ 3 ] || ( jQuery.cssNumber[ prop ] ? "" : "px" ),
 	
@@ -39139,13 +39116,7 @@
 	
 	
 	var
-	
-		/* eslint-disable max-len */
-	
-		// See https://github.com/eslint/eslint/issues/3229
 		rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
-	
-		/* eslint-enable */
 	
 		// Support: IE <=10 - 11, Edge 12 - 13
 		// In IE/Edge using regex groups here causes severe slowdowns.
@@ -40302,7 +40273,7 @@
 		// If we include width, step value is 1 to do all cssExpand values,
 		// otherwise step value is 2 to skip over Left and Right
 		includeWidth = includeWidth ? 1 : 0;
-		for ( ; i < 4; i += 2 - includeWidth ) {
+		for ( ; i < 4 ; i += 2 - includeWidth ) {
 			which = cssExpand[ i ];
 			attrs[ "margin" + which ] = attrs[ "padding" + which ] = type;
 		}
@@ -40329,6 +40300,7 @@
 	}
 	
 	function defaultPrefilter( elem, props, opts ) {
+		/* jshint validthis: true */
 		var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display,
 			isBox = "width" in props || "height" in props,
 			anim = this,
@@ -40470,11 +40442,8 @@
 					showHide( [ elem ], true );
 				}
 	
-				/* eslint-disable no-loop-func */
-	
+				/* jshint -W083 */
 				anim.done( function() {
-	
-				/* eslint-enable no-loop-func */
 	
 					// The final step of a "hide" animation is actually hiding the element
 					if ( !hidden ) {
@@ -40560,7 +40529,7 @@
 					index = 0,
 					length = animation.tweens.length;
 	
-				for ( ; index < length; index++ ) {
+				for ( ; index < length ; index++ ) {
 					animation.tweens[ index ].run( percent );
 				}
 	
@@ -40601,7 +40570,7 @@
 						return this;
 					}
 					stopped = true;
-					for ( ; index < length; index++ ) {
+					for ( ; index < length ; index++ ) {
 						animation.tweens[ index ].run( 1 );
 					}
 	
@@ -40619,7 +40588,7 @@
 	
 		propFilter( props, animation.opts.specialEasing );
 	
-		for ( ; index < length; index++ ) {
+		for ( ; index < length ; index++ ) {
 			result = Animation.prefilters[ index ].call( animation, elem, props, animation.opts );
 			if ( result ) {
 				if ( jQuery.isFunction( result.stop ) ) {
@@ -40673,7 +40642,7 @@
 				index = 0,
 				length = props.length;
 	
-			for ( ; index < length; index++ ) {
+			for ( ; index < length ; index++ ) {
 				prop = props[ index ];
 				Animation.tweeners[ prop ] = Animation.tweeners[ prop ] || [];
 				Animation.tweeners[ prop ].unshift( callback );
@@ -41534,16 +41503,11 @@
 	
 					while ( i-- ) {
 						option = options[ i ];
-	
-						/* eslint-disable no-cond-assign */
-	
 						if ( option.selected =
 							jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
 						) {
 							optionSet = true;
 						}
-	
-						/* eslint-enable no-cond-assign */
 					}
 	
 					// Force browsers to behave consistently when non-matching value is set
@@ -42252,7 +42216,6 @@
 			processData: true,
 			async: true,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-	
 			/*
 			timeout: 0,
 			data: null,
@@ -43713,7 +43676,7 @@
 	
 	
 	return jQuery;
-	} );
+	} ) );
 
 
 /***/ },
