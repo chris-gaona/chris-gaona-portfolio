@@ -13,7 +13,6 @@ function mixItUpDirective () {
     // transclude: true, // I want to insert custom content inside the directive
     link: function (scope, element, attrs) {
       scope.$watch('entities', function(){
-        console.log('reload');
         $(element).mixItUp();
         // how to tell mixitup to reload the data
       });

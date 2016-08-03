@@ -80,11 +80,9 @@ webpackJsonp([0],[
 	  // vm.editing = false;
 	
 	  vm.projects = MainService.projects;
-	  console.log(vm.projects);
 	
 	  MainService.getTreehouse().then(function (response) {
 	    vm.treehouse = response.data;
-	    console.log(vm.treehouse);
 	  }, function (error) {
 	    // log the error to the console
 	    $log.error('Error ' + error);
@@ -92,7 +90,6 @@ webpackJsonp([0],[
 	
 	  MainService.getCodeschool().then(function (response) {
 	    vm.codeschool = response.data;
-	    console.log(vm.codeschool);
 	  }, function (error) {
 	    // log the error to the console
 	    $log.error('Error ' + error);
@@ -100,7 +97,6 @@ webpackJsonp([0],[
 	
 	  MainService.getGithub().then(function (response) {
 	    vm.github = response.data;
-	    console.log(vm.github);
 	  }, function (error) {
 	    // log the error to the console
 	    $log.error('Error ' + error);
@@ -154,7 +150,6 @@ webpackJsonp([0],[
 	  vm.expandProject = false;
 	
 	  vm.getProject = function (project) {
-	    console.log(project);
 	    vm.chosenProject = project;
 	
 	    // modalShown variable is toggled between true & false
@@ -301,7 +296,6 @@ webpackJsonp([0],[
 	    // transclude: true, // I want to insert custom content inside the directive
 	    link: function (scope, element, attrs) {
 	      scope.$watch('entities', function(){
-	        console.log('reload');
 	        $(element).mixItUp();
 	        // how to tell mixitup to reload the data
 	      });
