@@ -9,7 +9,9 @@ module.exports = {
         vendor: [
           'angular',
           'angular-route',
-          'angular-scroll'
+          'angular-scroll',
+          'angular-animate',
+          'angular-toastr'
         ]
     },
     output: {

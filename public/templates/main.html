@@ -52,7 +52,7 @@
             </p>
             <div class="card-deck" du-smooth-scroll="portfolio" du-scrollspy offset="-100" ng-click="vm.getProject(project)">
               <div class="card">
-                <img src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
+                <img ng-src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
                 <div class="card-block">
                   <h4 class="card-title">{{project.name}}</h4>
                   <p class="card-text">
@@ -74,16 +74,19 @@
           <div class="card-deck">
             <div class="card">
               <span class="fa fa-times" ng-click="vm.expandProject = false"></span>
-              <img src="{{vm.chosenProject.image}}" alt="Image" class="card-img-top img-fluid" />
+              <img ng-src="{{vm.chosenProject.image}}" alt="Image" class="card-img-top img-fluid" />
               <div class="card-block">
                 <a href="{{vm.chosenProject.github_link}}" target="_blank" class="cg-github-repo">GitHub Repo</a>
                 <h4 class="card-title">{{vm.chosenProject.name}}</h4>
-                <p class="card-text">
+                <p class="card-text" ng-show="vm.chosenProject.grade">
                   <span class="fa fa-check-circle"></span> {{vm.chosenProject.grade}}
                 </p>
-                <p class="card-text">
-                  <b>Treehouse Reviewer Comments: </b>
+                <p class="card-text" ng-show="vm.chosenProject.comments">
                   {{vm.chosenProject.comments}}
+                </p>
+                <p class="card-text" ng-show="vm.chosenProject.treehouse_comments">
+                  <b>Treehouse Reviewer Comments: </b>
+                  {{vm.chosenProject.treehouse_comments}}
                 </p>
                 <p class="card-text">
                   <small class="text-muted">Created on: {{vm.chosenProject.created_on | date: 'MMM d, yyyy'}}</small>

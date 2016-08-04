@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function projectController ($routeParams, $location, $log, MainService) {
+function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
 
   if ($routeParams.id) {
@@ -18,8 +18,10 @@ function projectController ($routeParams, $location, $log, MainService) {
       vm.link = project.link;
       vm.github_link = project.github_link;
       vm.comments = project.comments;
+      vm.treehouse_comments = project.treehouse_comments;
       vm.grade = project.grade;
     }, function (err) {
+      errorHandlerService.handleError(err);
       // log the error to the console
       $log.error('Error ' + err);
     });
@@ -34,24 +36,29 @@ function projectController ($routeParams, $location, $log, MainService) {
     projectObject.link = vm.link;
     projectObject.github_link = vm.github_link;
     projectObject.comments = vm.comments;
+    projectObject.treehouse_comments = vm.treehouse_comments;
     projectObject.grade = vm.grade;
 
     if ($routeParams.id) {
       MainService.edit($routeParams.id, projectObject)
       .then(function (project) {
         $location.path('/');
+        toastr.success('Updated your project', 'Success!');
         $log.log('Updated!');
       }, function (err) {
+        errorHandlerService.handleError(err, displayValidationErrors);
         // log the error to the console
         $log.error('Error ' + err);
       });
     } else {
       MainService.create(projectObject)
       .then(function (project) {
-        // vm.message = project.data;
+        toastr.success('Created your new project', 'Success!');
         $location.path('/');
         $log.log('Created!');
       }, function (err) {
+        $log.log(err);
+        errorHandlerService.handleError(err, displayValidationErrors);
         // log the error to the console
         $log.error('Error ' + err);
       });
@@ -61,7 +68,13 @@ function projectController ($routeParams, $location, $log, MainService) {
   vm.goBack = function () {
     $location.path('/');
   };
+
+  function displayValidationErrors(validationErrors) {
+    vm.validationErrors = validationErrors.errors;
+    $log.log(vm.validationErrors);
+    vm.hasValidationErrors = true;
+  }
 }
 
 angular.module('app')
-.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', projectController]);
+.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);

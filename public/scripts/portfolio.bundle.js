@@ -6,15 +6,17 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	angular.module('app', [__webpack_require__(3), __webpack_require__(5)]);
+	angular.module('app', [__webpack_require__(3), __webpack_require__(5), __webpack_require__(8), __webpack_require__(10)]);
 	
-	__webpack_require__(8);
-	__webpack_require__(9);
-	__webpack_require__(10);
-	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
+	__webpack_require__(15);
+	__webpack_require__(16);
+	__webpack_require__(17);
+	__webpack_require__(18);
+	__webpack_require__(19);
+	__webpack_require__(20);
 
 
 /***/ },
@@ -25,7 +27,11 @@ webpackJsonp([0],[
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65,15 +71,18 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 9 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var angular = __webpack_require__(1);
 	
-	function mainController ($location, $log, MainService) {
+	function mainController ($location, $log, MainService, toastr, errorHandlerService) {
 	  var vm = this;
+	
+	  vm.validationErrors = {};
+	  vm.hasValidationErrors = false;
 	
 	  vm.hello = 'My Portfolio';
 	
@@ -84,6 +93,7 @@ webpackJsonp([0],[
 	  MainService.getTreehouse().then(function (response) {
 	    vm.treehouse = response.data;
 	  }, function (error) {
+	    errorHandlerService.handleError(error);
 	    // log the error to the console
 	    $log.error('Error ' + error);
 	  });
@@ -91,6 +101,7 @@ webpackJsonp([0],[
 	  MainService.getCodeschool().then(function (response) {
 	    vm.codeschool = response.data;
 	  }, function (error) {
+	    errorHandlerService.handleError(error);
 	    // log the error to the console
 	    $log.error('Error ' + error);
 	  });
@@ -98,6 +109,7 @@ webpackJsonp([0],[
 	  MainService.getGithub().then(function (response) {
 	    vm.github = response.data;
 	  }, function (error) {
+	    errorHandlerService.handleError(error);
 	    // log the error to the console
 	    $log.error('Error ' + error);
 	  });
@@ -166,18 +178,18 @@ webpackJsonp([0],[
 	}
 	
 	angular.module('app')
-	.controller('MainController', ['$location', '$log', 'MainService', mainController]);
+	.controller('MainController', ['$location', '$log', 'MainService', 'toastr', 'errorHandlerService', mainController]);
 
 
 /***/ },
-/* 10 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var angular = __webpack_require__(1);
 	
-	function projectController ($routeParams, $location, $log, MainService) {
+	function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
 	  var vm = this;
 	
 	  if ($routeParams.id) {
@@ -193,8 +205,10 @@ webpackJsonp([0],[
 	      vm.link = project.link;
 	      vm.github_link = project.github_link;
 	      vm.comments = project.comments;
+	      vm.treehouse_comments = project.treehouse_comments;
 	      vm.grade = project.grade;
 	    }, function (err) {
+	      errorHandlerService.handleError(err);
 	      // log the error to the console
 	      $log.error('Error ' + err);
 	    });
@@ -209,24 +223,29 @@ webpackJsonp([0],[
 	    projectObject.link = vm.link;
 	    projectObject.github_link = vm.github_link;
 	    projectObject.comments = vm.comments;
+	    projectObject.treehouse_comments = vm.treehouse_comments;
 	    projectObject.grade = vm.grade;
 	
 	    if ($routeParams.id) {
 	      MainService.edit($routeParams.id, projectObject)
 	      .then(function (project) {
 	        $location.path('/');
+	        toastr.success('Updated your project', 'Success!');
 	        $log.log('Updated!');
 	      }, function (err) {
+	        errorHandlerService.handleError(err, displayValidationErrors);
 	        // log the error to the console
 	        $log.error('Error ' + err);
 	      });
 	    } else {
 	      MainService.create(projectObject)
 	      .then(function (project) {
-	        // vm.message = project.data;
+	        toastr.success('Created your new project', 'Success!');
 	        $location.path('/');
 	        $log.log('Created!');
 	      }, function (err) {
+	        $log.log(err);
+	        errorHandlerService.handleError(err, displayValidationErrors);
 	        // log the error to the console
 	        $log.error('Error ' + err);
 	      });
@@ -236,14 +255,20 @@ webpackJsonp([0],[
 	  vm.goBack = function () {
 	    $location.path('/');
 	  };
+	
+	  function displayValidationErrors(validationErrors) {
+	    vm.validationErrors = validationErrors.errors;
+	    $log.log(vm.validationErrors);
+	    vm.hasValidationErrors = true;
+	  }
 	}
 	
 	angular.module('app')
-	.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', projectController]);
+	.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
 
 
 /***/ },
-/* 11 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -278,7 +303,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 12 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -308,7 +333,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 13 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -336,7 +361,46 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 14 */
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var angular = __webpack_require__(1);
+	
+	function ValidationErrors() {
+	  var controller = ['$scope', function($scope) {
+	    $scope.$watch('errors', function(newValue, oldValue) {
+	      var errorsToDisplay = [];
+	
+	      if (newValue) {
+	        for (var key in newValue) {
+	          if (newValue.hasOwnProperty(key)) {
+	            errorsToDisplay = errorsToDisplay.concat(newValue[key]);
+	          }
+	        }
+	      }
+	
+	      $scope.errorsToDisplay = errorsToDisplay;
+	    });
+	  }];
+	
+	  return {
+	    restrict: 'E',
+	    scope: {
+	      errors: '='
+	    },
+	    controller: controller,
+	    templateUrl: '../templates/validation-errors.html'
+	  };
+	}
+	
+	angular.module('app')
+	.directive('validationErrors', ValidationErrors);
+
+
+/***/ },
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -392,6 +456,37 @@ webpackJsonp([0],[
 	
 	angular.module('app')
 	.factory('MainService', ['$http', mainService]);
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var angular = __webpack_require__(1);
+	
+	function ErrorHandler(toastr, $log) {
+	  var vm = this;
+	
+	  vm.handleError = function(response, displayValidationErrorsCallback) {
+	    if (response.status === 400 && displayValidationErrorsCallback) {
+	      displayValidationErrorsCallback(response.data);
+	    } else {
+	      var message = response && response.data && response.data.message;
+	      if (!message) {
+	        message = 'Message not available. Please see the console for more details.';
+	      }
+	      toastr.error(message, 'Unexpected Error');
+	
+	      // log the entire response to the console
+	      $log.error(response);
+	    }
+	  };
+	}
+	
+	angular.module('app')
+	.service('errorHandlerService', ErrorHandler);
 
 
 /***/ }

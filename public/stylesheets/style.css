@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+/************************/
+/*GENERAL*/
+/************************/
 body {
   font-family: 'Varela Round', sans-serif;
   color: #666;
@@ -16,6 +19,9 @@ h2 {
   font-size: 3.5em;
 }
 
+/************************/
+/*HAMBURGER MENU*/
+/************************/
 .hamburger-container {
   position: fixed;
   left: 20px;
@@ -155,23 +161,13 @@ h2 {
   left: 0;
 }
 
-/*.dropdown ul li:first-child::after {
-  content: "\f054";
-  font-family: FontAwesome;
-  position: absolute;
-  right: 15px;
-  display: inline-block;
-}*/
-
 .dropdown ul li:last-child {
   border-bottom: none;
 }
 
-.brief-info {
-  text-align: center;
-  font-size: 1.5em;
-}
-
+/************************/
+/*STAR UNDER TITLES*/
+/************************/
 hr.star-light,
 hr.star-gray,
 hr.star-primary {
@@ -220,6 +216,20 @@ hr.star-primary:after {
   color: #2C3E50;
 }
 
+/************************/
+/*HEADER*/
+/************************/
+.cg-header {
+  background-color: #0099ff;
+  color: #fff;
+  padding: 5em 5em;
+}
+
+.brief-info {
+  text-align: center;
+  font-size: 1.5em;
+}
+
 span.fa-github {
   margin-right: 5px;
 }
@@ -238,12 +248,9 @@ button.cg-github {
   color: #fd7d5f;
 }
 
-.cg-header {
-  background-color: #0099ff;
-  color: #fff;
-  padding: 5em 5em;
-}
-
+/************************/
+/*PORTFOLIO CARDS*/
+/************************/
 .cg-portfolio {
   background-color: #fff;
   padding: 7em 5em 5em 5em;
@@ -389,6 +396,9 @@ span.fa-times {
   border: 3px solid #fd7d5f;
 }
 
+/************************/
+/*LOGO*/
+/************************/
 img.logo {
   position: absolute;
   top: 5px;
@@ -503,6 +513,9 @@ img.logo {
   z-index: 11;
 }*/
 
+/************************/
+/*FORM*/
+/************************/
 .form-wrapper {
   padding: 5em 2em;
   background-color: #0099ff;
@@ -549,6 +562,17 @@ img.logo {
   display: block;
 }
 
+.cg-validation-container {
+  margin-top: 20px;
+}
+
+.validation-errors li {
+  color: red;
+}
+
+/************************/
+/*CUSTOM PARALLAX IMAGE*/
+/************************/
 .cg-parallax {
   position: fixed;
   top: 0;
@@ -561,6 +585,9 @@ img.logo {
   opacity: 0.5;
 }
 
+/************************/
+/*OWL CAROUSEL*/
+/************************/
 .cg-carousel-container {
   border-right: 2px solid #ddd;
 }
@@ -655,6 +682,9 @@ h2.cg-company-codeschool::before {
   border-radius: 5px;
 }
 
+/************************/
+/*ABOUT ME*/
+/************************/
 .cg-aboutme {
   background-color: #fff;
   padding: 5em 6em 1em 6em;
@@ -686,6 +716,9 @@ h2.cg-company-codeschool::before {
   z-index: 1000;
 }
 
+/************************/
+/*FOOTER*/
+/************************/
 .cg-footer {
   position: relative;
   padding: 2em 0 2em 0;

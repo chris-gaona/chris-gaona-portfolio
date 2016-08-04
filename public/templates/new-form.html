@@ -5,6 +5,10 @@
        Back
     </p>
     <h2>{{ vm.project ? vm.project.name : 'Add New Project' }}</h2>
+    <div ng-show="vm.hasValidationErrors" class="cg-validation-container">
+      <h4 class="validation--errors--label">Validation errors</h4>
+      <validation-errors errors="vm.validationErrors"></validation-errors>
+    </div>
     <form ng-submit="vm.saveProject()">
       <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name">
       <input id="category" type="text" name="category" ng-model="vm.category" placeholder="Category">
@@ -13,6 +17,7 @@
       <input id="link" type="text" name="link" ng-model="vm.link" placeholder="Live Preview Link">
       <input id="github_link"type="text" name="github_link" ng-model="vm.github_link" placeholder="GitHub Link">
       <textarea id="comments" type="text" name="comments" ng-model="vm.comments" placeholder="Comments"></textarea>
+      <textarea id="treehouse_comments" type="text" name="treehouse_comments" ng-model="vm.treehouse_comments" placeholder="Treehouse Comments"></textarea>
       <input id="grade" type="text" name="grade" ng-model="vm.grade" placeholder="Grade">
       <button type="submit" class="btn btn-primary cg-submit-btn">{{ vm.project ? 'Update' : 'Create' }}</button>
     </form>

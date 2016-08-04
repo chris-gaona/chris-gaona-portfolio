@@ -8,7 +8,7 @@
       console.log('Failed connecting to Mongodb!');
     } else {
       // seed database
-      // require('../seed');
+      // require('./seed.js');
       console.log('Successfully connected to Mongodb!');
     }
   });

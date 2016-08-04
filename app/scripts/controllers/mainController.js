@@ -2,8 +2,11 @@
 
 var angular = require('angular');
 
-function mainController ($location, $log, MainService) {
+function mainController ($location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
+
+  vm.validationErrors = {};
+  vm.hasValidationErrors = false;
 
   vm.hello = 'My Portfolio';
 
@@ -14,6 +17,7 @@ function mainController ($location, $log, MainService) {
   MainService.getTreehouse().then(function (response) {
     vm.treehouse = response.data;
   }, function (error) {
+    errorHandlerService.handleError(error);
     // log the error to the console
     $log.error('Error ' + error);
   });
@@ -21,6 +25,7 @@ function mainController ($location, $log, MainService) {
   MainService.getCodeschool().then(function (response) {
     vm.codeschool = response.data;
   }, function (error) {
+    errorHandlerService.handleError(error);
     // log the error to the console
     $log.error('Error ' + error);
   });
@@ -28,6 +33,7 @@ function mainController ($location, $log, MainService) {
   MainService.getGithub().then(function (response) {
     vm.github = response.data;
   }, function (error) {
+    errorHandlerService.handleError(error);
     // log the error to the console
     $log.error('Error ' + error);
   });
@@ -96,4 +102,4 @@ function mainController ($location, $log, MainService) {
 }
 
 angular.module('app')
-.controller('MainController', ['$location', '$log', 'MainService', mainController]);
+.controller('MainController', ['$location', '$log', 'MainService', 'toastr', 'errorHandlerService', mainController]);

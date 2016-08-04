@@ -1,0 +1,41 @@
+{
+  "projects": {
+    "_model": "Project",
+    "randomquote": {
+      "_id": "57029ed4795118be119cc437",
+      "name": "Random Quote Generator",
+      "category": "Elements",
+      "image": "../images/random-quote-generator.png",
+      "created_on": "July 23, 2016",
+      "link": "http://amazon.com",
+      "github_link": "https://github.com/chris-gaona/random-quote",
+      "comments": "",
+      "treehouse_comments": "Chris, great work on your Random Quotes Generator! You really went above and beyond to meet the Exceeds requirements. I hope you enjoyed this project and learn so much throughout the rest of the TechDegree. Keep pushing yourself for Exceeds! :)",
+      "grade": "Exceeds Expectations"
+    },
+    "paginationfilter": {
+      "_id": "57029ed4795118be119cc438",
+      "name": "Pagination Filter",
+      "category": "Elements",
+      "image": "images/pagination-filter.png",
+      "created_on": "September 5, 2015",
+      "link": "",
+      "github_link": "https://github.com/chris-gaona/pagination-filter",
+      "comments": "",
+      "treehouse_comments": "Hey Chris! Great work on your pagination and searching project; it functions perfectly! The only feedback I have for you is that you were overzealous with your comments. Typically if you're employing comments in your code, you'll only do one comment per function or variable declaration unless something tricky is going on. As for best practices in Javascript, I would definitely schedule a mentor session to talk about that one on one, since I can't really have a conversation with you in this feedback form. Best of luck on your next project, and keep shooting for Exceeds! :)",
+      "grade": "Exceeds Expectations"
+    },
+    "interactiveform": {
+      "_id": "57029ed4795118be119cc439",
+      "name": "Interactive Form",
+      "category": "Soft",
+      "image": "images/interactive-form.png",
+      "created_on": "March 5, 2016",
+      "link": "",
+      "github_link": "https://github.com/chris-gaona/interactive-form",
+      "comments": "",
+      "treehouse_comments": "I can see that you took the time to update your project and you've hit all 'exceeds expectations' requirements - that is so awesome! Employers like to see that you are willing to put out a little extra effort from time to time, and this is a great portfolio piece that you should be proud of. Great job, and happy coding!",
+      "grade": "Exceeds Expectations"
+    }
+  }
+}
