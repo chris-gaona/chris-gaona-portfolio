@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.theme.default.min.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="stylesheets/style.css">
+
   <body ng-app="app">
     <img class="logo" src="../images/logo.png" alt="logo" />
     <!-- <div class="cg-title">
@@ -23,27 +25,13 @@
 
     <div ng-view autoscroll="true"></div>
 
-    <script src="vendor/angular.js"></script>
-    <script src="vendor/angular-route.js"></script>
-    <script src="javascripts/config/route-config.js"></script>
+    <script src="/scripts/vendor.bundle.js"></script>
+    <script src="/scripts/portfolio.bundle.js"></script>
     <!-- FRONT END PLUGINS -->
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
-    <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
     <script src="bower_components/wow/dist/wow.min.js"></script>
     <script src="bower_components/mixitup/build/jquery.mixitup.min.js"></script>
-    <!-- CONTROLLERS -->
-    <script src="javascripts/controllers/mainController.js"></script>
-    <script src="javascripts/controllers/projectController.js"></script>
-
-    <!-- FACTORIES -->
-    <script src="javascripts/services/mainService.js"></script>
-    <!-- DIRECTIVES -->
-    <script src="javascripts/directives/owlDirective.js"></script>
-    <script src="javascripts/directives/mixItUpDirective.js"></script>
 
     <script>
       new WOW().init();
