@@ -13,12 +13,17 @@
       <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name">
       <input id="category" type="text" name="category" ng-model="vm.category" placeholder="Category">
       <input id="image" type="text" name="image" ng-model="vm.image" placeholder="Image URL">
-      <input id="created_on" type="text" name="created_on" ng-model="vm.created_on" placeholder="Created On Date">
+      <input id="created_on" type="text" name="created_on" ng-model="vm.created_on | date:'MMM d, yyyy'" placeholder="Created On Date">
       <input id="link" type="text" name="link" ng-model="vm.link" placeholder="Live Preview Link">
       <input id="github_link"type="text" name="github_link" ng-model="vm.github_link" placeholder="GitHub Link">
       <textarea id="comments" type="text" name="comments" ng-model="vm.comments" placeholder="Comments"></textarea>
       <textarea id="treehouse_comments" type="text" name="treehouse_comments" ng-model="vm.treehouse_comments" placeholder="Treehouse Comments"></textarea>
-      <input id="grade" type="text" name="grade" ng-model="vm.grade" placeholder="Grade">
+      <div class="cg-select-container">
+        <select ng-model="vm.grade" ng-options="grade.name as grade.name for grade in vm.grades">
+          <option value="">Choose Grade...</option>
+        </select>
+        <span class="fa fa-chevron-down"></span>
+      </div>
       <button type="submit" class="btn btn-primary cg-submit-btn">{{ vm.project ? 'Update' : 'Create' }}</button>
     </form>
   </div>

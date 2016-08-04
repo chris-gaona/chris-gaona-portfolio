@@ -5,6 +5,8 @@ var angular = require('angular');
 function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
 
+  vm.grades = [{ name: 'Exceeds Expectations' }, { name: 'Meets Expectations' }];
+
   if ($routeParams.id) {
     MainService.getOne($routeParams.id)
     .then(function (response) {
