@@ -16,6 +16,7 @@ function mainController ($location, $log, MainService, toastr, errorHandlerServi
 
   MainService.getTreehouse().then(function (response) {
     vm.treehouse = response.data;
+    $log.log(vm.treehouse);
   }, function (error) {
     errorHandlerService.handleError(error);
     // log the error to the console
