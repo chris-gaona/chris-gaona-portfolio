@@ -100,13 +100,9 @@
 
 	__webpack_require__(1);
 	__webpack_require__(3);
-<<<<<<< HEAD
-	module.exports = __webpack_require__(5);
-=======
 	__webpack_require__(5);
 	__webpack_require__(8);
 	module.exports = __webpack_require__(10);
->>>>>>> error-handler
 
 
 /***/ },
@@ -33633,8 +33629,6 @@
 	}
 
 
-<<<<<<< HEAD
-=======
 /***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
@@ -38297,7 +38291,6 @@
 	angular.module("toastr").run(["$templateCache", function($templateCache) {$templateCache.put("directives/progressbar/progressbar.html","<div class=\"toast-progress\"></div>\n");
 	$templateCache.put("directives/toast/toast.html","<div class=\"{{toastClass}} {{toastType}}\" ng-click=\"tapToast()\">\n  <div ng-switch on=\"allowHtml\">\n    <div ng-switch-default ng-if=\"title\" class=\"{{titleClass}}\" aria-label=\"{{title}}\">{{title}}</div>\n    <div ng-switch-default class=\"{{messageClass}}\" aria-label=\"{{message}}\">{{message}}</div>\n    <div ng-switch-when=\"true\" ng-if=\"title\" class=\"{{titleClass}}\" ng-bind-html=\"title\"></div>\n    <div ng-switch-when=\"true\" class=\"{{messageClass}}\" ng-bind-html=\"message\"></div>\n  </div>\n  <progress-bar ng-if=\"progressBar\"></progress-bar>\n</div>\n");}]);
 
->>>>>>> error-handler
 /***/ }
 /******/ ]);
 //# sourceMappingURL=vendor.bundle.js.map
