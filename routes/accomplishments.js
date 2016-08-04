@@ -3,30 +3,18 @@ var router = express.Router();
 
 var request = require('request');
 var github = require('octonode');
+var cache = require('memory-cache');
 
 router.get('/treehouse', function (req, res, next) {
-  request('https://teamtreehouse.com/chrisgaona.json', function (err, response, body) {
-    if (err) return next(err);
-
-    if (!err && response.statusCode == 200) {
-      var treehouse = JSON.parse(body);
-      var newObject = {};
-      newObject.badges = treehouse.badges.length;
-      newObject.points = treehouse.points.total;
-      res.status(200).send(newObject);
-    }
-  });
+  var treehouse = cache.get('treehouse');
+  console.log(treehouse);
+  res.status(200).send(treehouse);
 });
 
 router.get('/codeschool', function (req, res, next) {
-  request('https://www.codeschool.com/users/1777453.json', function (err, response, body) {
-    if (err) return next(err);
-
-    if (!err && response.statusCode == 200) {
-      var codeschool = JSON.parse(body);
-      res.status(200).send(codeschool);
-    }
-  });
+  var codeschool = cache.get('codeschool');
+  console.log(codeschool);
+  res.status(200).send(codeschool);
 });
 
 router.get('/github', function (req, res, next) {

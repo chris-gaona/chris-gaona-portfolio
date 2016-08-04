@@ -15,6 +15,8 @@ var projects = require('./routes/projects');
 var accomplishments = require('./routes/accomplishments');
 var users = require('./routes/users');
 
+require('./cache');
+
 var app = express();
 
 // view engine setup
