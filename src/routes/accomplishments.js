@@ -7,13 +7,11 @@ var cache = require('memory-cache');
 
 router.get('/treehouse', function (req, res, next) {
   var treehouse = cache.get('treehouse');
-  console.log(treehouse);
   res.status(200).send(treehouse);
 });
 
 router.get('/codeschool', function (req, res, next) {
   var codeschool = cache.get('codeschool');
-  console.log(codeschool);
   res.status(200).send(codeschool);
 });
 
