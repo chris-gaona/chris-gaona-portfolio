@@ -34,26 +34,7 @@
       <p>
         <button class="cg-new" ng-click="vm.newProject()">+ Add new project</button>
       </p>
-      <mixitup entities='vm.projects'>
-        <div ng-repeat="project in vm.projects" class="mix category-{{project.category}}" data-myorder="{{project.name}}">
-          <div class="card-deck-wrapper cg-project-main">
-            <p class="cg-edit-small" ng-click="vm.editProject(project._id)">
-              <span class="fa fa-edit"></span> EDIT
-            </p>
-            <div class="card-deck" du-smooth-scroll="portfolio" du-scrollspy offset="-100" ng-click="vm.getProject(project)">
-              <div class="card">
-                <img ng-src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
-                <div class="card-block">
-                  <h4 class="card-title">{{project.name}}</h4>
-                  <p class="card-text">
-                    <small class="text-muted">Created on: {{project.created_on | date: 'MMM d, yyyy'}}</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mixitup>
+      <mixitup entities='vm.projects' item-click="vm.getProject(item)" edit-button="vm.editProject(id)"></mixitup>
       <p>
         <button class="show-more">Show More</button>
       </p>

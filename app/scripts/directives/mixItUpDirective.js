@@ -7,7 +7,9 @@ function mixItUpDirective () {
     // restrict to element only
     restrict: 'E',
     scope:{
-      entities: '='
+      entities: '=',
+      itemClick: '&',
+      editButton: '&'
     },
     // replace: true, // Replace with the template below
     // transclude: true, // I want to insert custom content inside the directive
@@ -16,7 +18,9 @@ function mixItUpDirective () {
         $(element).mixItUp();
         // how to tell mixitup to reload the data
       });
-    }
+    },
+    // adds template url for modal
+    templateUrl: '../templates/mixitup.html'
   };
 }
 
