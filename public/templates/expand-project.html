@@ -1,0 +1,25 @@
+<div class="card-deck-wrapper cg-project-details">
+  <div class="card-deck">
+    <div class="card">
+      <span class="fa fa-times" ng-click="show = false"></span>
+      <img ng-src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
+      <div class="card-block">
+        <a href="{{project.github_link}}" target="_blank" class="cg-github-repo">GitHub Repo</a>
+        <h4 class="card-title">{{project.name}}</h4>
+        <p class="card-text" ng-show="project.grade">
+          <span class="fa fa-check-circle"></span> {{project.grade}}
+        </p>
+        <p class="card-text" ng-show="project.comments">
+          {{project.comments}}
+        </p>
+        <p class="card-text" ng-show="project.treehouse_comments">
+          <b>Treehouse Reviewer Comments: </b>
+          {{project.treehouse_comments}}
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Created on: {{project.created_on | date: 'MMM d, yyyy'}}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
