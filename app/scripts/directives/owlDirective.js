@@ -14,7 +14,7 @@ function owlDirective () {
       $(element).owlCarousel(options);
     },
     // adds template url for modal
-    templateUrl: '../templates/owlCarousel.html' // See below
+    templateUrl: '../templates/owl-carousel.html' // See below
   };
 }
 
