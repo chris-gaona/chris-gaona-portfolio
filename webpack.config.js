@@ -11,7 +11,8 @@ module.exports = {
           'angular-route',
           'angular-scroll',
           'angular-animate',
-          'angular-toastr'
+          'angular-toastr',
+          'angularjs-datepicker'
         ]
     },
     output: {

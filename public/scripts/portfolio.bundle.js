@@ -6,7 +6,7 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	angular.module('app', [__webpack_require__(3), __webpack_require__(5), __webpack_require__(8), __webpack_require__(10)]);
+	angular.module('app', [__webpack_require__(3), __webpack_require__(5), __webpack_require__(8), __webpack_require__(10), '720kb.datepicker']);
 	
 	__webpack_require__(12);
 	__webpack_require__(13);
@@ -193,6 +193,8 @@ webpackJsonp([0],[
 	function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
 	  var vm = this;
 	
+	  vm.grades = [{ name: 'Exceeds Expectations' }, { name: 'Meets Expectations' }];
+	
 	  if ($routeParams.id) {
 	    MainService.getOne($routeParams.id)
 	    .then(function (response) {
@@ -202,7 +204,10 @@ webpackJsonp([0],[
 	      vm.name = project.name;
 	      vm.category = project.category;
 	      vm.image = project.image;
-	      vm.created_on = project.created_on;
+	      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	      var date = new Date(project.created_on);
+	      var newDate = monthNames[date.getMonth()] + ' ' +  date.getDate() + ', ' + date.getFullYear();
+	      vm.created_on = newDate;
 	      vm.link = project.link;
 	      vm.github_link = project.github_link;
 	      vm.comments = project.comments;
