@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-angular.module('app', [require('angular-route'), require('angular-scroll'), require('angular-animate'), require('angular-toastr')]);
+angular.module('app', [require('angular-route'), require('angular-scroll'), require('angular-animate'), require('angular-toastr'), '720kb.datepicker']);
 
 require('./scripts/config/route-config.js');
 require('./scripts/controllers/mainController.js');

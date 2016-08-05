@@ -16,7 +16,10 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
       vm.name = project.name;
       vm.category = project.category;
       vm.image = project.image;
-      vm.created_on = project.created_on;
+      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var date = new Date(project.created_on);
+      var newDate = monthNames[date.getMonth()] + ' ' +  date.getDate() + ', ' + date.getFullYear();
+      vm.created_on = newDate;
       vm.link = project.link;
       vm.github_link = project.github_link;
       vm.comments = project.comments;
