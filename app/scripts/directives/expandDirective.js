@@ -9,7 +9,8 @@ function expandProjectDirective () {
     // adds scope with show set to = to make it able to be
     // changed from the controller, & directive
     scope: {
-      show: '='
+      show: '=',
+      project: '='
     },
     // replace: true, // Replace with the template below
     // transclude: true, // I want to insert custom content inside the directive
@@ -19,9 +20,9 @@ function expandProjectDirective () {
       scope.collapseProject = function () {
         scope.show = false;
       };
-    }
+    },
     // adds template url for modal
-    // templateUrl: '../templates/expand-project.html' // See below
+    templateUrl: '../templates/expand-project.html' // See below
   };
 }
 
