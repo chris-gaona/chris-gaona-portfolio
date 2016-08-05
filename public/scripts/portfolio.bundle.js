@@ -17,6 +17,7 @@ webpackJsonp([0],[
 	__webpack_require__(18);
 	__webpack_require__(19);
 	__webpack_require__(20);
+	__webpack_require__(21);
 
 
 /***/ },
@@ -375,6 +376,37 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
+	function hamburgerDirective () {
+	  return {
+	    // restrict to element only
+	    restrict: 'E',
+	    // adds scope with show set to = to make it able to be
+	    // changed from the controller, & directive
+	    scope: {
+	      variable: '='
+	    },
+	    // replace: true, // Replace with the template below
+	    // transclude: true, // I want to insert custom content inside the directive
+	    link: function (scope, element, attrs) {
+	
+	    },
+	    // adds template url for modal
+	    templateUrl: '../templates/hamburger.html' // See below
+	  };
+	}
+	
+	angular.module('app')
+	.directive('hamburger', hamburgerDirective);
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var angular = __webpack_require__(1);
+	
 	function ValidationErrors() {
 	  var controller = ['$scope', function($scope) {
 	    $scope.$watch('errors', function(newValue, oldValue) {
@@ -407,7 +439,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -466,7 +498,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -1,15 +1,5 @@
 <div class="hamburger-container" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="vm.click = !vm.click">
-  <div class="hamburger-top" ng-class="{'moveup': hover, 'rotate-top': vm.click}"></div>
-  <div class="hamburger-middle" ng-class="{'rotate-middle': vm.click}"></div>
-  <div class="hamburger-bottom" ng-class="{'movedown': hover, 'rotate-bottom': vm.click}"></div>
-  <div class="dropdown" ng-class="{'visible': vm.click}">
-    <ul>
-      <li ng-class="{'visible': vm.click}"><a du-smooth-scroll="portfolio" du-scrollspy>Portfolio</a></li>
-      <li ng-class="{'visible': vm.click}"><a du-smooth-scroll="accomplishments" du-scrollspy>Accomplishments</a></li>
-      <li ng-class="{'visible': vm.click}"><a du-smooth-scroll="aboutme" du-scrollspy>About Me</a></li>
-      <li ng-class="{'visible': vm.click}"><a href="https://github.com/chris-gaona">GitHub Repo</a></li>
-    </ul>
-  </div>
+  <hamburger variable="vm.click"></hamburger>
 </div>
 
 <div class="cg-parallax"></div>
