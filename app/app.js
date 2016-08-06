@@ -10,7 +10,7 @@ angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.date
     // if the "require login" property is set to "true"
     // and we don't have an authenticated user...
     // then send the user to the "Sign In" view.
-    if (next.requireLogin && AuthService.isLoggedIn()) {
+    if (next.requireLogin && !AuthService.isLoggedIn()) {
       $location.path('/login');
       event.preventDefault();
     }

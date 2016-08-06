@@ -21,12 +21,14 @@ function config ($routeProvider) {
   .when('/new', {
     controller: 'ProjectController',
     controllerAs: 'vm',
-    templateUrl: 'templates/new-form.html'
+    templateUrl: 'templates/new-form.html',
+    requireLogin: true
   })
   .when('/edit/:id', {
     controller: 'ProjectController',
     controllerAs: 'vm',
-    templateUrl: 'templates/new-form.html'
+    templateUrl: 'templates/new-form.html',
+    requireLogin: true
   })
   .when('/register', {
     controller: 'AuthController',

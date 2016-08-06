@@ -14,7 +14,7 @@ webpackJsonp([0],[
 	    // if the "require login" property is set to "true"
 	    // and we don't have an authenticated user...
 	    // then send the user to the "Sign In" view.
-	    if (next.requireLogin && AuthService.isLoggedIn()) {
+	    if (next.requireLogin && !AuthService.isLoggedIn()) {
 	      $location.path('/login');
 	      event.preventDefault();
 	    }
@@ -65,12 +65,14 @@ webpackJsonp([0],[
 	  .when('/new', {
 	    controller: 'ProjectController',
 	    controllerAs: 'vm',
-	    templateUrl: 'templates/new-form.html'
+	    templateUrl: 'templates/new-form.html',
+	    requireLogin: true
 	  })
 	  .when('/edit/:id', {
 	    controller: 'ProjectController',
 	    controllerAs: 'vm',
-	    templateUrl: 'templates/new-form.html'
+	    templateUrl: 'templates/new-form.html',
+	    requireLogin: true
 	  })
 	  .when('/register', {
 	    controller: 'AuthController',
