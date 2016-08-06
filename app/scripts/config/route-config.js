@@ -28,6 +28,16 @@ function config ($routeProvider) {
     controllerAs: 'vm',
     templateUrl: 'templates/new-form.html'
   })
+  .when('/register', {
+    controller: 'AuthController',
+    controllerAs: 'vm',
+    templateUrl: 'templates/authenticate.html'
+  })
+  .when('/login', {
+    controller: 'AuthController',
+    controllerAs: 'vm',
+    templateUrl: 'templates/authenticate.html'
+  })
   .otherwise({
     redirectTo: '/'
   });

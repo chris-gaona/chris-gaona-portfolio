@@ -8,12 +8,14 @@ var bodyParser = require('body-parser');
 //mongoose connection
 var mongoose = require('mongoose');
 require('./models/Projects');
+require('./models/Users');
 require('./config/database');
 
 var routes = require('./routes/index');
 var projects = require('./routes/projects');
 var accomplishments = require('./routes/accomplishments');
 var users = require('./routes/users');
+var auth = require('./routes/auth');
 
 require('./cache');
 
@@ -33,6 +35,8 @@ app.use(cookieParser());
 app.use('/', express.static('public'));
 app.use('/api', projects);
 app.use('/api', accomplishments);
+app.use('/users', users);
+app.use('/', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

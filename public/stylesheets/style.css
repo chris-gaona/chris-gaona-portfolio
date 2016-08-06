@@ -514,11 +514,21 @@ img.logo {
 }*/
 
 /************************/
+/*REGISTER / LOGIN*/
+/************************/
+.cg-auth-btn {
+  margin-left: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+/************************/
 /*FORM*/
 /************************/
 .form-wrapper {
   padding: 5em 2em;
   background-color: #0099ff;
+  height: 100vh;
 }
 
 .cg-form-container {
@@ -584,10 +594,6 @@ span.fa-chevron-down {
   cursor: pointer;
   padding: 5px;
   font-size: 18px;
-}
-
-.cg-submit-btn {
-  display: block;
 }
 
 .cg-validation-container {
