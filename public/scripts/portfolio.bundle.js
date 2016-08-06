@@ -18,6 +18,7 @@ webpackJsonp([0],[
 	__webpack_require__(10);
 	__webpack_require__(11);
 	__webpack_require__(12);
+	__webpack_require__(13);
 
 
 /***/ },
@@ -55,6 +56,16 @@ webpackJsonp([0],[
 	    controller: 'ProjectController',
 	    controllerAs: 'vm',
 	    templateUrl: 'templates/new-form.html'
+	  })
+	  .when('/register', {
+	    controller: 'AuthController',
+	    controllerAs: 'vm',
+	    templateUrl: 'templates/authenticate.html'
+	  })
+	  .when('/login', {
+	    controller: 'AuthController',
+	    controllerAs: 'vm',
+	    templateUrl: 'templates/authenticate.html'
 	  })
 	  .otherwise({
 	    redirectTo: '/'
@@ -273,6 +284,40 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
+	function authController ($location, $log, MainService, toastr, errorHandlerService) {
+	  var vm = this;
+	
+	  vm.goBack = function () {
+	    $location.path('/');
+	  };
+	
+	  vm.registerPage = function () {
+	    $location.path('/register');
+	  };
+	
+	  vm.loginPage = function () {
+	    $location.path('/login');
+	  };
+	
+	  if ($location.path() === '/register') {
+	    vm.register = 'Register';
+	  } else {
+	    vm.login = 'Login';
+	  }
+	}
+	
+	angular.module('app')
+	.controller('AuthController', ['$location', '$log', 'MainService', 'toastr', 'errorHandlerService', authController]);
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var angular = __webpack_require__(1);
+	
 	function expandProjectDirective () {
 	  return {
 	    // restrict to element only
@@ -302,7 +347,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -336,7 +381,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -364,7 +409,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -395,7 +440,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -434,7 +479,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -493,7 +538,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
