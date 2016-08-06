@@ -35,7 +35,7 @@ app.use(cookieParser());
 app.use('/', express.static('public'));
 app.use('/api', projects);
 app.use('/api', accomplishments);
-app.use('/users', users);
+app.use('/user', users);
 app.use('/', auth);
 
 // catch 404 and forward to error handler

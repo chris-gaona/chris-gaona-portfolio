@@ -1,22 +1,32 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+  var express = require('express');
+  var router = express.Router();
 
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
+  var mongoose = require('mongoose');
+  var User = mongoose.model('User');
 
-var jwt = require('express-jwt');
-// var secret = require('../config/secret');
-//middleware for authenticating jwt tokens
-var auth = jwt({
-  secret: "SECRET", // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
-  userProperty: 'payload'
-});
+  var jwt = require('express-jwt');
+  //middleware for authenticating jwt tokens
+  var auth = jwt({
+    secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+    userProperty: 'payload'
+  });
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+  router.get('/:username', auth, function(req, res, next) {
+    var user = req.params.username;
 
-module.exports = router;
+    User.findOne({username: user}, '_id username firstName', function(err, user) {
+      if (err) return next(err);
+      console.log(user);
+      // res.json(user);
+      user.populate('userPosts', function(err, user) {
+        if (err) {return next(err);}
+
+        res.json(user);
+      });
+    });
+
+  });
+
+  module.exports = router;
