@@ -11,6 +11,9 @@ require('./models/Projects');
 require('./models/Users');
 require('./config/database');
 
+var passport = require('passport');
+require('./config/passport');
+
 var routes = require('./routes/index');
 var projects = require('./routes/projects');
 var accomplishments = require('./routes/accomplishments');

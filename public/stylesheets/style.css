@@ -516,6 +516,24 @@ img.logo {
 /************************/
 /*REGISTER / LOGIN*/
 /************************/
+.cg-user-container {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+  color: #fff;
+}
+
+.cg-user span {
+  padding-right: 10px;
+  border-right: 2px solid #fff;
+}
+
+.cg-user button {
+  border: none;
+  background-color: transparent;
+}
+
 .cg-auth-btn {
   margin-left: 20px;
   border: none;

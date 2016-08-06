@@ -2,13 +2,17 @@
   <hamburger variable="vm.click"></hamburger>
 </div>
 
+<div class="cg-user-container" ng-show="vm.isLoggedIn">
+  <div class="cg-user">
+    <span>Welcome {{vm.user.firstName}}</span>
+    <button type="button" ng-click="vm.logOut()">Log Out</button>
+  </div>
+</div>
+
 <div class="cg-parallax"></div>
 
 <div class="container-fluid col-xs-12 cg-header">
   <div class="row">
-    <p>
-      {{vm.user.firstName}}
-    </p>
     <h1 class="text-xs-center">Chris Gaona Portfolio</h1>
     <hr class="star-light">
     <p class="brief-info">

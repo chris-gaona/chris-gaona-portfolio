@@ -100,15 +100,18 @@ webpackJsonp([0],[
 	  var vm = this;
 	
 	  vm.isLoggedIn = AuthService.isLoggedIn();
-	  $log.log(vm.isLoggedIn);
 	
 	  if (vm.isLoggedIn) {
 	    vm.currentUser = AuthService.currentUser();
 	    UserService.getUser(vm.currentUser).then(function(res) {
-	      $log.log(res.data);
 	      vm.user = res.data;
 	    });
 	  }
+	
+	  vm.logOut = function () {
+	    AuthService.logOut();
+	    vm.isLoggedIn = false;
+	  };
 	
 	  vm.validationErrors = {};
 	  vm.hasValidationErrors = false;
