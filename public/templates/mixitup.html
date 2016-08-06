@@ -1,6 +1,6 @@
 <div ng-repeat="project in entities" class="mix category-{{project.category}}" data-myorder="{{project.name}}">
   <div class="card-deck-wrapper cg-project-main">
-    <p class="cg-edit-small" ng-click="editButton({id: project._id})">
+    <p class="cg-edit-small" ng-show="loggedIn" ng-click="editButton({id: project._id})">
       <span class="fa fa-edit"></span> EDIT
     </p>
     <div class="card-deck" du-smooth-scroll="portfolio" du-scrollspy offset="-100" ng-click="itemClick({item: project})">

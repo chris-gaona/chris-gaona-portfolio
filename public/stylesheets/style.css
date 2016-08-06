@@ -19,6 +19,13 @@ h2 {
   font-size: 3.5em;
 }
 
+.cg-form-main-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #0099ff;
+}
+
 /************************/
 /*HAMBURGER MENU*/
 /************************/
@@ -546,7 +553,6 @@ img.logo {
 .form-wrapper {
   padding: 5em 2em;
   background-color: #0099ff;
-  height: 100vh;
 }
 
 .cg-form-container {

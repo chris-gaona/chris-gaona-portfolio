@@ -9,7 +9,8 @@ function mixItUpDirective () {
     scope:{
       entities: '=',
       itemClick: '&',
-      editButton: '&'
+      editButton: '&',
+      loggedIn: '='
     },
     // replace: true, // Replace with the template below
     // transclude: true, // I want to insert custom content inside the directive
