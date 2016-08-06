@@ -19,6 +19,7 @@ webpackJsonp([0],[
 	__webpack_require__(11);
 	__webpack_require__(12);
 	__webpack_require__(13);
+	__webpack_require__(14);
 
 
 /***/ },
@@ -284,7 +285,7 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	function authController ($location, $log, MainService, toastr, errorHandlerService) {
+	function authController ($location, $log, MainService, AuthService, toastr, errorHandlerService) {
 	  var vm = this;
 	
 	  vm.goBack = function () {
@@ -304,10 +305,27 @@ webpackJsonp([0],[
 	  } else {
 	    vm.login = 'Login';
 	  }
+	
+	  vm.registerUser = function() {
+	    AuthService.register(vm.user).error(function(error) {
+	      vm.error = error;
+	      $log.log(error);
+	    }).then(function() {
+	      $location.path('/');
+	    });
+	  };
+	
+	  vm.loginUser = function() {
+	    AuthService.logIn(vm.user).error(function(error) {
+	      vm.error = error;
+	    }).then(function() {
+	      $location.path('/');
+	    });
+	  };
 	}
 	
 	angular.module('app')
-	.controller('AuthController', ['$location', '$log', 'MainService', 'toastr', 'errorHandlerService', authController]);
+	.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', 'errorHandlerService', authController]);
 
 
 /***/ },
@@ -539,6 +557,89 @@ webpackJsonp([0],[
 
 /***/ },
 /* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var angular = __webpack_require__(1);
+	
+	function authService($http, $window, $log) {
+	  var authService = {};
+	
+	  //save token in local storage
+	  authService.saveToken = function(token) {
+	    $window.localStorage['chris-portfolio-token'] = token;
+	  };
+	
+	  //get token from local storage
+	  authService.getToken = function(token) {
+	    return $window.localStorage['chris-portfolio-token'];
+	  };
+	
+	  //return a boolean value for if the user is logged in
+	  authService.isLoggedIn = function() {
+	    var token = authService.getToken();
+	
+	    if(token){
+	      var payload = JSON.parse($window.atob(token.split('.')[1]));
+	
+	      return payload.exp > Date.now() / 1000;
+	    } else {
+	      return false;
+	    }
+	  };
+	
+	  //function currentUser() that returns the username of the user that's logged in
+	  authService.currentUser = function() {
+	    if(authService.isLoggedIn()){
+	      var token = authService.getToken();
+	      var payload = JSON.parse($window.atob(token.split('.')[1]));
+	
+	      return payload.username;
+	    }
+	  };
+	
+	  authService.currentUserId = function() {
+	    if (authService.isLoggedIn()) {
+	      var token = authService.getToken();
+	      var payload = JSON.parse($window.atob(token.split('.')[1]));
+	
+	      return payload._id;
+	    }
+	  };
+	
+	  //register function that posts a user to our /register route and saves the token returned
+	  authService.register = function(user) {
+	    return $http.post('/register', user).success(function(data){
+	      authService.saveToken(data.token);
+	    });
+	  };
+	
+	  // login function that posts a user to our /login route and saves the token returned
+	  authService.logIn = function(user) {
+	    return $http.post('/login', user).success(function(data){
+	      authService.saveToken(data.token);
+	    });
+	  };
+	
+	  //logout function that removes the user's token from localStorage, logging the user out.
+	  authService.logOut = function() {
+	    $window.localStorage.removeItem('chris-portfolio-token');
+	  };
+	
+	  return authService;
+	}
+	
+	//--------------------------------------
+	//ANGULAR
+	//--------------------------------------
+	angular.module('app')
+	//create initial auth factory. We'll need to inject $http for interfacing with our server, and $window for interfacing with localStorage
+	.factory('AuthService', ['$http', '$window', '$log', authService]);
+
+
+/***/ },
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

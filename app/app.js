@@ -14,4 +14,5 @@ require('./scripts/directives/owlDirective.js');
 require('./scripts/directives/hamburgerDirective.js');
 require('./scripts/directives/validation-errors.js');
 require('./scripts/services/mainService.js');
+require('./scripts/services/authService.js');
 require('./scripts/services/error-handler.js');

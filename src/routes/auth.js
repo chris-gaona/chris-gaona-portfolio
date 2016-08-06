@@ -10,6 +10,8 @@ var passport = require('passport');
 
 //REGISTER
 router.post('/register', function(req, res, next){
+  console.log(req.body.username);
+  console.log(req.body.password);
   if(!req.body.username || !req.body.password){
     return res.status(400).json({
       message: 'Please fill out all fields'
@@ -19,6 +21,8 @@ router.post('/register', function(req, res, next){
   var user = new User();
 
   user.username = req.body.username;
+
+  user.firstName = req.body.firstName;
 
   user.setPassword(req.body.password);
 

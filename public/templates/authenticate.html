@@ -5,11 +5,11 @@
        Back
     </p>
     <h2>{{vm.register ? vm.register : vm.login}}</h2>
-    <form ng-submit="vm.saveProject()">
-      <input ng-show="vm.register" id="firstName" type="text" name="firstName" ng-model="vm.firstName" placeholder="First Name">
-      <input id="username" type="text" name="username" ng-model="vm.username" placeholder="Username">
-      <input id="password" type="text" name="password" ng-model="vm.password" placeholder="Password">
-      <input ng-show="vm.register" id="confirmPassword" type="text" name="confirmPassword" ng-model="vm.confirmPassword" placeholder="Confirm Password">
+    <form ng-submit="vm.register ? vm.registerUser() : vm.loginUser()">
+      <input ng-show="vm.register" id="firstName" type="text" name="firstName" ng-model="vm.user.firstName" placeholder="First Name">
+      <input id="username" type="text" name="username" ng-model="vm.user.username" placeholder="Username">
+      <input id="password" type="password" name="password" ng-model="vm.user.password" placeholder="Password">
+      <input ng-show="vm.register" id="confirmPassword" type="password" name="confirmPassword" ng-model="vm.user.confirmPassword" placeholder="Confirm Password">
       <button type="submit" class="btn btn-primary cg-submit-btn">{{ vm.register ? 'Register' : 'Login' }}</button>
       <button type="text" class="cg-auth-btn" ng-click="vm.register ? vm.loginPage() : vm.registerPage()">{{ vm.register ? 'Login' : 'Register' }}</button>
     </form>

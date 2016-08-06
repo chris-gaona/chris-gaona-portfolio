@@ -99,11 +99,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(14);
-	__webpack_require__(16);
-	__webpack_require__(19);
-	__webpack_require__(21);
-	module.exports = __webpack_require__(23);
+	__webpack_require__(15);
+	__webpack_require__(17);
+	__webpack_require__(20);
+	__webpack_require__(22);
+	module.exports = __webpack_require__(24);
 
 
 /***/ },
@@ -31899,15 +31899,16 @@
 /* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(15);
+	__webpack_require__(16);
 	module.exports = 'ngRoute';
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	/**
@@ -32982,17 +32983,17 @@
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(17);
+	__webpack_require__(18);
 	
 	module.exports = 'duScroll';
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/**
@@ -33623,10 +33624,10 @@
 	  };
 	}]);
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19)(module)))
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -33642,15 +33643,15 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(20);
+	__webpack_require__(21);
 	module.exports = 'ngAnimate';
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	/**
@@ -37795,16 +37796,16 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(22);
+	__webpack_require__(23);
 	module.exports = 'toastr';
 	
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -38304,7 +38305,7 @@
 	$templateCache.put("directives/toast/toast.html","<div class=\"{{toastClass}} {{toastType}}\" ng-click=\"tapToast()\">\n  <div ng-switch on=\"allowHtml\">\n    <div ng-switch-default ng-if=\"title\" class=\"{{titleClass}}\" aria-label=\"{{title}}\">{{title}}</div>\n    <div ng-switch-default class=\"{{messageClass}}\" aria-label=\"{{message}}\">{{message}}</div>\n    <div ng-switch-when=\"true\" ng-if=\"title\" class=\"{{titleClass}}\" ng-bind-html=\"title\"></div>\n    <div ng-switch-when=\"true\" class=\"{{messageClass}}\" ng-bind-html=\"message\"></div>\n  </div>\n  <progress-bar ng-if=\"progressBar\"></progress-bar>\n</div>\n");}]);
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	/*!
