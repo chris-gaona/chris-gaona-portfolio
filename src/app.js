@@ -11,6 +11,9 @@ require('./models/Projects');
 require('./models/Users');
 require('./config/database');
 
+var passport = require('passport');
+require('./config/passport');
+
 var routes = require('./routes/index');
 var projects = require('./routes/projects');
 var accomplishments = require('./routes/accomplishments');
@@ -35,7 +38,7 @@ app.use(cookieParser());
 app.use('/', express.static('public'));
 app.use('/api', projects);
 app.use('/api', accomplishments);
-app.use('/users', users);
+app.use('/user', users);
 app.use('/', auth);
 
 // catch 404 and forward to error handler

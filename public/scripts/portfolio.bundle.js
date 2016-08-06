@@ -6,7 +6,20 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker']);
+	angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker'])
+	.run(function($rootScope, $location, AuthService) {
+	  // wire up the route change start handler
+	  // in order to determine if the requested route requires a user login
+	  $rootScope.$on('$routeChangeStart', function(event, next, current) {
+	    // if the "require login" property is set to "true"
+	    // and we don't have an authenticated user...
+	    // then send the user to the "Sign In" view.
+	    if (next.requireLogin && !AuthService.isLoggedIn()) {
+	      $location.path('/login');
+	      event.preventDefault();
+	    }
+	  });
+	});
 	
 	__webpack_require__(3);
 	__webpack_require__(4);
@@ -20,6 +33,7 @@ webpackJsonp([0],[
 	__webpack_require__(12);
 	__webpack_require__(13);
 	__webpack_require__(14);
+	__webpack_require__(15);
 
 
 /***/ },
@@ -51,12 +65,14 @@ webpackJsonp([0],[
 	  .when('/new', {
 	    controller: 'ProjectController',
 	    controllerAs: 'vm',
-	    templateUrl: 'templates/new-form.html'
+	    templateUrl: 'templates/new-form.html',
+	    requireLogin: true
 	  })
 	  .when('/edit/:id', {
 	    controller: 'ProjectController',
 	    controllerAs: 'vm',
-	    templateUrl: 'templates/new-form.html'
+	    templateUrl: 'templates/new-form.html',
+	    requireLogin: true
 	  })
 	  .when('/register', {
 	    controller: 'AuthController',
@@ -82,8 +98,22 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	function mainController ($location, $log, MainService, toastr, errorHandlerService) {
+	function mainController ($location, $log, MainService, AuthService, UserService, toastr, errorHandlerService) {
 	  var vm = this;
+	
+	  vm.isLoggedIn = AuthService.isLoggedIn();
+	
+	  if (vm.isLoggedIn) {
+	    vm.currentUser = AuthService.currentUser();
+	    UserService.getUser(vm.currentUser).then(function(res) {
+	      vm.user = res.data;
+	    });
+	  }
+	
+	  vm.logOut = function () {
+	    AuthService.logOut();
+	    vm.isLoggedIn = false;
+	  };
 	
 	  vm.validationErrors = {};
 	  vm.hasValidationErrors = false;
@@ -183,7 +213,7 @@ webpackJsonp([0],[
 	}
 	
 	angular.module('app')
-	.controller('MainController', ['$location', '$log', 'MainService', 'toastr', 'errorHandlerService', mainController]);
+	.controller('MainController', ['$location', '$log', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
 
 
 /***/ },
@@ -379,7 +409,8 @@ webpackJsonp([0],[
 	    scope:{
 	      entities: '=',
 	      itemClick: '&',
-	      editButton: '&'
+	      editButton: '&',
+	      loggedIn: '='
 	    },
 	    // replace: true, // Replace with the template below
 	    // transclude: true, // I want to insert custom content inside the directive
@@ -640,6 +671,31 @@ webpackJsonp([0],[
 
 /***/ },
 /* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var angular = __webpack_require__(1);
+	
+	function userService($http, AuthService) {
+	  var userService = {};
+	
+	  userService.getUser = function(username) {
+	    return $http.get('/user/' + username, {
+	      headers: {Authorization: 'Bearer '+AuthService.getToken()}
+	    });
+	  };
+	
+	  //can't forget this return!!!
+	  return userService;
+	}
+	
+	angular.module('app')
+	.factory('UserService', ['$http', 'AuthService', userService]);
+
+
+/***/ },
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
