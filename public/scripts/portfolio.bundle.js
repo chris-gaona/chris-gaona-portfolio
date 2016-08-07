@@ -121,7 +121,7 @@ webpackJsonp([0],[
 	function mainController ($location, $log, $timeout, MainService, AuthService, UserService, toastr, errorHandlerService) {
 	  var vm = this;
 	
-	  $timeout = twttr.widgets.load();
+	  $timeout(function () { twttr.widgets.load(); }, 500); 
 	
 	  vm.isLoggedIn = AuthService.isLoggedIn();
 	
@@ -140,10 +140,6 @@ webpackJsonp([0],[
 	
 	  vm.validationErrors = {};
 	  vm.hasValidationErrors = false;
-	
-	  vm.hello = 'My Portfolio';
-	
-	  // vm.editing = false;
 	
 	  vm.projects = MainService.projects;
 	
