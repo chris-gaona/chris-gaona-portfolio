@@ -11,8 +11,10 @@
       <input id="username" type="text" name="username" ng-model="vm.user.username" placeholder="Username">
       <input id="password" type="password" name="password" ng-model="vm.user.password" placeholder="Password">
       <input ng-show="vm.register" id="confirmPassword" type="password" name="confirmPassword" ng-model="vm.user.confirmPassword" placeholder="Confirm Password">
-      <button type="submit" class="btn btn-primary cg-submit-btn">{{ vm.register ? 'Register' : 'Login' }}</button>
-      <button type="text" class="cg-auth-btn" ng-click="vm.register ? vm.loginPage() : vm.registerPage()">{{ vm.register ? 'Login' : 'Register' }}</button>
+      <div class="cg-btn-container">
+        <button type="submit" class="btn btn-primary cg-submit-btn">{{ vm.register ? 'Register' : 'Login' }}</button>
+        <button type="text" class="cg-auth-btn" ng-click="vm.register ? vm.loginPage() : vm.registerPage()">{{ vm.register ? 'Login' : 'Register' }}</button>
+      </div>
     </form>
   </div>
 </div>

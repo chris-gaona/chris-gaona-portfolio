@@ -8,6 +8,8 @@
 body {
   font-family: 'Varela Round', sans-serif;
   color: #666;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -626,6 +628,10 @@ span.fa-chevron-down {
 
 .validation-errors li {
   color: red;
+}
+
+.cg-btn-container {
+  margin-top: 2em;
 }
 
 /************************/
