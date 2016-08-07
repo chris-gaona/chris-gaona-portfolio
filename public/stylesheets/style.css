@@ -8,6 +8,8 @@
 body {
   font-family: 'Varela Round', sans-serif;
   color: #666;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -17,13 +19,6 @@ h1 {
 h2 {
   text-align: center;
   font-size: 3.5em;
-}
-
-.cg-form-main-wrapper {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: #0099ff;
 }
 
 /************************/
@@ -523,6 +518,13 @@ img.logo {
 /************************/
 /*REGISTER / LOGIN*/
 /************************/
+.cg-form-main-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #0099ff;
+}
+
 .cg-user-container {
   position: absolute;
   right: 20px;
@@ -626,6 +628,10 @@ span.fa-chevron-down {
 
 .validation-errors li {
   color: red;
+}
+
+.cg-btn-container {
+  margin-top: 2em;
 }
 
 /************************/

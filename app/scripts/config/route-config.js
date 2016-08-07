@@ -33,12 +33,26 @@ function config ($routeProvider) {
   .when('/register', {
     controller: 'AuthController',
     controllerAs: 'vm',
-    templateUrl: 'templates/authenticate.html'
+    templateUrl: 'templates/authenticate.html',
+    resolve: {
+    check: ['$location', 'AuthService', function($location, AuthService) {
+        if (AuthService.isLoggedIn()) {
+          $location.path('/');
+        }
+      }]
+    }
   })
   .when('/login', {
     controller: 'AuthController',
     controllerAs: 'vm',
-    templateUrl: 'templates/authenticate.html'
+    templateUrl: 'templates/authenticate.html',
+    resolve: {
+    check: ['$location', 'AuthService', function($location, AuthService) {
+        if (AuthService.isLoggedIn()) {
+          $location.path('/');
+        }
+      }]
+    }
   })
   .otherwise({
     redirectTo: '/'
