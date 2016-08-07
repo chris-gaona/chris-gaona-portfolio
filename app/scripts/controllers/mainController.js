@@ -2,8 +2,10 @@
 
 var angular = require('angular');
 
-function mainController ($location, $log, MainService, AuthService, UserService, toastr, errorHandlerService) {
+function mainController ($location, $log, $timeout, MainService, AuthService, UserService, toastr, errorHandlerService) {
   var vm = this;
+
+  $timeout = twttr.widgets.load();
 
   vm.isLoggedIn = AuthService.isLoggedIn();
 
@@ -118,4 +120,4 @@ function mainController ($location, $log, MainService, AuthService, UserService,
 }
 
 angular.module('app')
-.controller('MainController', ['$location', '$log', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
+.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);

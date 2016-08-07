@@ -118,8 +118,10 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	function mainController ($location, $log, MainService, AuthService, UserService, toastr, errorHandlerService) {
+	function mainController ($location, $log, $timeout, MainService, AuthService, UserService, toastr, errorHandlerService) {
 	  var vm = this;
+	
+	  $timeout = twttr.widgets.load();
 	
 	  vm.isLoggedIn = AuthService.isLoggedIn();
 	
@@ -234,7 +236,7 @@ webpackJsonp([0],[
 	}
 	
 	angular.module('app')
-	.controller('MainController', ['$location', '$log', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
+	.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
 
 
 /***/ },
@@ -358,10 +360,6 @@ webpackJsonp([0],[
 	  }
 	
 	  vm.registerUser = function() {
-	    // if (vm.user.password.toLowerCase() !== vm.user.confirmPassword.toLowerCase()) {
-	    //
-	    // }
-	
 	    AuthService.register(vm.user).error(function(error) {
 	      vm.error = error;
 	      toastr.error('Please see above', 'Form Errors!');
