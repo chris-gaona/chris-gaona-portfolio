@@ -121,7 +121,7 @@ webpackJsonp([0],[
 	function mainController ($location, $log, $timeout, MainService, AuthService, UserService, toastr, errorHandlerService) {
 	  var vm = this;
 	
-	  $timeout(function () { twttr.widgets.load(); }, 500); 
+	  $timeout(function () { twttr.widgets.load(); }, 500);
 	
 	  vm.isLoggedIn = AuthService.isLoggedIn();
 	
@@ -169,7 +169,15 @@ webpackJsonp([0],[
 	  });
 	
 	  //mixitup
-	  vm.categories = ['Soft', 'Elements'];
+	  var categories = [];
+	  for (var i = 0; i < vm.projects.length; i++) {
+	    categories.push(vm.projects[i].category);
+	  }
+	  var uniqueCat = categories.filter(function(elem, index, self) {
+	    return index == self.indexOf(elem);
+	  });
+	  
+	  vm.categories = uniqueCat;
 	
 	  // vm.drawings = [{
 	  //     name: 'Random Quote Generator',
