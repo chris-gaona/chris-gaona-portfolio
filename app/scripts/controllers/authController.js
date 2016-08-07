@@ -24,10 +24,6 @@ function authController ($location, $log, MainService, AuthService, toastr, erro
   }
 
   vm.registerUser = function() {
-    // if (vm.user.password.toLowerCase() !== vm.user.confirmPassword.toLowerCase()) {
-    //
-    // }
-
     AuthService.register(vm.user).error(function(error) {
       vm.error = error;
       toastr.error('Please see above', 'Form Errors!');

@@ -2,8 +2,10 @@
 
 var angular = require('angular');
 
-function mainController ($location, $log, MainService, AuthService, UserService, toastr, errorHandlerService) {
+function mainController ($location, $log, $timeout, MainService, AuthService, UserService, toastr, errorHandlerService) {
   var vm = this;
+
+  $timeout(function () { twttr.widgets.load(); }, 500); 
 
   vm.isLoggedIn = AuthService.isLoggedIn();
 
@@ -22,10 +24,6 @@ function mainController ($location, $log, MainService, AuthService, UserService,
 
   vm.validationErrors = {};
   vm.hasValidationErrors = false;
-
-  vm.hello = 'My Portfolio';
-
-  // vm.editing = false;
 
   vm.projects = MainService.projects;
 
@@ -118,4 +116,4 @@ function mainController ($location, $log, MainService, AuthService, UserService,
 }
 
 angular.module('app')
-.controller('MainController', ['$location', '$log', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
+.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
