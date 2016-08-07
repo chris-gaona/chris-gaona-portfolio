@@ -19,6 +19,12 @@ webpackJsonp([0],[
 	      event.preventDefault();
 	    }
 	  });
+	}).config(function(toastrConfig) {
+	  angular.extend(toastrConfig, {
+	    containerId: 'toast-container',
+	    positionClass: 'toast-bottom-right',
+	    closeButton: true
+	  });
 	});
 	
 	__webpack_require__(3);
@@ -127,6 +133,7 @@ webpackJsonp([0],[
 	  vm.logOut = function () {
 	    AuthService.logOut();
 	    vm.isLoggedIn = false;
+	    toastr.success('You are logged out', 'Success!');
 	  };
 	
 	  vm.validationErrors = {};
@@ -355,6 +362,7 @@ webpackJsonp([0],[
 	      vm.error = error;
 	      $log.log(error);
 	    }).then(function() {
+	      toastr.success('You are registered', 'Success!');
 	      $location.path('/');
 	    });
 	  };
@@ -363,6 +371,7 @@ webpackJsonp([0],[
 	    AuthService.logIn(vm.user).error(function(error) {
 	      vm.error = error;
 	    }).then(function() {
+	      toastr.success('You are logged in', 'Success!');
 	      $location.path('/');
 	    });
 	  };
@@ -721,6 +730,7 @@ webpackJsonp([0],[
 	
 	  vm.handleError = function(response, displayValidationErrorsCallback) {
 	    if (response.status === 400 && displayValidationErrorsCallback) {
+	      toastr.error('Please see above', 'Form Errors!');
 	      displayValidationErrorsCallback(response.data);
 	    } else {
 	      var message = response && response.data && response.data.message;

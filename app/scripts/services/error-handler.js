@@ -7,6 +7,7 @@ function ErrorHandler(toastr, $log) {
 
   vm.handleError = function(response, displayValidationErrorsCallback) {
     if (response.status === 400 && displayValidationErrorsCallback) {
+      toastr.error('Please see above', 'Form Errors!');
       displayValidationErrorsCallback(response.data);
     } else {
       var message = response && response.data && response.data.message;
