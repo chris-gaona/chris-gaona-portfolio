@@ -15,6 +15,12 @@ angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.date
       event.preventDefault();
     }
   });
+}).config(function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    containerId: 'toast-container',
+    positionClass: 'toast-bottom-right',
+    closeButton: true
+  });
 });
 
 require('./scripts/config/route-config.js');

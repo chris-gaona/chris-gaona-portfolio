@@ -28,6 +28,7 @@ function authController ($location, $log, MainService, AuthService, toastr, erro
       vm.error = error;
       $log.log(error);
     }).then(function() {
+      toastr.success('You are registered', 'Success!');
       $location.path('/');
     });
   };
@@ -36,6 +37,7 @@ function authController ($location, $log, MainService, AuthService, toastr, erro
     AuthService.logIn(vm.user).error(function(error) {
       vm.error = error;
     }).then(function() {
+      toastr.success('You are logged in', 'Success!');
       $location.path('/');
     });
   };

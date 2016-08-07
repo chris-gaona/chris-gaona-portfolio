@@ -17,6 +17,7 @@ function mainController ($location, $log, MainService, AuthService, UserService,
   vm.logOut = function () {
     AuthService.logOut();
     vm.isLoggedIn = false;
+    toastr.success('You are logged out', 'Success!');
   };
 
   vm.validationErrors = {};
