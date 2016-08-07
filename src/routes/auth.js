@@ -10,11 +10,15 @@ var passport = require('passport');
 
 //REGISTER
 router.post('/register', function(req, res, next){
-  console.log(req.body.username);
-  console.log(req.body.password);
   if(!req.body.username || !req.body.password){
     return res.status(400).json({
       message: 'Please fill out all fields'
+    });
+  }
+
+  if (req.body.password !== req.body.confirmPassword) {
+    return res.status(400).json({
+      message: 'Uh oh! Passwords do not match'
     });
   }
 

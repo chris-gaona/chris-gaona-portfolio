@@ -358,11 +358,16 @@ webpackJsonp([0],[
 	  }
 	
 	  vm.registerUser = function() {
+	    // if (vm.user.password.toLowerCase() !== vm.user.confirmPassword.toLowerCase()) {
+	    //
+	    // }
+	
 	    AuthService.register(vm.user).error(function(error) {
 	      vm.error = error;
+	      toastr.error('Please see above', 'Form Errors!');
 	      $log.log(error);
 	    }).then(function() {
-	      toastr.success('You are registered', 'Success!');
+	      toastr.success('Please see above', 'Form Errors!');
 	      $location.path('/');
 	    });
 	  };
@@ -370,6 +375,8 @@ webpackJsonp([0],[
 	  vm.loginUser = function() {
 	    AuthService.logIn(vm.user).error(function(error) {
 	      vm.error = error;
+	      toastr.error('Please see above', 'Form Errors!');
+	      $log.log(vm.error);
 	    }).then(function() {
 	      toastr.success('You are logged in', 'Success!');
 	      $location.path('/');
