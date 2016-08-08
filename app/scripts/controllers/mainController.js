@@ -29,7 +29,6 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
 
   MainService.getTreehouse().then(function (response) {
     vm.treehouse = response.data;
-    $log.log(vm.treehouse);
   }, function (error) {
     errorHandlerService.handleError(error);
     // log the error to the console
@@ -60,7 +59,7 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   var uniqueCat = categories.filter(function(elem, index, self) {
     return index == self.indexOf(elem);
   });
-  
+
   vm.categories = uniqueCat;
 
   // vm.drawings = [{
