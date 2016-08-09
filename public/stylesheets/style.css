@@ -789,6 +789,8 @@ h2.cg-company-codeschool::before {
   top: 0;
   float: left;
   shape-outside: circle(50%);
+  -webkit-shape-outside: circle(50%);
+  -webkit-clip-path: circle(50%);
   margin-right: 25px;
   height: 275px;
   width: 275px;
