@@ -314,9 +314,16 @@ span.fa-times {
   cursor: pointer;
 }
 
-.cg-project-details {
+.cg-project-main img {
   width: 100%;
+}
+
+.cg-project-details {
   margin: 0 !important;
+}
+
+.cg-project-details img {
+  width: 100%;
 }
 
 .fade-out {
