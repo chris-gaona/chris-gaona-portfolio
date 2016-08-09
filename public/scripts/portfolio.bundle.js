@@ -6,7 +6,7 @@ webpackJsonp([0],[
 	
 	var angular = __webpack_require__(1);
 	
-	angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker'])
+	angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])
 	.run(function($rootScope, $location, AuthService) {
 	  // wire up the route change start handler
 	  // in order to determine if the requested route requires a user login

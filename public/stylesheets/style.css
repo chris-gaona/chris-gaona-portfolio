@@ -314,9 +314,16 @@ span.fa-times {
   cursor: pointer;
 }
 
-.cg-project-details {
+.cg-project-main img {
   width: 100%;
+}
+
+.cg-project-details {
   margin: 0 !important;
+}
+
+.cg-project-details img {
+  width: 100%;
 }
 
 .fade-out {
@@ -765,7 +772,7 @@ h2.cg-company-codeschool::before {
 /************************/
 .cg-aboutme {
   background-color: #fff;
-  padding: 5em 6em 1em 6em;
+  padding: 5em 6em 5em 6em;
 }
 
 .cg-aboutme-image {
@@ -779,9 +786,12 @@ h2.cg-company-codeschool::before {
 
 .cg-myimage {
   position: relative;
-  top: 5em;
-  left: 50%;
-  margin-left: -137.5px;
+  top: 0;
+  float: left;
+  shape-outside: circle(50%);
+  -webkit-shape-outside: circle(50%);
+  -webkit-clip-path: circle(50%);
+  margin-right: 25px;
   height: 275px;
   width: 275px;
   background-image: url("../images/chrisgaona.jpg");
@@ -791,22 +801,43 @@ h2.cg-company-codeschool::before {
   background-color: #000;
   border-radius: 50%;
   border: 10px solid #0099ff;
+  z-index: 10;
+}
+
+.cg-google-map-container {
+  position: relative;
+  background-color: #fff;
+  height: 320px;
+}
+
+.cg-google-map {
+  border-top: 4px solid #fd7d5f;
+  height: 100%;
+  width: 90%;
+  margin: 0 5%;
   z-index: 1000;
+}
+
+.cg-google-map h5 {
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  font-size: 14px;
+  padding: 5px;
+  background-color: #fff;
+  z-index: 10;
 }
 
 .cg-twitter-container {
   position: relative;
   background-color: #fff;
-  height: 291px;
+  height: 320px;
 }
 
 .cg-twitter {
-  position: absolute;
-  top: 4em;
-  border: 4px solid #fd7d5f;
+  border-top: 4px solid #fd7d5f;
   height: 100%;
   width: 90%;
-  border-radius: 5px;
   margin: 0 5%;
   z-index: 1000;
 }
@@ -816,7 +847,7 @@ h2.cg-company-codeschool::before {
 /************************/
 .cg-footer {
   position: relative;
-  padding: 8em 0 2em 0;
+  padding: 2em 0 2em 0;
   background-color: #0099ff;
 }
 
