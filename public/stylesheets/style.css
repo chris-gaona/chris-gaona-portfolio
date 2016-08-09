@@ -876,5 +876,15 @@ h2.cg-company-codeschool::before {
   color: #fff;
 }
 
+.footer-logo {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 60px;
+  height: auto;
+  margin-left: -30px;
+  z-index: 1001;
+}
+
 /*#fd7d5f*/
 /*#0099ff*/
