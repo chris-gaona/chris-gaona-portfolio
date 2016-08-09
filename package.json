@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "lint": "jshint **"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -35,6 +36,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "jshint": "^2.9.2",
     "mongoose-seeder": "^1.2.1",
     "webpack": "1.13.1"
   }
