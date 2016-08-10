@@ -5,9 +5,29 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start-dev": "nodemon ./bin/www",
+    "start:dev": "nodemon ./bin/www",
     "bundle": "webpack",
-    "lint": "jshint **"
+    "lint": "jshint **",
+    "clean": "rm -r dist/*",
+    "scss": "node-sass --output-style compressed -o dist/public/stylesheets src/sass",
+    "uglify:config": "mkdir -p dist/config && uglifyjs src/config/database.js -m -o dist/config/database.js && uglifyjs src/config/passport.js -m -o dist/config/passport.js",
+    "uglify:models": "mkdir -p dist/models && uglifyjs src/models/Projects.js -m -o dist/models/Projects.js && uglifyjs src/models/Users.js -m -o dist/models/Users.js",
+    "uglify:routes": "mkdir -p dist/routes && uglifyjs src/routes/accomplishments.js -m -o dist/routes/accomplishments.js && uglifyjs src/routes/auth.js -m -o dist/routes/auth.js && uglifyjs src/routes/projects.js -m -o dist/routes/projects.js && uglifyjs src/routes/users.js -m -o dist/routes/users.js",
+    "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",
+    "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:models && npm run uglify:config",
+    "copy": "cp -R src/public/bower_components dist/public/bower_components",
+    "imagemin": "mkdir -p dist/public/images && imagemin src/public/images/* -o dist/public/images",
+    "prehtml": "npm run uglify && npm run scss && npm run copy && npm run bundle && npm run imagemin",
+    "html": "mkdir -p dist/public && cp -R src/public/templates dist/public/templates/ && cp src/public/index.html dist/public/",
+    "prebuild": "npm run clean",
+    "build": "npm run html",
+    "watch:css": "onchange 'src/sass/*.scss' -- npm run scss",
+    "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
+    "watch:models": "onchange 'src/models/*.js' -- npm run uglify:models",
+    "watch:routes": "onchange 'src/routes/*.js' -- npm run uglify:routes",
+    "watch:main": "onchange 'src/*.js' -- npm run uglify:main",
+    "watch:app": "onchange 'app/' -- npm run bundle",
+    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -36,8 +56,13 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "imagemin-cli": "^3.0.0",
     "jshint": "^2.9.2",
     "mongoose-seeder": "^1.2.1",
+    "node-sass": "^3.8.0",
+    "onchange": "^2.5.0",
+    "parallelshell": "^2.0.0",
+    "uglify-js": "^2.7.0",
     "webpack": "1.13.1"
   }
 }

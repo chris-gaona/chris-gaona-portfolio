@@ -17,7 +17,7 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname + '/public/scripts',
+        path: __dirname + '/dist/public/scripts',
         filename: 'portfolio.bundle.js'
     },
     plugins: [
