@@ -41,6 +41,14 @@ app.use('/api', accomplishments);
 app.use('/user', users);
 app.use('/', auth);
 
+// vendor scripts
+app.get('/vendor/angular-toastr.min.css', function(req, res) {
+  res.sendFile(path.join(__dirname, '../node_modules', 'angular-toastr', 'dist', 'angular-toastr.min.css'));
+});
+app.get('/vendor/angularjs-datepicker.min.css', function(req, res) {
+  res.sendFile(path.join(__dirname, '../node_modules', 'angularjs-datepicker', 'dist', 'angular-datepicker.min.css'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
