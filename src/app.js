@@ -14,7 +14,7 @@ require('./config/database');
 var passport = require('passport');
 require('./config/passport');
 
-var routes = require('./routes/index');
+// var routes = require('./routes/index');
 var projects = require('./routes/projects');
 var accomplishments = require('./routes/accomplishments');
 var users = require('./routes/users');
@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', express.static('src/public'));
+app.use('/', express.static('dist/public'));
 app.use('/api', projects);
 app.use('/api', accomplishments);
 app.use('/user', users);

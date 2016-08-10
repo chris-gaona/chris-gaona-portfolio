@@ -7,7 +7,20 @@
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
     "bundle": "webpack",
-    "lint": "jshint **"
+    "lint": "jshint **",
+    "clean": "rm -r dist/*",
+    "scss": "node-sass --output-style compressed -o dist/public/stylesheets src/sass",
+    "uglify:config": "mkdir -p dist/config && uglifyjs src/config/database.js -m -o dist/config/database.js && uglifyjs src/config/passport.js -m -o dist/config/passport.js",
+    "uglify:models": "mkdir -p dist/models && uglifyjs src/models/Projects.js -m -o dist/models/Projects.js && uglifyjs src/models/Users.js -m -o dist/models/Users.js",
+    "uglify:routes": "mkdir -p dist/routes && uglifyjs src/routes/accomplishments.js -m -o dist/routes/accomplishments.js && uglifyjs src/routes/auth.js -m -o dist/routes/auth.js && uglifyjs src/routes/projects.js -m -o dist/routes/projects.js && uglifyjs src/routes/users.js -m -o dist/routes/users.js",
+    "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",
+    "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:models && npm run uglify:config",
+    "copy": "cp -R src/public/bower_components dist/public/bower_components",
+    "imagemin": "imagemin src/public/images/* -o dist/public/images",
+    "prehtml": "npm run uglify && npm run scss && npm run copy && npm run bundle && npm run imagemin",
+    "html": "cp -R src/public/templates dist/public/templates/ && cp src/public/index.html dist/public/",
+    "prebuild": "npm run clean",
+    "build": "npm run html"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -40,6 +53,7 @@
     "jshint": "^2.9.2",
     "mongoose-seeder": "^1.2.1",
     "node-sass": "^3.8.0",
+    "uglify-js": "^2.7.0",
     "webpack": "1.13.1"
   }
 }

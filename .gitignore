@@ -4,3 +4,4 @@ bower_components
 src/config/secret.js
 npm-debug.log
 public/scripts
+dist
