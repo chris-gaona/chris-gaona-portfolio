@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start-dev": "nodemon ./bin/www",
+    "start:dev": "nodemon ./bin/www",
     "bundle": "webpack",
     "lint": "jshint **",
     "clean": "rm -r dist/*",
@@ -16,11 +16,18 @@
     "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",
     "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:models && npm run uglify:config",
     "copy": "cp -R src/public/bower_components dist/public/bower_components",
-    "imagemin": "imagemin src/public/images/* -o dist/public/images",
+    "imagemin": "mkdir -p dist/public/images && imagemin src/public/images/* -o dist/public/images",
     "prehtml": "npm run uglify && npm run scss && npm run copy && npm run bundle && npm run imagemin",
-    "html": "cp -R src/public/templates dist/public/templates/ && cp src/public/index.html dist/public/",
+    "html": "mkdir -p dist/public && cp -R src/public/templates dist/public/templates/ && cp src/public/index.html dist/public/",
     "prebuild": "npm run clean",
-    "build": "npm run html"
+    "build": "npm run html",
+    "watch:css": "onchange 'src/sass/*.scss' -- npm run scss",
+    "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
+    "watch:models": "onchange 'src/models/*.js' -- npm run uglify:models",
+    "watch:routes": "onchange 'src/routes/*.js' -- npm run uglify:routes",
+    "watch:main": "onchange 'src/*.js' -- npm run uglify:main",
+    "watch:app": "onchange 'app/' -- npm run bundle",
+    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -53,6 +60,8 @@
     "jshint": "^2.9.2",
     "mongoose-seeder": "^1.2.1",
     "node-sass": "^3.8.0",
+    "onchange": "^2.5.0",
+    "parallelshell": "^2.0.0",
     "uglify-js": "^2.7.0",
     "webpack": "1.13.1"
   }
