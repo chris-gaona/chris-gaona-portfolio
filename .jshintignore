@@ -1,0 +1,6 @@
+node_modules
+public/bower_components
+public/scripts
+webpack.config.js
+npm-debug.log
+README.md
