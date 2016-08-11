@@ -116,7 +116,7 @@ router.put('/edit/:id', function (req, res, next) {
       }
     }
 
-    res.json({'project': project, message: 'Project Updated'});
+    res.json({project: project, message: 'Project Updated'});
   });
   // res.status(201).json('You hit the POST projects api route');
 });

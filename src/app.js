@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./models/Projects');
 require('./models/Users');
-require('./config/database');
+var config = require('./config/database');
 
 var passport = require('passport');
 require('./config/passport');
@@ -23,6 +23,16 @@ var auth = require('./routes/auth');
 require('./cache');
 
 var app = express();
+
+mongoose.connect(config.mongoURI[app.settings.env], function(err) {
+  if (err) {
+    console.log('Failed connecting to Mongodb!');
+  } else {
+    // seed database
+    // require('./seed.js');
+    console.log('Successfully connected to Mongodb: ' + config.mongoURI[app.settings.env]);
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
