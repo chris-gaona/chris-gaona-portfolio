@@ -8,7 +8,13 @@ var server = require('../src/app');
 
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
-// var Project = require("../src/models/Projects");
+
+var jwt = require('express-jwt');
+//middleware for authenticating jwt tokens
+var auth = jwt({
+  secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+  userProperty: 'payload'
+});
 
 var expect = chai.expect;
 chai.use(chaiHttp);

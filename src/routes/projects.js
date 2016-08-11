@@ -1,8 +1,17 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
+
+var jwt = require('express-jwt');
+//middleware for authenticating jwt tokens
+var auth = jwt({
+  secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+  userProperty: 'payload'
+});
 
 // creates middleware for all course urls to go through first
 router.param('id', function (req, res, next, id) {

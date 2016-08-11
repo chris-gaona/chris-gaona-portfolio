@@ -13,18 +13,12 @@
     userProperty: 'payload'
   });
 
-  router.get('/:username', auth, function(req, res, next) {
+  router.get('/:username', function(req, res, next) {
     var user = req.params.username;
 
     User.findOne({username: user}, '_id username firstName', function(err, user) {
       if (err) return next(err);
-      console.log(user);
-      // res.json(user);
-      user.populate('userPosts', function(err, user) {
-        if (err) {return next(err);}
-
-        res.json(user);
-      });
+      res.json(user);
     });
 
   });
