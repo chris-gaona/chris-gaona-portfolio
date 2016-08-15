@@ -1,16 +1,11 @@
-(function() {
-  'use strict';
 
-  var mongoose = require('mongoose');
+'use strict';
 
-  mongoose.connect('mongodb://localhost/portfolio', function(err) {
-    if (err) {
-      console.log('Failed connecting to Mongodb!');
-    } else {
-      // seed database
-      // require('./seed.js');
-      console.log('Successfully connected to Mongodb!');
-    }
-  });
+var config = {};
 
-})();
+config.mongoURI = {
+  development: 'mongodb://localhost/portfolio',
+  test: 'mongodb://localhost/portfolio-test'
+};
+
+module.exports = config;

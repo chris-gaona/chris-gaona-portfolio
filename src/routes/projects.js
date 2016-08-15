@@ -1,8 +1,17 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
+
+var jwt = require('express-jwt');
+//middleware for authenticating jwt tokens
+var auth = jwt({
+  secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+  userProperty: 'payload'
+});
 
 // creates middleware for all course urls to go through first
 router.param('id', function (req, res, next, id) {
@@ -39,7 +48,7 @@ router.get('/project/:id', function (req, res, next) {
   res.json(req.project);
 });
 
-router.post('/new', function (req, res, next) {
+router.post('/new', auth, function (req, res, next) {
   var project = new Project(req.body);
 
   project.save(function(err, project){
@@ -81,7 +90,7 @@ router.post('/new', function (req, res, next) {
   // res.status(201).json('You hit the POST projects api route');
 });
 
-router.put('/edit/:id', function (req, res, next) {
+router.put('/edit/:id', auth, function (req, res, next) {
   req.project.update(req.body, { runValidators: true }, function (err, project) {
     if (err) {
       // check for validation errors
@@ -116,7 +125,7 @@ router.put('/edit/:id', function (req, res, next) {
       }
     }
 
-    res.json({'project': project, message: 'Project Updated'});
+    res.json({project: project, message: 'Project Updated'});
   });
   // res.status(201).json('You hit the POST projects api route');
 });

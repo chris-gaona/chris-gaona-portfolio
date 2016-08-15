@@ -18,13 +18,7 @@
 
     User.findOne({username: user}, '_id username firstName', function(err, user) {
       if (err) return next(err);
-      console.log(user);
-      // res.json(user);
-      user.populate('userPosts', function(err, user) {
-        if (err) {return next(err);}
-
-        res.json(user);
-      });
+      res.json(user);
     });
 
   });
