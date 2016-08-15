@@ -48,7 +48,7 @@ router.get('/project/:id', function (req, res, next) {
   res.json(req.project);
 });
 
-router.post('/new', function (req, res, next) {
+router.post('/new', auth, function (req, res, next) {
   var project = new Project(req.body);
 
   project.save(function(err, project){
@@ -90,7 +90,7 @@ router.post('/new', function (req, res, next) {
   // res.status(201).json('You hit the POST projects api route');
 });
 
-router.put('/edit/:id', function (req, res, next) {
+router.put('/edit/:id', auth, function (req, res, next) {
   req.project.update(req.body, { runValidators: true }, function (err, project) {
     if (err) {
       // check for validation errors

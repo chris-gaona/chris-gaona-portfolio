@@ -13,7 +13,7 @@
     userProperty: 'payload'
   });
 
-  router.get('/:username', function(req, res, next) {
+  router.get('/:username', auth, function(req, res, next) {
     var user = req.params.username;
 
     User.findOne({username: user}, '_id username firstName', function(err, user) {

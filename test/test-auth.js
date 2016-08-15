@@ -9,13 +9,6 @@ var server = require('../src/app');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-var jwt = require('express-jwt');
-//middleware for authenticating jwt tokens
-var auth = jwt({
-  secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
-  userProperty: 'payload'
-});
-
 var expect = chai.expect;
 chai.use(chaiHttp);
 
@@ -26,6 +19,9 @@ chai.use(chaiHttp);
   // it('should update a SINGLE blob on /blob/<id> PUT');
   // it('should delete a SINGLE blob on /blob/<id> DELETE');
 // });
+
+var header;
+var content;
 
 describe('Auth', function () {
   before(function(done){
@@ -67,12 +63,34 @@ describe('Auth', function () {
       expect(res).to.have.status(200);
       expect(res.body).to.be.a('object');
       expect(res.body).to.have.property('token');
+
+      header = "Authorization";
+      content = "Bearer " + res.body.token;
       done();
     });
   });
+});
 
+describe('User', function () {
   after(function(done){
     User.collection.remove();
     done();
+  });
+
+  it('should list a SINGLE user on /user/:username GET', function(done) {
+    chai.request(server)
+    .get('/user/jjohnson')
+    .set(header,content)
+    .end(function(err, res){
+      expect(err).to.be.null;
+      expect(res).to.have.status(200);
+      expect(res).to.be.a('object');
+      expect(res.body).to.have.property('_id');
+      expect(res.body).to.have.property('username');
+      expect(res.body).to.have.property('firstName');
+      expect(res.body.username).to.equal('jjohnson');
+      expect(res.body.firstName).to.equal('Jason');
+      done();
+    });
   });
 });

@@ -8,13 +8,7 @@ var server = require('../src/app');
 
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
-
-var jwt = require('express-jwt');
-//middleware for authenticating jwt tokens
-var auth = jwt({
-  secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
-  userProperty: 'payload'
-});
+var User = mongoose.model('User');
 
 var expect = chai.expect;
 chai.use(chaiHttp);
@@ -98,6 +92,35 @@ describe('Projects', function () {
     });
   });
 
+  var header;
+  var content;
+
+  // var header = "Authorization";
+  // var content = "Bearer " + res.body;
+
+  beforeEach(function (done) {
+    var user = {
+      username: 'jjohnson',
+      firstName: 'Jason',
+      password: 'password',
+      confirmPassword: 'password'
+    };
+
+    chai.request(server)
+    .post('/register')
+    .send(user)
+    .end(function (err, res) {
+      header = "Authorization";
+      content = "Bearer " + res.body.token;
+      done();
+    });
+  });
+
+  afterEach(function(done){
+    User.collection.remove();
+    done();
+  });
+
   it('should add a SINGLE project on /api/project POST', function(done) {
     var project = {
       name: "Random Quote Generator",
@@ -113,6 +136,7 @@ describe('Projects', function () {
 
     chai.request(server)
     .post('/api/new')
+    .set(header,content)
     .send(project)
     .end(function(err, res){
       expect(err).to.be.null;
@@ -153,6 +177,7 @@ describe('Projects', function () {
     .end(function (err, response) {
       chai.request(server)
         .put('/api/edit/' + response.body[0]._id)
+        .set(header,content)
         .send(project)
         .end(function (error, res) {
           expect(err).to.be.null;
@@ -168,5 +193,5 @@ describe('Projects', function () {
     });
   });
 
-  it('should delete a SINGLE project on /api/project/:id DELETE');
+  it('should delete a SINGLE project on /api/delete/:id DELETE');
 });

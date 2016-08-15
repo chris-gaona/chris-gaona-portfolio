@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function mainService ($http) {
+function mainService ($http, AuthService) {
   var mainService = {
     projects: []
   };
@@ -23,12 +23,16 @@ function mainService ($http) {
 
   // create a new project
   mainService.create = function (project) {
-    return $http.post('/api/new', project);
+    return $http.post('/api/new', project, {
+      headers: {Authorization: 'Bearer '+AuthService.getToken()}
+    });
   };
 
   // edit existing project
   mainService.edit = function (id, project) {
-    return $http.put('/api/edit/' + id, project);
+    return $http.put('/api/edit/' + id, project, {
+      headers: {Authorization: 'Bearer '+AuthService.getToken()}
+    });
   };
 
   // get treehouse info
@@ -50,4 +54,4 @@ function mainService ($http) {
 }
 
 angular.module('app')
-.factory('MainService', ['$http', mainService]);
+.factory('MainService', ['$http', 'AuthService', mainService]);
