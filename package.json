@@ -4,6 +4,7 @@
   "description": "Chris Gaona Portfolio",
   "private": true,
   "scripts": {
+    "prestart": "npm run build",
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
     "bundle": "webpack",
