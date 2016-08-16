@@ -20,7 +20,6 @@
     "uglify:routes": "mkdir -p dist/routes && uglifyjs src/routes/accomplishments.js -m -o dist/routes/accomplishments.js && uglifyjs src/routes/auth.js -m -o dist/routes/auth.js && uglifyjs src/routes/projects.js -m -o dist/routes/projects.js && uglifyjs src/routes/users.js -m -o dist/routes/users.js",
     "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",
     "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:models && npm run uglify:config",
-    "copy": "cp -R src/public/bower_components dist/public/bower_components",
     "imagemin": "mkdir -p dist/public/images && imagemin src/public/images/* -o dist/public/images",
     "html": "mkdir -p dist/public && cp -R src/public/templates dist/public/ && cp -R src/public/index.html dist/public/",
     "prebuild": "bower install",
