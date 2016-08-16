@@ -13,7 +13,7 @@
     "bundle": "webpack",
     "lint": "jshint **",
     "test": "mocha",
-    "clean": "rm -r dist/*",
+    "clean": "rm -f dist/*",
     "scss": "node-sass --output-style compressed -o dist/public/stylesheets src/sass",
     "uglify:config": "mkdir -p dist/config && uglifyjs src/config/database.js -m -o dist/config/database.js && uglifyjs src/config/passport.js -m -o dist/config/passport.js",
     "uglify:models": "mkdir -p dist/models && uglifyjs src/models/Projects.js -m -o dist/models/Projects.js && uglifyjs src/models/Users.js -m -o dist/models/Users.js",
