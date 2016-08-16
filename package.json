@@ -22,7 +22,7 @@
     "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:models && npm run uglify:config",
     "imagemin": "mkdir -p dist/public/images && imagemin src/public/images/* -o dist/public/images",
     "html": "mkdir -p dist/public && cp -R src/public/templates dist/public/ && cp -R src/public/index.html dist/public/",
-    "build": "mkdir -p dist && npm run clean && npm run test && npm run uglify && npm run scss && bower install && npm run bundle && npm run imagemin && npm run html",
+    "build": "mkdir -p dist && npm run clean && npm run uglify && npm run scss && bower install && npm run bundle && npm run imagemin && npm run html",
     "watch:css": "onchange 'src/sass/*.scss' -- npm run scss",
     "watch:templates": "onchange 'src/public/templates/*.html' -- npm run html",
     "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
