@@ -1,0 +1,109 @@
+<div class="hamburger-container" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="vm.click = !vm.click">
+  <hamburger variable="vm.click"></hamburger>
+</div>
+
+<div class="cg-user-container" ng-show="vm.isLoggedIn">
+  <div class="cg-user">
+    <span>Welcome {{vm.user.firstName}}</span>
+    <button type="button" ng-click="vm.logOut()">Log Out</button>
+  </div>
+</div>
+
+<div class="cg-parallax"></div>
+
+<div class="container-fluid col-xs-12 cg-header">
+  <div class="row">
+    <h1 class="text-xs-center">Chris Gaona Portfolio</h1>
+    <hr class="star-light">
+    <p class="brief-info">
+      Web Developer - Full-Stack JavaScript - MEAN Stack
+    </p>
+    <a href="https://github.com/chris-gaona" target="_blank">
+      <button class="cg-github"><span class="fa fa-github"></span>GitHub Repository</button>
+    </a>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 cg-portfolio" id="portfolio">
+  <div class="row">
+    <h2>Portfolio</h2>
+    <hr class="star-primary">
+    <div class="portfolio-wrapper" ng-class="{'fade-out': vm.expandProject}">
+      <div class="controls" >
+        <label>Filter:</label>
+        <button class="filter" data-filter="all">All</button>
+        <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+
+        <label>Sort:</label>
+        <button class="sort" data-sort="myorder:asc">Asc</button>
+        <button class="sort" data-sort="myorder:desc">Desc</button>
+      </div>
+      <p>
+        <button class="cg-new" ng-show="vm.isLoggedIn" ng-click="vm.newProject()">+ Add new project</button>
+      </p>
+      <mixitup entities='vm.projects' item-click="vm.getProject(item)" edit-button="vm.editProject(id)" logged-in="vm.isLoggedIn"></mixitup>
+      <p>
+        <button class="show-more">Show More</button>
+      </p>
+    </div>
+    <div class="expand-wrapper" ng-class="{'fade-in': vm.expandProject}">
+      <expand-project show='vm.expandProject' project='vm.chosenProject'></expand-project>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 cg-carousel" id="accomplishments">
+  <div class="row">
+    <owl-carousel class="owl-carousel owl-theme" data-options="{autoplay: true, loop: true, items: 1, autoplayHoverPause: true, margin: 20}"></owl-carousel>
+    <!-- autoplay: true -->
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 cg-aboutme" id="aboutme">
+  <div class="row">
+    <h2 class="text-xs-center">About Me</h2>
+    <hr class="star-primary">
+    <div class="cg-myimage"></div>
+    <p>
+      My name is Chris Gaona and I'm a Full-Stack JavaScript Developer. Over the past 2 years I have been learning as much as I can about web development using languages such as JavaScript, HTML, CSS, Node.js, and others. I am looking for a web development role in a company that is truly making a difference in the world and on a team that enjoys learning new technologies, languages, and platforms as much as I do. You can see the various projects I have worked on on my GitHub page by clicking on the button below.
+    </p>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 col-md-6 cg-google-map-container">
+  <div class="row">
+    <div class="cg-google-map">
+      <div class="cg-weather">
+        <span>{{vm.weather.main.temp | number:0}}&deg; </span>
+        <img src="{{vm.icon}}" />
+      </div>
+      <h5>Currently residing in Livermore, CA</h5>
+      <ng-map center="[37.6819, -121.7680]" scrollwheel="false" style="height: 260px">
+        <marker position="37.6819, -121.7680" title="Hey There!"></marker>
+      </ng-map>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 col-md-6 cg-twitter-container">
+  <div class="row">
+    <div class="cg-twitter">
+      <a class="twitter-timeline" data-height="313" href="https://twitter.com/chrissgaona">Tweets by chrissgaona</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid col-xs-12 cg-footer">
+  <div class="row">
+    <p class="copyright">
+      Copyright <span class="fa fa-copyright"></span> 2016 by Chris Gaona
+    </p>
+    <p class="social">
+      <a href="https://www.facebook.com/chris.gaona.775" target="_blank"><span class="fa fa-facebook-square"></span></a>
+      <a href="https://twitter.com/chrissgaona" target="_blank"><span class="fa fa-twitter-square"></span></a>
+      <a href="https://www.linkedin.com/in/christophergaona" target="_blank"><span class="fa fa-linkedin-square"></span></a>
+      <a href="https://github.com/chris-gaona" target="_blank"><span class="fa fa-github-square"></span></a>
+    </p>
+    <img class="footer-logo" src="../images/logo.png" alt="logo" />
+  </div>
+</div>
