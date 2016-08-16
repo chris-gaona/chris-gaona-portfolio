@@ -74,8 +74,7 @@
   <div class="row">
     <div class="cg-google-map">
       <div class="cg-weather">
-        <span>{{vm.weather.main.temp | number:0}}&deg; </span>
-        <img src="{{vm.icon}}" />
+        <span>{{vm.weather.currently.temperature | number:0}}&deg; </span>
       </div>
       <h5>Currently residing in Livermore, CA</h5>
       <ng-map center="[37.6819, -121.7680]" scrollwheel="false" style="height: 260px">

@@ -123,8 +123,6 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
 
   WeatherService.getWeather().then(function (response) {
     vm.weather = response.data;
-    var icon = response.data.weather[0].icon;
-    vm.icon = 'http://openweathermap.org/img/w/' + icon + '.png';
   }, function (error) {
     errorHandlerService.handleError(error);
     // log the error to the console

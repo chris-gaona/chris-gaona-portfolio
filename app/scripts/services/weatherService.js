@@ -5,22 +5,10 @@ var angular = require('angular');
 function weatherService ($http) {
   var weatherService = {};
 
-  var URL = 'http://api.openweathermap.org/data/2.5/weather';
-
-  var request = {
-    method: 'GET',
-    url: URL,
-    params: {
-       q: 'Livermore',
-      mode: 'json',
-      units: 'imperial',
-      cnt: '7',
-      appid: 'ba6169f6e537c4eb5725155c36cd49f6'
-    }
-  };
+  var URL = 'https://api.forecast.io/forecast/cf9659348d1908d40d599089da4bb449/37.6819,-121.7680?callback=JSON_CALLBACK';
 
   weatherService.getWeather = function () {
-    return $http(request);
+    return $http.jsonp(URL);
   };
 
   return weatherService;
