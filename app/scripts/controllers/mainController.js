@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function mainController ($location, $log, $timeout, MainService, AuthService, UserService, toastr, errorHandlerService) {
+function mainController ($location, $log, $timeout, MainService, AuthService, UserService, WeatherService, toastr, errorHandlerService) {
   var vm = this;
 
   $timeout(function () { twttr.widgets.load(); }, 500);
@@ -120,7 +120,18 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   vm.editProject = function (id) {
     $location.path('/edit/' + id);
   };
+
+  WeatherService.getWeather().then(function (response) {
+    vm.weather = response.data;
+    var icon = response.data.weather[0].icon;
+    vm.icon = 'http://openweathermap.org/img/w/' + icon + '.png';
+    $log.log(response.data.weather[0].icon);
+  }, function (error) {
+    errorHandlerService.handleError(error);
+    // log the error to the console
+    $log.error('Error ' + error);
+  });
 }
 
 angular.module('app')
-.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'toastr', 'errorHandlerService', mainController]);
+.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'WeatherService', 'toastr', 'errorHandlerService', mainController]);

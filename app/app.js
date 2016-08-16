@@ -35,4 +35,5 @@ require('./scripts/directives/validation-errors.js');
 require('./scripts/services/mainService.js');
 require('./scripts/services/authService.js');
 require('./scripts/services/userService.js');
+require('./scripts/services/weatherService.js');
 require('./scripts/services/error-handler.js');
