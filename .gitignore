@@ -5,3 +5,4 @@ src/config/secret.js
 src/config/database.js
 npm-debug.log
 public/scripts
+dist
