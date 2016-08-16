@@ -820,13 +820,18 @@ h2.cg-company-codeschool::before {
 }
 
 .cg-google-map h5 {
-  position: absolute;
-  top: 5px;
-  right: 30px;
+  position: relative;
+  top: 7px;
   font-size: 14px;
-  padding: 5px;
+  padding: 10px 5px;
   background-color: #fff;
+  float: left;
   z-index: 10;
+}
+
+.cg-weather {
+  font-size: 18px;
+  float: right;
 }
 
 .cg-twitter-container {
