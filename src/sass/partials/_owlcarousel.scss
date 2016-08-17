@@ -6,9 +6,13 @@
 }
 
 .cg-carousel {
-  padding: 5em;
+  padding: 1em;
   color: #000;
   background: transparent;
+
+  @media (min-width: 800px) {
+    padding: 5em;
+  }
 }
 
 .cg-carousel span {
@@ -33,8 +37,16 @@
 }
 
 .cg-carousel p {
-  font-size: 2em;
+  font-size: 1em;
   text-align: center;
+
+  @media (min-width: 800px) {
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 950px) {
+    font-size: 2em;
+  }
 }
 
 h2.cg-company-treehouse,
