@@ -9,7 +9,11 @@
 
 .brief-info {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
+
+  @media (min-width: 500px) {
+    font-size: 1.5em;
+  }
 }
 
 span.fa-github {

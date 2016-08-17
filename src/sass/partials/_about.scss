@@ -3,7 +3,11 @@
 /************************/
 .cg-aboutme {
   background-color: #fff;
-  padding: 5em 6em 5em 6em;
+  padding: 5em 2em 5em 2em;
+
+  @media (min-width: 600px) {
+    padding: 5em 6em 5em 6em;
+  }
 }
 
 .cg-aboutme-image {
@@ -39,7 +43,11 @@
   position: relative;
   background-color: #fff;
   height: 320px;
-  padding: 0 0 0 5em;
+  padding: 0;
+
+  @media (min-width: 800px) {
+    padding: 0 0 0 5em;
+  }
 }
 
 .cg-google-map {
@@ -71,7 +79,11 @@
   position: relative;
   background-color: #fff;
   height: 320px;
-  padding: 0 5em 0 0;
+  padding: 0;
+
+  @media (min-width: 800px) {
+    padding: 0 5em 0 0;
+  }
 }
 
 .cg-twitter {

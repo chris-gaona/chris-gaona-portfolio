@@ -3,7 +3,11 @@
 /************************/
 .cg-portfolio {
   background-color: #fff;
-  padding: 7em 5em 5em 5em;
+  padding: 7em 2em 5em 2em;
+
+  @media (min-width: 500px) {
+    padding: 7em 5em 5em 5em;
+  }
 }
 
 .portfolio-wrapper {

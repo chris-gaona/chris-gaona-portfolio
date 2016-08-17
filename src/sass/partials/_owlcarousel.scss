@@ -37,7 +37,7 @@
 }
 
 .cg-carousel p {
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center;
 
   @media (min-width: 800px) {
@@ -54,9 +54,16 @@ h2.cg-company-codeschool {
   position: relative;
   left: 50%;
   top: 0;
-  width: 400px;
-  padding-left: 90px;
-  margin-left: -200px;
+  width: 300px;
+  padding-left: 80px;
+  margin-left: -150px;
+  margin-top: 1em;
+
+  @media (min-width: 500px) {
+    padding-left: 90px;
+    width: 400px;
+    margin-left: -200px;
+  }
 }
 
 h2.cg-company-github {
@@ -66,6 +73,7 @@ h2.cg-company-github {
   width: 300px;
   padding-left: 90px;
   margin-left: -150px;
+  margin-top: 1em;
 }
 
 h2.cg-company-treehouse::before {
@@ -73,12 +81,17 @@ h2.cg-company-treehouse::before {
   position: absolute;
   top: 0;
   left: 0;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   background-image: url('../images/treehouse.png');
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 5px;
+
+  @media (min-width: 500px) {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 h2.cg-company-codeschool::before {
@@ -86,12 +99,17 @@ h2.cg-company-codeschool::before {
   position: absolute;
   top: 0;
   left: 0;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   background-image: url('../images/codeschool.jpeg');
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 5px;
+
+  @media (min-width: 500px) {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 .cg-company-github::before {
@@ -99,10 +117,15 @@ h2.cg-company-codeschool::before {
   position: absolute;
   top: 0;
   left: 0;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   background-image: url('../images/github.png');
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 5px;
+
+  @media (min-width: 500px) {
+    height: 60px;
+    width: 60px;
+  }
 }
