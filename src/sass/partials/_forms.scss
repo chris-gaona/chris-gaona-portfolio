@@ -1,0 +1,84 @@
+/************************/
+/*FORM*/
+/************************/
+.form-wrapper {
+  padding: 5em 2em;
+  background-color: #0099ff;
+}
+
+.cg-form-container {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 4em 4em 2em 4em;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.cg-form-container input {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 1em 0;
+  border-radius: 5px;
+  border: 2px solid #fd7d5f;
+}
+
+.cg-form-container textarea {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 1em 0;
+  border-radius: 5px;
+  border: 2px solid #fd7d5f;
+}
+
+.cg-select-container {
+  position: relative;
+  height: auto;
+}
+
+.cg-form-container select {
+  position: relative;
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 1em 0;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid #fd7d5f;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+span.fa-chevron-down {
+  position: absolute;
+  right: 20px;
+  top: 33px;
+  font-size: 20px;
+}
+
+.cg-back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.cg-validation-container {
+  margin-top: 20px;
+}
+
+.validation-errors li {
+  color: red;
+}
+
+.cg-btn-container {
+  margin-top: 2em;
+}

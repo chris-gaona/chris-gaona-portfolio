@@ -1,0 +1,50 @@
+/************************/
+/*STAR UNDER TITLES*/
+/************************/
+hr.star-light,
+hr.star-gray,
+hr.star-primary {
+  padding: 0;
+  border: none;
+  border-top: solid 5px;
+  text-align: center;
+  max-width: 250px;
+  margin: 25px auto 30px;
+}
+
+hr.star-light:after,
+hr.star-gray:after,
+hr.star-primary:after {
+  content: "\f121";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  font-size: 2em;
+  padding: 0 0.25em;
+}
+
+hr.star-gray {
+  border-color: #2C3E50;
+}
+
+hr.star-gray:after {
+  background-color: #eee;
+  color: #2C3E50;
+}
+
+hr.star-light {
+  border-color: white;
+}
+hr.star-light:after {
+  background-color: #0099ff;
+  color: white;
+}
+
+hr.star-primary {
+  border-color: #2C3E50;
+}
+hr.star-primary:after {
+  background-color: white;
+  color: #2C3E50;
+}

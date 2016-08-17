@@ -1,0 +1,96 @@
+/************************/
+/*OWL CAROUSEL*/
+/************************/
+.cg-carousel-container {
+  border-right: 2px solid #ddd;
+}
+
+.cg-carousel {
+  padding: 5em;
+  color: #000;
+  background: transparent;
+}
+
+.cg-carousel span {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+.cg-carousel span.fa-check-circle {
+  color: #14aa13;
+}
+
+.cg-carousel span.fa-laptop {
+  color: #0099ff;
+}
+
+.cg-carousel span.fa-star {
+  color: gold;
+}
+
+.cg-carousel span.fa-certificate {
+  color: #fd7d5f;
+}
+
+.cg-carousel p {
+  font-size: 2em;
+  text-align: center;
+}
+
+h2.cg-company-treehouse,
+h2.cg-company-codeschool {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 400px;
+  padding-left: 90px;
+  margin-left: -200px;
+}
+
+h2.cg-company-github {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 300px;
+  padding-left: 90px;
+  margin-left: -150px;
+}
+
+h2.cg-company-treehouse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('../images/treehouse.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+}
+
+h2.cg-company-codeschool::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('../images/codeschool.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+}
+
+.cg-company-github::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('../images/github.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+}
