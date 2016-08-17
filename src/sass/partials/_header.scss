@@ -4,7 +4,11 @@
 .cg-header {
   background-color: #0099ff;
   color: #fff;
-  padding: 5em 5em;
+  padding: 5em 2em;
+
+  @media (min-width: 500px) {
+    padding: 5em 5em;
+  }
 }
 
 .brief-info {

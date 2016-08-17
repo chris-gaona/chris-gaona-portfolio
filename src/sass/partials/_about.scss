@@ -26,11 +26,13 @@
 .cg-myimage {
   position: relative;
   top: 0;
-  float: left;
+  left: 50%;
   shape-outside: circle(50%);
   -webkit-shape-outside: circle(50%);
   -webkit-clip-path: circle(50%);
   margin-right: 25px;
+  margin-bottom: 20px;
+  margin-left: -100px;
   height: 200px;
   width: 200px;
   background-image: url("../images/chrisgaona.jpg");
@@ -41,6 +43,13 @@
   border-radius: 50%;
   border: 10px solid #0099ff;
   z-index: 10;
+
+  @media (min-width: 400px) {
+    float: left;
+    left: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
 
   @media (min-width: 550px) {
     height: 275px;
