@@ -1,5 +1,5 @@
-<div class="hamburger-container" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="vm.click = !vm.click">
-  <hamburger variable="vm.click"></hamburger>
+<div class="hamburger-container" ng-mouseenter="vm.hover = true" ng-mouseleave="vm.hover = false" ng-click="vm.click = !vm.click">
+  <hamburger variable="vm.click" hover="vm.hover"></hamburger>
 </div>
 
 <div class="cg-user-container" ng-show="vm.isLoggedIn">
@@ -30,13 +30,17 @@
     <hr class="star-primary">
     <div class="portfolio-wrapper" ng-class="{'fade-out': vm.expandProject}">
       <div class="controls" >
-        <label>Filter:</label>
-        <button class="filter" data-filter="all">All</button>
-        <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+        <label ng-click="vm.filterVisible = !vm.filterVisible" ng-class="{'rotate': vm.filterVisible}">Filter</label>
+        <ul class="cg-filter" ng-show="vm.filterVisible" ng-class="{'fade-controls': vm.filterVisible}">
+          <li class="filter" data-filter="all">All</li>
+          <li class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</li>
+        </ul>
 
-        <label>Sort:</label>
-        <button class="sort" data-sort="myorder:asc">Asc</button>
-        <button class="sort" data-sort="myorder:desc">Desc</button>
+        <label ng-click="vm.sortVisible = !vm.sortVisible" ng-class="{'rotate': vm.sortVisible}">Sort</label>
+        <ul class="cg-sort" ng-show="vm.sortVisible" ng-class="{'fade-controls': vm.sortVisible}">
+          <li class="sort" data-sort="myorder:asc">Asc</li>
+          <li class="sort" data-sort="myorder:desc">Desc</li>
+        </ul>
       </div>
       <p>
         <button class="cg-new" ng-show="vm.isLoggedIn" ng-click="vm.newProject()">+ Add new project</button>

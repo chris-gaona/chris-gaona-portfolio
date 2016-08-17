@@ -128,23 +128,115 @@ span.fa-times {
   position: relative;
   top: 0;
   left: 50%;
-  width: 560px;
-  margin-left: -280px;
-  margin-bottom: 40px;
+  width: 265px;
+  margin-left: -132.5px;
 }
 
 .controls label {
-  font-size: 1.2em;
-}
-
-.controls button {
+  position: relative;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 50px 5px 20px;
   background-color: transparent;
   border: 3px solid #fd7d5f;
-  outline: none;
   margin: 0 5px;
   font-size: 1.2em;
+  cursor: pointer;
+}
+
+.controls label::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.controls label::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 7px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+}
+
+.controls label.rotate::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+}
+
+.controls label.rotate::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 7px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.controls li {
+  padding: 10px 0;
+  background-color: #fff;
+  border-bottom: 2px solid #666;
+  font-size: 1.2em;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+}
+
+.controls li:last-child {
+  border-bottom: none;
+}
+
+.cg-filter, .cg-sort {
+  padding: 0;
+}
+
+.cg-filter {
+  position: absolute;
+  top: 20px;
+  left: -52px;
+  width: 180px;
+  border: 3px solid #fd7d5f;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.cg-sort {
+  position: absolute;
+  top: 20px;
+  right: -27px;
+  width: 150px;
+  border: 3px solid #fd7d5f;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.fade-controls {
+  top: 50px;
+  opacity: 1;
+  transition: all 0.3s;
 }
 
 .show-more {
