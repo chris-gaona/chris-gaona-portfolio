@@ -5,7 +5,7 @@
   background-color: #fff;
   padding: 5em 2em 5em 2em;
 
-  @media (min-width: 600px) {
+  @media (min-width: 700px) {
     padding: 5em 6em 5em 6em;
   }
 }
@@ -16,7 +16,11 @@
 }
 
 .cg-aboutme p {
-  font-size: 1.5em;
+  font-size: 1.2em;
+
+  @media (min-width: 550px) {
+    font-size: 1.5em;
+  }
 }
 
 .cg-myimage {
@@ -27,8 +31,8 @@
   -webkit-shape-outside: circle(50%);
   -webkit-clip-path: circle(50%);
   margin-right: 25px;
-  height: 275px;
-  width: 275px;
+  height: 200px;
+  width: 200px;
   background-image: url("../images/chrisgaona.jpg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -37,13 +41,18 @@
   border-radius: 50%;
   border: 10px solid #0099ff;
   z-index: 10;
+
+  @media (min-width: 550px) {
+    height: 275px;
+    width: 275px;
+  }
 }
 
 .cg-google-map-container {
   position: relative;
   background-color: #fff;
   height: 320px;
-  padding: 0;
+  padding: 1em;
 
   @media (min-width: 800px) {
     padding: 0 0 0 5em;
@@ -79,7 +88,7 @@
   position: relative;
   background-color: #fff;
   height: 320px;
-  padding: 0;
+  padding: 1em;
 
   @media (min-width: 800px) {
     padding: 0 5em 0 0;

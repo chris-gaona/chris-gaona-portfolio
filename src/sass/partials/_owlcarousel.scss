@@ -54,12 +54,12 @@ h2.cg-company-codeschool {
   position: relative;
   left: 50%;
   top: 0;
-  width: 300px;
+  width: 350px;
   padding-left: 80px;
-  margin-left: -150px;
+  margin-left: -170px;
   margin-top: 1em;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     padding-left: 90px;
     width: 400px;
     margin-left: -200px;
@@ -71,9 +71,14 @@ h2.cg-company-github {
   left: 50%;
   top: 0;
   width: 300px;
-  padding-left: 90px;
-  margin-left: -150px;
+  padding-left: 50px;
+  margin-left: -130px;
   margin-top: 1em;
+
+  @media (min-width: 550px) {
+    padding-left: 90px;
+    margin-left: -150px;
+  }
 }
 
 h2.cg-company-treehouse::before {
@@ -88,7 +93,7 @@ h2.cg-company-treehouse::before {
   background-size: contain;
   border-radius: 5px;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     height: 60px;
     width: 60px;
   }
@@ -106,7 +111,7 @@ h2.cg-company-codeschool::before {
   background-size: contain;
   border-radius: 5px;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     height: 60px;
     width: 60px;
   }
@@ -124,7 +129,7 @@ h2.cg-company-codeschool::before {
   background-size: contain;
   border-radius: 5px;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     height: 60px;
     width: 60px;
   }

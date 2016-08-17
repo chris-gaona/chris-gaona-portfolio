@@ -15,7 +15,7 @@ body {
 h1 {
   font-size: 3.5em;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     font-size: 4.5em;
   }
 }
@@ -24,7 +24,7 @@ h2 {
   text-align: center;
   font-size: 3em;
 
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     font-size: 3.5em;
   }
 }
