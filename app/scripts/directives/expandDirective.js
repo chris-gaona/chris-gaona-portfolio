@@ -14,7 +14,7 @@ function expandProjectDirective () {
     },
     // replace: true, // Replace with the template below
     // transclude: true, // I want to insert custom content inside the directive
-    link: function (scope, element, attrs) {
+    link: function (scope) {
       // if hideModal button is clicked set show to false
       // to remove the modal window
       scope.collapseProject = function () {

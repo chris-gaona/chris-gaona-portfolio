@@ -15,7 +15,7 @@ function getTreehouse() {
       newObject.badges = treehouseRes.badges.length;
       newObject.points = treehouseRes.points.total;
 
-      cache.put('treehouse', newObject, 259200000, function(key, value) {
+      cache.put('treehouse', newObject, 259200000, function() {
           getTreehouse();
       }); // Time in ms
     }
@@ -30,7 +30,7 @@ function getCodeschool() {
 
     if (!err && response.statusCode == 200) {
       var codeschool = JSON.parse(body);
-      cache.put('codeschool', codeschool, 259200000, function(key, value) {
+      cache.put('codeschool', codeschool, 259200000, function() {
           getCodeschool();
       }); // Time in ms
     }

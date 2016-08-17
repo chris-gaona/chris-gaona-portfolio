@@ -1,6 +1,8 @@
+'use strict';
+
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -11,7 +13,6 @@ require('./models/Projects');
 require('./models/Users');
 var config = require('./config/database');
 
-var passport = require('passport');
 require('./config/passport');
 
 // var routes = require('./routes/index');
@@ -69,7 +70,7 @@ app.use(function(req, res, next) {
 // error handlers
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.json({
     error: {

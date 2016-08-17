@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function mainService ($http, AuthService) {
+function mainService ($http, $log, AuthService) {
   var mainService = {
     projects: []
   };
@@ -54,4 +54,4 @@ function mainService ($http, AuthService) {
 }
 
 angular.module('app')
-.factory('MainService', ['$http', 'AuthService', mainService]);
+.factory('MainService', ['$http', '$log', 'AuthService', mainService]);

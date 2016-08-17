@@ -46,7 +46,7 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
 
     if ($routeParams.id) {
       MainService.edit($routeParams.id, projectObject)
-      .then(function (project) {
+      .then(function () {
         $location.path('/');
         toastr.success('Updated your project', 'Success!');
         $log.log('Updated!');
@@ -57,7 +57,7 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
       });
     } else {
       MainService.create(projectObject)
-      .then(function (project) {
+      .then(function () {
         toastr.success('Created your new project', 'Success!');
         $location.path('/');
         $log.log('Created!');
