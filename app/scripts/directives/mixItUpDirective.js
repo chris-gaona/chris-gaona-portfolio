@@ -14,7 +14,7 @@ function mixItUpDirective () {
     },
     // replace: true, // Replace with the template below
     // transclude: true, // I want to insert custom content inside the directive
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
       scope.$watch('entities', function(){
         $(element).mixItUp();
         // how to tell mixitup to reload the data

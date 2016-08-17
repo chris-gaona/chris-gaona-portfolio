@@ -6,7 +6,7 @@ angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.date
 .run(function($rootScope, $location, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login
-  $rootScope.$on('$routeChangeStart', function(event, next, current) {
+  $rootScope.$on('$routeChangeStart', function(event, next) {
     // if the "require login" property is set to "true"
     // and we don't have an authenticated user...
     // then send the user to the "Sign In" view.

@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function authController ($location, $log, MainService, AuthService, toastr, errorHandlerService) {
+function authController ($location, $log, MainService, AuthService, toastr) {
   var vm = this;
 
   vm.goBack = function () {
@@ -47,4 +47,4 @@ function authController ($location, $log, MainService, AuthService, toastr, erro
 }
 
 angular.module('app')
-.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', 'errorHandlerService', authController]);
+.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', authController]);

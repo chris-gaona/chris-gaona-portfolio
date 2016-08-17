@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function authService($http, $window, $log) {
+function authService($http, $window) {
   var authService = {};
 
   //save token in local storage
@@ -11,7 +11,7 @@ function authService($http, $window, $log) {
   };
 
   //get token from local storage
-  authService.getToken = function(token) {
+  authService.getToken = function() {
     return $window.localStorage['chris-portfolio-token'];
   };
 
@@ -74,4 +74,4 @@ function authService($http, $window, $log) {
 //--------------------------------------
 angular.module('app')
 //create initial auth factory. We'll need to inject $http for interfacing with our server, and $window for interfacing with localStorage
-.factory('AuthService', ['$http', '$window', '$log', authService]);
+.factory('AuthService', ['$http', '$window', authService]);

@@ -5,7 +5,9 @@
   "jquery": true,
   "browser": true,
   "strict": true,
+  "validthis": true,
   "globals":{
-    "angular": true
+    "angular": true,
+    "twttr": true
   }
 }

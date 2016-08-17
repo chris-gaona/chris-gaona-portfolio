@@ -8,7 +8,7 @@ function owlDirective () {
     restrict: 'E',
     // replace: true, // Replace with the template below
     // transclude: true, // I want to insert custom content inside the directive
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
       var options = scope.$eval($(element).attr('data-options'));
 
       $(element).owlCarousel(options);

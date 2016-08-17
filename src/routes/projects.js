@@ -44,7 +44,7 @@ router.get('/projects', function (req, res, next) {
 });
 
 // get specific project
-router.get('/project/:id', function (req, res, next) {
+router.get('/project/:id', function (req, res) {
   res.json(req.project);
 });
 

@@ -11,11 +11,6 @@ function hamburgerDirective () {
     scope: {
       variable: '='
     },
-    // replace: true, // Replace with the template below
-    // transclude: true, // I want to insert custom content inside the directive
-    link: function (scope, element, attrs) {
-
-    },
     // adds template url for modal
     templateUrl: '../templates/hamburger.html' // See below
   };

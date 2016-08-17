@@ -4,7 +4,7 @@ var angular = require('angular');
 
 function ValidationErrors() {
   var controller = ['$scope', function($scope) {
-    $scope.$watch('errors', function(newValue, oldValue) {
+    $scope.$watch('errors', function(newValue) {
       var errorsToDisplay = [];
 
       if (newValue) {
