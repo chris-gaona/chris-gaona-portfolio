@@ -2,7 +2,9 @@
 
 var angular = require('angular');
 
+// creates validation errors function
 function ValidationErrors() {
+  // creates controller
   var controller = ['$scope', function($scope) {
     $scope.$watch('errors', function(newValue) {
       var errorsToDisplay = [];
@@ -15,11 +17,13 @@ function ValidationErrors() {
         }
       }
 
+      // sets errors to display
       $scope.errorsToDisplay = errorsToDisplay;
     });
   }];
 
   return {
+    // restrict to Element only
     restrict: 'E',
     scope: {
       errors: '='

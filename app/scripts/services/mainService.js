@@ -1,7 +1,9 @@
 'use strict';
 
+// requires angular
 var angular = require('angular');
 
+// creates main service function
 function mainService ($http, $log, AuthService) {
   var mainService = {
     projects: []

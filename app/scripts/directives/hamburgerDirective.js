@@ -12,8 +12,8 @@ function hamburgerDirective () {
       variable: '=',
       hover: '='
     },
-    // adds template url for modal
-    templateUrl: '../templates/hamburger.html' // See below
+    // adds template url
+    templateUrl: '../templates/hamburger.html'
   };
 }
 

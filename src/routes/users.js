@@ -1,5 +1,6 @@
 'use strict';
 
+  // defines needed variables
   var express = require('express');
   var router = express.Router();
 
@@ -13,9 +14,12 @@
     userProperty: 'payload'
   });
 
+  // get a specific user
   router.get('/:username', auth, function(req, res, next) {
+    // username taken from the url
     var user = req.params.username;
 
+    // find the specific user in the database
     User.findOne({username: user}, '_id username firstName', function(err, user) {
       if (err) return next(err);
       res.json(user);

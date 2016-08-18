@@ -15,11 +15,11 @@ var config = require('./config/database');
 
 require('./config/passport');
 
-// var routes = require('./routes/index');
-var projects = require('./routes/projects');
-var accomplishments = require('./routes/accomplishments');
-var users = require('./routes/users');
-var auth = require('./routes/auth');
+var routes = require('./routes');
+// var projects = require('./routes/projects');
+// var accomplishments = require('./routes/accomplishments');
+// var users = require('./routes/users');
+// var auth = require('./routes/auth');
 
 require('./cache');
 
@@ -47,10 +47,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', express.static('dist/public'));
-app.use('/api', projects);
-app.use('/api', accomplishments);
-app.use('/user', users);
-app.use('/', auth);
+app.use('/api', routes.project);
+app.use('/api', routes.accomplishments);
+app.use('/user', routes.users);
+app.use('/', routes.auth);
 
 // vendor scripts
 app.get('/vendor/angular-toastr.min.css', function(req, res) {

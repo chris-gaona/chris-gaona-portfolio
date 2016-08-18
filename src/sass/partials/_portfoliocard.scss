@@ -67,7 +67,7 @@ span.fa-times {
   padding: 5px;
   border-radius: 5px;
   color: #fff;
-  z-index: 999;
+  z-index: 10;
 
   @media (min-width: 544px) {
     right: 25px;
@@ -241,6 +241,7 @@ span.fa-times {
 
 .cg-filter, .cg-sort {
   padding: 0;
+  z-index: 1000;
 }
 
 .cg-filter {
@@ -252,7 +253,6 @@ span.fa-times {
   border-radius: 5px;
   opacity: 0;
   transition: all 0.3s;
-  z-index: 10;
 
   @media (min-width: 350px) {
     width: 180px;
@@ -269,7 +269,6 @@ span.fa-times {
   border-radius: 5px;
   opacity: 0;
   transition: all 0.3s;
-  z-index: 10;
 
   @media (min-width: 350px) {
     width: 150px;

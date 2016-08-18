@@ -15,7 +15,7 @@ var seeder = require('mongoose-seeder');
 */
 var data = require('./seed.json');
 
-// seed the mongoose / mongodb databse
+// seed the mongoose / mongodb database
 seeder.seed(data).then(function (dbData) {
   // The database objects are stored in dbData
   console.log('Success!: ' + dbData);
