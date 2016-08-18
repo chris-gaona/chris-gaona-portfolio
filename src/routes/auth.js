@@ -11,15 +11,15 @@ var passport = require('passport');
 //REGISTER
 router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.password){
-    return res.status(400).json({
+    return res.status(400).json([{
       message: 'Please fill out all fields'
-    });
+    }]);
   }
 
   if (req.body.password !== req.body.confirmPassword) {
-    return res.status(400).json({
+    return res.status(400).json([{
       message: 'Uh oh! Passwords do not match'
-    });
+    }]);
   }
 
   var user = new User();
@@ -31,8 +31,30 @@ router.post('/register', function(req, res, next){
   user.setPassword(req.body.password);
 
   user.save(function (err){
-    if(err){
-      return next(err);
+    if (err) {
+      // check for validation errors
+      if (err.name === 'ValidationError') {
+        var errorArray = [];
+
+        if (err.errors.username) {
+          errorArray.push({ message: err.errors.username.message });
+        }
+
+        if (err.errors.firstName) {
+          errorArray.push({ message: err.errors.firstName.message });
+        }
+
+        if (err.errors.hash) {
+          errorArray.push({ message: err.errors.hash.message });
+        }
+
+        // var errorMessages = { message: errorArray };
+
+        return res.status(400).json(errorArray);
+      } else {
+        // else send error to error handler
+        return next(err);
+      }
     }
 
     return res.json({
@@ -44,9 +66,9 @@ router.post('/register', function(req, res, next){
 // LOGIN
   router.post('/login', function(req, res, next){
     if(!req.body.username || !req.body.password){
-      return res.status(400).json({
+      return res.status(400).json([{
         message: 'Please fill out all fields'
-      });
+      }]);
     }
 
     passport.authenticate('local', function(err, user, info){
