@@ -12,15 +12,13 @@ function mixItUpDirective () {
       editButton: '&',
       loggedIn: '='
     },
-    // replace: true, // Replace with the template below
-    // transclude: true, // I want to insert custom content inside the directive
     link: function (scope, element) {
       scope.$watch('entities', function(){
         $(element).mixItUp();
         // how to tell mixitup to reload the data
       });
     },
-    // adds template url for modal
+    // adds template url
     templateUrl: '../templates/mixitup.html'
   };
 }

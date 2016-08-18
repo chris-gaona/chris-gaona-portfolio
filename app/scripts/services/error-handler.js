@@ -1,15 +1,21 @@
 'use strict';
 
+// requires angular
 var angular = require('angular');
 
+// creates error handler function
 function ErrorHandler(toastr, $log) {
   var vm = this;
 
+  // creates handle error function
   vm.handleError = function(response, displayValidationErrorsCallback) {
+    // if the error has status 400 meaning there are form issues
     if (response.status === 400 && displayValidationErrorsCallback) {
+      // tell user to fix the form issues
       toastr.error('Please see above', 'Form Errors!');
       displayValidationErrorsCallback(response.data);
     } else {
+      // else display the message to the user
       var message = response && response.data && response.data.message;
       if (!message) {
         message = 'Message not available. Please see the console for more details.';

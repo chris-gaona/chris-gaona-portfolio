@@ -12,17 +12,14 @@ function expandProjectDirective () {
       show: '=',
       project: '='
     },
-    // replace: true, // Replace with the template below
-    // transclude: true, // I want to insert custom content inside the directive
     link: function (scope) {
-      // if hideModal button is clicked set show to false
-      // to remove the modal window
+      // if collapseProject button is clicked set show to false to remove the expanded project
       scope.collapseProject = function () {
         scope.show = false;
       };
     },
-    // adds template url for modal
-    templateUrl: '../templates/expand-project.html' // See below
+    // adds template url
+    templateUrl: '../templates/expand-project.html'
   };
 }
 
