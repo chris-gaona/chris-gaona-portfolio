@@ -7,6 +7,13 @@
     <span>Welcome {{vm.user.firstName}}</span>
     <button type="button" ng-click="vm.logOut()">Log Out</button>
   </div>
+  <div class="cg-user-mobile">
+    <span class="fa fa-user" ng-click="user = !user"></span>
+    <ul ng-class="{'user-visible': user}">
+      <li>Welcome {{vm.user.firstName}}</li>
+      <li class="cg-logout" ng-click="vm.logOut()">Logout</li>
+    </ul>
+  </div>
 </div>
 
 <div class="cg-parallax"></div>
