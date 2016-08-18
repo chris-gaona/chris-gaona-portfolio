@@ -29,7 +29,7 @@ function authController ($location, $log, MainService, AuthService, toastr) {
       toastr.error('Please see above', 'Form Errors!');
       $log.log(error);
     }).then(function() {
-      toastr.success('Please see above', 'Form Errors!');
+      toastr.success('You are now registered', 'Success!');
       $location.path('/');
     });
   };
