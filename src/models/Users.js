@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 
 var jwtSecret;
 
-if (process.env.JWT_SIGNATURE) {
+if (process.env.JWT_SIGNATURE !== undefined) {
   jwtSecret = process.env.JWT_SIGNATURE;
 } else {
   jwtSecret = 'SECRET';

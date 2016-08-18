@@ -3,13 +3,7 @@
 // requires angular
 var angular = require('angular');
 
-var FORECAST_IO;
-
-if (process.env.FORECAST_IO) {
-  FORECAST_IO = process.env.FORECAST_IO;
-} else {
-  FORECAST_IO = 'cf9659348d1908d40d599089da4bb449';
-}
+var FORECAST_IO = process.env.FORECAST_IO;
 
 // creates weather service function
 function weatherService ($http) {

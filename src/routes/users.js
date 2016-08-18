@@ -10,7 +10,7 @@
   var jwt = require('express-jwt');
   var jwtSecret;
 
-  if (process.env.JWT_SIGNATURE) {
+  if (process.env.JWT_SIGNATURE !== undefined) {
     jwtSecret = process.env.JWT_SIGNATURE;
   } else {
     jwtSecret = 'SECRET';
