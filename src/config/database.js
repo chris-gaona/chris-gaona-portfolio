@@ -1,6 +1,8 @@
 
 'use strict';
 
+// database configuration
+
 var config = {};
 var MODULUS_USERNAME = process.env.MODULUS_USERNAME;
 var MODULUS_PASSWORD = process.env.MODULUS_PASSWORD;

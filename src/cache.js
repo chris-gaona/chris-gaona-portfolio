@@ -1,20 +1,24 @@
 'use strict';
 
+// defines needed variables
 var cache = require('memory-cache');
 var request = require('request');
 
-// { badges: 181, points: 17297 }
-
+// creates getTreehouse function
 function getTreehouse() {
+  // request teamtreehouse url
   request('https://teamtreehouse.com/chrisgaona.json', function (err, response, body) {
-    if (err) console.log(err);
+    if (err) new Error(err);
 
+    // if response is good and there is no error
     if (!err && response.statusCode == 200) {
+      // parse the json response
       var treehouseRes = JSON.parse(body);
       var newObject = {};
       newObject.badges = treehouseRes.badges.length;
       newObject.points = treehouseRes.points.total;
 
+      // cache the object and refresh every 3 days
       cache.put('treehouse', newObject, 259200000, function() {
           getTreehouse();
       }); // Time in ms
@@ -24,12 +28,18 @@ function getTreehouse() {
 
 getTreehouse();
 
+// creates getCodeschool function
 function getCodeschool() {
+  // request codeschool url
   request('https://www.codeschool.com/users/1777453.json', function (err, response, body) {
-    if (err) console.log(err);
+    if (err) new Error(err);
 
+    // if response is good and there is no error
     if (!err && response.statusCode == 200) {
+      // parse result
       var codeschool = JSON.parse(body);
+
+      // cache the object and refresh every 3 days
       cache.put('codeschool', codeschool, 259200000, function() {
           getCodeschool();
       }); // Time in ms

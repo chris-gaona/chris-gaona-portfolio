@@ -1,21 +1,25 @@
 'use strict';
 
+// creates needed variables
 var express = require('express');
 var router = express.Router();
 
 var github = require('octonode');
 var cache = require('memory-cache');
 
+// get treehouse route
 router.get('/treehouse', function (req, res) {
   var treehouse = cache.get('treehouse');
   res.status(200).send(treehouse);
 });
 
+// get codeschool route
 router.get('/codeschool', function (req, res) {
   var codeschool = cache.get('codeschool');
   res.status(200).send(codeschool);
 });
 
+// get github route
 router.get('/github', function (req, res, next) {
   var client = github.client();
 

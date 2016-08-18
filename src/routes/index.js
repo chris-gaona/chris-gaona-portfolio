@@ -1,9 +1,7 @@
-// var express = require('express');
-// var router = express.Router();
-//
-// /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-//
-// module.exports = router;
+'use strict';
+
+// requires all needed files in this folder
+exports.project = require('./projects.js');
+exports.auth = require('./auth.js');
+exports.accomplishments = require('./accomplishments.js');
+exports.users = require('./users.js');

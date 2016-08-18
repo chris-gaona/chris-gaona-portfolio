@@ -13,9 +13,9 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
-// creates middleware for all course urls to go through first
+// creates middleware for all project urls to go through first
 router.param('id', function (req, res, next, id) {
-  // populates reviews in Course model
+  // query to find specific project by ID
   var query = Project.findById(id);
 
   // executes the query
@@ -23,24 +23,25 @@ router.param('id', function (req, res, next, id) {
     // if err pass the error onto the next error handler
     if (err) { return next(err); }
 
-    // if there is no course return error to error handler saying can't find the course
+    // if there is no project return error to error handler saying can't find the course
     if (!project) {
       return next(new Error('can\'t find project'));
     }
 
-    // sets course to req.course to be passed to next handler
+    // sets course to req.project to be passed to next handler
     req.project = project;
     return next();
   });
 });
 
+// get all projects
 router.get('/projects', function (req, res, next) {
   Project.find(function(err, projects){
       if(err){ return next(err); }
 
+      // send projects
       res.json(projects);
     });
-  // res.status(200).json('You hit the GET projects api route');
 });
 
 // get specific project
@@ -48,9 +49,11 @@ router.get('/project/:id', function (req, res) {
   res.json(req.project);
 });
 
+// create a new project
 router.post('/new', auth, function (req, res, next) {
   var project = new Project(req.body);
 
+  // save the project
   project.save(function(err, project){
     if (err) {
       // check for validation errors
@@ -85,12 +88,14 @@ router.post('/new', auth, function (req, res, next) {
       }
     }
 
+    //send the project
     res.json(project);
   });
-  // res.status(201).json('You hit the POST projects api route');
 });
 
+// edit an existing project
 router.put('/edit/:id', auth, function (req, res, next) {
+  // runValidators makes it so the updated values are validated again before saving
   req.project.update(req.body, { runValidators: true }, function (err, project) {
     if (err) {
       // check for validation errors
@@ -125,9 +130,9 @@ router.put('/edit/:id', auth, function (req, res, next) {
       }
     }
 
+    // send project
     res.json({project: project, message: 'Project Updated'});
   });
-  // res.status(201).json('You hit the POST projects api route');
 });
 
 module.exports = router;
