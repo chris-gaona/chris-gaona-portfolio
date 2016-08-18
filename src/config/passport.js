@@ -10,10 +10,10 @@ passport.use(new LocalStrategy(
     User.findOne({ username: username }, function (err, user) {
       if (err) { return done(err); }
       if (!user) {
-        return done(null, false, [{ message: 'Incorrect username or password' }]);
+        return done(null, false, { message: 'Validation Failed', errors: { property: [ { code: 400, message: 'Incorrect username or password' } ] } });
       }
       if (!user.validPassword(password)) {
-        return done(null, false, [{ message: 'Incorrect username or password' }]);
+        return done(null, false, { message: 'Validation Failed', errors: { property: [ { code: 400, message: 'Incorrect username or password' } ] } });
       }
       return done(null, user);
     });

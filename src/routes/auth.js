@@ -11,15 +11,15 @@ var passport = require('passport');
 //REGISTER
 router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.password){
-    return res.status(400).json([{
-      message: 'Please fill out all fields'
-    }]);
+    return res.status(400).json({
+      message: 'Validation Failed', errors: { property: [ { code: 400, message: 'Please fill out all fields' } ] }
+    });
   }
 
   if (req.body.password !== req.body.confirmPassword) {
-    return res.status(400).json([{
-      message: 'Uh oh! Passwords do not match'
-    }]);
+    return res.status(400).json({
+      message: 'Validation Failed', errors: { property: [ { code: 400, message: 'Uh oh! Passwords do not match' } ] }
+    });
   }
 
   var user = new User();
@@ -37,20 +37,20 @@ router.post('/register', function(req, res, next){
         var errorArray = [];
 
         if (err.errors.username) {
-          errorArray.push({ message: err.errors.username.message });
+          errorArray.push({ code: 400, message: err.errors.username.message });
         }
 
         if (err.errors.firstName) {
-          errorArray.push({ message: err.errors.firstName.message });
+          errorArray.push({ code: 400, message: err.errors.firstName.message });
         }
 
         if (err.errors.hash) {
-          errorArray.push({ message: err.errors.hash.message });
+          errorArray.push({ code: 400, message: err.errors.hash.message });
         }
 
-        // var errorMessages = { message: errorArray };
+        var errorMessages = { message: 'Validation Failed', errors: { property: errorArray}};
 
-        return res.status(400).json(errorArray);
+        return res.status(400).json(errorMessages);
       } else {
         // else send error to error handler
         return next(err);
@@ -66,9 +66,9 @@ router.post('/register', function(req, res, next){
 // LOGIN
   router.post('/login', function(req, res, next){
     if(!req.body.username || !req.body.password){
-      return res.status(400).json([{
-        message: 'Please fill out all fields'
-      }]);
+      return res.status(400).json({
+        message: 'Validation Failed', errors: { property: [ { code: 400, message: 'Please fill out all fields' } ] }
+      });
     }
 
     passport.authenticate('local', function(err, user, info){
@@ -82,7 +82,7 @@ router.post('/register', function(req, res, next){
         });
 
       } else {
-        return res.status(401).json(info);
+        return res.status(400).json(info);
       }
     })(req, res, next);
   });

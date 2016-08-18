@@ -1,17 +1,25 @@
 'use strict';
 
+// requires angular
 var angular = require('angular');
 
+// creatse the projectController
 function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
 
+  vm.hasValidationErrors = false;
+
+  // potential grades I could have received
   vm.grades = [{ name: 'Exceeds Expectations' }, { name: 'Meets Expectations' }];
 
+  // if there is an id in the url
   if ($routeParams.id) {
+    // get that one project
     MainService.getOne($routeParams.id)
     .then(function (response) {
       vm.project = response.data;
 
+      // fills in the ng-model in the form so this project can be edited
       var project = response.data;
       vm.name = project.name;
       vm.category = project.category;
@@ -32,7 +40,9 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
     });
   }
 
+  // creates save project function
   vm.saveProject = function () {
+    // creates project object to save to mongodb
     var projectObject = {};
     projectObject.name = vm.name;
     projectObject.category = vm.category;
@@ -44,25 +54,27 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
     projectObject.treehouse_comments = vm.treehouse_comments;
     projectObject.grade = vm.grade;
 
+    // if existing project is being edited
     if ($routeParams.id) {
       MainService.edit($routeParams.id, projectObject)
       .then(function () {
+        // if successful redirect to home page and give client a message
         $location.path('/');
         toastr.success('Updated your project', 'Success!');
-        $log.log('Updated!');
       }, function (err) {
+        // else handle the error
         errorHandlerService.handleError(err, displayValidationErrors);
         // log the error to the console
         $log.error('Error ' + err);
       });
     } else {
+      // else create a new project
       MainService.create(projectObject)
       .then(function () {
+        // if successful redirect to home page and give client a message
         toastr.success('Created your new project', 'Success!');
         $location.path('/');
-        $log.log('Created!');
       }, function (err) {
-        $log.log(err);
         errorHandlerService.handleError(err, displayValidationErrors);
         // log the error to the console
         $log.error('Error ' + err);
@@ -70,10 +82,12 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
     }
   };
 
+  // creates go back function in form
   vm.goBack = function () {
     $location.path('/');
   };
 
+  // creates the callback function for errorHandlerService
   function displayValidationErrors(validationErrors) {
     vm.validationErrors = validationErrors.errors;
     $log.log(vm.validationErrors);

@@ -1,10 +1,15 @@
 'use strict';
 
+// requires angular
 var angular = require('angular');
 
-function authController ($location, $log, MainService, AuthService, toastr) {
+// function for auth controller
+function authController ($location, $log, MainService, AuthService, toastr, errorHandlerService) {
   var vm = this;
 
+  vm.hasValidationErrors = false;
+
+  // used with ng-clicks to handle the routing
   vm.goBack = function () {
     $location.path('/');
   };
@@ -23,28 +28,39 @@ function authController ($location, $log, MainService, AuthService, toastr) {
     vm.login = 'Login';
   }
 
+  // register user function
   vm.registerUser = function() {
-    AuthService.register(vm.user).error(function(error) {
-      vm.error = error;
-      toastr.error('Please see above', 'Form Errors!');
-      $log.log(error);
-    }).then(function() {
+    AuthService.register(vm.user).then(function() {
+      // if not errors give a message to client & redirect to home page
       toastr.success('You are now registered', 'Success!');
       $location.path('/');
+    }, function (err) {
+      errorHandlerService.handleError(err, displayValidationErrors);
+      // log the error to the console
+      $log.error('Error ' + err);
     });
   };
 
+  // login user function
   vm.loginUser = function() {
-    AuthService.logIn(vm.user).error(function(error) {
-      vm.error = error;
-      toastr.error('Please see above', 'Form Errors!');
-      $log.log(vm.error);
-    }).then(function() {
+    AuthService.logIn(vm.user).then(function() {
+      // if not errors give a message to client & redirect to home page
       toastr.success('You are logged in', 'Success!');
       $location.path('/');
+    }, function (err) {
+      errorHandlerService.handleError(err, displayValidationErrors);
+      // log the error to the console
+      $log.error('Error ' + err);
     });
   };
+
+  // creates the callback function for errorHandlerService
+  function displayValidationErrors(validationErrors) {
+    vm.validationErrors = validationErrors.errors;
+    $log.log(vm.validationErrors);
+    vm.hasValidationErrors = true;
+  }
 }
 
 angular.module('app')
-.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', authController]);
+.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', 'errorHandlerService', authController]);

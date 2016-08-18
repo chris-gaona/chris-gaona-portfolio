@@ -1,9 +1,11 @@
 'use strict';
 
+// requires angular
 var angular = require('angular');
 
 angular.module('app')
 
+// creates config routes for angular application
 .config(config);
 
 function config ($routeProvider) {

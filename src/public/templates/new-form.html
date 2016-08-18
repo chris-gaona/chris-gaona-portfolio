@@ -10,7 +10,7 @@
       <validation-errors errors="vm.validationErrors"></validation-errors>
     </div>
     <form ng-submit="vm.saveProject()">
-      <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name">
+      <input id="name" type="text" name="name" ng-model="vm.name" placeholder="Project Name" autofocus>
       <input id="category" type="text" name="category" ng-model="vm.category" placeholder="Category">
       <input id="image" type="text" name="image" ng-model="vm.image" placeholder="Image URL">
       <datepicker date-format="MMMM d, yyyy">
@@ -18,8 +18,8 @@
       </datepicker>
       <input id="link" type="text" name="link" ng-model="vm.link" placeholder="Live Preview Link">
       <input id="github_link"type="text" name="github_link" ng-model="vm.github_link" placeholder="GitHub Link">
-      <textarea id="comments" type="text" name="comments" ng-model="vm.comments" placeholder="Comments"></textarea>
-      <textarea id="treehouse_comments" type="text" name="treehouse_comments" ng-model="vm.treehouse_comments" placeholder="Treehouse Comments"></textarea>
+      <textarea id="comments" type="text" name="comments" rows="10" ng-model="vm.comments" placeholder="Comments"></textarea>
+      <textarea id="treehouse_comments" type="text" rows="10" name="treehouse_comments" ng-model="vm.treehouse_comments" placeholder="Treehouse Comments"></textarea>
       <div class="cg-select-container">
         <select ng-model="vm.grade" ng-options="grade.name as grade.name for grade in vm.grades">
           <option value="">Choose Grade...</option>

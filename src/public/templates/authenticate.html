@@ -6,13 +6,13 @@
        Back
     </p>
     <h2>{{vm.register ? vm.register : vm.login}}</h2>
-    <h4 class="cg-errors" ng-show="vm.error">Validation Errors</h4>
-    <p class="cg-errors" ng-show="vm.error" ng-repeat="error in vm.error">
-      {{error.message}}
-    </p>
+    <div ng-show="vm.hasValidationErrors" class="cg-validation-container">
+      <h4 class="validation--errors--label">Validation errors</h4>
+      <validation-errors errors="vm.validationErrors"></validation-errors>
+    </div>
     <form ng-submit="vm.register ? vm.registerUser() : vm.loginUser()">
-      <input ng-show="vm.register" id="firstName" type="text" name="firstName" ng-model="vm.user.firstName" placeholder="First Name">
-      <input id="username" type="text" name="username" ng-model="vm.user.username" placeholder="Username">
+      <input ng-show="vm.register" id="firstName" type="text" name="firstName" ng-model="vm.user.firstName" placeholder="First Name" autofocus>
+      <input id="username" type="text" name="username" ng-model="vm.user.username" placeholder="Username" autofocus>
       <input id="password" type="password" name="password" ng-model="vm.user.password" placeholder="Password">
       <input ng-show="vm.register" id="confirmPassword" type="password" name="confirmPassword" ng-model="vm.user.confirmPassword" placeholder="Confirm Password">
       <div class="cg-btn-container">
