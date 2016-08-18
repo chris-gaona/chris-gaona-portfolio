@@ -7,9 +7,17 @@ var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
 
 var jwt = require('express-jwt');
+var jwtSecret;
+
+if (process.env.JWT_SIGNATURE) {
+  jwtSecret = process.env.JWT_SIGNATURE;
+} else {
+  jwtSecret = 'SECRET';
+}
+
 //middleware for authenticating jwt tokens
 var auth = jwt({
-  secret: 'SECRET', // TODO this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+  secret: jwtSecret,
   userProperty: 'payload'
 });
 

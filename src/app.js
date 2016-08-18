@@ -16,10 +16,6 @@ var config = require('./config/database');
 require('./config/passport');
 
 var routes = require('./routes');
-// var projects = require('./routes/projects');
-// var accomplishments = require('./routes/accomplishments');
-// var users = require('./routes/users');
-// var auth = require('./routes/auth');
 
 require('./cache');
 

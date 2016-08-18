@@ -4,6 +4,14 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
+var jwtSecret;
+
+if (process.env.JWT_SIGNATURE) {
+  jwtSecret = process.env.JWT_SIGNATURE;
+} else {
+  jwtSecret = 'SECRET';
+}
+
 var UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -60,7 +68,7 @@ UserSchema.methods.generateJWT = function() {
     _id: this._id,
     username: this.username,
     exp: parseInt(exp.getTime() / 1000),
-  }, 'SECRET');
+  }, jwtSecret);
 };
 
 mongoose.model('User', UserSchema);
