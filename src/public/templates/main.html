@@ -1,11 +1,18 @@
-<div class="hamburger-container" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="vm.click = !vm.click">
-  <hamburger variable="vm.click"></hamburger>
+<div class="hamburger-container" ng-mouseenter="vm.hover = true" ng-mouseleave="vm.hover = false" ng-click="vm.click = !vm.click">
+  <hamburger variable="vm.click" hover="vm.hover"></hamburger>
 </div>
 
 <div class="cg-user-container" ng-show="vm.isLoggedIn">
   <div class="cg-user">
     <span>Welcome {{vm.user.firstName}}</span>
     <button type="button" ng-click="vm.logOut()">Log Out</button>
+  </div>
+  <div class="cg-user-mobile">
+    <span class="fa fa-user" ng-click="user = !user"></span>
+    <ul ng-class="{'user-visible': user}">
+      <li>Welcome {{vm.user.firstName}}</li>
+      <li class="cg-logout" ng-click="vm.logOut()">Logout</li>
+    </ul>
   </div>
 </div>
 
@@ -30,13 +37,17 @@
     <hr class="star-primary">
     <div class="portfolio-wrapper" ng-class="{'fade-out': vm.expandProject}">
       <div class="controls" >
-        <label>Filter:</label>
-        <button class="filter" data-filter="all">All</button>
-        <button class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</button>
+        <label ng-click="vm.filterVisible = !vm.filterVisible" ng-class="{'rotate': vm.filterVisible}">Filter</label>
+        <ul class="cg-filter" ng-show="vm.filterVisible" ng-class="{'fade-controls': vm.filterVisible}">
+          <li class="filter" data-filter="all">All</li>
+          <li class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</li>
+        </ul>
 
-        <label>Sort:</label>
-        <button class="sort" data-sort="myorder:asc">Asc</button>
-        <button class="sort" data-sort="myorder:desc">Desc</button>
+        <label ng-click="vm.sortVisible = !vm.sortVisible" ng-class="{'rotate': vm.sortVisible}">Sort</label>
+        <ul class="cg-sort" ng-show="vm.sortVisible" ng-class="{'fade-controls': vm.sortVisible}">
+          <li class="sort" data-sort="myorder:asc">Asc</li>
+          <li class="sort" data-sort="myorder:desc">Desc</li>
+        </ul>
       </div>
       <p>
         <button class="cg-new" ng-show="vm.isLoggedIn" ng-click="vm.newProject()">+ Add new project</button>
@@ -76,7 +87,7 @@
       <div class="cg-weather">
         <span>{{vm.weather.currently.temperature | number:0}}&deg; </span>
       </div>
-      <h5>Currently residing in Livermore, CA</h5>
+      <h5>Currently in Livermore, CA</h5>
       <ng-map center="[37.6819, -121.7680]" scrollwheel="false" style="height: 260px">
         <marker position="37.6819, -121.7680" title="Hey There!"></marker>
       </ng-map>

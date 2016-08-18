@@ -1,0 +1,113 @@
+/************************/
+/*ABOUT ME*/
+/************************/
+.cg-aboutme {
+  background-color: #fff;
+  padding: 5em 2em 5em 2em;
+
+  @media (min-width: 700px) {
+    padding: 5em 6em 5em 6em;
+  }
+}
+
+.cg-aboutme-image {
+  background-color: #fff;
+  padding: 1em 3em 0 3em;
+}
+
+.cg-aboutme p {
+  font-size: 1.2em;
+
+  @media (min-width: 550px) {
+    font-size: 1.5em;
+  }
+}
+
+.cg-myimage {
+  position: relative;
+  top: 0;
+  left: 50%;
+  shape-outside: circle(50%);
+  -webkit-shape-outside: circle(50%);
+  -webkit-clip-path: circle(50%);
+  margin-right: 25px;
+  margin-bottom: 20px;
+  margin-left: -100px;
+  height: 200px;
+  width: 200px;
+  background-image: url("../images/chrisgaona.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: #000;
+  border-radius: 50%;
+  border: 10px solid #0099ff;
+  z-index: 10;
+
+  @media (min-width: 400px) {
+    float: left;
+    left: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  @media (min-width: 550px) {
+    height: 275px;
+    width: 275px;
+  }
+}
+
+.cg-google-map-container {
+  position: relative;
+  background-color: #fff;
+  height: 320px;
+  padding: 1em;
+
+  @media (min-width: 800px) {
+    padding: 0 0 0 5em;
+  }
+}
+
+.cg-google-map {
+  border-top: 4px solid #fd7d5f;
+  height: 100%;
+  width: 90%;
+  margin: 0 5%;
+  z-index: 1000;
+}
+
+.cg-google-map h5 {
+  position: relative;
+  top: 4px;
+  font-size: 14px;
+  padding: 10px 5px;
+  background-color: #fff;
+  float: left;
+  z-index: 10;
+}
+
+.cg-weather {
+  position: relative;
+  top: 10px;
+  font-size: 18px;
+  float: right;
+}
+
+.cg-twitter-container {
+  position: relative;
+  background-color: #fff;
+  height: 320px;
+  padding: 1em;
+
+  @media (min-width: 800px) {
+    padding: 0 5em 0 0;
+  }
+}
+
+.cg-twitter {
+  border-top: 4px solid #fd7d5f;
+  height: 100%;
+  width: 90%;
+  margin: 0 5%;
+  z-index: 1000;
+}

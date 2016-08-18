@@ -2,7 +2,7 @@
   <div class="card-deck">
     <div class="card">
       <span class="fa fa-times" ng-click="show = false"></span>
-      <img ng-src="{{project.image}}" alt="Image" class="card-img-top img-fluid" />
+      <div class="card-image-top cg-expand-image" ng-style="{'background-image': 'url(' + project.image + ')'}"></div>
       <div class="card-block">
         <a href="{{project.github_link}}" target="_blank" class="cg-github-repo">GitHub Repo</a>
         <h4 class="card-title">{{project.name}}</h4>

@@ -9,7 +9,8 @@ function hamburgerDirective () {
     // adds scope with show set to = to make it able to be
     // changed from the controller, & directive
     scope: {
-      variable: '='
+      variable: '=',
+      hover: '='
     },
     // adds template url for modal
     templateUrl: '../templates/hamburger.html' // See below

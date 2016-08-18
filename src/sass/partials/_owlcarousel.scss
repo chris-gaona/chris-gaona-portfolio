@@ -1,0 +1,166 @@
+/************************/
+/*OWL CAROUSEL*/
+/************************/
+.cg-carousel-container {
+  border-right: 2px solid #ddd;
+}
+
+.cg-carousel {
+  padding: 1em;
+  color: #000;
+  background: transparent;
+
+  @media (min-width: 800px) {
+    padding: 5em;
+  }
+}
+
+.cg-carousel span {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+.cg-carousel span.fa-check-circle {
+  color: #14aa13;
+}
+
+.cg-carousel span.fa-laptop {
+  color: #0099ff;
+}
+
+.cg-carousel span.fa-star {
+  color: gold;
+}
+
+.cg-carousel span.fa-certificate {
+  color: #fd7d5f;
+}
+
+.cg-carousel p {
+  font-size: 1.7em;
+  text-align: center;
+
+  @media (min-width: 950px) {
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 950px) {
+    font-size: 2em;
+  }
+}
+
+h2.cg-company-treehouse,
+h2.cg-company-codeschool {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 290px;
+  padding-left: 50px;
+  margin-left: -140px;
+  margin-top: 1em;
+
+  @media (min-width: 400px) {
+    width: 350px;
+    padding-left: 80px;
+    margin-left: -170px;
+  }
+
+  @media (min-width: 550px) {
+    padding-left: 90px;
+    width: 400px;
+    margin-left: -200px;
+  }
+}
+
+h2.cg-company-github {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 150px;
+  padding-left: 70px;
+  margin-left: -105px;
+  margin-top: 1em;
+
+  @media (min-width: 400px) {
+    width: 300px;
+    padding-left: 50px;
+    margin-left: -130px;
+  }
+
+  @media (min-width: 550px) {
+    padding-left: 90px;
+    margin-left: -150px;
+  }
+}
+
+h2.cg-company-treehouse::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url('../images/treehouse.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+
+  @media (min-width: 400px) {
+    top: 0;
+  }
+
+  @media (min-width: 550px) {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+h2.cg-company-codeschool::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url('../images/codeschool.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+
+  @media (min-width: 400px) {
+    top: 0;
+  }
+
+  @media (min-width: 550px) {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+.cg-company-github::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  background-image: url('../images/github.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+
+  @media (min-width: 400px) {
+    top: 0;
+  }
+
+  @media (min-width: 550px) {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media (max-width: 544px) {
+  .cg-hidden {
+    display: none;
+  }
+}

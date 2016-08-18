@@ -1,0 +1,39 @@
+/************************/
+/*HEADER*/
+/************************/
+.cg-header {
+  background-color: #0099ff;
+  color: #fff;
+  padding: 5em 2em;
+
+  @media (min-width: 500px) {
+    padding: 5em 5em;
+  }
+}
+
+.brief-info {
+  text-align: center;
+  font-size: 1.2em;
+
+  @media (min-width: 500px) {
+    font-size: 1.5em;
+  }
+}
+
+span.fa-github {
+  margin-right: 5px;
+}
+
+button.cg-github {
+  position: relative;
+  top: 0;
+  left: 50%;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-left: -105px;
+  font-size: 1.1em;
+  background-color: #fff;
+  border: 3px solid #fd7d5f;
+  color: #fd7d5f;
+}

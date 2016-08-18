@@ -1,0 +1,294 @@
+/************************/
+/*PORTFOLIO CARDS*/
+/************************/
+.cg-portfolio {
+  background-color: #fff;
+  padding: 7em 2em 5em 2em;
+
+  @media (min-width: 500px) {
+    padding: 7em 5em 5em 5em;
+  }
+}
+
+.portfolio-wrapper {
+  position: relative;
+  top: 0;
+  transition: all 0.3s;
+}
+
+.container-fluid .mix {
+  display: none;
+  width: 98%;
+  margin: 1em 1%;
+
+  @media (min-width: 800px) {
+    width: 47%;
+  }
+
+  @media (min-width: 1100px) {
+    width: 31%;
+  }
+}
+
+.expand-wrapper {
+  position: relative;
+  top: 120px;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transition: all 0.3s;
+}
+
+span.fa-times {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 3em;
+  cursor: pointer;
+  color: #fd7d5f;
+}
+
+.cg-new {
+  color: #fff;
+  background-color: #0099ff;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.cg-edit-small {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #fd7d5f;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  z-index: 999;
+
+  @media (min-width: 544px) {
+    right: 25px;
+  }
+}
+
+.cg-project-main {
+  position: relative;
+  cursor: pointer;
+}
+
+.cg-expand-image {
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px 5px 0 0;
+}
+
+.cg-project-details {
+  margin: 0 !important;
+}
+
+.cg-project-details img {
+  width: 100%;
+}
+
+.fade-out {
+  top: 120px;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transition: all 0.3s;
+}
+
+.fade-in {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  transition: all 0.3s;
+}
+
+.card-block {
+  position: relative;
+}
+
+.card-title {
+  margin-top: 30px;
+
+  @media (min-width: 700px) {
+    margin-top: 0;
+  }
+}
+
+.cg-github-repo {
+  position: relative;
+  top: 5px;
+  right: 5px;
+  padding: 10px 20px;
+  border: 2px solid #fd7d5f;
+  border-radius: 5px;
+  color: #fd7d5f;
+  text-decoration: none;
+  transition: all 0.3s;
+
+  @media (min-width: 700px) {
+    position: absolute;
+  }
+}
+
+.cg-github-repo:hover {
+  text-decoration: none;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.card-text .fa-check-circle {
+  color: #14aa13;
+}
+
+.controls {
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 265px;
+  margin-left: -132.5px;
+}
+
+.controls label {
+  position: relative;
+  border-radius: 5px;
+  padding: 5px 50px 5px 20px;
+  background-color: transparent;
+  border: 3px solid #fd7d5f;
+  margin: 0 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.controls label::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.controls label::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 7px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+}
+
+.controls label.rotate::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+}
+
+.controls label.rotate::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 7px;
+  width: 20px;
+  height: 3px;
+  background-color: #fd7d5f;
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+
+.controls li {
+  padding: 10px 0;
+  background-color: #fff;
+  border-bottom: 2px solid #666;
+  font-size: 1em;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+
+  @media (min-width: 350px) {
+    font-size: 1.2em;
+  }
+}
+
+.controls li:last-child {
+  border-bottom: none;
+}
+
+.cg-filter, .cg-sort {
+  padding: 0;
+}
+
+.cg-filter {
+  position: absolute;
+  top: 20px;
+  left: 1px;
+  width: 130px;
+  border: 3px solid #fd7d5f;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 10;
+
+  @media (min-width: 350px) {
+    width: 180px;
+    left: -52px;
+  }
+}
+
+.cg-sort {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  width: 100px;
+  border: 3px solid #fd7d5f;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 10;
+
+  @media (min-width: 350px) {
+    width: 150px;
+    right: -27px;
+  }
+}
+
+.fade-controls {
+  top: 50px;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.show-more {
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 3px solid #fd7d5f;
+}
