@@ -53,9 +53,9 @@
         <button class="cg-new" ng-show="vm.isLoggedIn" ng-click="vm.newProject()">+ Add new project</button>
       </p>
       <mixitup entities='vm.projects' item-click="vm.getProject(item)" edit-button="vm.editProject(id)" logged-in="vm.isLoggedIn"></mixitup>
-      <p>
+      <!-- <p>
         <button class="show-more">Show More</button>
-      </p>
+      </p> -->
     </div>
     <div class="expand-wrapper" ng-class="{'fade-in': vm.expandProject}">
       <expand-project show='vm.expandProject' project='vm.chosenProject'></expand-project>
