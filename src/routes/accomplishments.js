@@ -6,6 +6,8 @@ var router = express.Router();
 
 var github = require('octonode');
 var cache = require('memory-cache');
+var request = require('request');
+var jsonp = require('jsonp');
 
 // get treehouse route
 router.get('/treehouse', function (req, res) {
@@ -26,6 +28,20 @@ router.get('/github', function (req, res, next) {
   client.get('/users/chris-gaona', {}, function (err, status, body) {
     if (err) return next(err);
     res.status(200).json(body);
+  });
+});
+
+router.get('/weather', function (req, res, next) {
+  var FORECAST_IO = process.env.FORECAST_IO;
+
+  // request teamtreehouse url
+  request('https://api.forecast.io/forecast/' + FORECAST_IO + '/37.6819,-121.7680', function (err, response, body) {
+    if (err) return next(err);
+
+    // if response is good and there is no error
+    if (!err && response.statusCode == 200) {
+      res.status(200).json(JSON.parse(body));
+    }
   });
 });
 
