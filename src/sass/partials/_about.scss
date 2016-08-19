@@ -4,6 +4,7 @@
 .cg-aboutme {
   background-color: #fff;
   padding: 5em 2em 5em 2em;
+  overflow: hidden;
 
   @media (min-width: 700px) {
     padding: 5em 6em 5em 6em;
@@ -62,6 +63,7 @@
   background-color: #fff;
   height: 320px;
   padding: 1em;
+  overflow: hidden;
 
   @media (min-width: 800px) {
     padding: 0 0 0 5em;
@@ -98,6 +100,7 @@
   background-color: #fff;
   height: 320px;
   padding: 1em;
+  overflow: hidden;
 
   @media (min-width: 800px) {
     padding: 0 5em 0 0;
