@@ -96,7 +96,6 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   // gets the weather from the WeatherService
   WeatherService.getWeather().then(function (response) {
     vm.weather = response.data;
-    $log.log(vm.weather);
   }, function (error) {
     errorHandlerService.handleError(error);
     // log the error to the console

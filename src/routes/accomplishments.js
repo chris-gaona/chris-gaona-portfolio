@@ -7,7 +7,6 @@ var router = express.Router();
 var github = require('octonode');
 var cache = require('memory-cache');
 var request = require('request');
-var jsonp = require('jsonp');
 
 // get treehouse route
 router.get('/treehouse', function (req, res) {
