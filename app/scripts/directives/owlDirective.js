@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-function owlDirective () {
+function owlDirective ($interval) {
   return {
     // restrict to element only
     restrict: 'E',
@@ -11,9 +11,9 @@ function owlDirective () {
       var options = scope.$eval($(element).attr('data-options'));
 
       // fixes issue with owl carousel showing {{}} when finger scrolling from github section to treehouse section
-      setInterval(function(){
+      $interval(function(){
         $(element).owlCarousel(options);
-      }, 1000);
+      }, 100);
     },
     // adds template url
     templateUrl: '../templates/owl-carousel.html'
