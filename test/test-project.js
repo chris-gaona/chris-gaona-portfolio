@@ -139,7 +139,7 @@ describe('Projects', function () {
     .send(project)
     .end(function(err, res){
       expect(err).to.be.null;
-      expect(res).to.have.status(200);
+      expect(res).to.have.status(201);
       expect(res).to.be.json;
       expect(res.body).to.be.a('object');
       expect(res.body).to.have.property('_id');
@@ -180,7 +180,7 @@ describe('Projects', function () {
         .send(project)
         .end(function (error, res) {
           expect(err).to.be.null;
-          expect(res).to.have.status(201);
+          expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
           expect(res.body).to.have.property('project');

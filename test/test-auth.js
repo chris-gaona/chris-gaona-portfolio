@@ -42,7 +42,7 @@ describe('Auth', function () {
     .send(user)
     .end(function(err, res){
       expect(err).to.be.null;
-      expect(res).to.have.status(200);
+      expect(res).to.have.status(201);
       expect(res.body).to.be.a('object');
       expect(res.body).to.have.property('token');
       done();

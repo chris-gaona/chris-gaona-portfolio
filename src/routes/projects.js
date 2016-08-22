@@ -97,7 +97,7 @@ router.post('/new', auth, function (req, res, next) {
     }
 
     //send the project
-    res.json(project);
+    res.status(201).json(project);
   });
 });
 
@@ -139,7 +139,7 @@ router.put('/edit/:id', auth, function (req, res, next) {
     }
 
     // send project
-    res.status(201).json({project: project, message: 'Project Updated'});
+    res.status(200).json({project: project, message: 'Project Updated'});
   });
 });
 

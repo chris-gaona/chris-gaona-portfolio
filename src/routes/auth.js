@@ -64,7 +64,7 @@ router.post('/register', function(req, res, next) {
     }
 
     // if no errors send user token
-    return res.json({
+    return res.status(201).json({
       token: user.generateJWT()
     });
   });
