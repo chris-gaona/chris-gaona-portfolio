@@ -53,6 +53,9 @@
         <button class="cg-new" ng-show="vm.isLoggedIn" ng-click="vm.newProject()">+ Add new project</button>
       </p>
       <mixitup entities='vm.projects' item-click="vm.getProject(item)" edit-button="vm.editProject(id)" logged-in="vm.isLoggedIn"></mixitup>
+      <p class="cg-project-error" ng-show="vm.projects.error">
+        {{vm.projects.error.message}}
+      </p>
       <!-- <p>
         <button class="show-more">Show More</button>
       </p> -->
