@@ -12,7 +12,9 @@ and then...
 
 Once that's complete you can run `npm start` to start the server and navigate to your browser of choice and go to localhost:3000.
 
-Although there are quite a few build commands you could run to build pieces of the dist directory, the only one you need to run is `npm run build`, or you could run `npm run build:dev` to build the dist directory with mocha/chai tests and jshint checks. 
+In order to seed the database you can simply uncomment `require('./config/seed.js');` in the src/app.js file.
+
+Although there are quite a few build commands you could run to build pieces of the dist directory, the only one you need to run is `npm run build`, or you could run `npm run build:dev` to build the dist directory with mocha/chai tests and jshint checks.
 
 Run `npm start:dev` to start the server with nodemon for development
 

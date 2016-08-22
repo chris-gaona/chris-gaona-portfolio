@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 //mongoose connection
 var mongoose = require('mongoose');
-var Project = require('./models/Projects');
+require('./models/Projects');
 require('./models/Users');
 var config = require('./config/database');
 
