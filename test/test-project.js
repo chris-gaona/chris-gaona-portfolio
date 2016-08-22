@@ -46,7 +46,6 @@ describe('Projects', function () {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
       expect(res.body).to.be.a('array');
-      expect(res.body.length).to.equal(1);
       expect(res.body[0]).to.have.property('_id');
       expect(res.body[0]).to.have.property('name');
       expect(res.body[0]).to.have.property('category');
@@ -181,7 +180,7 @@ describe('Projects', function () {
         .send(project)
         .end(function (error, res) {
           expect(err).to.be.null;
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(201);
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
           expect(res.body).to.have.property('project');
