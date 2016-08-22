@@ -33,7 +33,7 @@ router.param('id', function (req, res, next, id) {
 
     // if there is no project return error to error handler saying can't find the course
     if (!project) {
-      return next(new Error('can\'t find project'));
+      return next(new Error('Cannot find the project'));
     }
 
     // sets course to req.project to be passed to next handler
@@ -139,7 +139,7 @@ router.put('/edit/:id', auth, function (req, res, next) {
     }
 
     // send project
-    res.json({project: project, message: 'Project Updated'});
+    res.status(201).json({project: project, message: 'Project Updated'});
   });
 });
 
