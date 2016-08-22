@@ -71,7 +71,6 @@
     "angular-mocks": "^1.5.8",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "imagemin-cli": "^3.0.0",
     "jasmine-core": "^2.4.1",
     "jshint": "^2.9.2",
     "karma": "^1.2.0",
@@ -79,11 +78,6 @@
     "karma-junit-reporter": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.1",
     "mocha": "^3.0.2",
-    "mongoose-seeder": "^1.2.1",
-    "node-sass": "^3.8.0",
-    "onchange": "^2.5.0",
-    "parallelshell": "^2.0.0",
-    "uglify-js": "^2.7.0",
-    "webpack": "1.13.1"
+    "mongoose-seeder": "^1.2.1"
   }
 }
