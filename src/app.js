@@ -26,14 +26,10 @@ mongoose.connect(config.mongoURI[app.settings.env], function(err) {
     console.log('Failed connecting to Mongodb!');
   } else {
     // seed database
-    // require('./seed.js');
+    // require('./config/seed.js');
     console.log('Successfully connected to Mongodb: ' + config.mongoURI[app.settings.env]);
   }
 });
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'images', 'logo.png')));
