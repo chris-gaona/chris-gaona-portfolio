@@ -15,7 +15,7 @@
     "test": "mocha",
     "clean": "rm -rf dist/*",
     "scss": "node-sass --output-style compressed --source-map true -o dist/public/stylesheets src/sass/style.scss --importer node_modules/node-sass-import",
-    "uglify:config": "mkdir -p dist/config && uglifyjs src/config/database.js -m -o dist/config/database.js && uglifyjs src/config/passport.js -m -o dist/config/passport.js",
+    "uglify:config": "mkdir -p dist/config && uglifyjs src/config/database.js -m -o dist/config/database.js && uglifyjs src/config/passport.js -m -o dist/config/passport.js && uglifyjs src/config/seed.js -m -o dist/config/seed.js && cp -R src/config/seed.json dist/config/seed.json",
     "uglify:models": "mkdir -p dist/models && uglifyjs src/models/Projects.js -m -o dist/models/Projects.js && uglifyjs src/models/Users.js -m -o dist/models/Users.js",
     "uglify:routes": "mkdir -p dist/routes && uglifyjs src/routes/index.js -m -o dist/routes/index.js && uglifyjs src/routes/accomplishments.js -m -o dist/routes/accomplishments.js && uglifyjs src/routes/auth.js -m -o dist/routes/auth.js && uglifyjs src/routes/projects.js -m -o dist/routes/projects.js && uglifyjs src/routes/users.js -m -o dist/routes/users.js",
     "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",

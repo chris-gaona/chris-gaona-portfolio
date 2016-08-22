@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 //mongoose connection
 var mongoose = require('mongoose');
-require('./models/Projects');
+var Project = require('./models/Projects');
 require('./models/Users');
 var config = require('./config/database');
 
@@ -26,7 +26,7 @@ mongoose.connect(config.mongoURI[app.settings.env], function(err) {
     console.log('Failed connecting to Mongodb!');
   } else {
     // seed database
-    // require('./seed.js');
+    // require('./config/seed.js');
     console.log('Successfully connected to Mongodb: ' + config.mongoURI[app.settings.env]);
   }
 });
