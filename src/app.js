@@ -61,7 +61,8 @@ app.use(function(req, res, next) {
 // error handlers
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
+/* jshint ignore:start */
+app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.json({
     error: {
@@ -69,6 +70,7 @@ app.use(function(err, req, res) {
     }
   });
 });
+/* jshint ignore:end */
 
 
 module.exports = app;
