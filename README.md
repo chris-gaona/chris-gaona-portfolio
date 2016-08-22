@@ -8,7 +8,9 @@ Then...
 `cd chris-gaona-portfolio`
 
 and then...
-`npm install` to install all dependencies
+`npm install` to install all dependencies.
+
+You then need to open another terminal window and type `mongod` in order to start the mongodb database. 
 
 Once that's complete you can run `npm start` to start the server and navigate to your browser of choice and go to localhost:3000.
 
