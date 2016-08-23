@@ -93,6 +93,10 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
     $location.path('/edit/' + id);
   };
 
+  vm.loginButton = function () {
+    $location.path('/login');
+  };
+
   // gets the weather from the WeatherService
   WeatherService.getWeather().then(function (response) {
     vm.weather = response.data;

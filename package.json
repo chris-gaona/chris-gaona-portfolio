@@ -27,13 +27,14 @@
     "build": "mkdir -p dist && npm run clean && npm run uglify && npm run scss && bower install && npm run bundle && npm run imagemin && npm run html",
     "build:dev": "mkdir -p dist && npm run clean && npm run test && npm run lint && npm run uglify && npm run scss && bower install && npm run bundle && npm run imagemin && npm run html",
     "watch:css": "onchange 'src/sass/**/*.scss' -- npm run scss",
+    "watch:index": "onchange 'src/public/index.html' -- npm run html",
     "watch:templates": "onchange 'src/public/templates/*.html' -- npm run html",
     "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
     "watch:models": "onchange 'src/models/*.js' -- npm run uglify:models",
     "watch:routes": "onchange 'src/routes/*.js' -- npm run uglify:routes",
     "watch:main": "onchange 'src/*.js' -- npm run uglify:main",
     "watch:app": "onchange 'app/' -- npm run bundle",
-    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:templates' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
+    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:index' 'npm run watch:templates' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
   },
   "dependencies": {
     "angular": "^1.5.8",
