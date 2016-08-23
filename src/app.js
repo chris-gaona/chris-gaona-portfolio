@@ -43,6 +43,10 @@ app.use('/api', routes.accomplishments);
 app.use('/user', routes.users);
 app.use('/', routes.auth);
 
+// app.get('*', function(req, res) {
+//   res.sendFile(__dirname + '/public/index.html');
+// });
+
 // vendor scripts
 app.get('/vendor/angular-toastr.min.css', function(req, res) {
   res.sendFile(path.join(__dirname, '../node_modules', 'angular-toastr', 'dist', 'angular-toastr.min.css'));

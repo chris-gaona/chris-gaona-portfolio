@@ -8,7 +8,7 @@ angular.module('app')
 // creates config routes for angular application
 .config(config);
 
-function config ($routeProvider, $locationProvider) {
+function config ($routeProvider) {
   $routeProvider
   .when('/', {
     controller: 'MainController',
@@ -60,6 +60,6 @@ function config ($routeProvider, $locationProvider) {
     redirectTo: '/'
   });
 
-  $locationProvider
-  .html5Mode(true);
+  // $locationProvider
+  // .html5Mode(true);
 }
