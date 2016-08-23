@@ -40,7 +40,7 @@
 
 .cg-user-mobile ul {
   position: absolute;
-  top: 75px;
+  top: 55px;
   left: -167px;
   list-style: none;
   background-color: #fff;
@@ -49,12 +49,13 @@
   opacity: 0;
   border-radius: 5px;
   z-index: 1000;
+  transform: scale(.5);
   transition: all 0.3s;
 }
 
 .cg-user-mobile ul.user-visible {
-  top: 55px;
   opacity: 1;
+  transform: scale(1);
   transition: all 0.3s;
 }
 
@@ -76,7 +77,8 @@
 }
 
 .cg-user-mobile li:first-child {
-  border-bottom: 2px solid #666;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .cg-user span {
@@ -86,7 +88,13 @@
 
 .cg-user button, li.cg-logout {
   border: none;
-  background-color: transparent;
+  background-color: #fd7d5f;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.cg-user button, li.cg-logout:hover {
+  text-decoration: underline;
 }
 
 .cg-auth-btn {

@@ -18,7 +18,7 @@ function ErrorHandler(toastr, $log) {
       // else display the message to the user
       var message = response && response.data && response.data.message;
       if (!message) {
-        message = 'Message not available. Please see the console for more details.';
+        message = 'Message not available.';
       }
       toastr.error(message, 'Unexpected Error');
 
