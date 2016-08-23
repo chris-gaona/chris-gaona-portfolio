@@ -84,6 +84,7 @@
 .cg-user span {
   padding-right: 10px;
   border-right: 2px solid #fff;
+  margin-right: 8px;
 }
 
 .cg-user button, li.cg-logout {
@@ -93,7 +94,7 @@
   border-radius: 5px;
 }
 
-.cg-user button, li.cg-logout:hover {
+.cg-user button:hover, li.cg-logout:hover {
   text-decoration: underline;
 }
 
