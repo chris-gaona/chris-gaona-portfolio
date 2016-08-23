@@ -43,6 +43,15 @@ app.use('/api', routes.accomplishments);
 app.use('/user', routes.users);
 app.use('/', routes.auth);
 
+// If nothing matches
+// We will send index file to client side
+// So angular will take care of that route
+// If we call url without hash control will go here
+app.use('*',function (req, res) {
+	var indexFile = path.resolve(__dirname,'../dist/public/index.html');
+	res.sendFile(indexFile);
+});
+
 // vendor scripts
 app.get('/vendor/angular-toastr.min.css', function(req, res) {
   res.sendFile(path.join(__dirname, '../node_modules', 'angular-toastr', 'dist', 'angular-toastr.min.css'));
