@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var path = require('path');
+// var path = require('path');
 // var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -43,16 +43,8 @@ app.use('/api', routes.accomplishments);
 app.use('/user', routes.users);
 app.use('/', routes.auth);
 
-// app.get('*', function(req, res) {
-//   res.sendFile(__dirname + '/public/index.html');
-// });
-
-// vendor scripts
-app.get('/vendor/angular-toastr.min.css', function(req, res) {
-  res.sendFile(path.join(__dirname, '../node_modules', 'angular-toastr', 'dist', 'angular-toastr.min.css'));
-});
-app.get('/vendor/angularjs-datepicker.min.css', function(req, res) {
-  res.sendFile(path.join(__dirname, '../node_modules', 'angularjs-datepicker', 'dist', 'angular-datepicker.min.css'));
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 // catch 404 and forward to error handler
