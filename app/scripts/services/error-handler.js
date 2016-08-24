@@ -16,11 +16,12 @@ function ErrorHandler(toastr, $log) {
       displayValidationErrorsCallback(response.data);
     } else {
       // else display the message to the user
-      var message = response && response.data && response.data.message;
+      var message = response && response.data && response.data.error.message;
+      toastr.error(message, 'Uh oh!');
       if (!message) {
         message = 'Message not available.';
+        toastr.error(message, 'Unexpected Error');
       }
-      toastr.error(message, 'Unexpected Error');
 
       // log the entire response to the console
       $log.error(response);

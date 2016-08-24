@@ -33,7 +33,9 @@ router.param('id', function (req, res, next, id) {
 
     // if there is no project return error to error handler saying can't find the course
     if (!project) {
-      return next(new Error('Cannot find the project'));
+      var error = new Error('Cannot find the project');
+      error.status = 404;
+      return next(error);
     }
 
     // sets course to req.project to be passed to next handler

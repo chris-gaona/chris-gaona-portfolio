@@ -22,7 +22,10 @@ angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.date
   angular.extend(toastrConfig, {
     containerId: 'toast-container',
     positionClass: 'toast-bottom-right',
-    closeButton: true
+    closeButton: true,
+    progressBar: true,
+    tapToDismiss: true,
+    preventOpenDuplicates: true
   });
 });
 

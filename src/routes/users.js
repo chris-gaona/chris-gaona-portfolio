@@ -30,7 +30,11 @@
     // find the specific user in the database
     User.findOne({username: user}, '_id username firstName', function(err, user) {
       if (err) return next(err);
-      if (!user) return next(new Error('No users found'));
+      if (!user) {
+        var error = new Error('No user found');
+        error.status = 404;
+        return next(error);
+      }
       res.json(user);
     });
 
