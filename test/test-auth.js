@@ -23,55 +23,185 @@ chai.use(chaiHttp);
 var header;
 var content;
 
-describe('Auth', function () {
+describe('AUTH', function () {
   before(function(done){
     User.collection.remove();
     done();
   });
 
-  it('should register a SINGLE user on /register POST', function(done) {
-    var user = {
-      username: 'jjohnson',
-      firstName: 'Jason',
-      password: 'password',
-      confirmPassword: 'password'
-    };
+  describe('REGISTER', function () {
+    it('should handle errors when registering a SINGLE user on /register POST with passwords that do NOT match', function (done) {
+      var user = {
+        username: 'jjohnson',
+        firstName: 'Jason',
+        password: 'password',
+        confirmPassword: 'password123'
+      };
 
-    chai.request(server)
-    .post('/register')
-    .send(user)
-    .end(function(err, res){
-      expect(err).to.be.null;
-      expect(res).to.have.status(201);
-      expect(res.body).to.be.a('object');
-      expect(res.body).to.have.property('token');
-      done();
+      chai.request(server)
+      .post('/register')
+      .send(user)
+      .end(function(err, res){
+        expect(err).to.not.be.null;
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors.property[0].message).to.equal('Uh oh! Passwords do not match');
+        done();
+      });
+    });
+
+    it('should handle errors when registering a SINGLE user on /register POST with the form not complete', function (done) {
+      var user = {
+        username: '',
+        firstName: '',
+        password: '',
+        confirmPassword: ''
+      };
+
+      chai.request(server)
+      .post('/register')
+      .send(user)
+      .end(function(err, res){
+        expect(err).to.not.be.null;
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors.property[0].message).to.equal('Please fill out all fields');
+        done();
+      });
+    });
+
+    it('should register a SINGLE user on /register POST', function(done) {
+      var user = {
+        username: 'jjohnson',
+        firstName: 'Jason',
+        password: 'password',
+        confirmPassword: 'password'
+      };
+
+      chai.request(server)
+      .post('/register')
+      .send(user)
+      .end(function(err, res){
+        expect(err).to.be.null;
+        expect(res).to.have.status(201);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('token');
+        done();
+      });
+    });
+
+    it('should handle errors when registering a SINGLE user on /register POST with a username that already exists', function (done) {
+      var user = {
+        username: 'jjohnson',
+        firstName: 'Jason',
+        password: 'password',
+        confirmPassword: 'password'
+      };
+
+      chai.request(server)
+      .post('/register')
+      .send(user)
+      .end(function(err, res){
+        expect(err).to.not.be.null;
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors.property[0].message).to.equal('The username you provided is already in use.');
+        done();
+      });
     });
   });
 
-  it('should login a SINGLE user on /login POST', function(done) {
-    var credentials = {
-      username: 'jjohnson',
-      password: 'password'
-    };
+  describe('LOGIN', function () {
+    it('should handle errors when logging in a SINGLE user on /login POST with the form not complete', function(done) {
+      var credentials = {
+        username: '',
+        password: ''
+      };
 
-    chai.request(server)
-    .post('/login')
-    .send(credentials)
-    .end(function(err, res){
-      expect(err).to.be.null;
-      expect(res).to.have.status(200);
-      expect(res.body).to.be.a('object');
-      expect(res.body).to.have.property('token');
+      chai.request(server)
+      .post('/login')
+      .send(credentials)
+      .end(function(err, res){
+        expect(err).to.not.be.null;
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors.property[0].message).to.equal('Please fill out all fields');
+        done();
+      });
+    });
 
-      header = "Authorization";
-      content = "Bearer " + res.body.token;
-      done();
+    it('should handle errors when logging in a SINGLE user on /login POST with an incorrect username', function(done) {
+      var credentials = {
+        username: 'jjohnson123',
+        password: 'password'
+      };
+
+      chai.request(server)
+      .post('/login')
+      .send(credentials)
+      .end(function(err, res){
+        expect(err).to.not.be.null;
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors.property[0].message).to.equal('Incorrect username or password');
+        done();
+      });
+    });
+
+    it('should handle errors when logging in a SINGLE user on /login POST with an incorrect password', function(done) {
+      var credentials = {
+        username: 'jjohnson',
+        password: 'password123'
+      };
+
+      chai.request(server)
+      .post('/login')
+      .send(credentials)
+      .end(function(err, res){
+        expect(err).to.not.be.null;
+        expect(res).to.have.status(400);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors.property[0].message).to.equal('Incorrect username or password');
+        done();
+      });
+    });
+
+    it('should login a SINGLE user on /login POST', function(done) {
+      var credentials = {
+        username: 'jjohnson',
+        password: 'password'
+      };
+
+      chai.request(server)
+      .post('/login')
+      .send(credentials)
+      .end(function(err, res){
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('token');
+
+        header = "Authorization";
+        content = "Bearer " + res.body.token;
+        done();
+      });
     });
   });
 });
 
-describe('User', function () {
+describe('USER', function () {
   after(function(done){
     User.collection.remove();
     done();
@@ -90,6 +220,21 @@ describe('User', function () {
       expect(res.body).to.have.property('firstName');
       expect(res.body.username).to.equal('jjohnson');
       expect(res.body.firstName).to.equal('Jason');
+      done();
+    });
+  });
+
+  it('should handle errors when listing a SINGLE user on /user/:username GET that does not exist', function(done) {
+    chai.request(server)
+    .get('/user/jjohnson123')
+    .set(header,content)
+    .end(function(err, res){
+      expect(err).to.not.be.null;
+      expect(res).to.have.status(404);
+      expect(res.body).to.be.a('object');
+      expect(res.body).to.have.property('error');
+      expect(res.body.error).to.have.property('message');
+      expect(res.body.error.message).to.equal('No user found');
       done();
     });
   });
