@@ -16,7 +16,7 @@ function ErrorHandler(toastr, $log) {
       displayValidationErrorsCallback(response.data);
     } else {
       // else display the message to the user
-      var message = response && response.data && response.data.error.message;
+      var message = response && response.statusText;
 
       if (message) {
         toastr.error(message, 'Uh oh!');

@@ -9,8 +9,33 @@ var User = mongoose.model('User');
 
 var passport = require('passport');
 
+var jwt = require('express-jwt');
+var jwtSecret;
+
+if (process.env.JWT_SIGNATURE !== undefined) {
+  jwtSecret = process.env.JWT_SIGNATURE;
+} else {
+  jwtSecret = 'SECRET';
+}
+
+//middleware for authenticating jwt tokens
+var auth = jwt({
+  secret: jwtSecret,
+  userProperty: 'payload'
+});
+
 //REGISTER a user
-router.post('/register', function(req, res, next) {
+if (process.env.NODE_ENV === 'test') {
+  router.post('/register', function(req, res, next) {
+    register(req, res,  next);
+  });
+} else {
+  router.post('/register', auth, function(req, res, next) {
+    register(req, res,  next);
+  });
+}
+
+function register (req, res, next) {
   // if username & password do not exist do this
   if (!req.body.username || !req.body.password) {
     return res.status(400).json({
@@ -68,7 +93,7 @@ router.post('/register', function(req, res, next) {
       token: user.generateJWT()
     });
   });
-});
+}
 
 // LOGIN a user
   router.post('/login', function(req, res, next) {

@@ -35,14 +35,7 @@ function config ($routeProvider, $locationProvider) {
   .when('/register', {
     controller: 'AuthController',
     controllerAs: 'vm',
-    templateUrl: 'templates/authenticate.html',
-    resolve: {
-    check: ['$location', 'AuthService', function($location, AuthService) {
-        if (AuthService.isLoggedIn()) {
-          $location.path('/');
-        }
-      }]
-    }
+    templateUrl: 'templates/authenticate.html'
   })
   .when('/login', {
     controller: 'AuthController',

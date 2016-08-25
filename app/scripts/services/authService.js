@@ -51,7 +51,9 @@ function authService($http, $window) {
 
   //register function that posts a user to our /register route and saves the token returned
   authService.register = function(user) {
-    return $http.post('/register', user).success(function(data){
+    return $http.post('/register', user, {
+      headers: {Authorization: 'Bearer '+authService.getToken()}
+    }).success(function(data){
       authService.saveToken(data.token);
     });
   };
