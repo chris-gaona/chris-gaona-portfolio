@@ -94,10 +94,7 @@ describe('Projects', function () {
   var header;
   var content;
 
-  // var header = "Authorization";
-  // var content = "Bearer " + res.body;
-
-  beforeEach(function (done) {
+  before(function (done) {
     var user = {
       username: 'jjohnson',
       firstName: 'Jason',
@@ -113,11 +110,6 @@ describe('Projects', function () {
       content = "Bearer " + res.body.token;
       done();
     });
-  });
-
-  afterEach(function(done){
-    User.collection.remove();
-    done();
   });
 
   it('should add a SINGLE project on /api/project POST', function(done) {
@@ -193,4 +185,9 @@ describe('Projects', function () {
   });
 
   it('should delete a SINGLE project on /api/delete/:id DELETE');
+
+  after(function(done){
+    User.collection.remove();
+    done();
+  });
 });
