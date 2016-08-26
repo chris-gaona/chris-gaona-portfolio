@@ -34,6 +34,7 @@
     "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
     "watch:models": "onchange 'src/models/*.js' -- npm run uglify:models",
     "watch:routes": "onchange 'src/routes/*.js' -- npm run uglify:routes",
+    "watch:utils": "onchange 'src/utils/*.js' -- npm run uglify:utils",
     "watch:main": "onchange 'src/*.js' -- npm run uglify:main",
     "watch:app": "onchange 'app/' -- npm run bundle",
     "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:index' 'npm run watch:templates' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"

@@ -22,7 +22,7 @@ var auth = jwt({
 });
 
 // UTILS
-var getAll = require('../utils/all');
+var utils = require('../utils');
 var newProject = require('../utils/new');
 var editProject = require('../utils/edit');
 
@@ -51,7 +51,7 @@ router.param('id', function (req, res, next, id) {
 
 // get all projects
 router.get('/projects', function (req, res, next) {
-  getAll(req, res, next);
+  utils.getAll(req, res, next);
 });
 
 // get specific project
@@ -61,14 +61,14 @@ router.get('/project/:id', function (req, res) {
 
 // create a new project
 router.post('/new', auth, function (req, res, next) {
-  newProject(req, res, next);
+  utils.newProject(req, res, next);
 });
 
 
 
 // edit an existing project
 router.put('/edit/:id', auth, function (req, res, next) {
-  editProject(req, res, next);
+  utils.editProject(req, res, next);
 });
 
 module.exports = router;

@@ -20,23 +20,22 @@ var auth = jwt({
 });
 
 // UTILS
-var register = require('../utils/register');
-var login = require('../utils/login');
+var utils = require('../utils');
 
 //REGISTER a user
 if (process.env.NODE_ENV === 'test') {
   router.post('/register', function(req, res, next) {
-    register(req, res,  next);
+    utils.register(req, res,  next);
   });
 } else {
   router.post('/register', auth, function(req, res, next) {
-    register(req, res,  next);
+    utils.register(req, res,  next);
   });
 }
 
 // LOGIN a user
   router.post('/login', function(req, res, next) {
-    login(req, res, next);
+    utils.login(req, res, next);
   });
 
   module.exports = router;
