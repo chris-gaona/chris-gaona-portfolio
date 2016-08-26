@@ -34,7 +34,7 @@ var UserSchema = new mongoose.Schema({
   }
 });
 
-// add custom validation to emailAddress to make sure the email is not already taken
+// add custom validation to username to make sure the username is not already taken
 UserSchema.path('username').validate(function (value, done) {
   this.model('User').count({ username: value }, function (err, count) {
     if (err) {
