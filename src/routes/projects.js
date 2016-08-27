@@ -23,8 +23,6 @@ var auth = jwt({
 
 // UTILS
 var utils = require('../utils');
-var newProject = require('../utils/new');
-var editProject = require('../utils/edit');
 
 // creates middleware for all project urls to go through first
 router.param('id', function (req, res, next, id) {
