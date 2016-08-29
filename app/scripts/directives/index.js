@@ -1,3 +1,5 @@
+'use strict';
+
 require('./expandDirective.js');
 require('./mixItUpDirective.js');
 require('./owlDirective.js');
