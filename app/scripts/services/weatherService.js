@@ -1,5 +1,8 @@
 'use strict';
 
+// requires angular
+var angular = require('angular');
+
 // creates weather service function
 function weatherService ($http) {
   var weatherService = {};
@@ -12,6 +15,5 @@ function weatherService ($http) {
   return weatherService;
 }
 
-export default ngModule => {
-  ngModule.factory('WeatherService', ['$http', weatherService]);
-};
+angular.module('app')
+.factory('WeatherService', ['$http', weatherService]);
