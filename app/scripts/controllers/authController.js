@@ -1,5 +1,8 @@
 'use strict';
 
+// requires angular
+var angular = require('angular');
+
 // function for auth controller
 function authController ($location, $log, MainService, AuthService, toastr, errorHandlerService) {
   var vm = this;
@@ -59,6 +62,5 @@ function authController ($location, $log, MainService, AuthService, toastr, erro
   }
 }
 
-export default ngModule => {
-  ngModule.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', 'errorHandlerService', authController]);
-};
+angular.module('app')
+.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', 'errorHandlerService', authController]);
