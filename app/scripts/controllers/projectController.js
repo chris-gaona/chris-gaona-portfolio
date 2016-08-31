@@ -1,8 +1,5 @@
 'use strict';
 
-// requires angular
-var angular = require('angular');
-
 // creatse the projectController
 function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
@@ -95,5 +92,6 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
   }
 }
 
-angular.module('app')
-.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
+export default ngModule => {
+  ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
+};
