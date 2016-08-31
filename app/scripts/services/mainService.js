@@ -52,6 +52,6 @@ function mainService ($http, $log, AuthService) {
   return mainService;
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.factory('MainService', ['$http', '$log', 'AuthService', mainService]);
 };

@@ -21,6 +21,6 @@ function mixItUpDirective () {
   };
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.directive('mixitup', mixItUpDirective);
 };

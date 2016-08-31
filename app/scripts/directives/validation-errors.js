@@ -31,6 +31,6 @@ function ValidationErrors() {
   };
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.directive('validationErrors', ValidationErrors);
 };

@@ -1,9 +1,15 @@
 'use strict';
 
-module.exports = function(ngModule) {
-  require('./expandDirective')(ngModule);
-  require('./mixItUpDirective')(ngModule);
-  require('./owlDirective')(ngModule);
-  require('./hamburgerDirective')(ngModule);
-  require('./validation-errors')(ngModule);
+import registerExpandDirective from './expandDirective';
+import registerMixitupDirective from './mixItUpDirective';
+import registerOwlDirective from './owlDirective';
+import registerHamburgerDirective from './hamburgerDirective';
+import registerValidationErrorsDirective from './validation-errors';
+
+export default ngModule => {
+  registerExpandDirective(ngModule);
+  registerMixitupDirective(ngModule);
+  registerOwlDirective(ngModule);
+  registerHamburgerDirective(ngModule);
+  registerValidationErrorsDirective(ngModule);
 };

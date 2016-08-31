@@ -25,6 +25,6 @@ function owlDirective ($interval) {
   };
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.directive('owlCarousel', owlDirective);
 };

@@ -59,6 +59,6 @@ function authController ($location, $log, MainService, AuthService, toastr, erro
   }
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.controller('AuthController', ['$location', '$log', 'MainService', 'AuthService', 'toastr', 'errorHandlerService', authController]);
 };

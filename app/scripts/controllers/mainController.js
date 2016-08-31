@@ -104,6 +104,10 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   });
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
+  if (ON_TEST) {
+    require('./mainController.test')(ngModule);
+  }
+
   ngModule.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'WeatherService', 'toastr', 'errorHandlerService', mainController]);
 };

@@ -16,6 +16,6 @@ function userService($http, AuthService) {
   return userService;
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.factory('UserService', ['$http', 'AuthService', userService]);
 };

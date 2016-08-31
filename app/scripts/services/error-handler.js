@@ -28,6 +28,6 @@ function ErrorHandler(toastr, $log) {
   };
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.service('errorHandlerService', ErrorHandler);
 };

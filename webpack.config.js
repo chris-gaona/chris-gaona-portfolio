@@ -1,5 +1,4 @@
-var webpack = require('webpack'),
-       path = require('path');
+var webpack = require('webpack')
 
 module.exports = {
     context: __dirname + '/app',
@@ -21,6 +20,14 @@ module.exports = {
         filename: 'portfolio.bundle.js'
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
-    ]
+      new webpack.DefinePlugin({
+        ON_TEST: process.env.NODE_ENV === 'test'
+      }),
+      new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+    ],
+    module: {
+      loaders: [
+        {test: /\.js$/, loader: 'babel', exclude: /node_modules/}
+      ]
+    }
 };

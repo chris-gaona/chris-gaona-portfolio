@@ -1,7 +1,11 @@
 'use strict';
 
-module.exports = function(ngModule) {
-  require('./mainController')(ngModule);
-  require('./projectController')(ngModule);
-  require('./authController')(ngModule);
+import registerMainCtrl from './mainController';
+import registerProjectCtrl from './projectController';
+import registerAuthCtrl from './authController';
+
+export default ngModule => {
+  registerMainCtrl(ngModule);
+  registerProjectCtrl(ngModule);
+  registerAuthCtrl(ngModule);
 };

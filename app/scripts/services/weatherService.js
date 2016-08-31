@@ -12,6 +12,6 @@ function weatherService ($http) {
   return weatherService;
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.factory('WeatherService', ['$http', weatherService]);
 };

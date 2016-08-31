@@ -73,7 +73,7 @@ function authService($http, $window) {
 //--------------------------------------
 //ANGULAR
 //--------------------------------------
-module.exports = function(ngModule) {
+export default ngModule => {
 //create initial auth factory. need to inject $http for interfacing with our server, and $window for interfacing with localStorage
   ngModule.factory('AuthService', ['$http', '$window', authService]);
 };

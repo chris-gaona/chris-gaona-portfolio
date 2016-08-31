@@ -92,6 +92,6 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
   }
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
 };

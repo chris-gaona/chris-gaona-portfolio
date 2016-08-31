@@ -49,6 +49,6 @@ function config ($routeProvider, $locationProvider) {
   .html5Mode(true);
 }
 
-module.exports = function(ngModule) {
+export default ngModule => {
   ngModule.config(config);
 };

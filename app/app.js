@@ -1,7 +1,15 @@
 'use strict';
 
 // requires angular
-var angular = require('angular');
+import angular from 'angular';
+import registerConfig from './scripts/config/route-config.js';
+import registerControllers from './scripts/controllers';
+import registerDirectives from './scripts/directives';
+import registerServices from './scripts/services';
+
+if (ON_TEST) {
+  require('angular-mocks/angular-mocks');
+}
 
 // creates the angular app and lists dependencies
 var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])
@@ -30,7 +38,7 @@ var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toast
 });
 
 // requires all needed angular files
-require('./scripts/config/route-config.js')(ngModule);
-require('./scripts/controllers')(ngModule);
-require('./scripts/directives')(ngModule);
-require('./scripts/services')(ngModule);
+registerConfig(ngModule);
+registerControllers(ngModule);
+registerServices(ngModule);
+registerDirectives(ngModule);
