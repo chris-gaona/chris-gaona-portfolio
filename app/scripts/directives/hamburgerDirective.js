@@ -11,7 +11,7 @@ function hamburgerDirective () {
       hover: '='
     },
     // adds template url
-    templateUrl: '../templates/hamburger.html'
+    template: require('./hamburger.html')
   };
 }
 

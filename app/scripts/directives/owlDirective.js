@@ -21,7 +21,7 @@ function owlDirective ($interval) {
       });
     },
     // adds template url
-    templateUrl: '../templates/owl-carousel.html'
+    template: require('./owl-carousel.html')
   };
 }
 
