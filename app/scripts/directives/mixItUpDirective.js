@@ -1,7 +1,5 @@
 'use strict';
 
-var angular = require('angular');
-
 function mixItUpDirective () {
   return {
     // restrict to element only
@@ -23,5 +21,6 @@ function mixItUpDirective () {
   };
 }
 
-angular.module('app')
-.directive('mixitup', mixItUpDirective);
+module.exports = function(ngModule) {
+  ngModule.directive('mixitup', mixItUpDirective);
+};

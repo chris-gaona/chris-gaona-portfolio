@@ -1,7 +1,5 @@
 'use strict';
 
-var angular = require('angular');
-
 function hamburgerDirective () {
   return {
     // restrict to element only
@@ -17,5 +15,6 @@ function hamburgerDirective () {
   };
 }
 
-angular.module('app')
-.directive('hamburger', hamburgerDirective);
+module.exports = function(ngModule) {
+  ngModule.directive('hamburger', hamburgerDirective);
+};

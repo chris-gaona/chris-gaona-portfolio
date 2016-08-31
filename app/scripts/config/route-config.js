@@ -1,13 +1,5 @@
 'use strict';
 
-// requires angular
-var angular = require('angular');
-
-angular.module('app')
-
-// creates config routes for angular application
-.config(config);
-
 function config ($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
@@ -56,3 +48,8 @@ function config ($routeProvider, $locationProvider) {
   $locationProvider
   .html5Mode(true);
 }
+
+module.exports = function(ngModule) {
+  // creates config routes for angular application
+  ngModule.config(config);
+};
