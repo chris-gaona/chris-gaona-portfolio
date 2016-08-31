@@ -4,7 +4,7 @@
 var angular = require('angular');
 
 // creates the angular app and lists dependencies
-angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])
+var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])
 .run(function($rootScope, $location, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login
@@ -30,7 +30,7 @@ angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.date
 });
 
 // requires all needed angular files
-require('./scripts/config/route-config.js');
-require('./scripts/controllers');
-require('./scripts/directives');
-require('./scripts/services');
+require('./scripts/config/route-config.js')(ngModule);
+require('./scripts/controllers')(ngModule);
+require('./scripts/directives')(ngModule);
+require('./scripts/services')(ngModule);

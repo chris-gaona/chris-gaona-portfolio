@@ -1,7 +1,9 @@
 'use strict';
 
-require('./expandDirective.js');
-require('./mixItUpDirective.js');
-require('./owlDirective.js');
-require('./hamburgerDirective.js');
-require('./validation-errors.js');
+module.exports = function(ngModule) {
+  require('./expandDirective.js')(ngModule);
+  require('./mixItUpDirective.js')(ngModule);
+  require('./owlDirective.js')(ngModule);
+  require('./hamburgerDirective.js')(ngModule);
+  require('./validation-errors.js')(ngModule);
+};

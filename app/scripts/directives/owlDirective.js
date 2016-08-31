@@ -1,7 +1,5 @@
 'use strict';
 
-var angular = require('angular');
-
 function owlDirective ($interval) {
   return {
     // restrict to element only
@@ -23,9 +21,10 @@ function owlDirective ($interval) {
       });
     },
     // adds template url
-    templateUrl: '../templates/owl-carousel.html'
+    template: require('./owl-carousel.html')
   };
 }
 
-angular.module('app')
-.directive('owlCarousel', owlDirective);
+module.exports = function(ngModule) {
+  ngModule.directive('owlCarousel', owlDirective);
+};

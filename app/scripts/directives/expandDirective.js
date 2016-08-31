@@ -1,7 +1,5 @@
 'use strict';
 
-var angular = require('angular');
-
 function expandProjectDirective () {
   return {
     // restrict to element only
@@ -19,9 +17,10 @@ function expandProjectDirective () {
       };
     },
     // adds template url
-    templateUrl: '../templates/expand-project.html'
+    template: require('./expand-project.html')
   };
 }
 
-angular.module('app')
-.directive('expandProject', expandProjectDirective);
+module.exports = function(ngModule) {
+  ngModule.directive('expandProject', expandProjectDirective);
+};

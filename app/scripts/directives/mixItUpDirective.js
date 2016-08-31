@@ -1,7 +1,5 @@
 'use strict';
 
-var angular = require('angular');
-
 function mixItUpDirective () {
   return {
     // restrict to element only
@@ -19,9 +17,10 @@ function mixItUpDirective () {
       });
     },
     // adds template url
-    templateUrl: '../templates/mixitup.html'
+    template: require('./mixitup.html')
   };
 }
 
-angular.module('app')
-.directive('mixitup', mixItUpDirective);
+module.exports = function(ngModule) {
+  ngModule.directive('mixitup', mixItUpDirective);
+};
