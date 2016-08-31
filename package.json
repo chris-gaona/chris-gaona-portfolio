@@ -25,18 +25,17 @@
     "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",
     "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:utils && npm run uglify:models && npm run uglify:config",
     "imagemin": "mkdir -p dist/public/images && imagemin src/public/images/* -o dist/public/images",
-    "html": "mkdir -p dist/public && cp -R src/public/templates dist/public/ && cp -R src/public/index.html dist/public/",
+    "html": "mkdir -p dist/public && cp -R src/public/index.html dist/public/",
     "build": "mkdir -p dist && npm run clean && npm run test && npm run lint && npm run uglify && npm run scss && bower install && npm run bundle && npm run imagemin && npm run html",
     "watch:css": "onchange 'src/sass/**/*.scss' -- npm run scss",
     "watch:index": "onchange 'src/public/index.html' -- npm run html",
-    "watch:templates": "onchange 'src/public/templates/*.html' -- npm run html",
     "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
     "watch:models": "onchange 'src/models/*.js' -- npm run uglify:models",
     "watch:routes": "onchange 'src/routes/*.js' -- npm run uglify:routes",
     "watch:utils": "onchange 'src/utils/*.js' -- npm run uglify:utils",
     "watch:main": "onchange 'src/*.js' -- npm run uglify:main",
     "watch:app": "onchange 'app/' -- npm run bundle",
-    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:index' 'npm run watch:templates' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
+    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:index' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
   },
   "dependencies": {
     "angular": "^1.5.8",
