@@ -1,3 +1,7 @@
-require('./mainController.js');
-require('./projectController.js');
-require('./authController.js');
+'use strict';
+
+module.exports = function(ngModule) {
+  require('./mainController')(ngModule);
+  require('./projectController')(ngModule);
+  require('./authController')(ngModule);
+};

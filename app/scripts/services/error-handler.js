@@ -1,8 +1,5 @@
 'use strict';
 
-// requires angular
-var angular = require('angular');
-
 // creates error handler function
 function ErrorHandler(toastr, $log) {
   var vm = this;
@@ -31,5 +28,6 @@ function ErrorHandler(toastr, $log) {
   };
 }
 
-angular.module('app')
-.service('errorHandlerService', ErrorHandler);
+module.exports = function(ngModule) {
+  ngModule.service('errorHandlerService', ErrorHandler);
+};

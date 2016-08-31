@@ -1,5 +1,9 @@
-require('./mainService.js');
-require('./authService.js');
-require('./userService.js');
-require('./weatherService.js');
-require('./error-handler.js');
+'use strict';
+
+module.exports = function(ngModule) {
+  require('./mainService')(ngModule);
+  require('./authService')(ngModule);
+  require('./userService')(ngModule);
+  require('./weatherService')(ngModule);
+  require('./error-handler')(ngModule);
+};
