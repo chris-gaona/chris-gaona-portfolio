@@ -1,8 +1,5 @@
 'use strict';
 
-// requires angular
-var angular = require('angular');
-
 // creates user service function
 function userService($http, AuthService) {
   var userService = {};
@@ -19,5 +16,6 @@ function userService($http, AuthService) {
   return userService;
 }
 
-angular.module('app')
-.factory('UserService', ['$http', 'AuthService', userService]);
+export default ngModule => {
+  ngModule.factory('UserService', ['$http', 'AuthService', userService]);
+};
