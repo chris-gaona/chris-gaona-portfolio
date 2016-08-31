@@ -5,7 +5,7 @@ function config ($routeProvider, $locationProvider) {
   .when('/', {
     controller: 'MainController',
     controllerAs: 'vm',
-    templateUrl: 'templates/main.html',
+    template: require('./main.html'),
     resolve: {
       projects: ['MainService', function (MainService) {
         return MainService.getAll();
@@ -15,24 +15,24 @@ function config ($routeProvider, $locationProvider) {
   .when('/new', {
     controller: 'ProjectController',
     controllerAs: 'vm',
-    templateUrl: 'templates/new-form.html',
+    template: require('./new-form.html'),
     requireLogin: true
   })
   .when('/edit/:id', {
     controller: 'ProjectController',
     controllerAs: 'vm',
-    templateUrl: 'templates/new-form.html',
+    template: require('./new-form.html'),
     requireLogin: true
   })
   .when('/register', {
     controller: 'AuthController',
     controllerAs: 'vm',
-    templateUrl: 'templates/authenticate.html'
+    template: require('./authenticate.html')
   })
   .when('/login', {
     controller: 'AuthController',
     controllerAs: 'vm',
-    templateUrl: 'templates/authenticate.html',
+    template: require('./authenticate.html'),
     resolve: {
     check: ['$location', 'AuthService', function($location, AuthService) {
         if (AuthService.isLoggedIn()) {

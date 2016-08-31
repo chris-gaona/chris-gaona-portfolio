@@ -22,5 +22,10 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
-    ]
+    ],
+    module: {
+      loaders: [
+        {test: /\.html$/, loader: 'raw', excludes: /node_modules/}
+      ]
+    }
 };
