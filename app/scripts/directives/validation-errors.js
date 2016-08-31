@@ -1,5 +1,7 @@
 'use strict';
 
+var angular = require('angular');
+
 // creates validation errors function
 function ValidationErrors() {
   // creates controller
@@ -31,6 +33,5 @@ function ValidationErrors() {
   };
 }
 
-export default ngModule => {
-  ngModule.directive('validationErrors', ValidationErrors);
-};
+angular.module('app')
+.directive('validationErrors', ValidationErrors);

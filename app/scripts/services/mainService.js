@@ -1,5 +1,8 @@
 'use strict';
 
+// requires angular
+var angular = require('angular');
+
 // creates main service function
 function mainService ($http, $log, AuthService) {
   var mainService = {
@@ -52,6 +55,5 @@ function mainService ($http, $log, AuthService) {
   return mainService;
 }
 
-export default ngModule => {
-  ngModule.factory('MainService', ['$http', '$log', 'AuthService', mainService]);
-};
+angular.module('app')
+.factory('MainService', ['$http', '$log', 'AuthService', mainService]);

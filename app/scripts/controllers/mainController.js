@@ -1,5 +1,8 @@
 'use strict';
 
+// requires angular
+var angular = require('angular');
+
 // creates function for main controller
 function mainController ($location, $log, $timeout, MainService, AuthService, UserService, WeatherService, toastr, errorHandlerService) {
   var vm = this;
@@ -104,10 +107,5 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   });
 }
 
-export default ngModule => {
-  if (ON_TEST) {
-    require('./mainController.test')(ngModule);
-  }
-
-  ngModule.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'WeatherService', 'toastr', 'errorHandlerService', mainController]);
-};
+angular.module('app')
+.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'WeatherService', 'toastr', 'errorHandlerService', mainController]);

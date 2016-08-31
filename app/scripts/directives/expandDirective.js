@@ -1,5 +1,7 @@
 'use strict';
 
+var angular = require('angular');
+
 function expandProjectDirective () {
   return {
     // restrict to element only
@@ -21,6 +23,5 @@ function expandProjectDirective () {
   };
 }
 
-export default ngModule => {
-  ngModule.directive('expandProject', expandProjectDirective);
-};
+angular.module('app')
+.directive('expandProject', expandProjectDirective);

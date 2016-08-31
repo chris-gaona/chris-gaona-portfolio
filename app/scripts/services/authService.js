@@ -1,5 +1,8 @@
 'use strict';
 
+// requires angular
+var angular = require('angular');
+
 // creatse auth service function
 function authService($http, $window) {
   var authService = {};
@@ -73,7 +76,6 @@ function authService($http, $window) {
 //--------------------------------------
 //ANGULAR
 //--------------------------------------
-export default ngModule => {
+angular.module('app')
 //create initial auth factory. need to inject $http for interfacing with our server, and $window for interfacing with localStorage
-  ngModule.factory('AuthService', ['$http', '$window', authService]);
-};
+.factory('AuthService', ['$http', '$window', authService]);
