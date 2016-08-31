@@ -1,10 +1,18 @@
 'use strict';
 
 // requires angular
-var angular = require('angular');
+import angular from 'angular';
+import registerConfig from './scripts/config/route-config.js';
+import registerControllers from './scripts/controllers';
+import registerDirectives from './scripts/directives';
+import registerServices from './scripts/services';
+
+if (ON_TEST) {
+  require('angular-mocks/angular-mocks');
+}
 
 // creates the angular app and lists dependencies
-angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])
+var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])
 .run(function($rootScope, $location, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login
@@ -30,7 +38,7 @@ angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.date
 });
 
 // requires all needed angular files
-require('./scripts/config/route-config.js');
-require('./scripts/controllers');
-require('./scripts/directives');
-require('./scripts/services');
+registerConfig(ngModule);
+registerControllers(ngModule);
+registerServices(ngModule);
+registerDirectives(ngModule);
