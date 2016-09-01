@@ -27,7 +27,7 @@ function ValidationErrors() {
       errors: '='
     },
     controller: controller,
-    template: require('./validation-errors.html')
+    templateUrl: '../templates/validation-errors.html'
   };
 }
 

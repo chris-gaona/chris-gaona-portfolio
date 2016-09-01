@@ -2,6 +2,12 @@
 
 // requires angular
 var angular = require('angular');
+require('angular-route');
+require('angular-scroll');
+require('angular-animate');
+require('angular-toastr');
+require('angularjs-datepicker');
+require('ngmap');
 
 // creates the angular app and lists dependencies
 var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap'])

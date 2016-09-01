@@ -17,7 +17,7 @@ function expandProjectDirective () {
       };
     },
     // adds template url
-    template: require('./expand-project.html')
+    templateUrl: '../templates/expand-project.html'
   };
 }
 
