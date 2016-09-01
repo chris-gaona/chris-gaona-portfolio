@@ -14,6 +14,7 @@
     "bundle": "mkdir -p dist/public/scripts && browserify app/app.js | uglifyjs > dist/public/scripts/portfolio.bundle.js",
     "lint": "jshint **",
     "test": "mocha",
+    "test:angular": "karma start karma.conf.js",
     "clean": "rm -rf dist/*",
     "scss": "node-sass --output-style compressed --source-map true -o dist/public/stylesheets src/sass/style.scss --importer node_modules/node-sass-import",
     "postscss": "npm run autoprefixer && cp -R node_modules/angular-toastr/dist/angular-toastr.min.css dist/public/stylesheets && cp -R node_modules/angularjs-datepicker/dist/angular-datepicker.min.css dist/public/stylesheets",
@@ -80,9 +81,13 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.8",
     "browserify": "^13.1.0",
+    "jasmine-core": "^2.5.0",
     "karma": "^1.2.0",
     "karma-browserify": "^5.1.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
     "mongoose-seeder": "^1.2.1",
     "watchify": "^3.7.0"
   }
