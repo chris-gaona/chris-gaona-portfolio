@@ -12,7 +12,7 @@ function owlDirective ($interval) {
         $(element).owlCarousel(options);
       }
       // fixes issue with owl carousel showing {{}} when finger scrolling from github section to treehouse section
-      var stopIt = $interval(initCarousel, 100, 1);
+      var stopIt = $interval(initCarousel, 500, 1);
 
       // listen on DOM destroy (removal) event, and cancel the next UI update
       // to prevent updating after the DOM element was removed.
