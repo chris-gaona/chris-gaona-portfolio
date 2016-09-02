@@ -17,7 +17,7 @@ function mixItUpDirective () {
       });
     },
     // adds template url
-    template: require('./mixitup.html')
+    templateUrl: '../templates/mixitup.html'
   };
 }
 

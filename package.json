@@ -10,14 +10,15 @@
     "postinstall": "npm run build",
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
-    "bundle": "webpack",
+    "bundle:dev": "mkdir -p dist/public/scripts && browserify app/app.js -o dist/public/scripts/portfolio.bundle.js --debug",
+    "bundle": "mkdir -p dist/public/scripts && browserify app/app.js | uglifyjs > dist/public/scripts/portfolio.bundle.js",
     "lint": "jshint **",
     "test": "mocha",
+    "test:angular": "karma start karma.conf.js",
     "clean": "rm -rf dist/*",
     "scss": "node-sass --output-style compressed --source-map true -o dist/public/stylesheets src/sass/style.scss --importer node_modules/node-sass-import",
-    "postscss": "npm run autoprefixer",
+    "postscss": "npm run autoprefixer && cp -R node_modules/angular-toastr/dist/angular-toastr.min.css dist/public/stylesheets && cp -R node_modules/angularjs-datepicker/dist/angular-datepicker.min.css dist/public/stylesheets",
     "autoprefixer": "postcss -u autoprefixer -b 'last 2 versions' -r dist/public/stylesheets/*.css",
-    "postautoprefixer": "cp -R node_modules/angular-toastr/dist/angular-toastr.min.css dist/public/stylesheets && cp -R node_modules/angularjs-datepicker/dist/angular-datepicker.min.css dist/public/stylesheets",
     "uglify:config": "mkdir -p dist/config && uglifyjs src/config/database.js -m -o dist/config/database.js && uglifyjs src/config/passport.js -m -o dist/config/passport.js && uglifyjs src/config/seed.js -m -o dist/config/seed.js && cp -R src/config/seed.json dist/config/seed.json",
     "uglify:models": "mkdir -p dist/models && uglifyjs src/models/Projects.js -m -o dist/models/Projects.js && uglifyjs src/models/Users.js -m -o dist/models/Users.js",
     "uglify:routes": "mkdir -p dist/routes && uglifyjs src/routes/index.js -m -o dist/routes/index.js && uglifyjs src/routes/accomplishments.js -m -o dist/routes/accomplishments.js && uglifyjs src/routes/auth.js -m -o dist/routes/auth.js && uglifyjs src/routes/projects.js -m -o dist/routes/projects.js && uglifyjs src/routes/users.js -m -o dist/routes/users.js",
@@ -25,17 +26,18 @@
     "uglify:main": "uglifyjs src/app.js -m -o dist/app.js && uglifyjs src/cache.js -m -o dist/cache.js",
     "uglify": "npm run uglify:main && npm run uglify:routes && npm run uglify:utils && npm run uglify:models && npm run uglify:config",
     "imagemin": "mkdir -p dist/public/images && imagemin src/public/images/* -o dist/public/images",
-    "html": "mkdir -p dist/public && cp -R src/public/index.html dist/public/",
+    "html": "mkdir -p dist/public && cp -R src/public/templates dist/public/ && cp -R src/public/index.html dist/public/",
     "build": "mkdir -p dist && npm run clean && npm run test && npm run lint && npm run uglify && npm run scss && bower install && npm run bundle && npm run imagemin && npm run html",
     "watch:css": "onchange 'src/sass/**/*.scss' -- npm run scss",
     "watch:index": "onchange 'src/public/index.html' -- npm run html",
+    "watch:templates": "onchange 'src/public/templates/*.html' -- npm run html",
     "watch:config": "onchange 'src/config/*.js' -- npm run uglify:config",
     "watch:models": "onchange 'src/models/*.js' -- npm run uglify:models",
     "watch:routes": "onchange 'src/routes/*.js' -- npm run uglify:routes",
     "watch:utils": "onchange 'src/utils/*.js' -- npm run uglify:utils",
     "watch:main": "onchange 'src/*.js' -- npm run uglify:main",
-    "watch:app": "onchange 'app/' -- npm run bundle",
-    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:index' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
+    "watch:app": "onchange 'app/' -- npm run bundle:dev",
+    "watch": "parallelshell 'npm run start:dev' 'npm run watch:css' 'npm run watch:index' 'npm run watch:templates' 'npm run watch:config' 'npm run watch:models' 'npm run watch:routes' 'npm run watch:main' 'npm run watch:app'"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -79,6 +81,14 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
-    "mongoose-seeder": "^1.2.1"
+    "angular-mocks": "^1.5.8",
+    "browserify": "^13.1.0",
+    "jasmine-core": "^2.5.0",
+    "karma": "^1.2.0",
+    "karma-browserify": "^5.1.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "mongoose-seeder": "^1.2.1",
+    "watchify": "^3.7.0"
   }
 }
