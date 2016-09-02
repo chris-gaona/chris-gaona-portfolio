@@ -1,7 +1,7 @@
 'use strict';
 
 // creates main service function
-function mainService ($http, $log, AuthService) {
+function mainService ($http, $log, AuthService, errorHandlerService) {
   var mainService = {
     projects: [],
     treehouse: [],
@@ -14,7 +14,8 @@ function mainService ($http, $log, AuthService) {
     return $http.get('/api/projects').then(function successCallback (response) {
       angular.copy(response.data, mainService.projects);
     }, function errorCallback (response, status) {
-      $log.error('Error ' + response + status);
+      $log.error(response);
+      errorHandlerService.handleError(response);
     });
   };
 
@@ -42,7 +43,8 @@ function mainService ($http, $log, AuthService) {
     return $http.get('/api/treehouse').then(function successCallback (response) {
       angular.copy(response.data, mainService.treehouse);
     }, function errorCallback (response, status) {
-      $log.error('Error ' + response + status);
+      $log.error(response);
+      errorHandlerService.handleError(response);
     });;
   };
 
@@ -51,7 +53,8 @@ function mainService ($http, $log, AuthService) {
     return $http.get('/api/codeschool').then(function successCallback (response) {
       angular.copy(response.data, mainService.codeschool);
     }, function errorCallback (response, status) {
-      $log.error('Error ' + response + status);
+      $log.error(response);
+      errorHandlerService.handleError(response);
     });
   };
 
@@ -60,7 +63,8 @@ function mainService ($http, $log, AuthService) {
     return $http.get('/api/github').then(function successCallback (response) {
       angular.copy(response.data, mainService.github);
     }, function errorCallback (response, status) {
-      $log.error('Error ' + response + status);
+      $log.error(response);
+      errorHandlerService.handleError(response);
     });
   };
 
@@ -68,5 +72,5 @@ function mainService ($http, $log, AuthService) {
 }
 
 module.exports = function(ngModule) {
-  ngModule.factory('MainService', ['$http', '$log', 'AuthService', mainService]);
+  ngModule.factory('MainService', ['$http', '$log', 'AuthService', 'errorHandlerService', mainService]);
 };

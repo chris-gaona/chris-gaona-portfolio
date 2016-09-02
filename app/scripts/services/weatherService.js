@@ -1,7 +1,7 @@
 'use strict';
 
 // creates weather service function
-function weatherService ($http, $log) {
+function weatherService ($http, $log, errorHandlerService) {
   var weatherService = {
     weather: []
   };
@@ -12,6 +12,7 @@ function weatherService ($http, $log) {
       angular.copy(response.data, weatherService.weather);
     }, function errorCallback (response, status) {
       $log.error(response);
+      errorHandlerService.handleError(response);
     });
   };
 
@@ -19,5 +20,5 @@ function weatherService ($http, $log) {
 }
 
 module.exports = function(ngModule) {
-  ngModule.factory('WeatherService', ['$http', '$log', weatherService]);
+  ngModule.factory('WeatherService', ['$http', '$log', 'errorHandlerService', weatherService]);
 };
