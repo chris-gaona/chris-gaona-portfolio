@@ -307,17 +307,31 @@ span.fa-times {
 }
 
 // SPINNER
-.spinner-hide .loading{
-  visibility: visible;
+.loader-container {
+  padding: 70px 0;
 }
-.spinner-show .loading{
-  visibility: hidden;
+
+.spinner-hide {
+  display: none;
+}
+
+.spinner-show {
+  display: block;
+}
+
+.loader-visible {
+  display: block;
+}
+
+.loader-hidden {
+  display: none;
 }
 
 .loading {
-  position: relative;
+  position: absolute;
   left: 50%;
   top: 0;
+  // display: none;
   margin-left: -24px;
   padding: 50px 0;
   font-size: 3em;
@@ -326,9 +340,9 @@ span.fa-times {
 
 @keyframes spin {
   from {
-    transform: rotate(0);
+    transform: rotateZ(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateZ(360deg);
   }
 }
