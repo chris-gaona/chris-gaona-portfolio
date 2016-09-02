@@ -13,7 +13,7 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
   mainService.getAll = function () {
     return $http.get('/api/projects').then(function successCallback (response) {
       angular.copy(response.data, mainService.projects);
-    }, function errorCallback (response, status) {
+    }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
     });
@@ -42,17 +42,17 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
   mainService.getTreehouse = function () {
     return $http.get('/api/treehouse').then(function successCallback (response) {
       angular.copy(response.data, mainService.treehouse);
-    }, function errorCallback (response, status) {
+    }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
-    });;
+    });
   };
 
   // get codeschool info
   mainService.getCodeschool = function () {
     return $http.get('/api/codeschool').then(function successCallback (response) {
       angular.copy(response.data, mainService.codeschool);
-    }, function errorCallback (response, status) {
+    }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
     });
@@ -62,7 +62,7 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
   mainService.getGithub = function () {
     return $http.get('/api/github').then(function successCallback (response) {
       angular.copy(response.data, mainService.github);
-    }, function errorCallback (response, status) {
+    }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
     });

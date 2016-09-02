@@ -1,7 +1,7 @@
 'use strict';
 
 // creates function for main controller
-function mainController ($location, $log, $timeout, MainService, AuthService, UserService, WeatherService, toastr, errorHandlerService) {
+function mainController ($location, $log, $timeout, MainService, AuthService, UserService, WeatherService, toastr) {
   var vm = this;
 
   // this timeout is used to make sure the twitter widget loads after the angular application loads otherwise an error is thrown
@@ -83,5 +83,5 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'WeatherService', 'toastr', 'errorHandlerService', mainController]);
+  ngModule.controller('MainController', ['$location', '$log', '$timeout', 'MainService', 'AuthService', 'UserService', 'WeatherService', 'toastr', mainController]);
 };

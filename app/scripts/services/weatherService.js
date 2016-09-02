@@ -10,7 +10,7 @@ function weatherService ($http, $log, errorHandlerService) {
   weatherService.getWeather = function () {
     return $http.get('/api/weather').then(function successCallback (response) {
       angular.copy(response.data, weatherService.weather);
-    }, function errorCallback (response, status) {
+    }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
     });
