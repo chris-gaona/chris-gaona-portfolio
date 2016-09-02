@@ -31,9 +31,15 @@ router.get('/github', function (req, res, next) {
 });
 
 router.get('/weather', function (req, res, next) {
-  var FORECAST_IO = process.env.FORECAST_IO;
+  var FORECAST_IO;
 
-  // request teamtreehouse url
+  if (process.env.FORECAST_IO !== undefined) {
+    FORECAST_IO = process.env.FORECAST_IO;
+  } else {
+    FORECAST_IO = require('../../src/config/secret.js');
+  }
+
+  // request forecast.io url
   request('https://api.forecast.io/forecast/' + FORECAST_IO + '/37.6819,-121.7680', function (err, response, body) {
     if (err) return next(err);
 

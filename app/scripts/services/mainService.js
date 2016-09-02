@@ -3,7 +3,10 @@
 // creates main service function
 function mainService ($http, $log, AuthService) {
   var mainService = {
-    projects: []
+    projects: [],
+    treehouse: [],
+    codeschool: [],
+    github: []
   };
 
   // get project info from mongodb
@@ -36,17 +39,29 @@ function mainService ($http, $log, AuthService) {
 
   // get treehouse info
   mainService.getTreehouse = function () {
-    return $http.get('/api/treehouse');
+    return $http.get('/api/treehouse').then(function successCallback (response) {
+      angular.copy(response.data, mainService.treehouse);
+    }, function errorCallback (response, status) {
+      $log.error('Error ' + response + status);
+    });;
   };
 
   // get codeschool info
   mainService.getCodeschool = function () {
-    return $http.get('/api/codeschool');
+    return $http.get('/api/codeschool').then(function successCallback (response) {
+      angular.copy(response.data, mainService.codeschool);
+    }, function errorCallback (response, status) {
+      $log.error('Error ' + response + status);
+    });
   };
 
   // get github info
   mainService.getGithub = function () {
-    return $http.get('/api/github');
+    return $http.get('/api/github').then(function successCallback (response) {
+      angular.copy(response.data, mainService.github);
+    }, function errorCallback (response, status) {
+      $log.error('Error ' + response + status);
+    });
   };
 
   return mainService;

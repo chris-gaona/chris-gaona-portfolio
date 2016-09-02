@@ -31,43 +31,30 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   vm.projects = MainService.projects;
 
   // gets treehouse data
-  MainService.getTreehouse().then(function (response) {
-    vm.treehouse = response.data;
-  }, function (error) {
-    errorHandlerService.handleError(error);
-    // log the error to the console
-    $log.error('Error ' + error);
-  });
+  vm.treehouse = MainService.treehouse;
 
   // gets codeschool data
-  MainService.getCodeschool().then(function (response) {
-    vm.codeschool = response.data;
-  }, function (error) {
-    errorHandlerService.handleError(error);
-    // log the error to the console
-    $log.error('Error ' + error);
-  });
+  vm.codeschool = MainService.codeschool;
 
   // gets github data
-  MainService.getGithub().then(function (response) {
-    vm.github = response.data;
-  }, function (error) {
-    errorHandlerService.handleError(error);
-    // log the error to the console
-    $log.error('Error ' + error);
-  });
+  vm.github = MainService.github;
 
-  //mixitup categories
-  var categories = [];
-  for (var i = 0; i < vm.projects.length; i++) {
-    categories.push(vm.projects[i].category);
-  }
-  // makes sure we don't have duplicates to display to client
-  var uniqueCat = categories.filter(function(elem, index, self) {
-    return index == self.indexOf(elem);
-  });
+  // gets the weather from the WeatherService
+  vm.weather = WeatherService.weather;
 
-  vm.categories = uniqueCat;
+  vm.getCategories = function (projects) {
+    //mixitup categories
+    var categories = [];
+    for (var i = 0; i < projects.length; i++) {
+      categories.push(projects[i].category);
+    }
+    // makes sure we don't have duplicates to display to client
+    var uniqueCat = categories.filter(function(elem, index, self) {
+      return index == self.indexOf(elem);
+    });
+
+    return uniqueCat;
+  };
 
   // used for project expansion section to see project details
   vm.expandProject = false;
@@ -93,15 +80,6 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   vm.loginButton = function () {
     $location.path('/login');
   };
-
-  // gets the weather from the WeatherService
-  WeatherService.getWeather().then(function (response) {
-    vm.weather = response.data;
-  }, function (error) {
-    errorHandlerService.handleError(error);
-    // log the error to the console
-    $log.error('Error ' + error);
-  });
 }
 
 module.exports = function(ngModule) {

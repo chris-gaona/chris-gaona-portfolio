@@ -40,7 +40,7 @@
         <label ng-click="vm.filterVisible = !vm.filterVisible" ng-class="{'rotate': vm.filterVisible}">Filter</label>
         <ul class="cg-filter" ng-show="vm.filterVisible" ng-class="{'fade-controls': vm.filterVisible}">
           <li class="filter" data-filter="all">All</li>
-          <li class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.categories">{{category}}</li>
+          <li class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.getCategories(vm.projects)">{{category}}</li>
         </ul>
 
         <label ng-click="vm.sortVisible = !vm.sortVisible" ng-class="{'rotate': vm.sortVisible}">Sort</label>
@@ -79,7 +79,7 @@
     <hr class="star-primary">
     <div class="cg-myimage"></div>
     <p>
-      My name is Chris Gaona and I'm a Full-Stack JavaScript Developer. Over the past 3 years I have been learning as much as I can about web development using languages such as JavaScript, HTML, CSS, Node.js, and others. I am looking for a web development role in a company that is truly making a difference in the world and on a team that enjoys learning new technologies, languages, and platforms as much as I do. You can see the various projects I have worked on above or by clicking on the various links on this page to see my GitHub account. 
+      My name is Chris Gaona and I'm a Full-Stack JavaScript Developer. Over the past 3 years I have been learning as much as I can about web development using languages such as JavaScript, HTML, CSS, Node.js, and others. I am looking for a web development role in a company that is truly making a difference in the world and on a team that enjoys learning new technologies, languages, and platforms as much as I do. You can see the various projects I have worked on above or by clicking on the various links on this page to see my GitHub account.
     </p>
   </div>
 </div>
