@@ -1,3 +1,4 @@
+'use strict';
 // Karma configuration
 // Generated on Thu Sep 01 2016 15:46:42 GMT-0700 (PDT)
 
@@ -40,6 +41,10 @@ module.exports = function(config) {
       'test/unit/*.test.js': ['browserify']
     },
 
+    browserify: {
+      debug: true
+    },
+
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -71,10 +76,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};

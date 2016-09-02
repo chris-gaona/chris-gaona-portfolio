@@ -9,6 +9,18 @@ function config ($routeProvider, $locationProvider) {
     resolve: {
       projects: ['MainService', function (MainService) {
         return MainService.getAll();
+      }],
+      treehouse: ['MainService', function (MainService) {
+        return MainService.getTreehouse();
+      }],
+      codeschool: ['MainService', function (MainService) {
+        return MainService.getCodeschool();
+      }],
+      github: ['MainService', function (MainService) {
+        return MainService.getGithub();
+      }],
+      weather: ['WeatherService', function (WeatherService) {
+        return WeatherService.getWeather();
       }]
     }
   })

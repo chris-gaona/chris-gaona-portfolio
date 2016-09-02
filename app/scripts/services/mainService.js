@@ -1,17 +1,21 @@
 'use strict';
 
 // creates main service function
-function mainService ($http, $log, AuthService) {
+function mainService ($http, $log, AuthService, errorHandlerService) {
   var mainService = {
-    projects: []
+    projects: [],
+    treehouse: [],
+    codeschool: [],
+    github: []
   };
 
   // get project info from mongodb
   mainService.getAll = function () {
     return $http.get('/api/projects').then(function successCallback (response) {
       angular.copy(response.data, mainService.projects);
-    }, function errorCallback (response, status) {
-      $log.error('Error ' + response + status);
+    }, function errorCallback (response) {
+      $log.error(response);
+      errorHandlerService.handleError(response);
     });
   };
 
@@ -36,22 +40,37 @@ function mainService ($http, $log, AuthService) {
 
   // get treehouse info
   mainService.getTreehouse = function () {
-    return $http.get('/api/treehouse');
+    return $http.get('/api/treehouse').then(function successCallback (response) {
+      angular.copy(response.data, mainService.treehouse);
+    }, function errorCallback (response) {
+      $log.error(response);
+      errorHandlerService.handleError(response);
+    });
   };
 
   // get codeschool info
   mainService.getCodeschool = function () {
-    return $http.get('/api/codeschool');
+    return $http.get('/api/codeschool').then(function successCallback (response) {
+      angular.copy(response.data, mainService.codeschool);
+    }, function errorCallback (response) {
+      $log.error(response);
+      errorHandlerService.handleError(response);
+    });
   };
 
   // get github info
   mainService.getGithub = function () {
-    return $http.get('/api/github');
+    return $http.get('/api/github').then(function successCallback (response) {
+      angular.copy(response.data, mainService.github);
+    }, function errorCallback (response) {
+      $log.error(response);
+      errorHandlerService.handleError(response);
+    });
   };
 
   return mainService;
 }
 
 module.exports = function(ngModule) {
-  ngModule.factory('MainService', ['$http', '$log', 'AuthService', mainService]);
+  ngModule.factory('MainService', ['$http', '$log', 'AuthService', 'errorHandlerService', mainService]);
 };
