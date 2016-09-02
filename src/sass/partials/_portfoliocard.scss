@@ -305,3 +305,30 @@ span.fa-times {
   background-color: transparent;
   border: 3px solid #fd7d5f;
 }
+
+// SPINNER
+.spinner-hide .loading{
+  visibility: visible;
+}
+.spinner-show .loading{
+  visibility: hidden;
+}
+
+.loading {
+  position: relative;
+  left: 50%;
+  top: 0;
+  margin-left: -24px;
+  padding: 50px 0;
+  font-size: 3em;
+  animation: spin 0.9s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
