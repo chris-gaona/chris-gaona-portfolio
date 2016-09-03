@@ -12,7 +12,11 @@ function mixItUpDirective () {
     },
     link: function (scope, element) {
       scope.$watch('entities', function(){
-        $(element).mixItUp();
+        $(element).mixItUp({
+          load: {
+            sort: 'random'
+          }
+        });
         // how to tell mixitup to reload the data
       });
     },

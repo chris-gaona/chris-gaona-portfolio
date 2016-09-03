@@ -56,6 +56,12 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
     return uniqueCat;
   };
 
+  vm.activeFilter = 'all';
+  
+  vm.setActiveFilter = function(filterItem) {
+    vm.activeFilter = filterItem;
+  }
+
   // used for project expansion section to see project details
   vm.expandProject = false;
 
