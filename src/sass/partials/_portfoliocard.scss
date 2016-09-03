@@ -326,23 +326,3 @@ span.fa-times {
 .loader-hidden {
   display: none;
 }
-
-.loading {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  // display: none;
-  margin-left: -24px;
-  padding: 50px 0;
-  font-size: 3em;
-  animation: spin 0.9s infinite linear;
-}
-
-@keyframes spin {
-  from {
-    transform: rotateZ(0);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
-}
