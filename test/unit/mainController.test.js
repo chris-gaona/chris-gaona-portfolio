@@ -113,10 +113,15 @@ describe('MainController', function () {
   });
 
   describe('Project information / routes / functions', function () {
-    it('should have active filter set to all initially and be able to set active filter', function () {
+    it('should have active filter set to all initially and be able to set active filter checkbox', function () {
       expect(mainCtrl.activeFilter).toEqual('all');
       mainCtrl.setActiveFilter('category')
       expect(mainCtrl.activeFilter).toEqual('category');
+    });
+
+    it('should be able to set active sort checkbox', function () {
+      mainCtrl.setActiveSort('asc')
+      expect(mainCtrl.activeSort).toEqual('asc');
     });
 
     it('should have projects', function () {

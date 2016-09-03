@@ -57,9 +57,13 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   };
 
   vm.activeFilter = 'all';
-  
+
   vm.setActiveFilter = function(filterItem) {
     vm.activeFilter = filterItem;
+  }
+
+  vm.setActiveSort = function(sortItem) {
+    vm.activeSort = sortItem;
   }
 
   // used for project expansion section to see project details

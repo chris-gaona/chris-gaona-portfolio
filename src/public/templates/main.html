@@ -45,10 +45,10 @@
 
         <label ng-click="vm.sortVisible = !vm.sortVisible" ng-class="{'rotate': vm.sortVisible}">Sort</label>
         <ul class="cg-sort" ng-show="vm.sortVisible" ng-class="{'fade-controls': vm.sortVisible}">
-          <li class="sort" data-sort="myorder:asc"><span class="fa fa-sort-alpha-asc"></span></li>
-          <li class="sort" data-sort="myorder:desc"><span class="fa fa-sort-alpha-desc"></span></li>
-          <li class="sort" data-sort="dateorder:asc">Oldest</li>
-          <li class="sort" data-sort="dateorder:desc">Newest</li>
+          <li class="sort" data-sort="myorder:asc" ng-click="vm.setActiveSort('asc')"><span class="fa" ng-class="{'fa-check-square-o': vm.activeSort === 'asc', 'fa-square-o': vm.activeSort !== 'asc'}"></span> Asc</li>
+          <li class="sort" data-sort="myorder:desc" ng-click="vm.setActiveSort('desc')"><span class="fa" ng-class="{'fa-check-square-o': vm.activeSort === 'desc', 'fa-square-o': vm.activeSort !== 'desc'}"></span> Desc</li>
+          <li class="sort" data-sort="dateorder:asc" ng-click="vm.setActiveSort('oldest')"><span class="fa" ng-class="{'fa-check-square-o': vm.activeSort === 'oldest', 'fa-square-o': vm.activeSort !== 'oldest'}"></span> Oldest</li>
+          <li class="sort" data-sort="dateorder:desc" ng-click="vm.setActiveSort('newest')"><span class="fa" ng-class="{'fa-check-square-o': vm.activeSort === 'newest', 'fa-square-o': vm.activeSort !== 'newest'}"></span> Newest</li>
         </ul>
       </div>
       <p>
