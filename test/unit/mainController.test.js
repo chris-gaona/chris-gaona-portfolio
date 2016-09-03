@@ -113,6 +113,12 @@ describe('MainController', function () {
   });
 
   describe('Project information / routes / functions', function () {
+    it('should have active filter set to all initially and be able to set active filter', function () {
+      expect(mainCtrl.activeFilter).toEqual('all');
+      mainCtrl.setActiveFilter('category')
+      expect(mainCtrl.activeFilter).toEqual('category');
+    });
+
     it('should have projects', function () {
       expect(mainCtrl.projects).toBeDefined();
       expect(mainCtrl.projects.length).toEqual(0);
@@ -128,6 +134,7 @@ describe('MainController', function () {
     });
 
     it('should call getProject with a specific project for expand section', function () {
+      expect(mainCtrl.expandProject).toBe(false);
       mainCtrl.expandProject = true;
       mainCtrl.getProject(projects[0]);
       expect(mainCtrl.chosenProject).toEqual({
