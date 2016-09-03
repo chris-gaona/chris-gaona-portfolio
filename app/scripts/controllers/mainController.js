@@ -60,11 +60,11 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
 
   vm.setActiveFilter = function(filterItem) {
     vm.activeFilter = filterItem;
-  }
+  };
 
   vm.setActiveSort = function(sortItem) {
     vm.activeSort = sortItem;
-  }
+  };
 
   // used for project expansion section to see project details
   vm.expandProject = false;
