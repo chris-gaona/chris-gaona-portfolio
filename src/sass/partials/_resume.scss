@@ -5,9 +5,16 @@
   max-width: 900px;
   width: 100%;
   background-color: #fff;
-  padding: 4em 4em 2em 4em;
-  border-radius: 5px;
+  padding: 4em 1em 2em 1em;
   margin: 0 auto 4em auto;
+
+  @media (min-width: 600px) {
+    padding: 4em 4em 2em 4em;
+  }
+
+  @media (min-width: 900px) {
+    border-radius: 5px;
+  }
 }
 
 h2.resume-title {

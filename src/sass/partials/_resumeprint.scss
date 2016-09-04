@@ -18,13 +18,15 @@
     left: 0;
     width: 100%;
     background-color: #fff;
-    padding: 1em;
+    padding: 1em 1em 0 1em;
     border-radius: 5px;
     margin: 0 auto;
   }
 
   h3.resume-sub-title {
     text-align: center;
+    padding: 0;
+    margin: 0;
   }
 
   h5.resume-minor-title {
@@ -34,7 +36,7 @@
     margin: 0;
     padding: 0;
     background-color: #fff;
-    font-size: 15px;
+    font-size: 14px;
 
     &:first-of-type {
       margin-top: 15px;
@@ -56,7 +58,7 @@
 
   .print-links {
     display: block;
-    font-size: 11px;
+    font-size: 12px;
 
     span:first-of-type {
       float: left;
@@ -77,7 +79,7 @@
       float: left;
       border-radius: 2px;
       margin: 2px;
-      font-size: 12px;
+      font-size: 11px;
     }
   }
 
@@ -95,7 +97,7 @@
 
       ul li {
         font-size: 11px;
-        line-height: 12px;
+        line-height: 13px;
       }
     }
   }
@@ -105,7 +107,7 @@
     display: block;
     margin: 0;
     padding: 0;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   p.first-work {
@@ -123,7 +125,7 @@
   }
 
   .education-small-text {
-    font-size: 12px;
+    font-size: 11px;
     padding: 0;
     margin: 0;
     margin-left: 20px;
@@ -139,6 +141,6 @@
     margin: 0;
     margin-left: 20px;
     padding: 0;
-    font-size: 12px;
+    font-size: 11px;
   }
 }
