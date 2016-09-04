@@ -2,7 +2,11 @@
 /*OWL CAROUSEL*/
 /************************/
 .cg-carousel-container {
-  border-right: 2px solid #ddd;
+  border-right: none;
+
+  @media (min-width: 544px) {
+    border-right: 2px solid #ddd;
+  }
 }
 
 .cg-carousel {

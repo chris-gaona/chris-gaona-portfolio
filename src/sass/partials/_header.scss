@@ -20,20 +20,38 @@
   }
 }
 
-span.fa-github {
-  margin-right: 5px;
-}
-
-button.cg-github {
+.main-button-container {
   position: relative;
   top: 0;
   left: 50%;
-  padding: 15px 20px;
+  width: 315px;
+  height: 80px;
+  margin-left: -157.5px;
+
+  @media (min-width: 380px) {
+    width: 360px;
+    height: 100px;
+    margin-left: -180px;
+  }
+}
+
+span.fa-github, span.fa-file-text-o {
+  margin-right: 5px;
+}
+
+button.cg-github, button.cg-my-resume {
+  float: left;
+  padding: 10px 15px;
   border-radius: 5px;
   margin-top: 1em;
-  margin-left: -105px;
-  font-size: 1.1em;
+  margin-left: 5px;
+  font-size: 1em;
   background-color: #fff;
   border: 3px solid #fd7d5f;
   color: #fd7d5f;
+
+  @media (min-width: 380px) {
+    padding: 15px 20px;
+    font-size: 1.1em;
+  }
 }
