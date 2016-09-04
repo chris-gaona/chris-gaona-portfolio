@@ -44,6 +44,14 @@ h2 {
   background-color: #0099ff;
 }
 
+.clearfix:after {
+  content: "";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
 #toast-container {
   z-index: 100000;
 }
