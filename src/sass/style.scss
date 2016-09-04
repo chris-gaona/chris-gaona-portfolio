@@ -37,6 +37,13 @@ h2 {
   }
 }
 
+.cg-main-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #0099ff;
+}
+
 #toast-container {
   z-index: 100000;
 }
@@ -68,6 +75,7 @@ h2 {
 @import './partials/about';
 @import './partials/footer';
 @import './partials/dots';
+@import './partials/resume';
 
 /*#fd7d5f*/
 /*#0099ff*/

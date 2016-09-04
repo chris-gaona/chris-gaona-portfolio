@@ -53,6 +53,11 @@ function config ($routeProvider, $locationProvider) {
       }]
     }
   })
+  .when('/resume', {
+    controller: 'ResumeController',
+    controllerAs: 'vm',
+    templateUrl: 'templates/resume.html'
+  })
   .otherwise({
     redirectTo: '/'
   });

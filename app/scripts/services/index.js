@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = function(ngModule) {
-  require('./mainService.js')(ngModule);
-  require('./authService.js')(ngModule);
-  require('./userService.js')(ngModule);
-  require('./weatherService.js')(ngModule);
-  require('./error-handler.js')(ngModule);
+  require('./mainService')(ngModule);
+  require('./authService')(ngModule);
+  require('./userService')(ngModule);
+  require('./weatherService')(ngModule);
+  require('./error-handler')(ngModule);
 };
