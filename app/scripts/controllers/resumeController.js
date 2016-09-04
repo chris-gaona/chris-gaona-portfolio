@@ -1,6 +1,6 @@
 'use strict';
 
-function resumeController ($location) {
+function resumeController ($location, $window) {
   var vm = this;
 
   vm.greeting = 'Hello there!';
@@ -9,8 +9,12 @@ function resumeController ($location) {
   vm.goBack = function () {
     $location.path('/');
   };
+
+  vm.printResume = function () {
+    $window.print();
+  };
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('ResumeController', ['$location', resumeController]);
+  ngModule.controller('ResumeController', ['$location', '$window', resumeController]);
 };

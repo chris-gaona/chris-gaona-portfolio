@@ -12,16 +12,15 @@
   }
 
   .cg-resume-container {
-    font: Georgia, "Times New Roman", Times, serif;
+    font-family: "Times New Roman", Times, serif;
     position: relative;
     top: 0;
     left: 0;
-    max-width: 900px;
     width: 100%;
     background-color: #fff;
-    padding: 4em 4em 2em 4em;
+    padding: 1em;
     border-radius: 5px;
-    margin: 0 auto 4em auto;
+    margin: 0 auto;
   }
 
   h2 {
@@ -39,8 +38,14 @@
     position: relative;
     text-transform: uppercase;
     font-weight: bold;
-    margin: 50px 0 0 0;
+    margin: 0;
+    padding: 0;
     background-color: #fff;
+    font-size: 15px;
+
+    &:first-of-type {
+      margin-top: 15px;
+    }
   }
 
   a {
@@ -53,11 +58,20 @@
   }
 
   .link-container {
-    position: relative;
-    top: 0;
-    left: 50%;
-    width: 275px;
-    margin-left: -137.5px;
+    display: none;
+  }
+
+  .print-links {
+    display: block;
+    font-size: 11px;
+
+    span:first-of-type {
+      float: left;
+    }
+
+    span:nth-of-type(2) {
+      float: right;
+    }
   }
 
   ul.tech-skills {
@@ -66,10 +80,11 @@
     li {
       list-style: none;
       border: 1px solid #0099ff;
-      padding: 10px;
+      padding: 5px;
       float: left;
       border-radius: 2px;
-      margin: 5px;
+      margin: 2px;
+      font-size: 12px;
     }
   }
 
@@ -78,33 +93,59 @@
 
     li.work-sub-container {
       list-style: none;
+
+      ul {
+        padding: 0 0 0 20px;
+        margin: 0;
+        margin-top: -10px;
+      }
+
+      ul li {
+        font-size: 11px;
+        line-height: 12px;
+      }
     }
   }
 
   p.work-title {
     font-weight: bold;
     display: block;
-    margin: 20px 0 5px 0;
+    margin: 0;
     padding: 0;
-    font-size: 1.1em;
+    font-size: 14px;
+  }
+
+  p.first-work {
+    margin-top: -10px;
   }
 
   .company-name, .work-dates {
-    font-size: 12px;
-    background-color: #0099ff;
-    color: #fff;
-    padding: 5px;
-    border-radius: 2px;
-  }
-
-  ul {
-    margin-top: 10px;
+    position: relative;
+    top: -8px;
+    font-size: 11px;
+    color: #8e8e8e;
+    padding: 0;
+    margin: 0;
+    margin-right: 15px;
   }
 
   .education-small-text {
-    font-size: 1em;
+    font-size: 12px;
     padding: 0;
     margin: 0;
     margin-left: 20px;
+    line-height: 12px;
+  }
+
+  .education-anchor {
+    display: none;
+  }
+
+  .education-small-text-print {
+    display: block;
+    margin: 0;
+    margin-left: 20px;
+    padding: 0;
+    font-size: 12px;
   }
 }
