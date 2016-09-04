@@ -1,0 +1,110 @@
+@media print {
+  .logo {
+    display: none;
+  }
+
+  .cg-back-button {
+    display: none;
+  }
+
+  h2 {
+    display: none;
+  }
+
+  .cg-resume-container {
+    font: Georgia, "Times New Roman", Times, serif;
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    padding: 4em 4em 2em 4em;
+    border-radius: 5px;
+    margin: 0 auto 4em auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 0 0 40px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  h5 {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 50px 0 0 0;
+    background-color: #fff;
+  }
+
+  a {
+    color: #0099ff;
+
+    &:hover {
+      text-decoration: underline;
+      color: #666;
+    }
+  }
+
+  .link-container {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: 275px;
+    margin-left: -137.5px;
+  }
+
+  ul.tech-skills {
+    padding-left: 10px;
+
+    li {
+      list-style: none;
+      border: 1px solid #0099ff;
+      padding: 10px;
+      float: left;
+      border-radius: 2px;
+      margin: 5px;
+    }
+  }
+
+  ul.work-container {
+    padding: 0 0 0 20px;
+
+    li.work-sub-container {
+      list-style: none;
+    }
+  }
+
+  p.work-title {
+    font-weight: bold;
+    display: block;
+    margin: 20px 0 5px 0;
+    padding: 0;
+    font-size: 1.1em;
+  }
+
+  .company-name, .work-dates {
+    font-size: 12px;
+    background-color: #0099ff;
+    color: #fff;
+    padding: 5px;
+    border-radius: 2px;
+  }
+
+  ul {
+    margin-top: 10px;
+  }
+
+  .education-small-text {
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+  }
+}
