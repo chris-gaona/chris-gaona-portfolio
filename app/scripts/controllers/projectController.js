@@ -90,14 +90,13 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
       url: 'api/upload',
       data: {file: file, 'username': 'Chris'}
     }).then(function (resp) {
-      $log.log(resp);
       vm.image = 'images/' + resp.config.data.file.name;
-      console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+      $log.log('Success ' + resp.config.data.file.name + ' uploaded. Response: ' + resp.data);
     }, function (resp) {
-      console.log('Error status: ' + resp.status);
+      $log.log('Error status: ' + resp.status);
     }, function (evt) {
       var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-      console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      $log.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
     });
   };
 

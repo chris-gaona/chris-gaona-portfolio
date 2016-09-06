@@ -1,5 +1,7 @@
 'use strict';
 
+var fs = require('fs');
+
 var express = require('express');
 var router = express.Router();
 
@@ -20,18 +22,6 @@ var auth = jwt({
   secret: jwtSecret,
   userProperty: 'payload'
 });
-
-var multer = require('multer');
-var storage = multer.diskStorage({
-  destination: 'dist/public/images/',
-  filename: function ( req, file, cb ) {
-    //req.body is empty...
-    cb( null, file.originalname );
-  }
-});
-
-var upload = multer({ storage: storage })
-// var upload = multer({ dest : 'dist/public/images/' });
 
 // UTILS
 var utils = require('../utils');
@@ -79,9 +69,37 @@ router.put('/edit/:id', auth, function (req, res, next) {
   utils.editProject(req, res, next);
 });
 
-router.post('/upload', upload.single('file'), function (req, res) {
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: 'dist/public/images/temp/',
+  filename: function ( req, file, cb ) {
+    //req.body is empty...
+    cb( null, file.originalname );
+  }
+});
+
+var upload = multer({ storage: storage });
+// var upload = multer({ dest : 'dist/public/images/' });
+var imagemin = require('imagemin');
+var imageminPngquant = require('imagemin-pngquant');
+
+router.post('/upload', upload.single('file'), function (req, res, next) {
   console.log(req.file);
   console.log(req.body);
+  imagemin(['dist/public/images/temp/*.{jpg,png}'], 'dist/public/images/', {
+    plugins: [
+      imageminPngquant({quality: '65-80'})
+    ]
+  }).then(function (files) {
+    console.log(files);
+    //=> [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
+    fs.unlink('dist/public/images/temp/' + req.file.originalname, function(err) {
+       if (err) {
+          return next(err);
+       }
+       console.log("File deleted successfully!");
+    });
+  });
   res.send('Uploaded!');
 });
 

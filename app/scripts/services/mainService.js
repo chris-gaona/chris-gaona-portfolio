@@ -68,16 +68,6 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
     });
   };
 
-  // mainService.upload = function (file) {
-  //   $log.log(file);
-  //   return Upload.upload({
-  //     url: '/api/upload',
-  //     data: {
-  //       file: file
-  //     }
-  //   })
-  // };
-
   return mainService;
 }
 
