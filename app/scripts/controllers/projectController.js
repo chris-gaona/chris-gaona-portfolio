@@ -1,7 +1,7 @@
 'use strict';
 
 // creatse the projectController
-function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
+function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService, Upload) {
   var vm = this;
 
   vm.hasValidationErrors = false;
@@ -84,6 +84,23 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
     $location.path('/');
   };
 
+  // upload on file select or drop
+  vm.upload = function (file) {
+    Upload.upload({
+      url: 'api/upload',
+      data: {file: file, 'username': 'Chris'}
+    }).then(function (resp) {
+      $log.log(resp);
+      vm.image = 'images/' + resp.config.data.file.name;
+      console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+    }, function (resp) {
+      console.log('Error status: ' + resp.status);
+    }, function (evt) {
+      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+    });
+  };
+
   // creates the callback function for errorHandlerService
   function displayValidationErrors(validationErrors) {
     vm.validationErrors = validationErrors.errors;
@@ -93,5 +110,5 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
+  ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', 'Upload', projectController]);
 };

@@ -21,6 +21,18 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: 'dist/public/images/',
+  filename: function ( req, file, cb ) {
+    //req.body is empty...
+    cb( null, file.originalname );
+  }
+});
+
+var upload = multer({ storage: storage })
+// var upload = multer({ dest : 'dist/public/images/' });
+
 // UTILS
 var utils = require('../utils');
 
@@ -62,11 +74,15 @@ router.post('/new', auth, function (req, res, next) {
   utils.newProject(req, res, next);
 });
 
-
-
 // edit an existing project
 router.put('/edit/:id', auth, function (req, res, next) {
   utils.editProject(req, res, next);
+});
+
+router.post('/upload', upload.single('file'), function (req, res) {
+  console.log(req.file);
+  console.log(req.body);
+  res.send('Uploaded!');
 });
 
 module.exports = router;

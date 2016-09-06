@@ -37,13 +37,11 @@ h2 {
   }
 }
 
-@media screen {
-  .cg-main-wrapper {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: #0099ff;
-  }
+.cg-main-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #0099ff;
 }
 
 .clearfix:after {

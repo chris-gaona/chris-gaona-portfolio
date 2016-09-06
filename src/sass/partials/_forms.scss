@@ -86,3 +86,22 @@ span.fa-chevron-down {
 .cg-btn-container {
   margin-top: 2em;
 }
+
+.drop-box {
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
+  width: 95%;
+  height: 105px;
+  text-align: center;
+  padding-top: 25px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  @media (min-width: 400px) {
+    height: 85px;
+  }
+}
+.dragover {
+  border: 5px dashed blue;
+}
