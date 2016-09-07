@@ -88,15 +88,16 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
   vm.upload = function (file) {
     Upload.upload({
       url: 'api/upload',
-      data: {file: file, 'username': 'Chris'}
+      data: {file: file}
     }).then(function (resp) {
-      vm.image = 'images/' + resp.config.data.file.name;
+      vm.image = 'https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/images/' + resp.config.data.file.name;
       $log.log('Success ' + resp.config.data.file.name + ' uploaded. Response: ' + resp.data);
+      toastr.success('Your image has been uploaded!', 'Success!');
     }, function (resp) {
       $log.log('Error status: ' + resp.status);
     }, function (evt) {
-      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-      $log.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      vm.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      $log.log('progress: ' + vm.progressPercentage + '% ' + evt.config.data.file.name);
     });
   };
 

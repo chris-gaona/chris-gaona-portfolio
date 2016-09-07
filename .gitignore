@@ -2,6 +2,7 @@ node_modules
 .DS_Store
 bower_components
 src/config/secret.js
+src/config/config.json
 npm-debug.log
 public/scripts
 dist
