@@ -43,18 +43,24 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   vm.weather = WeatherService.weather;
 
   vm.getCategories = function (projects) {
-    //mixitup categories
-    var categories = [];
-    for (var i = 0; i < projects.length; i++) {
-      categories.push(projects[i].category);
-    }
-    // makes sure we don't have duplicates to display to client
-    var uniqueCat = categories.filter(function(elem, index, self) {
-      return index == self.indexOf(elem);
-    });
+
 
     return uniqueCat;
   };
+
+  //mixitup categories
+  var categories = [];
+  for (var i = 0; i < vm.projects.length; i++) {
+    categories.push(vm.projects[i].category);
+  }
+  var merged = [].concat.apply([], categories);
+  $log.log(merged);
+  // makes sure we don't have duplicates to display to client
+  vm.uniqueCat = merged.filter(function(elem, index, self) {
+    return index == self.indexOf(elem);
+  });
+
+  $log.log(vm.uniqueCat);
 
   vm.activeFilter = 'all';
 

@@ -45,7 +45,7 @@
         <label ng-click="vm.filterVisible = !vm.filterVisible" ng-class="{'rotate': vm.filterVisible}"><span class="fa fa-filter"></span> Filter</label>
         <ul class="cg-filter" ng-show="vm.filterVisible" ng-class="{'fade-controls': vm.filterVisible}">
           <li class="filter" data-filter="all" ng-click="vm.setActiveFilter('all')"><span class="fa" ng-class="{'fa-square-o': vm.activeFilter !== 'all', 'fa-check-square-o': vm.activeFilter === 'all'}"></span> All</li>
-          <li class="filter" data-filter=".category-{{category}}" ng-repeat="category in vm.getCategories(vm.projects)" ng-click="vm.setActiveFilter(category)"><span class="fa" ng-class="{'fa-check-square-o': vm.activeFilter === category, 'fa-square-o': vm.activeFilter !== category}"></span> {{category}}</li>
+          <li class="filter" data-filter=".{{category}}" ng-repeat="category in vm.uniqueCat" ng-click="vm.setActiveFilter(category)"><span class="fa" ng-class="{'fa-check-square-o': vm.activeFilter === category, 'fa-square-o': vm.activeFilter !== category}"></span> {{category}}</li>
         </ul>
 
         <label ng-click="vm.sortVisible = !vm.sortVisible" ng-class="{'rotate': vm.sortVisible}"><span class="fa fa-sort-amount-asc"></span> Sort</label>

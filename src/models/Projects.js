@@ -8,7 +8,7 @@ var ProjectSchema = new mongoose.Schema({
     required: [true, 'Name is required']
   },
   category: {
-    type: String,
+    type: Array,
     required: [true, 'Category is required']
   },
   image: {

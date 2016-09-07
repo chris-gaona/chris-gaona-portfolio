@@ -19,7 +19,7 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
       // fills in the ng-model in the form so this project can be edited
       var project = response.data;
       vm.name = project.name;
-      vm.category = project.category;
+      vm.category = project.category.join(', ');
       vm.image = project.image;
       var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var date = new Date(project.created_on);
@@ -39,10 +39,19 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
 
   // creates save project function
   vm.saveProject = function () {
+    var catArray;
+    if (vm.category.indexOf(',') > -1) {
+      catArray = vm.category.replace(' ', '').split(',')
+    } else {
+      catArray = vm.category;
+    }
+
+    $log.log(catArray);
+
     // creates project object to save to mongodb
     var projectObject = {};
     projectObject.name = vm.name;
-    projectObject.category = vm.category;
+    projectObject.category = catArray;
     projectObject.image = vm.image;
     projectObject.created_on = vm.created_on;
     projectObject.link = vm.link;

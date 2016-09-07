@@ -1,4 +1,4 @@
-<div ng-repeat="project in entities" class="mix category-{{project.category}}" data-myorder="{{project.name}}" data-dateorder="{{project.created_on}}">
+<div ng-repeat="project in entities" ng-class="{{project.category}}" class="mix" data-myorder="{{project.name}}" data-dateorder="{{project.created_on}}">
   <div class="card-deck-wrapper cg-project-main">
     <p class="cg-edit-small" ng-show="loggedIn" ng-click="editButton({id: project._id})">
       <span class="fa fa-edit"></span> EDIT
