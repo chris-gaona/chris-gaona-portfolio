@@ -8,6 +8,10 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
 
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET;
+
 var jwt = require('express-jwt');
 var jwtSecret;
 
@@ -25,6 +29,8 @@ var auth = jwt({
 
 // UTILS
 var utils = require('../utils');
+
+var aws = require('aws-sdk');
 
 // creates middleware for all project urls to go through first
 router.param('id', function (req, res, next, id) {
@@ -69,6 +75,18 @@ router.put('/edit/:id', auth, function (req, res, next) {
   utils.editProject(req, res, next);
 });
 
+if (AWS_ACCESS_KEY && AWS_SECRET_KEY) {
+  aws.config.update({
+      accessKeyId: AWS_ACCESS_KEY,
+      secretAccessKey: AWS_SECRET_KEY,
+      region:'us-east-1'
+  });
+} else {
+  aws.config.loadFromPath('src/config/config.json');
+}
+
+var s3 = new aws.S3();
+
 var multer = require('multer');
 var storage = multer.diskStorage({
   destination: 'dist/public/images/temp/',
@@ -85,22 +103,40 @@ var imageminPngquant = require('imagemin-pngquant');
 
 router.post('/upload', upload.single('file'), function (req, res, next) {
   console.log(req.file);
-  console.log(req.body);
-  imagemin(['dist/public/images/temp/*.{jpg,png}'], 'dist/public/images/', {
+
+  var originalName = req.file.originalname;
+
+  imagemin(['dist/public/images/temp/*.{jpg,png}'], 'dist/public/images/temp/', {
     plugins: [
       imageminPngquant({quality: '65-80'})
     ]
   }).then(function (files) {
     console.log(files);
     //=> [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
-    fs.unlink('dist/public/images/temp/' + req.file.originalname, function(err) {
-       if (err) {
-          return next(err);
-       }
-       console.log("File deleted successfully!");
+
+    var fileOfImage = fs.readFileSync('dist/public/images/temp/' + originalName);
+
+    var postImage = {Bucket: 'chrisgaonaportfolio', Key: 'images/' + originalName, Body: fileOfImage, ACL: 'public-read'};
+
+    //Amazon s3 access
+    s3.putObject(postImage, function(err, data) {
+      if (err) {
+        // console.log(err);
+        return next(err);
+      }
+
+      console.log('Successfully added image to Amazon s3!');
+
+      fs.unlink('dist/public/images/temp/' + req.file.originalname, function(err) {
+         if (err) {
+            return next(err);
+         }
+         console.log("File deleted successfully!");
+         res.send('Uploaded!');
+      });
     });
+
   });
-  res.send('Uploaded!');
 });
 
 module.exports = router;

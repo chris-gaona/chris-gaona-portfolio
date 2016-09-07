@@ -15,6 +15,7 @@
       <input id="image" type="text" name="image" ng-model="vm.image" placeholder="Image URL">
       <div ngf-drop="vm.upload($file)" ngf-select="vm.upload($file)" ng-model="vm.file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true" accept="image/*">Drop images here or click to upload</div>
       <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+      <img class="preview-image" ngf-src="vm.file" alt="Image" />
       <datepicker date-format="MMMM d, yyyy">
         <input id="created_on" type="text" name="created_on" ng-model="vm.created_on" placeholder="Created On Date">
       </datepicker>
