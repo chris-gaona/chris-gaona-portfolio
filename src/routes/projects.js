@@ -10,7 +10,7 @@ var Project = mongoose.model('Project');
 
 var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
 var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
-var S3_BUCKET = process.env.S3_BUCKET;
+// var S3_BUCKET = process.env.S3_BUCKET;
 
 var jwt = require('express-jwt');
 var jwtSecret;
@@ -123,7 +123,7 @@ function uploadImage (req, res, next) {
     var postImage = {Bucket: 'chrisgaonaportfolio', Key: 'images/' + originalName, Body: fileOfImage, ACL: 'public-read'};
 
     //Amazon s3 access
-    s3.putObject(postImage, function(err, data) {
+    s3.putObject(postImage, function(err) {
       if (err) {
         // console.log(err);
         return next(err);
