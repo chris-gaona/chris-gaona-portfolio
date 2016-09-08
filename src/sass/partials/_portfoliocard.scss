@@ -325,3 +325,55 @@ span.fa-times {
 .loader-hidden {
   display: none;
 }
+
+.cg-heart-container {
+  position: absolute;
+  right: 40px;
+  bottom: 15px;
+  padding: 5px;
+  color: #818a91;
+  z-index: 10;
+}
+
+.cg-thankyou {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 95px;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0 5px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    margin-left: -5px;
+    border-top: 7px solid #000;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+  }
+
+  &.visible {
+    animation: revealThankYou 5s;
+  }
+}
+
+@keyframes revealThankYou {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  50% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

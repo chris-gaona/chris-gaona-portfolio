@@ -81,6 +81,16 @@ router.put('/edit/:id', auth, function (req, res, next) {
   utils.editProject(req, res, next);
 });
 
+// edit an existing project
+router.put('/like/:id', function (req, res, next) {
+  // utils.editProject(req, res, next);
+  req.project.update({ $inc: { likes: 1 }}, function (err, project) {
+    if (err) return next(err);
+    res.status(200).json({project: project, message: 'You have added 1 like!'});
+  });
+});
+
+// upload a picture to amazon s3
 router.post('/upload', upload.single('file'), function (req, res, next) {
   utils.upload(req, res, next);
 });

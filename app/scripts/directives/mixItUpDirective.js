@@ -8,7 +8,9 @@ function mixItUpDirective () {
       entities: '=',
       itemClick: '&',
       editButton: '&',
-      loggedIn: '='
+      loggedIn: '=',
+      likeButton: '&',
+      incrementCount: '&'
     },
     link: function (scope, element) {
       scope.$watch('entities', function(){

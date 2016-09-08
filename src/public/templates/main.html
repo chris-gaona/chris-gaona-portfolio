@@ -59,7 +59,7 @@
       <p>
         <button class="cg-new" ng-show="vm.isLoggedIn" ng-click="vm.newProject()">+ Add new project</button>
       </p>
-      <mixitup entities='vm.projects' item-click="vm.getProject(item)" edit-button="vm.editProject(id)" logged-in="vm.isLoggedIn"></mixitup>
+      <mixitup entities='vm.projects' item-click="vm.getProject(item)" edit-button="vm.editProject(id)" logged-in="vm.isLoggedIn" like-button="vm.addLike(id)" increment-count="vm.incrementCount(project)"></mixitup>
       <p class="cg-project-error" ng-show="vm.projects.error">
         {{vm.projects.error.message}}
       </p>

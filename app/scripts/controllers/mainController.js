@@ -87,6 +87,18 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   vm.loginButton = function () {
     $location.path('/login');
   };
+
+  vm.incrementCount = function (project) {
+    project.likes += 1;
+  };
+
+  vm.addLike = function (id) {
+    MainService.like(id).then(function successCallback (response) {
+      $log.log(response);
+    }, function errorCallback (error) {
+      $log.error(error);
+    });
+  };
 }
 
 module.exports = function(ngModule) {

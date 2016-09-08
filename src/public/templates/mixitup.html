@@ -23,5 +23,10 @@
         </div>
       </div>
     </div>
+    <div class="cg-heart-container" ng-click="likeButton({id: project._id}); incrementCount({project: project}); thankyou = true">
+      <span class="cg-thankyou" ng-class="{'visible': thankyou}">Thank you!</span>
+      <span class="fa fa-heart-o cg-heart"></span>
+      <span class="cg-heart-count">{{project.likes}}</span>
+    </div>
   </div>
 </div>

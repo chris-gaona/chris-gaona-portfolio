@@ -25,7 +25,11 @@ var ProjectSchema = new mongoose.Schema({
   },
   comments: String,
   treehouse_comments: String,
-  grade: String
+  grade: String,
+  likes: {
+    type: Number,
+    default: 0
+  }
 });
 
 ProjectSchema.path('category').validate(function(category){

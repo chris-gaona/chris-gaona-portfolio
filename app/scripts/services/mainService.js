@@ -38,6 +38,11 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
     });
   };
 
+  // edit existing project
+  mainService.like = function (id) {
+    return $http.put('/api/like/' + id);
+  };
+
   // get treehouse info
   mainService.getTreehouse = function () {
     return $http.get('/api/treehouse').then(function successCallback (response) {
