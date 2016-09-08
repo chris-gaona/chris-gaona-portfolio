@@ -1,7 +1,7 @@
 'use strict';
 
 // creatse the projectController
-function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService, Upload) {
+function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
 
   vm.hasValidationErrors = false;
@@ -93,10 +93,7 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
 
   // upload on file select or drop
   vm.upload = function (file) {
-    Upload.upload({
-      url: 'api/upload',
-      data: {file: file}
-    }).then(function (resp) {
+    MainService.upload(file).then(function (resp) {
       vm.image = 'https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/images/' + resp.config.data.file.name;
       $log.log('Success ' + resp.config.data.file.name + ' uploaded. Response: ' + resp.data);
       toastr.success('Your image has been uploaded!', 'Success!');
@@ -117,5 +114,5 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', 'Upload', projectController]);
+  ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
 };

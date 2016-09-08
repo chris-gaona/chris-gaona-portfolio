@@ -91,7 +91,7 @@ router.put('/like/:id', function (req, res, next) {
 });
 
 // upload a picture to amazon s3
-router.post('/upload', upload.single('file'), function (req, res, next) {
+router.post('/upload', [auth, upload.single('file')], function (req, res, next) {
   utils.upload(req, res, next);
 });
 

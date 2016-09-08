@@ -1,7 +1,7 @@
 'use strict';
 
 // creates main service function
-function mainService ($http, $log, AuthService, errorHandlerService) {
+function mainService ($http, $log, AuthService, errorHandlerService, Upload) {
   var mainService = {
     projects: [],
     treehouse: [],
@@ -34,6 +34,14 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
   // edit existing project
   mainService.edit = function (id, project) {
     return $http.put('/api/edit/' + id, project, {
+      headers: {Authorization: 'Bearer '+AuthService.getToken()}
+    });
+  };
+
+  mainService.upload = function (file) {
+    return Upload.upload({
+      url: 'api/upload',
+      data: {file: file},
       headers: {Authorization: 'Bearer '+AuthService.getToken()}
     });
   };
@@ -77,5 +85,5 @@ function mainService ($http, $log, AuthService, errorHandlerService) {
 }
 
 module.exports = function(ngModule) {
-  ngModule.factory('MainService', ['$http', '$log', 'AuthService', 'errorHandlerService', mainService]);
+  ngModule.factory('MainService', ['$http', '$log', 'AuthService', 'errorHandlerService', 'Upload', mainService]);
 };
