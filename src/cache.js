@@ -9,7 +9,7 @@ var request = require('request');
 function getTreehouse() {
   // request teamtreehouse url
   request('https://teamtreehouse.com/chrisgaona.json', function (err, response, body) {
-    if (err) new Error(err);
+    if (err) return new Error(err);
 
     // if response is good and there is no error
     if (!err && response.statusCode == 200) {
@@ -33,7 +33,7 @@ getTreehouse();
 function getCodeschool() {
   // request codeschool url
   request('https://www.codeschool.com/users/1777453.json', function (err, response, body) {
-    if (err) new Error(err);
+    if (err) return new Error(err);
 
     // if response is good and there is no error
     if (!err && response.statusCode == 200) {
@@ -55,7 +55,7 @@ function getGitHub() {
   var client = github.client();
 
   client.get('/users/chris-gaona', {}, function (err, status, body) {
-    if (err) return next(err);
+    if (err) return new Error(err);
 
     // if response is good and there is no error
     if (!err && body) {

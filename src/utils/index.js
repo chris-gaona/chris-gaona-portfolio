@@ -6,3 +6,4 @@ exports.editProject = require('./edit');
 exports.login = require('./login');
 exports.newProject = require('./new');
 exports.register = require('./register');
+exports.upload = require('./upload');

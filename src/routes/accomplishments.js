@@ -20,7 +20,7 @@ router.get('/codeschool', function (req, res) {
 });
 
 // get github route
-router.get('/github', function (req, res, next) {
+router.get('/github', function (req, res) {
   var github = cache.get('github');
   res.status(200).send(github);
 });
