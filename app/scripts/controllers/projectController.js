@@ -40,7 +40,7 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
   // creates save project function
   vm.saveProject = function () {
     var catArray;
-    if (vm.category.indexOf(',') > -1) {
+    if (vm.category && vm.category.indexOf(',') > -1 && vm.category !== undefined) {
       catArray = vm.category.replace(' ', '').split(',');
     } else {
       catArray = vm.category;
