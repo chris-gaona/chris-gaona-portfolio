@@ -48,13 +48,10 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
     categories.push(vm.projects[i].category);
   }
   var merged = [].concat.apply([], categories);
-  $log.log(merged);
   // makes sure we don't have duplicates to display to client
   vm.uniqueCat = merged.filter(function(elem, index, self) {
     return index == self.indexOf(elem);
   });
-
-  $log.log(vm.uniqueCat);
 
   vm.activeFilter = 'all';
 

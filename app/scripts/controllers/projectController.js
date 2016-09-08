@@ -46,8 +46,6 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
       catArray = vm.category;
     }
 
-    $log.log(catArray);
-
     // creates project object to save to mongodb
     var projectObject = {};
     projectObject.name = vm.name;
