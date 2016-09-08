@@ -1,6 +1,7 @@
 'use strict';
 
 // defines needed variables
+var github = require('octonode');
 var cache = require('memory-cache');
 var request = require('request');
 
@@ -48,3 +49,25 @@ function getCodeschool() {
 }
 
 getCodeschool();
+
+// creates getCodeschool function
+function getGitHub() {
+  var client = github.client();
+
+  client.get('/users/chris-gaona', {}, function (err, status, body) {
+    if (err) return next(err);
+
+    // if response is good and there is no error
+    if (!err && body) {
+      // parse result
+      var github = body;
+
+      // cache the object and refresh every 3 days
+      cache.put('github', github, 259200000, function() {
+          getGitHub();
+      }); // Time in ms
+    }
+  });
+}
+
+getGitHub();

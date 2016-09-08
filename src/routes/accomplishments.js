@@ -4,7 +4,6 @@
 var express = require('express');
 var router = express.Router();
 
-var github = require('octonode');
 var cache = require('memory-cache');
 var request = require('request');
 
@@ -22,12 +21,8 @@ router.get('/codeschool', function (req, res) {
 
 // get github route
 router.get('/github', function (req, res, next) {
-  var client = github.client();
-
-  client.get('/users/chris-gaona', {}, function (err, status, body) {
-    if (err) return next(err);
-    res.status(200).json(body);
-  });
+  var github = cache.get('github');
+  res.status(200).send(github);
 });
 
 router.get('/weather', function (req, res, next) {
