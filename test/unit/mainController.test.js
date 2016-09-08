@@ -130,13 +130,13 @@ describe('MainController', function () {
       expect(mainCtrl.projects).toEqual([]);
     });
 
-    it('should get all unique categories from projects', function () {
-      var callFun = mainCtrl.getCategories(projects);
-
-      expect(callFun).toBeDefined();
-      expect(callFun.length).toEqual(2);
-      expect(callFun).toEqual(['Football', 'Soccer']);
-    });
+    // it('should get all unique categories from projects', function () {
+    //   var callFun = mainCtrl.getCategories(projects);
+    //
+    //   expect(callFun).toBeDefined();
+    //   expect(callFun.length).toEqual(2);
+    //   expect(callFun).toEqual(['Football', 'Soccer']);
+    // });
 
     it('should call getProject with a specific project for expand section', function () {
       expect(mainCtrl.expandProject).toBe(false);

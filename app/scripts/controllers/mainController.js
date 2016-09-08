@@ -42,12 +42,6 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
   // gets the weather from the WeatherService
   vm.weather = WeatherService.weather;
 
-  vm.getCategories = function (projects) {
-
-
-    return uniqueCat;
-  };
-
   //mixitup categories
   var categories = [];
   for (var i = 0; i < vm.projects.length; i++) {

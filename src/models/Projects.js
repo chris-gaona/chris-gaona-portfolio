@@ -29,8 +29,11 @@ var ProjectSchema = new mongoose.Schema({
 });
 
 ProjectSchema.path('category').validate(function(category){
-  if(!category){return false}
-  else if(category.length === 0){return false}
+  if (!category) {
+    return false;
+  } else if (category.length === 0) {
+    return false;
+  }
   return true;
 }, 'Category is required');
 
