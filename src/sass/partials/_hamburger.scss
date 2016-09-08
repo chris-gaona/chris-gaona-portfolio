@@ -124,8 +124,12 @@
   transition: all 0.8s;
 }
 
-.dropdown ul li:last-child {
+.dropdown ul li:nth-child(4) {
   transition: all 0.9s;
+}
+
+.dropdown ul li:last-child {
+  transition: all 1s;
 }
 
 .dropdown ul li.visible {
