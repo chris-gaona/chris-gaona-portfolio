@@ -8,8 +8,7 @@ var ProjectSchema = new mongoose.Schema({
     required: [true, 'Name is required']
   },
   category: {
-    type: Array,
-    required: [true, 'Category is required']
+    type: Array
   },
   image: {
     type: String,
@@ -28,5 +27,11 @@ var ProjectSchema = new mongoose.Schema({
   treehouse_comments: String,
   grade: String
 });
+
+ProjectSchema.path('category').validate(function(category){
+  if(!category){return false}
+  else if(category.length === 0){return false}
+  return true;
+}, 'Category is required');
 
 mongoose.model('Project', ProjectSchema);

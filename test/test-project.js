@@ -76,7 +76,7 @@ describe('PROJECTS', function () {
       expect(res.body[0]).to.have.property('treehouse_comments');
       expect(res.body[0]).to.have.property('grade');
       expect(res.body[0].name).to.equal('Random Quote Generator');
-      expect(res.body[0].category).to.equal('JavaScript');
+      expect(res.body[0].category).to.include('JavaScript');
       done();
     });
   });
@@ -104,7 +104,7 @@ describe('PROJECTS', function () {
         expect(res.body).to.have.property('treehouse_comments');
         expect(res.body).to.have.property('grade');
         expect(res.body.name).to.equal('Random Quote Generator');
-        expect(res.body.category).to.equal('JavaScript');
+        expect(res.body.category).to.include('JavaScript');
         done();
       });
     });
@@ -187,7 +187,7 @@ describe('PROJECTS', function () {
       expect(res.body).to.have.property('treehouse_comments');
       expect(res.body).to.have.property('grade');
       expect(res.body.name).to.equal('Random Quote Generator');
-      expect(res.body.category).to.equal('JavaScript');
+      expect(res.body.category).to.include('JavaScript');
       done();
     });
   });
@@ -195,7 +195,7 @@ describe('PROJECTS', function () {
   it('should handle errors when adding a SINGLE project on /api/project POST', function(done) {
     var project = {
       name: "",
-      category: "",
+      category: [],
       image: "",
       created_on: "",
       link: "http://amazon.com",
@@ -210,6 +210,7 @@ describe('PROJECTS', function () {
     .set(header,content)
     .send(project)
     .end(function(err, res){
+      console.log(res.body.errors);
       expect(err).to.not.be.null;
       expect(res).to.have.status(400);
       expect(res.body).to.be.a('object');
