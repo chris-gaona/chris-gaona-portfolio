@@ -68,7 +68,7 @@
       </p> -->
     </div>
     <div class="expand-wrapper" ng-class="{'fade-in': vm.expandProject}">
-      <expand-project show='vm.expandProject' project='vm.chosenProject'></expand-project>
+      <expand-project show='vm.expandProject' project='vm.chosenProject' like-button="vm.addLike(id)" increment-count="vm.incrementCount(project)"></expand-project>
     </div>
   </div>
 </div>

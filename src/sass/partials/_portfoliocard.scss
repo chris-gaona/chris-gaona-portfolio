@@ -55,6 +55,9 @@ span.fa-times {
   font-size: 3em;
   cursor: pointer;
   color: #fd7d5f;
+  background-color: #fff;
+  padding: 0 5px;
+  border-radius: 5px;
 }
 
 .cg-new {
@@ -332,6 +335,7 @@ span.fa-times {
   bottom: 15px;
   padding: 5px;
   color: #818a91;
+  cursor: pointer;
   z-index: 10;
 }
 

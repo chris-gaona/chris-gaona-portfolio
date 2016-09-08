@@ -8,7 +8,9 @@ function expandProjectDirective () {
     // changed from the controller, & directive
     scope: {
       show: '=',
-      project: '='
+      project: '=',
+      likeButton: '&',
+      incrementCount: '&'
     },
     link: function (scope) {
       // if collapseProject button is clicked set show to false to remove the expanded project
