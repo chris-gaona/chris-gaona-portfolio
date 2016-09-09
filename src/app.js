@@ -43,6 +43,7 @@ app.use('/api', routes.accomplishments);
 app.use('/user', routes.users);
 app.use('/', routes.auth);
 
+// this catches all other routes that are not before this and sends the user to the home page
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });

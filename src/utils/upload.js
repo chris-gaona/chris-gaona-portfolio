@@ -50,7 +50,7 @@ function uploadImage (req, res, next) {
             return next(err);
          }
          console.log("File deleted successfully!");
-         res.send('Uploaded!');
+         res.status(201).send('Uploaded!');
       });
     });
   });

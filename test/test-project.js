@@ -2,6 +2,8 @@
 
 process.env.NODE_ENV = 'test';
 
+// var fs = require('fs');
+
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('../src/app');
@@ -210,7 +212,6 @@ describe('PROJECTS', function () {
     .set(header,content)
     .send(project)
     .end(function(err, res){
-      console.log(res.body.errors);
       expect(err).to.not.be.null;
       expect(res).to.have.status(400);
       expect(res.body).to.be.a('object');
@@ -225,7 +226,7 @@ describe('PROJECTS', function () {
     });
   });
 
-  it('should update a SINGLE project on /api/project/:id PUT', function (done) {
+  it('should update a SINGLE project on /api/edit/:id PUT', function (done) {
     var project = {
       name: "Chris Gaona Portfolio",
       category: "JavaScript",
@@ -259,7 +260,7 @@ describe('PROJECTS', function () {
     });
   });
 
-  it('should handle errors when updating a SINGLE project on /api/project/:id PUT where the form is not complete', function (done) {
+  it('should handle errors when updating a SINGLE project on /api/edit/:id PUT where the form is not complete', function (done) {
     var project = {
       name: "",
       category: "",
@@ -295,7 +296,7 @@ describe('PROJECTS', function () {
     });
   });
 
-  it('should handle errors when updating a SINGLE project on /api/project/:id PUT where the project does not exist', function (done) {
+  it('should handle errors when updating a SINGLE project on /api/edit/:id PUT where the project does not exist', function (done) {
     var project = {
       name: "Chris Gaona Portfolio",
       category: "JavaScript",
@@ -327,5 +328,59 @@ describe('PROJECTS', function () {
     });
   });
 
-  it('should delete a SINGLE project on /api/delete/:id DELETE');
+  it('should add 1 like count to a SINGLE project on /api/like/:id PUT', function (done) {
+    chai.request(server)
+    .get('/api/projects')
+    .end(function (err, response) {
+      chai.request(server)
+        .put('/api/like/' + response.body[0]._id)
+        .send()
+        .end(function (error, res) {
+          expect(err).to.be.null;
+          expect(res).to.have.status(201);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('project');
+          expect(res.body.project.ok).to.equal(1);
+          expect(res.body).to.have.property('message');
+          expect(res.body.message).to.equal('You have added 1 like!');
+          done();
+      });
+    });
+  });
+
+  it('should handle errors when adding 1 like count to a SINGLE project on /api/like/:id PUT where the project does not exist', function (done) {
+    chai.request(server)
+    .get('/api/projects')
+    .end(function (err, response) {
+      chai.request(server)
+        .put('/api/like/57029ed4795118be119cc439')
+        .send()
+        .end(function (error, res) {
+          expect(err).to.be.null;
+          expect(res).to.have.status(404);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.have.property('error');
+          expect(res.body.error).to.have.property('message');
+          expect(res.body.error.message).to.equal('Cannot find the project');
+          done();
+      });
+    });
+  });
+
+  // it('should upload a SINGLE file on /api/upload POST', function (done) {
+  //   chai.request(server)
+  //   .post('/api/upload')
+  //   .set(header,content)
+  //   .attach('imageField', fs.readFileSync(__dirname + '/test_images/treehouse.png'), 'treehouse.png')
+  //   .end(function(err, res){
+  //     expect(err).to.be.null;
+  //     expect(res).to.have.status(200);
+  //     // expect(res.body).to.be.a('object');
+  //     // expect(res.body).to.have.property('message');
+  //     // expect(res.body).to.have.property('errors');
+  //     done();
+  //   });
+  // });
+
+  // it('should delete a SINGLE project on /api/delete/:id DELETE');
 });
