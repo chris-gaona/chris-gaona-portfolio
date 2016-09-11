@@ -9,9 +9,10 @@ require('angular-toastr');
 require('angularjs-datepicker');
 require('ngmap');
 require('ng-file-upload');
+require('chart.js');
 
 // creates the angular app and lists dependencies
-var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap', 'ngFileUpload'])
+var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap', 'ngFileUpload', 'chart.js', 'ui.calendar'])
 .run(function($rootScope, $location, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login

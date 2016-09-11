@@ -7,10 +7,11 @@ function dashboardDirective () {
     // adds scope with show set to = to make it able to be
     // changed from the controller, & directive
     scope: {
-      show: '=',
-      project: '=',
-      likeButton: '&',
-      incrementCount: '&'
+      labels: '=',
+      series: '=',
+      data: '=',
+      config: '=',
+      eventSources: '='
     },
     link: function (scope) {
       // if collapseProject button is clicked set show to false to remove the expanded project

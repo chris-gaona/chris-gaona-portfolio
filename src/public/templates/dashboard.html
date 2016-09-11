@@ -33,7 +33,7 @@
   <div class="row">
     <div class="cg-dashboard-section">
       <div class="cg-dashboard-wrapper" ng-class="{'fade-in': vm.showDashboard}">
-        <dashboard></dashboard>
+        <dashboard labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources"></dashboard>
       </div>
       <div class="cg-budget-wrapper" ng-class="{'fade-in': vm.showBudget}">
         <budget></budget>

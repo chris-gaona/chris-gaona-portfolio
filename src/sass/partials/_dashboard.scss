@@ -1,5 +1,5 @@
 .cg-dashboard-wrapper, .cg-budget-wrapper  {
-  position: relative;
+  position: absolute;
   top: 120px;
   opacity: 0;
   visibility: hidden;
@@ -83,7 +83,7 @@
   left: 200px;
   width: calc(100% - 200px);
   height: auto;
-  min-height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   background-color: #f6f8f8;
 
@@ -337,6 +337,10 @@ p.cg-db-workout-title {
   border: 1px solid #e5e5e5;
   padding: .5em 1em;
   height: 300px;
+
+  canvas {
+    height: 100%;
+  }
 }
 
 .cg-db-aside {
@@ -395,8 +399,7 @@ p.cg-db-workout-count {
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   padding: .5em 1em;
-  height: 300px;
-  margin-bottom: 2em;
+  height: 550px;
 }
 
 .cg-db-latest-activities {
@@ -404,6 +407,7 @@ p.cg-db-workout-count {
   border-radius: 5px;
   padding: .5em 1em;
   border: 1px solid #e5e5e5;
+  margin-bottom: 2em;
 }
 
 .cg-db-activities-container {

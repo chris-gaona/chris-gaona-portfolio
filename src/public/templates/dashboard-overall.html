@@ -73,9 +73,11 @@
     <p class="cg-db-title text-uppercase">
       Saving - Projection vs Actual
     </p>
-    <p>
+    <!-- <p>
       Graph showing saving over the past 6 months vs projection
-    </p>
+    </p> -->
+    <canvas height="75" class="chart chart-line" chart-data="data" chart-labels="labels"
+    chart-series="series"></canvas>
   </div>
 </div>
 <div class="col-xs-12 col-xl-3 m-t-1">
@@ -108,6 +110,7 @@
     <p class="cg-db-title text-uppercase">
       Calendar
     </p>
+    <div ui-calendar="config.calendar" ng-model="eventSources"></div>
   </div>
 </div>
 <div class="col-xs-12 col-xl-3 m-t-1">
