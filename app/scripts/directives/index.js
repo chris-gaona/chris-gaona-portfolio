@@ -7,4 +7,6 @@ module.exports = function(ngModule) {
   require('./hamburgerDirective')(ngModule);
   require('./validation-errors')(ngModule);
   require('./imageLoadDirective')(ngModule);
+  require('./dashboardDirective')(ngModule);
+  require('./budgetDirective')(ngModule);
 };

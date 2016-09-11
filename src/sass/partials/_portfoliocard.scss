@@ -113,19 +113,19 @@ span.fa-times {
 }
 
 .fade-out {
-  top: 120px;
-  opacity: 0;
-  visibility: hidden;
-  height: 0;
-  transition: all 0.3s;
+  top: 120px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  transition: all 0.3s !important;
 }
 
 .fade-in {
-  top: 0;
-  opacity: 1;
-  visibility: visible;
-  height: auto;
-  transition: all 0.3s;
+  top: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: auto !important;
+  transition: all 0.3s !important;
 }
 
 .card-block {

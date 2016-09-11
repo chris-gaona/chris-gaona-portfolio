@@ -1,3 +1,12 @@
+.cg-dashboard-wrapper, .cg-budget-wrapper  {
+  position: relative;
+  top: 120px;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transition: all 0.3s;
+}
+
 .cg-dashboard-container {
   position: fixed;
   background-color: #0099ff;
