@@ -58,6 +58,11 @@ function config ($routeProvider, $locationProvider) {
     controllerAs: 'vm',
     templateUrl: 'templates/resume.html'
   })
+  .when('/dashboard', {
+    controller: 'DashboardController',
+    controllerAs: 'vm',
+    templateUrl: 'templates/dashboard.html'
+  })
   .otherwise({
     redirectTo: '/'
   });

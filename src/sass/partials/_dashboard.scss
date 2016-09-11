@@ -1,0 +1,444 @@
+.cg-dashboard-container {
+  position: fixed;
+  background-color: #0099ff;
+  height: 80px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+
+  .cg-bell-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  span.fa-bell-o {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    font-size: 1.5em;
+    color: #fff;
+    padding: 5px;
+  }
+
+  span.cg-notifications {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 0 5px;
+    background-color: #fd7d5f;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+  }
+}
+
+.cg-dashboard-back-button {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.cg-dashboard-main {
+  position: relative;
+  top: 80px;
+  background-color: #fff;
+  margin: 0;
+}
+
+.aside-menu {
+  position: fixed;
+  top: 80px;
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid #ccc;
+  padding: 1em 0;
+
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+}
+
+.cg-dashboard-section {
+  position: relative;
+  top: 0;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: #f6f8f8;
+
+  h4 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.cg-db-user-container {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cg-db-user-image {
+  position: relative;
+  top: 0;
+  left: 50%;
+  margin-left: -37.5px;
+  margin-bottom: 10px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url('../images/chrisgaona.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 5px #000;
+}
+
+.cg-db-main-aside {
+  padding: 1.5em 0;
+
+  .cg-nav-title {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding-left: 1em;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      list-style: none;
+      padding: 15px 15px 15px 25px;
+      margin: 2px 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(252,252,252);
+      }
+
+      &:hover::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background-color: #0099ff;
+      }
+
+      span {
+        margin-right: 10px;
+      }
+    }
+
+    li.active {
+      background-color: rgb(252,252,252);
+      color: #5bc0de;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background-color: #0099ff;
+      }
+    }
+  }
+}
+
+.cg-db-menu-button {
+  position: absolute;
+  top: 20px;
+  left: 165px;
+  font-size: 1.5em;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cg-db-section {
+  height: 100px;
+  padding: .5em 1em;
+  border-radius: 0 5px 5px 0;
+  font-size: 12px;
+  border: 1px solid #e5e5e5;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  h5 {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.cg-white {
+  background-color: #fff;
+}
+
+.cg-db-padding {
+  padding-top: 20px;
+}
+
+p.cg-db-workout-title {
+  margin-bottom: 10px;
+}
+
+.cg-blue {
+  padding: 15px 0;
+  background-color: #428bca;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  font-size: 3em;
+}
+
+.cg-green {
+  padding: 15px 0;
+  background-color: #5cb85c;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  font-size: 3em;
+}
+
+.cg-purple {
+  padding: 15px 0;
+  background-color: #5c5cb8;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  font-size: 3em;
+}
+
+.cg-light-blue {
+  background-color: #5bc0de;
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+}
+
+.cg-now-date {
+  font-size: 2.5em;
+}
+
+.progress-blue {
+  -webkit-appearance: none;
+   appearance: none;
+  height: .5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.progress-blue[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+}
+
+.progress-blue[value]::-webkit-progress-value {
+  background-color: #428bca;
+  border-radius: 2px;
+}
+
+.progress-green {
+  -webkit-appearance: none;
+   appearance: none;
+  height: .5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.progress-green[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+}
+
+.progress-green[value]::-webkit-progress-value {
+  background-color: #5cb85c;
+  border-radius: 2px;
+}
+
+.progress-purple {
+  -webkit-appearance: none;
+   appearance: none;
+  height: .5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.progress-purple[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+}
+
+.progress-purple[value]::-webkit-progress-value {
+  background-color: #5c5cb8;
+  border-radius: 2px;
+}
+
+.cg-db-workout-note {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.cg-db-graph {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  padding: .5em 1em;
+  height: 300px;
+}
+
+.cg-db-aside {
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: .5em 1em 2.5em 1em;
+  border: 1px solid #e5e5e5;
+}
+
+p.cg-db-title {
+  border-bottom: 1px solid #ccc;
+  padding: .5em 1em;
+  color: #5bc0de;
+  font-size: 12px;
+
+  span {
+    position: absolute;
+    top: 10px;
+    right: 2.5em;
+    font-size: 1.2em;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+.cg-db-workout-item {
+  padding: 0;
+  margin: 8px 0;
+  font-size: 12px;
+
+  span {
+    background-color: #428bca;
+    color: #fff;
+    padding: 5px;
+    border-radius: 2px;
+    margin-right: 5px;
+  }
+}
+
+p.cg-db-workout-count {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #eee;
+  padding: .5em 1em;
+  margin: 15px 0 0 0;
+  font-size: 12px;
+  background-color: #fafafa;
+  border-radius: 0 0 5px 5px;
+}
+
+.cg-db-calendar {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  padding: .5em 1em;
+  height: 300px;
+  margin-bottom: 2em;
+}
+
+.cg-db-latest-activities {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: .5em 1em;
+  border: 1px solid #e5e5e5;
+}
+
+.cg-db-activities-container {
+  position: relative;
+  cursor: pointer;
+
+  .cg-db-activities-title {
+    font-size: .8em;
+    display: inline-block;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cg-db-activities-sub {
+    font-size: .7em;
+    padding-left: 20px;
+  }
+
+  .cg-db-activities-time {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: .7em;
+  }
+
+  .cg-db-new-project {
+    position: relative;
+    top: 2px;
+    color: #5cb85c;
+    font-size: 1em;
+  }
+
+  .cg-db-new-workout {
+    position: relative;
+    top: 2px;
+    color: #5cb85c;
+    font-size: 1em;
+  }
+
+  .cg-db-new-task {
+    position: relative;
+    top: 2px;
+    color: #5c5cb8;
+    font-size: 1em;
+  }
+}

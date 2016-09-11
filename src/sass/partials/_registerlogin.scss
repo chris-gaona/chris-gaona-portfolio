@@ -33,7 +33,7 @@
 
 .cg-user-mobile ul {
   position: absolute;
-  top: 55px;
+  top: 45px;
   left: -167px;
   list-style: none;
   background-color: #fff;
@@ -78,6 +78,13 @@
   padding-right: 10px;
   border-right: 2px solid #fff;
   margin-right: 8px;
+
+  &.fa-dashboard {
+    position: relative;
+    top: 2px;
+    font-size: 20px;
+    cursor: pointer;
+  }
 }
 
 .cg-user button, li.cg-logout {

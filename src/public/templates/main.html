@@ -5,6 +5,7 @@
 <div class="cg-user-container" ng-show="vm.isLoggedIn">
   <div class="cg-user">
     <span>Welcome {{vm.user.firstName}}</span>
+    <span class="fa fa-dashboard" ng-click="vm.dashboard()"></span>
     <button type="button" ng-click="vm.logOut()">Log Out</button>
   </div>
   <div class="cg-user-mobile">
