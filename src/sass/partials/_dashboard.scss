@@ -365,7 +365,7 @@ p.cg-db-title {
   span {
     position: absolute;
     top: 10px;
-    right: 2.5em;
+    right: 1.5em;
     font-size: 1.2em;
     padding: 5px;
     cursor: pointer;
@@ -404,6 +404,7 @@ p.cg-db-workout-count {
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   padding: .5em 1em 1em 1em;
+  margin-bottom: 1em;
 }
 
 .cg-db-latest-activities {
@@ -411,7 +412,7 @@ p.cg-db-workout-count {
   border-radius: 5px;
   padding: .5em 1em;
   border: 1px solid #e5e5e5;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .cg-db-activities-container {

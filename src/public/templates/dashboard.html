@@ -31,11 +31,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="cg-dashboard-section">
-      <div class="cg-dashboard-wrapper" ng-class="{'fade-in': vm.showDashboard}">
+    <div class="cg-dashboard-section clearfix">
+      <div class="cg-dashboard-wrapper clearfix" ng-class="{'fade-in': vm.showDashboard}">
         <dashboard labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources"></dashboard>
       </div>
-      <div class="cg-budget-wrapper" ng-class="{'fade-in': vm.showBudget}">
+      <div class="cg-budget-wrapper clearfix" ng-class="{'fade-in': vm.showBudget}">
         <budget labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources" pie-labels="vm.pieLabels" pie-data="vm.pieData" doughnut-labels="vm.doughnutLabels" doughnut-data="vm.doughnutData"></budget>
       </div>
     </div>

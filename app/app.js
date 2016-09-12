@@ -10,9 +10,10 @@ require('angularjs-datepicker');
 require('ngmap');
 require('ng-file-upload');
 require('chart.js');
+require('angular-svg-round-progressbar');
 
 // creates the angular app and lists dependencies
-var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap', 'ngFileUpload', 'chart.js', 'ui.calendar'])
+var ngModule = angular.module('app', ['ngRoute', 'duScroll', 'ngAnimate', 'toastr', '720kb.datepicker', 'ngMap', 'ngFileUpload', 'chart.js', 'ui.calendar', 'angular-svg-round-progressbar'])
 .run(function($rootScope, $location, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login
