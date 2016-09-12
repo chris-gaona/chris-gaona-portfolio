@@ -1,4 +1,4 @@
-<div class="cg-main-wrapper"></div>
+<div class="cg-main-fixed-wrapper"></div>
 <div class="cg-dashboard-container">
   <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a>
   <p class="cg-dashboard-back-button" ng-click="vm.goBack()">
@@ -36,7 +36,7 @@
         <dashboard labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources"></dashboard>
       </div>
       <div class="cg-budget-wrapper" ng-class="{'fade-in': vm.showBudget}">
-        <budget></budget>
+        <budget labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources" pie-labels="vm.pieLabels" pie-data="vm.pieData" doughnut-labels="vm.doughnutLabels" doughnut-data="vm.doughnutData"></budget>
       </div>
     </div>
   </div>

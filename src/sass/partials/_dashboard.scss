@@ -1,3 +1,10 @@
+.cg-main-fixed-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #f6f8f8;
+}
+
 .cg-dashboard-wrapper, .cg-budget-wrapper  {
   position: absolute;
   top: 120px;
@@ -5,6 +12,8 @@
   visibility: hidden;
   height: 0;
   transition: all 0.3s;
+  overflow: hidden;
+  background-color: #f6f8f8;
 }
 
 .cg-dashboard-container {
@@ -59,7 +68,6 @@
 .cg-dashboard-main {
   position: relative;
   top: 80px;
-  background-color: #fff;
   margin: 0;
 }
 
@@ -70,6 +78,7 @@
   height: 100%;
   border-right: 1px solid #ccc;
   padding: 1em 0;
+  background-color: #fff;
 
   p {
     text-align: center;
@@ -82,17 +91,12 @@
   top: 0;
   left: 200px;
   width: calc(100% - 200px);
-  height: auto;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: #f6f8f8;
 
   h4 {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 100%;
     padding: 1em;
     border-bottom: 1px solid #ccc;
   }
@@ -121,6 +125,7 @@
 
 .cg-db-main-aside {
   padding: 1.5em 0;
+  background-color: #fff;
 
   .cg-nav-title {
     text-align: left;
@@ -192,6 +197,7 @@
   border-radius: 0 5px 5px 0;
   font-size: 12px;
   border: 1px solid #e5e5e5;
+  background-color: #f6f8f8;
 
   p {
     padding: 0;
@@ -335,8 +341,7 @@ p.cg-db-workout-title {
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #e5e5e5;
-  padding: .5em 1em;
-  height: 300px;
+  padding: .5em 1em 1em 1em;
 
   canvas {
     height: 100%;
@@ -398,8 +403,7 @@ p.cg-db-workout-count {
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #e5e5e5;
-  padding: .5em 1em;
-  height: 550px;
+  padding: .5em 1em 1em 1em;
 }
 
 .cg-db-latest-activities {
