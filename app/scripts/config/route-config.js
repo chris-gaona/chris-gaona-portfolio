@@ -42,6 +42,70 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
           return WeatherService.getWeather();
         }]
       }
+    })
+    .state('new', {
+      parent: 'root',
+      url: '/new',
+      views: {
+        'container@': {
+          templateUrl: 'templates/new-form.html',
+          controller: 'ProjectController',
+          controllerAs: 'vm',
+          requireLogin: true
+        }
+      }
+    })
+    .state('edit', {
+      parent: 'root',
+      url: '/edit/{id}',
+      views: {
+        'container@': {
+          templateUrl: 'templates/new-form.html',
+          controller: 'ProjectController',
+          controllerAs: 'vm',
+          requireLogin: true
+        }
+      }
+    })
+    .state('register', {
+      parent: 'root',
+      url: '/register',
+      views: {
+        'container@': {
+          templateUrl: 'templates/authenticate.html',
+          controller: 'AuthController',
+          controllerAs: 'vm'
+        }
+      }
+    })
+    .state('login', {
+      parent: 'root',
+      url: '/login',
+      views: {
+        'container@': {
+          templateUrl: 'templates/authenticate.html',
+          controller: 'AuthController',
+          controllerAs: 'vm'
+        }
+      },
+      resolve: {
+        check: ['$state', 'AuthService', function($state, AuthService) {
+          if (AuthService.isLoggedIn()) {
+            $state.go('home');
+          }
+        }]
+      }
+    })
+    .state('resume', {
+      parent: 'root',
+      url: '/resume',
+      views: {
+        'container@': {
+          templateUrl: 'templates/resume.html',
+          controller: 'ResumeController',
+          controllerAs: 'vm'
+        }
+      }
     });
 
     $urlRouterProvider.otherwise('/');

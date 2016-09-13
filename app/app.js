@@ -23,7 +23,22 @@ var ngModule = angular.module('app', [
   'chart.js',
   'ui.calendar',
   'angular-svg-round-progressbar'
-]).config(function(toastrConfig) {
+]).run(function($rootScope, $state, AuthService) {
+  // wire up the route change start handler
+  // in order to determine if the requested route requires a user login
+  $rootScope.$on('$routeChangeStart', function(event, next) {
+    // if the "require login" property is set to "true"
+    // and we don't have an authenticated user...
+    // then send the user to the "Sign In" view.
+    if (next.requireLogin && !AuthService.isLoggedIn()) {
+      $state.go('login');
+      event.preventDefault();
+    }
+  });
+}).config(function ($uiViewScrollProvider) {
+  $uiViewScrollProvider.useAnchorScroll()
+// creates config for toastr
+}).config(function(toastrConfig) {
   angular.extend(toastrConfig, {
     containerId: 'toast-container',
     positionClass: 'toast-bottom-right',

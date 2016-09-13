@@ -21,11 +21,15 @@
   </head>
 
   <body ng-app="app">
-    <div ui-view="navbar"></div>
+    <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a>
 
-    <div ui-view="container"></div>
+    <div ui-view="navbar" autoscroll="true"></div>
 
-    <div id="footer" ui-view="footer"></div>
+    <div ui-view="container" autoscroll="true"></div>
+
+    <div id="footer" ui-view="footer" autoscroll="true"></div>
+
+    <!-- <div ui-view="dashboard" autoscroll="true"></div> -->
     <!-- <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a> -->
     <!-- <div class="cg-title">
       <span class="cg-title-c">C</span>
