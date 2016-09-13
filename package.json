@@ -48,6 +48,7 @@
     "angular-scroll": "^1.0.0",
     "angular-svg-round-progressbar": "^0.4.7",
     "angular-toastr": "^2.0.0",
+    "angular-ui-router": "^1.0.0-beta.2",
     "angularjs-datepicker": "^2.1.6",
     "autoprefixer": "^6.4.0",
     "aws-sdk": "^2.5.6",
