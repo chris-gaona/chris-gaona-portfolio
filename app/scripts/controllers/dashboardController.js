@@ -3,9 +3,6 @@
 function dashboardController ($log, $location, $window, $timeout) {
   var vm = this;
 
-  vm.showDashboard = false;
-  vm.showBudget = true;
-
   // used with ng-clicks to handle the routing
   vm.goBack = function () {
     $location.path('/');

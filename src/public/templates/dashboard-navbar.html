@@ -1,0 +1,33 @@
+<div class="cg-main-fixed-wrapper"></div>
+<div class="cg-dashboard-container">
+  <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a>
+  <p class="cg-dashboard-back-button" ui-sref="home">
+    <span class="fa fa-long-arrow-left"></span>
+     Home
+  </p>
+  <span class="fa fa-bars cg-db-menu-button"></span>
+  <div class="cg-bell-container">
+    <span class="fa fa-bell-o"></span><span class="cg-notifications">5</span>
+  </div>
+</div>
+<div class="cg-dashboard-main container-fluid">
+  <div class="row">
+    <div class="aside-menu">
+      <div class="cg-db-user-container">
+        <div class="cg-db-user-image"></div>
+        <p class="text-muted">Welcome Chris!</p>
+      </div>
+      <div class="cg-db-main-aside">
+        <p class="cg-nav-title text-muted">main navigation</p>
+        <ul>
+          <li ng-class="{'active': vm.showDashboard}" ui-sref="dashboard"><span class="fa fa-dashboard"></span>Dashboard</li>
+          <li ng-class="{'active': vm.showBudget}" ui-sref="dashboard.budget"><span class="fa fa-money"></span>Budget</li>
+          <li><span class="fa fa-heart"></span>Workouts</li>
+          <li><span class="fa fa-list-ul"></span>To Do's</li>
+          <li><span class="fa fa-plus"></span>New Project</li>
+          <li><span class="fa fa-edit"></span>Edit Project</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
