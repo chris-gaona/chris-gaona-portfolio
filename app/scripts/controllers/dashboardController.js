@@ -3,8 +3,8 @@
 function dashboardController ($log, $location, $window, $timeout) {
   var vm = this;
 
-  vm.showDashboard = true;
-  vm.showBudget = false;
+  vm.showDashboard = false;
+  vm.showBudget = true;
 
   // used with ng-clicks to handle the routing
   vm.goBack = function () {
@@ -40,6 +40,20 @@ function dashboardController ($log, $location, $window, $timeout) {
         }
       }
     };
+
+  vm.current = 27;
+  vm.max = 100;
+
+  vm.showPreciseCurrent = function(amount){
+    $timeout(function(){
+      if (amount <= 0) {
+        vm.preciseCurrent = vm.current;
+      } else {
+        var math = $window.Math;
+        vm.preciseCurrent = math.min(math.round(amount), vm.max);
+      }
+    });
+  };
 }
 
 module.exports = function(ngModule) {

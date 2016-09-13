@@ -11,7 +11,11 @@ function budgetDirective () {
       series: '=',
       data: '=',
       config: '=',
-      eventSources: '='
+      eventSources: '=',
+      current: '=',
+      max: '=',
+      showPrecise: '=',
+      preciseCurrent: '='
     },
     link: function (scope) {
       // if collapseProject button is clicked set show to false to remove the expanded project
