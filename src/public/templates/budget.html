@@ -3,7 +3,7 @@
     <div class="cg-dashboard-section">
       <div class="cg-dashboard-wrapper">
         <h4>Budget</h4>
-        <div class="col-xs-12 col-lg-8 p-y-1">
+        <div class="col-xs-12 col-lg-12 col-xl-8 p-y-1">
           <div class="cg-db-budget-graph">
             <p class="cg-db-title text-uppercase">
               Saving - Projection vs Actual
@@ -12,13 +12,21 @@
             chart-series="vm.series"></canvas>
           </div>
         </div>
-        <div class="col-xs-12 col-lg-4 p-y-1">
+        <div class="col-xs-12 col-lg-12 col-xl-4 p-y-1 clearfix">
           <div class="cg-db-budget-graph">
             <p class="cg-db-title text-uppercase">
               Average Saving per Period
             </p>
-            <div class="cg-db-budget-progress ng-cloak">{{ vm.preciseCurrent }}%</div>
-            <round-progress max="vm.max" current="vm.current" color="#45ccce" bgcolor="#eaeaea" radius="65" stroke="15" duration="1000" animation="easeInOutQuart" on-render="vm.showPreciseCurrent"></round-progress>
+            <div class="cg-db-budget-container">
+              <div class="cg-db-budget-sub">
+                <div class="cg-db-budget-progress ng-cloak">{{ vm.preciseCurrent }}%</div>
+                <round-progress max="vm.max" current="vm.current" color="{{ (vm.current < 10) ? '#fff68f' : '#5cb85c' }}" bgcolor="#eaeaea" radius="65" stroke="15" duration="1000" animation="easeInOutQuart" on-render="vm.showPreciseCurrent"></round-progress>
+              </div>
+              <div class="cg-db-budget-sub m-l-2">
+                <div class="cg-db-budget-progress-dollars ng-cloak">${{ vm.preciseCurrentDollar }}</div>
+                <round-progress max="vm.maxDollar" current="vm.currentDollar" color="{{ (vm.currentDollar / vm.maxDollar < .1) ? '#fff68f' : '#5cb85c' }}" bgcolor="#eaeaea" radius="65" stroke="15" duration="1000" animation="easeInOutQuart" on-render="vm.showPreciseCurrentDollars"></round-progress>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-xs-12 col-lg-6 p-y-1">
@@ -26,9 +34,13 @@
             <p>
               Circular bar chart that shows average saving in dollars per pay period over last 6 months
             </p>
-            <!-- <canvas id="doughnut" class="chart chart-doughnut" chart-data="doughnutData" chart-labels="doughnutLabels"></canvas> -->
           </div>
         </div>
+      </div>
+      <div id="footer">
+        <p>
+          &#169; 2016 - chrisgaona.com
+        </p>
       </div>
     </div>
   </div>

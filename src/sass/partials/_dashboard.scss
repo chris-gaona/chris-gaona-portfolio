@@ -20,7 +20,7 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  z-index: 1000;
+  z-index: 1001;
 
   .cg-bell-container {
     position: absolute;
@@ -76,6 +76,7 @@
   border-right: 1px solid #ccc;
   padding: 1em 0;
   background-color: #fff;
+  z-index: 1001;
 
   p {
     text-align: center;
@@ -402,7 +403,6 @@ p.cg-db-workout-count {
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   padding: .5em 1em 1em 1em;
-  margin-bottom: 1em;
 }
 
 .cg-db-latest-activities {
@@ -410,7 +410,6 @@ p.cg-db-workout-count {
   border-radius: 5px;
   padding: .5em 1em;
   border: 1px solid #e5e5e5;
-  margin-bottom: 1em;
 }
 
 .cg-db-activities-container {

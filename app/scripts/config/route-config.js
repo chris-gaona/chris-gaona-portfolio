@@ -113,10 +113,6 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
         'dashnavbar': {
           templateUrl: 'templates/dashboard-navbar.html',
           controller: '',
-        },
-        'dashfooter': {
-          templateUrl: 'templates/dashboard-footer.html',
-          controller: ''
         }
       }
     })
@@ -124,7 +120,7 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
       parent: 'root2',
       url: '/dashboard',
       views: {
-        'container@': {
+        'dashboard@': {
           templateUrl: 'templates/dashboard.html',
           controller: 'DashboardController',
           controllerAs: 'vm',
@@ -136,7 +132,7 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
       parent: 'root2',
       url: '/budget',
       views: {
-        'container@': {
+        'dashboard@': {
           templateUrl: 'templates/budget.html',
           controller: 'DashboardController',
           controllerAs: 'vm',

@@ -9,7 +9,7 @@ function dashboardController ($log, $location, $window, $timeout) {
   };
 
   vm.labels = ["January", "February", "March", "April", "May", "June"];
-  vm.series = ['Series A', 'Series B'];
+  vm.series = ['Projection', 'Actual'];
   vm.data = [
     [65, 59, 80, 81, 56, 55],
     [28, 48, 40, 19, 86, 27]
@@ -41,6 +41,9 @@ function dashboardController ($log, $location, $window, $timeout) {
   vm.current = 27;
   vm.max = 100;
 
+  vm.currentDollar = 499;
+  vm.maxDollar = 1850;
+
   vm.showPreciseCurrent = function(amount){
     $timeout(function(){
       if (amount <= 0) {
@@ -48,6 +51,17 @@ function dashboardController ($log, $location, $window, $timeout) {
       } else {
         var math = $window.Math;
         vm.preciseCurrent = math.min(math.round(amount), vm.max);
+      }
+    });
+  };
+
+  vm.showPreciseCurrentDollars = function(amount){
+    $timeout(function(){
+      if (amount <= 0) {
+        vm.preciseCurrentDollar = vm.currentDollar;
+      } else {
+        var math = $window.Math;
+        vm.preciseCurrentDollar = math.min(math.round(amount), vm.maxDollar);
       }
     });
   };

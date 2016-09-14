@@ -69,17 +69,41 @@
     }
   }
 
+  .certification-title {
+    font-weight: normal;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 12px;
+
+    span {
+      font-size: 8px;
+      margin-left: 10px;
+    }
+
+    a {
+      display: none;
+    }
+  }
+
+  .certification-image {
+    width: 20px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
   ul.tech-skills {
+    margin-top: 5px;
     padding-left: 10px;
 
     li {
       list-style: none;
       border: 1px solid #0099ff;
-      padding: 5px;
+      padding: 3px 5px;
       float: left;
       border-radius: 2px;
       margin: 2px;
-      font-size: 11px;
+      font-size: 12px;
     }
   }
 
@@ -96,7 +120,7 @@
       }
 
       ul li {
-        font-size: 11px;
+        font-size: 12px;
         line-height: 13px;
       }
     }
@@ -117,7 +141,7 @@
   .company-name, .work-dates {
     position: relative;
     top: -8px;
-    font-size: 11px;
+    font-size: 10px;
     color: #8e8e8e;
     padding: 0;
     margin: 0;
@@ -141,6 +165,6 @@
     margin: 0;
     margin-left: 20px;
     padding: 0;
-    font-size: 11px;
+    font-size: 12px;
   }
 }

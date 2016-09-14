@@ -57,6 +57,29 @@ a {
   display: none;
 }
 
+.certification-title {
+  font-weight: normal;
+  margin-top: 10px;
+  margin-left: 20px;
+
+  span {
+    font-size: .7em;
+    margin-left: 10px;
+  }
+
+  a {
+    margin-left: 20px;
+    font-size: .9em;
+  }
+}
+
+.certification-image {
+  width: 40px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
 ul.tech-skills {
   padding-left: 10px;
 
