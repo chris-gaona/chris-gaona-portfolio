@@ -1,7 +1,7 @@
 'use strict';
 
 // creatse the projectController
-function projectController ($routeParams, $location, $log, MainService, toastr, errorHandlerService) {
+function projectController ($stateParams, $location, $log, MainService, toastr, errorHandlerService) {
   var vm = this;
 
   vm.hasValidationErrors = false;
@@ -10,9 +10,9 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
   vm.grades = [{ name: 'Exceeds Expectations' }, { name: 'Meets Expectations' }];
 
   // if there is an id in the url
-  if ($routeParams.id) {
+  if ($stateParams.id) {
     // get that one project
-    MainService.getOne($routeParams.id)
+    MainService.getOne($stateParams.id)
     .then(function (response) {
       vm.project = response.data;
 
@@ -59,8 +59,8 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
     projectObject.grade = vm.grade;
 
     // if existing project is being edited
-    if ($routeParams.id) {
-      MainService.edit($routeParams.id, projectObject)
+    if ($stateParams.id) {
+      MainService.edit($stateParams.id, projectObject)
       .then(function () {
         // if successful redirect to home page and give client a message
         $location.path('/');
@@ -114,5 +114,5 @@ function projectController ($routeParams, $location, $log, MainService, toastr, 
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('ProjectController', ['$routeParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
+  ngModule.controller('ProjectController', ['$stateParams', '$location', '$log', 'MainService', 'toastr', 'errorHandlerService', projectController]);
 };

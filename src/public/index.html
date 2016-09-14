@@ -22,13 +22,25 @@
 
   <body ng-app="app">
     <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a>
+
+    <div ui-view="navbar" autoscroll="true"></div>
+
+    <div ui-view="container" autoscroll="true"></div>
+
+    <div ui-view="footer" autoscroll="true"></div>
+
+    <div ui-view="dashnavbar" autoscroll="true"></div>
+
+    <div ui-view="dashboard" autoscroll="true"></div>
+
+    <!-- <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a> -->
     <!-- <div class="cg-title">
       <span class="cg-title-c">C</span>
       <span class="cg-title-g">G</span>
       <span class="cg-title-p">P</span>
     </div> -->
 
-    <div ng-view autoscroll="true"></div>
+    <!-- <div ng-view autoscroll="true"></div> -->
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/scripts/portfolio.bundle.js"></script>

@@ -19,10 +19,6 @@ function mainController ($location, $log, $timeout, MainService, AuthService, Us
     });
   }
 
-  vm.dashboard = function () {
-    $location.path('/dashboard');
-  };
-
   // logout function
   vm.logOut = function () {
     // destroys login token for user & gives useful message to client

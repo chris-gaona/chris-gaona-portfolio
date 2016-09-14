@@ -12,7 +12,7 @@
 .cg-user {
   display: none;
 
-  @media (min-width: 600px) {
+  @media (min-width: 650px) {
     display: block;
   }
 }
@@ -26,7 +26,7 @@
   cursor: pointer;
   padding: 5px;
 
-  @media (min-width: 600px) {
+  @media (min-width: 650px) {
     display: none;
   }
 }
@@ -66,12 +66,19 @@
   text-align: center;
   font-size: .5em;
   padding: 5px 0;
-  color: #666;
+}
+
+.cg-db-mobile {
+  background-color: #666;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .cg-user-mobile li:first-child {
   margin-bottom: 10px;
   font-weight: bold;
+  color: #666;
 }
 
 .cg-user span {
