@@ -6,4 +6,5 @@ module.exports = function(ngModule) {
   require('./userService')(ngModule);
   require('./weatherService')(ngModule);
   require('./error-handler')(ngModule);
+  require('./dashboardService')(ngModule);
 };

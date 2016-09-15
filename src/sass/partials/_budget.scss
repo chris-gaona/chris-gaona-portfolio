@@ -39,3 +39,48 @@
 .round-progress-wrapper {
   display: inline-block;
 }
+
+.cg-db-budget-totals {
+  position: relative;
+  padding: .5em 1em;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.cg-db-budget-blue {
+  background-color: #428bca;
+}
+
+.cg-db-budget-green {
+  background-color: #5cb85c;
+}
+
+.cg-db-budget-purple {
+  background-color: #5c5cb8;
+}
+
+.existing-cash, .current-cash, .total-cash {
+  font-size: 2.2em;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #e5e5e5;
+  text-align: left;
+  padding: 5px;
+  font-size: .8em;
+}
+
+.cg-db-budget-previous {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: .5em 1em 1em 1em;
+  border-radius: 5px;
+}

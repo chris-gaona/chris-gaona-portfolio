@@ -12,7 +12,7 @@
             chart-series="vm.series"></canvas>
           </div>
         </div>
-        <div class="col-xs-12 col-lg-12 col-xl-4 p-y-1 clearfix">
+        <div class="col-xs-12 col-lg-12 col-xl-4 p-y-1">
           <div class="cg-db-budget-graph">
             <p class="cg-db-title text-uppercase">
               Average Saving per Period
@@ -29,10 +29,84 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-lg-6 p-y-1">
-          <div class="cg-db-budget-graph">
+        <div class="clearfix"></div>
+        <div class="col-xs-12 col-lg-4 p-y-1">
+          <div class="cg-db-budget-totals cg-db-budget-blue">
             <p>
-              Circular bar chart that shows average saving in dollars per pay period over last 6 months
+              Total Cash
+            </p>
+            <p class="total-cash">
+              {{vm.budgets[0].total_cash | currency}}
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-4 p-y-1">
+          <div class="cg-db-budget-totals cg-db-budget-green">
+            <p>
+              Current Budget
+            </p>
+            <p class="current-cash">
+              {{vm.budgets[0].current_cash | currency}}
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-4 p-y-1">
+          <div class="cg-db-budget-totals cg-db-budget-purple">
+            <p>
+              Remaining in Budget
+            </p>
+            <p class="current-cash">
+              {{vm.getTotalRemaining() | currency}}
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-xl-12 p-y-1">
+          <div class="cg-db-budget-graph clearfix">
+            <p class="cg-db-title text-uppercase">
+              Current Budget | {{vm.budgets[0].start_period | date: 'MMM d, yyyy'}} - {{vm.budgets[0].end_period | date: 'MMM d, yyyy'}}
+              <select>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+              </select>
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Projection</th>
+                  <th>Actual</th>
+                  <th>Left in Budget</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in vm.budgets[0].budget_items">
+                  <td>{{item.item}}</td>
+                  <td>{{item.projection | currency}}</td>
+                  <td>{{vm.getTotals(item.actual) | currency}}</td>
+                  <td>{{item.projection - vm.getTotals(item.actual) | currency}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-8 p-y-1">
+          <div class="cg-db-budget-previous">
+            <p class="cg-db-title text-uppercase">
+              Click in the table above to edit an actual
+            </p>
+            <form>
+              <input type="text" name="name" value="">
+              <input type="text" name="name" value="">
+              <input type="text" name="name" value="">
+              <input type="text" name="name" value="">
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-4 p-y-1">
+          <div class="cg-db-budget-previous">
+            <p class="cg-db-title text-uppercase">
+              Previous Budgets
             </p>
           </div>
         </div>

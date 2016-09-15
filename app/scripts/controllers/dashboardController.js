@@ -1,12 +1,11 @@
 'use strict';
 
-function dashboardController ($log, $location, $window, $timeout) {
+function dashboardController ($log, $location, $window, $timeout, DashboardService) {
   var vm = this;
 
-  // used with ng-clicks to handle the routing
-  vm.goBack = function () {
-    $location.path('/');
-  };
+  // all projects from MainService
+  vm.budgets = DashboardService.budgets;
+  $log.log(vm.budgets);
 
   vm.labels = ["January", "February", "March", "April", "May", "June"];
   vm.series = ['Projection', 'Actual'];
@@ -14,7 +13,7 @@ function dashboardController ($log, $location, $window, $timeout) {
     [65, 59, 80, 81, 56, 55],
     [28, 48, 40, 19, 86, 27]
   ];
-  vm.onClick = function (points, evt) {
+  vm.onClick = function s(points, evt) {
     console.log(points, evt);
   };
 
@@ -65,8 +64,24 @@ function dashboardController ($log, $location, $window, $timeout) {
       }
     });
   };
+
+  vm.getTotals = function (array) {
+    var total = 0;
+    for (var i = 0; i < array.length; i++) {
+      total += array[i].amount;
+    }
+    return total;
+  };
+
+  vm.getTotalRemaining = function () {
+    var total = 0;
+    for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
+      total += (vm.budgets[0].budget_items[i].projection - vm.getTotals(vm.budgets[0].budget_items[i].actual));
+    }
+    return total;
+  };
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('DashboardController', ['$log', '$location', '$window', '$timeout', dashboardController]);
+  ngModule.controller('DashboardController', ['$log', '$location', '$window', '$timeout', 'DashboardService', dashboardController]);
 };
