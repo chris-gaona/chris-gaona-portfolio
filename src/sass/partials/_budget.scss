@@ -4,6 +4,10 @@
   border: 1px solid #e5e5e5;
   padding: .5em 1em 1em 1em;
   border-radius: 5px;
+
+  select {
+    float: right;
+  }
 }
 
 .cg-db-budget-container {
@@ -75,6 +79,78 @@ th, td {
   text-align: left;
   padding: 5px;
   font-size: .8em;
+}
+
+.cg-db-budget-editable {
+  cursor: pointer;
+}
+
+.cg-db-budget-edit-button {
+  position: relative;
+  top: 1px;
+  font-size: 1.3em;
+  float: right;
+  color: #818a91;
+}
+
+.cg-db-budget-info {
+
+
+  span {
+    font-size: 1.2em;
+    padding: 0 5px;
+  }
+}
+
+.cg-db-budget-form {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: .5em 2em 1em 2em;
+  border-radius: 5px;
+}
+
+form {
+  position: relative;
+  width: 100%;
+
+  label {
+    margin: 0;
+    padding: 0;
+    font-size: .8em;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    border: 1px solid #dde6e9;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  a {
+    margin-left: 1em;
+  }
+}
+
+.actual-input-container {
+  position: relative;
+  background-color: #f5f5f5;
+  padding: .5em 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+.cg-db-budget-count {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: #5cb85c;
+  padding: 0 8px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: .7em;
 }
 
 .cg-db-budget-previous {

@@ -126,6 +126,11 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
           controllerAs: 'vm',
           requireLogin: true
         }
+      },
+      resolve: {
+        budgets: ['DashboardService', function (DashboardService) {
+          return DashboardService.getAll();
+        }]
       }
     })
     .state('dashboard.budget', {
@@ -138,11 +143,6 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
           controllerAs: 'vm',
           requireLogin: true
         }
-      },
-      resolve: {
-        budgets: ['DashboardService', function (DashboardService) {
-          return DashboardService.getAll();
-        }]
       }
     });
 

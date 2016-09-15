@@ -69,6 +69,11 @@
                 <option>2015</option>
                 <option>2014</option>
               </select>
+              <select>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+              </select>
             </p>
             <table>
               <thead>
@@ -81,9 +86,9 @@
               </thead>
               <tbody>
                 <tr ng-repeat="item in vm.budgets[0].budget_items">
-                  <td>{{item.item}}</td>
-                  <td>{{item.projection | currency}}</td>
-                  <td>{{vm.getTotals(item.actual) | currency}}</td>
+                  <td class="cg-db-budget-editable" ng-click="vm.chosenItem(item)">{{item.item}} <span class="cg-db-budget-edit-button fa fa-edit"></span></td>
+                  <td class="cg-db-budget-editable" ng-click="vm.chosenItem(item)">{{item.projection | currency}} <span class="cg-db-budget-edit-button fa fa-edit"></span></td>
+                  <td class="cg-db-budget-editable" ng-click="vm.chosenItem(item)">{{vm.getTotals(item.actual) | currency}} <span class="cg-db-budget-edit-button fa fa-edit"></span></td>
                   <td>{{item.projection - vm.getTotals(item.actual) | currency}}</td>
                 </tr>
               </tbody>
@@ -91,22 +96,42 @@
           </div>
         </div>
         <div class="col-xs-12 col-lg-8 p-y-1">
-          <div class="cg-db-budget-previous">
+          <div class="cg-db-budget-form">
             <p class="cg-db-title text-uppercase">
-              Click in the table above to edit an actual
+              Budget Forms
             </p>
-            <form>
-              <input type="text" name="name" value="">
-              <input type="text" name="name" value="">
-              <input type="text" name="name" value="">
-              <input type="text" name="name" value="">
+            <p class="cg-db-budget-info">
+              Click a cell with <span class="fa fa-edit"></span> in the table above to edit <span>OR</span> create a new item below
+            </p>
+            <span class="fa fa-times" ng-show="vm.editing" ng-click="vm.goBackToNew()"></span>
+            <form ng-submit="vm.editing ? vm.editItem() : vm.addNewItem()">
+              <span class="cg-db-budget-count" ng-show="vm.editing">{{vm.actualArray.length}}</span>
+              <label class="text-muted" for="name">Name of Item</label>
+              <input type="text" id="name" value="" ng-model="vm.itemName">
+              <label class="text-muted" for="projection">Projection Amount</label>
+              <input type="number" id="projection" value="" ng-model="vm.itemProjection">
+              <div class="col-xs-12 col-lg-6" ng-repeat="item in vm.actualArray" ng-show="vm.editing">
+                <div class="actual-input-container">
+                  <p>
+                    Actual Item
+                  </p>
+                  <span class="cg-db-budget-count">{{$index + 1 + '/' + vm.actualArray.length}}</span>
+                  <label class="text-muted">Title: {{item.name}}</label>
+                  <input type="text" value="" ng-model="item.name">
+                  <label class="text-muted">Amount: {{item.amount}}</label>
+                  <input type="number" value="" ng-model="item.amount">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <button class="btn btn-primary" type="submit">{{vm.editing ? 'Update': 'Create New Item'}}</button>
+              <a href="#" ng-show="vm.editing" ng-click="vm.addNewActualItem(vm.actualArray)">+ Add New Item</a>
             </form>
           </div>
         </div>
         <div class="col-xs-12 col-lg-4 p-y-1">
           <div class="cg-db-budget-previous">
             <p class="cg-db-title text-uppercase">
-              Previous Budgets
+              Recently Viewed Budgets
             </p>
           </div>
         </div>

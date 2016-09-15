@@ -46,40 +46,140 @@
       "current_cash": 1900,
       "existing_cash": 22000,
       "total_cash": 24000,
-      "projection": {
-        "gas": 100,
-        "verizon": 40,
-        "food": 200,
-        "credit_card": 50,
-        "miscellaneous": 200,
-        "cash_withdrawl": 40,
-        "tithe": 150,
-        "insurance": 40,
-        "amazon": 0,
-        "car_loan": 200,
-        "paypal_credit": 150,
-        "given_to_mom": 200,
-        "projected_total_spent": 1370,
-        "projected_saving": 555,
-        "estimate_ending_cash": 23000
-      },
-      "actual": {
-        "actual_gas": [25,22,23],
-        "actual_verizon": 40,
-        "actual_food": [50, 37],
-        "actual_credit_card": 50,
-        "actual_miscellaneous": [105, 35, 42],
-        "actual_cash_withdrawl": [40],
-        "actual_tithe": [150],
-        "actual_insurance": 40,
-        "actual_amazon": 0,
-        "actual_car_loan": 200,
-        "actual_paypal_credit": 150,
-        "actual_given_to_mom": 200,
-        "actual_total_spent": 1370,
-        "actual_saving": 555,
-        "actual_ending_cash": 23000
-      }
+      "budget_items": [
+        {
+      "item": "gas",
+      "projection": 100,
+      "actual": [
+        {
+          "name": "Livermore Gas",
+          "amount": 25
+        },
+        {
+          "name": "Livermore Gas",
+          "amount": 22
+        }
+      ]
+    },
+    {
+      "item": "verizon",
+      "projection": 40,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "item": "food",
+      "projection": 200,
+      "actual": [
+        {
+          "name": "Safeway",
+          "amount": 50
+        },
+        {
+          "name": "Lowes Restaurant",
+          "amount": 22
+        }
+      ]
+    },
+    {
+      "item": "credit card",
+      "projection": 50,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "item": "miscellaneous",
+      "projection": 200,
+      "actual": [
+        {
+          "name": "Starbucks",
+          "amount": 10
+        },
+        {
+          "name": "Petco",
+          "amount": 95
+        }
+      ]
+    },
+    {
+      "item": "cash withdrawl",
+      "projection": 40,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "item": "tithe",
+      "projection": 150,
+      "actual": [
+        {
+          "name": "Josiah's Covenant",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "item": "insurance",
+      "projection": 40,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "item": "amazon",
+      "projection": 0,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "item": "car loan",
+      "projection": 200,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "item": "paypal credit",
+      "projection": 150,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "item": "given to mom",
+      "projection": 200,
+      "actual": [
+        {
+          "name": "Done 9/13",
+          "amount": 200
+        }
+      ]
+    }
+      ]
     }
   }
 }

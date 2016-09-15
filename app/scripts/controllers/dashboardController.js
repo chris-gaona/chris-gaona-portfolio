@@ -80,6 +80,40 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     }
     return total;
   };
+
+  vm.chosenItem = function (item) {
+    $log.log(item);
+    vm.editing = true;
+    vm.itemName = item.item;
+    vm.itemProjection = item.projection;
+    vm.actualArray = item.actual;
+  };
+
+  vm.addNewItem = function () {
+    var itemObject = {item: vm.itemName, projection: vm.itemProjection, actual: [{name: "", amount: 0}]};
+    vm.budgets[0].budget_items.push(itemObject);
+    vm.itemName = '';
+    vm.itemProjection = '';
+    $log.log(vm.budgets[0].budget_items);
+  };
+
+  vm.editItem = function () {
+    var newBudgetItem = {};
+    newBudgetItem.item = vm.itemName;
+    newBudgetItem.projection = vm.itemProjection;
+    newBudgetItem.actual = vm.actualArray;
+    $log.log(newBudgetItem);
+  };
+
+  vm.addNewActualItem = function (array) {
+    array.push({name: "", amount: 0});
+  };
+
+  vm.goBackToNew = function () {
+    vm.editing = false;
+    vm.itemName = '';
+    vm.itemProjection = '';
+  };
 }
 
 module.exports = function(ngModule) {
