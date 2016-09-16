@@ -64,6 +64,10 @@
   background-color: #5c5cb8;
 }
 
+.cg-db-budget-light-blue {
+  background-color: #5bc0de;
+}
+
 .existing-cash, .current-cash, .total-cash {
   font-size: 2.2em;
   text-align: center;
@@ -83,14 +87,6 @@ th, td {
 
 .cg-db-budget-editable {
   cursor: pointer;
-}
-
-.cg-db-budget-edit-button {
-  position: relative;
-  top: 1px;
-  font-size: 1.3em;
-  float: right;
-  color: #818a91;
 }
 
 .cg-db-budget-info {

@@ -28,14 +28,14 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   vm.eventSources = [];
 
   vm.uiConfig = {
-      calendar:{
-        height: 460,
-        editable: true,
-        header:{
-          left: 'month agendaWeek agendaDay'
-        }
+    calendar:{
+      height: 460,
+      editable: true,
+      header:{
+        left: 'month agendaWeek agendaDay'
       }
-    };
+    }
+  };
 
   vm.current = 27;
   vm.max = 100;
@@ -73,6 +73,14 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     return total;
   };
 
+  vm.getTotalSpent = function () {
+    var total = 0;
+    for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
+      total += vm.getTotals(vm.budgets[0].budget_items[i].actual);
+    }
+    return total;
+  };
+
   vm.getTotalRemaining = function () {
     var total = 0;
     for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
@@ -81,54 +89,65 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     return total;
   };
 
+
+
+
+
+
+  //////NEW/////////
+
   vm.chosenItem = function (item) {
     vm.chosenBudgetItem = item;
-    vm.editing = true;
-    vm.itemName = item.item;
-    vm.itemProjection = item.projection;
-    vm.actualArray = item.actual;
   };
 
   vm.addNewItem = function () {
-    if (vm.itemName === undefined || vm.itemName === '' || vm.itemProjection === undefined || vm.itemProjection === '') {
-      return false;
-    } else {
-      var itemObject = {item: vm.itemName, projection: vm.itemProjection, actual: [{name: "", amount: 0}]};
-      vm.budgets[0].budget_items.push(itemObject);
-      vm.itemName = '';
-      vm.itemProjection = '';
-      $log.log(vm.budgets[0].budget_items);
+    var itemObject = {editing: false, item: '', projection: '', actual: [{name: "", amount: 0}]};
+    vm.budgets[0].budget_items.push(itemObject);
+    $log.log(vm.budgets[0].budget_items);
+  };
+
+  vm.editChosenItem = function (item) {
+    item.editing = true;
+    for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
+      if (vm.budgets[0].budget_items[i] !== item) {
+        vm.budgets[0].budget_items[i].editing = false;
+      }
+    }
+  }
+
+  vm.checkEditing = function () {
+    var editing = false;
+    for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
+      if (vm.budgets[0].budget_items[i].editing === true) {
+        editing = true;
+      }
+    }
+    return editing;
+  };
+
+  vm.stopAllEditing = function () {
+    for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
+      vm.budgets[0].budget_items[i].editing = false;
     }
   };
 
-  vm.editItem = function () {
-    var newBudgetItem = {};
-    newBudgetItem.item = vm.itemName;
-    newBudgetItem.projection = vm.itemProjection;
-    newBudgetItem.actual = vm.actualArray;
-    $log.log(newBudgetItem);
-  };
-
-  vm.addEmptyActualItem = function () {
-    vm.actualArray.push({name: "", amount: 0});
-  };
-
-  vm.goBackToNew = function () {
-    vm.editing = false;
-    vm.itemName = '';
-    vm.itemProjection = '';
-  };
-
-  vm.deleteItem = function (item) {
+  vm.deleteChosenItem = function (item) {
     var array = vm.budgets[0].budget_items;
     var i = array.indexOf(item);
     if(i != -1) {
     	array.splice(i, 1);
     }
+  };
 
-    vm.editing = false;
-    vm.itemName = '';
-    vm.itemProjection = '';
+
+
+
+
+
+
+
+  vm.addEmptyActualItem = function () {
+    vm.actualArray.push({name: "", amount: 0});
   };
 
   vm.deleteActualItem = function (item) {

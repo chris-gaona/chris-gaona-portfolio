@@ -27,7 +27,7 @@ mongoose.connect(config.mongoURI[app.settings.env], function(err) {
     console.log('Failed connecting to Mongodb!');
   } else {
     // seed database
-    // require('./config/seed.js');
+    require('./config/seed.js');
     console.log('Successfully connected to Mongodb: ' + config.mongoURI[app.settings.env]);
   }
 });

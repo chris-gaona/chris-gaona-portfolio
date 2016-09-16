@@ -11,10 +11,10 @@
             </p>
           </div>
           <div class="cg-db-section col-xs-8 cg-white">
-            <p class="text-uppercase">Remaining in Budget</p>
-            <h5>{{vm.getTotalRemaining() | currency}}</h5>
-            <div class="text-xs-center" id="example-caption-4">{{(vm.getTotalRemaining() / vm.budgets[0].current_cash) * 100 | number :0}}%</div>
-            <progress class="progress-blue" value="{{(vm.getTotalRemaining() / vm.budgets[0].current_cash) * 100 | number :0}}" max="100" aria-describedby="example-caption-4"></progress>
+            <p class="text-uppercase">Saving</p>
+            <h5>{{vm.budgets[0].current_cash - vm.getTotalSpent() | currency}}</h5>
+            <div class="text-xs-center" id="example-caption-4">{{((vm.budgets[0].current_cash - vm.getTotalSpent()) / vm.budgets[0].current_cash) * 100 | number :0}}%</div>
+            <progress class="progress-blue" value="{{((vm.budgets[0].current_cash - vm.getTotalSpent()) / vm.budgets[0].current_cash) * 100 | number :0}}" max="100" aria-describedby="example-caption-4"></progress>
           </div>
         </div>
         <div class="col-xs-12 col-lg-6 col-xl-3 p-y-1">

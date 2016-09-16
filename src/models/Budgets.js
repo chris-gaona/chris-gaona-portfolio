@@ -29,6 +29,7 @@ var BudgetSchema = new mongoose.Schema({
   },
   budget_items: [
     {
+      editing: Boolean,
       item: String,
       projection: Number,
       actual: [
