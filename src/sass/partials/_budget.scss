@@ -134,12 +134,21 @@ form {
   }
 }
 
+.danger-red {
+  position: relative;
+  color: red;
+}
+
 .actual-input-container {
   position: relative;
   background-color: #f5f5f5;
   padding: .5em 1em;
   margin-bottom: 1em;
   border-radius: 5px;
+
+  p span {
+    cursor: pointer;
+  }
 }
 
 .cg-db-budget-count {
@@ -159,4 +168,8 @@ form {
   border: 1px solid #e5e5e5;
   padding: .5em 1em 1em 1em;
   border-radius: 5px;
+}
+
+.button-warning {
+  margin-left: 1em;
 }

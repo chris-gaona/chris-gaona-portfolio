@@ -82,7 +82,7 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   };
 
   vm.chosenItem = function (item) {
-    $log.log(item);
+    vm.chosenBudgetItem = item;
     vm.editing = true;
     vm.itemName = item.item;
     vm.itemProjection = item.projection;
@@ -90,11 +90,15 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   };
 
   vm.addNewItem = function () {
-    var itemObject = {item: vm.itemName, projection: vm.itemProjection, actual: [{name: "", amount: 0}]};
-    vm.budgets[0].budget_items.push(itemObject);
-    vm.itemName = '';
-    vm.itemProjection = '';
-    $log.log(vm.budgets[0].budget_items);
+    if (vm.itemName === undefined || vm.itemName === '' || vm.itemProjection === undefined || vm.itemProjection === '') {
+      return false;
+    } else {
+      var itemObject = {item: vm.itemName, projection: vm.itemProjection, actual: [{name: "", amount: 0}]};
+      vm.budgets[0].budget_items.push(itemObject);
+      vm.itemName = '';
+      vm.itemProjection = '';
+      $log.log(vm.budgets[0].budget_items);
+    }
   };
 
   vm.editItem = function () {
@@ -105,14 +109,30 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     $log.log(newBudgetItem);
   };
 
-  vm.addNewActualItem = function (array) {
-    array.push({name: "", amount: 0});
+  vm.addEmptyActualItem = function () {
+    vm.actualArray.push({name: "", amount: 0});
   };
 
   vm.goBackToNew = function () {
     vm.editing = false;
     vm.itemName = '';
     vm.itemProjection = '';
+  };
+
+  vm.deleteItem = function (item) {
+    var array = vm.budgets[0].budget_items;
+    var i = array.indexOf(item);
+    if(i != -1) {
+    	array.splice(i, 1);
+    }
+
+    vm.editing = false;
+    vm.itemName = '';
+    vm.itemProjection = '';
+  };
+
+  vm.deleteActualItem = function (item) {
+    vm.actualArray.pop(item);
   };
 }
 

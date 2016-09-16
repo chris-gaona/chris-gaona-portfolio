@@ -89,7 +89,7 @@
                   <td class="cg-db-budget-editable" ng-click="vm.chosenItem(item)">{{item.item}} <span class="cg-db-budget-edit-button fa fa-edit"></span></td>
                   <td class="cg-db-budget-editable" ng-click="vm.chosenItem(item)">{{item.projection | currency}} <span class="cg-db-budget-edit-button fa fa-edit"></span></td>
                   <td class="cg-db-budget-editable" ng-click="vm.chosenItem(item)">{{vm.getTotals(item.actual) | currency}} <span class="cg-db-budget-edit-button fa fa-edit"></span></td>
-                  <td>{{item.projection - vm.getTotals(item.actual) | currency}}</td>
+                  <td ng-class="{'danger-red': item.projection - vm.getTotals(item.actual) < 0}">{{item.projection - vm.getTotals(item.actual) | currency}}</td>
                 </tr>
               </tbody>
             </table>
@@ -105,7 +105,7 @@
             </p>
             <span class="fa fa-times" ng-show="vm.editing" ng-click="vm.goBackToNew()"></span>
             <form ng-submit="vm.editing ? vm.editItem() : vm.addNewItem()">
-              <span class="cg-db-budget-count" ng-show="vm.editing">{{vm.actualArray.length}}</span>
+              <span class="cg-db-budget-count" ng-show="vm.editing">Total: {{vm.actualArray.length}}</span>
               <label class="text-muted" for="name">Name of Item</label>
               <input type="text" id="name" value="" ng-model="vm.itemName">
               <label class="text-muted" for="projection">Projection Amount</label>
@@ -113,7 +113,7 @@
               <div class="col-xs-12 col-lg-6" ng-repeat="item in vm.actualArray" ng-show="vm.editing">
                 <div class="actual-input-container">
                   <p>
-                    Actual Item
+                    Actual Item <span class="fa fa-trash" ng-click="vm.deleteActualItem(item)"></span>
                   </p>
                   <span class="cg-db-budget-count">{{$index + 1 + '/' + vm.actualArray.length}}</span>
                   <label class="text-muted">Title: {{item.name}}</label>
@@ -124,7 +124,8 @@
               </div>
               <div class="clearfix"></div>
               <button class="btn btn-primary" type="submit">{{vm.editing ? 'Update': 'Create New Item'}}</button>
-              <a href="#" ng-show="vm.editing" ng-click="vm.addNewActualItem(vm.actualArray)">+ Add New Item</a>
+              <a href="#" class="btn btn-warning button-warning" ng-show="vm.editing" ng-click="vm.deleteItem(vm.chosenBudgetItem)">Delete</a>
+              <a href="#" ng-show="vm.editing" ng-click="vm.addEmptyActualItem()">+ Add New Item</a>
             </form>
           </div>
         </div>
