@@ -85,6 +85,7 @@
                 <option>March</option>
               </select>
             </p>
+            <button class="btn btn-primary" ng-click="">Save</button>
             <a href="#" ng-click="vm.addNewItem()">+ Add New Item</a>
             <a href="#" ng-show="vm.checkEditing()" ng-click="vm.deleteItem(vm.chosenBudgetItem)">Delete Item</a>
             <a href="#" ng-show="vm.checkEditing()" ng-click="vm.stopAllEditing()">Stop Editing</a>
@@ -101,19 +102,45 @@
                 <tr ng-repeat="item in vm.budgets[0].budget_items">
                   <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item), vm.editChosenItem(item)]">
                     <div ng-hide="item.editing">{{item.item}}</div>
-                    <input type="text" ng-show="item.editing" ng-model="item.item" />
+                    <input type="text" ng-show="item.editing" ng-model="item.item">
                   </td>
                   <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item), vm.editChosenItem(item)]">
                     <div ng-hide="item.editing">
                       {{item.projection | currency}}
                     </div>
-                    <input type="number" ng-show="item.editing" ng-model="item.projection" />
+                    <input type="number" ng-show="item.editing" ng-model="item.projection">
                   </td>
-                  <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item)]">{{vm.getTotals(item.actual) | currency}} </td>
+                  <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item), vm.modalShown = true]">{{vm.getTotals(item.actual) | currency}} </td>
                   <td ng-class="{'danger-red': item.projection - vm.getTotals(item.actual) < 0}">{{item.projection - vm.getTotals(item.actual) | currency}}</td>
                 </tr>
               </tbody>
             </table>
+            <budget-modal show='vm.modalShown' width='400px' height='auto'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th class="cg-db-budget-th"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in vm.chosenBudgetItem.actual">
+                    <td class="cg-db-budget-editable">
+                      <input type="text" ng-model="item.name">
+                    </td>
+                    <td class="cg-db-budget-editable">
+                      <input type="number" ng-model="item.amount">
+                    </td>
+                    <td>
+                      <span class="fa fa-trash" ng-click="vm.deleteActualItem(item)"></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-primary" ng-click="">Save</button>
+              <a href="#" ng-click="vm.addEmptyActualItem()">+ Add New Item</a>
+            </budget-modal>
           </div>
         </div>
         <!-- <div class="col-xs-12 col-lg-8 p-y-1">

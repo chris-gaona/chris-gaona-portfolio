@@ -93,6 +93,7 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
 
 
 
+  vm.modalShown = false;
 
   //////NEW/////////
 
@@ -139,19 +140,16 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     }
   };
 
-
-
-
-
-
-
-
   vm.addEmptyActualItem = function () {
-    vm.actualArray.push({name: "", amount: 0});
+    vm.chosenBudgetItem.actual.push({name: "", amount: 0});
   };
 
   vm.deleteActualItem = function (item) {
-    vm.actualArray.pop(item);
+    var array = vm.chosenBudgetItem.actual;
+    var i = array.indexOf(item);
+    if(i != -1) {
+    	array.splice(i, 1);
+    }
   };
 }
 
