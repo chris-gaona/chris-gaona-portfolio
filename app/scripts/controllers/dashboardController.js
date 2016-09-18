@@ -5,6 +5,7 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
 
   // all projects from MainService
   vm.budgets = DashboardService.budgets;
+
   $log.log(vm.budgets);
 
   vm.labels = ["January", "February", "March", "April", "May", "June"];
@@ -96,6 +97,21 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   vm.modalShown = false;
 
   //////NEW/////////
+
+  //convert budgets array using getTotals function
+  vm.convertBudgetArray = function (array) {
+    var newArray;
+    var total;
+    for (var i = 0; i < array.length; i++) {
+      total = vm.getTotals(array[i].actual);
+      array[i].actual_total = total;
+    }
+    return vm.budgets[0].budget_items;
+  };
+
+  vm.myValueFunction = function(item) {
+    return vm.getTotals(item);
+  };
 
   vm.chosenItem = function (item) {
     vm.chosenBudgetItem = item;

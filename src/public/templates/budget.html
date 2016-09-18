@@ -18,7 +18,7 @@
               Average Saving per Period
             </p>
             <div class="cg-db-budget-container">
-              <div class="cg-db-budget-sub">
+              <div class="cg-db-budget-sub-first">
                 <div class="cg-db-budget-progress ng-cloak">{{ vm.preciseCurrent }}%</div>
                 <round-progress max="vm.max" current="vm.current" color="{{ (vm.current < 10) ? '#fff68f' : '#5cb85c' }}" bgcolor="#eaeaea" radius="65" stroke="15" duration="1000" rounded="true" animation="easeInOutQuart" on-render="vm.showPreciseCurrent"></round-progress>
               </div>
@@ -85,6 +85,14 @@
                 <option>March</option>
               </select>
             </p>
+            <form>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                  <input type="text" class="form-control m-t-0" placeholder="Keyword Search" ng-model="searchTerm">
+                </div>
+              </div>
+            </form>
             <button class="btn btn-primary" ng-click="">Save</button>
             <a href="#" ng-click="vm.addNewItem()">+ Add New Item</a>
             <a href="#" ng-show="vm.checkEditing()" ng-click="vm.deleteItem(vm.chosenBudgetItem)">Delete Item</a>
@@ -92,14 +100,38 @@
             <table>
               <thead>
                 <tr>
-                  <th>Item</th>
-                  <th>Projection</th>
-                  <th>Actual</th>
-                  <th>Left in Budget</th>
+                  <th ng-click="sortType = 'item'; sortReverse = !sortReverse" class="table-title">
+                      Item
+                      <span ng-hide="sortType == 'item'" class="fa fa-caret-up caret-top"></span>
+                      <span ng-hide="sortType == 'item'" class="fa fa-caret-down caret-bottom"></span>
+                      <span ng-show="sortType == 'item' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'item' && sortReverse" class="fa fa-caret-up"></span>
+                  </th>
+                  <th ng-click="sortType = 'projection'; sortReverse = !sortReverse" class="table-title">
+                      Projection
+                      <span ng-hide="sortType == 'projection'" class="fa fa-caret-up caret-top"></span>
+                      <span ng-hide="sortType == 'projection'" class="fa fa-caret-down caret-bottom"></span>
+                      <span ng-show="sortType == 'projection' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'projection' && sortReverse" class="fa fa-caret-up"></span>
+                  </th>
+                  <th ng-click="sortType = 'actual_total'; sortReverse = !sortReverse" class="table-title">
+                      Actual
+                      <span ng-hide="sortType == 'actual_total'" class="fa fa-caret-up caret-top"></span>
+                      <span ng-hide="sortType == 'actual_total'" class="fa fa-caret-down caret-bottom"></span>
+                      <span ng-show="sortType == 'actual_total' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'actual_total' && sortReverse" class="fa fa-caret-up"></span>
+                  </th>
+                  <th ng-click="sortType = 'projection - actual_total'; sortReverse = !sortReverse" class="table-title">
+                      Left in Budget
+                      <span ng-hide="sortType == 'projection - actual_total'" class="fa fa-caret-up caret-top"></span>
+                      <span ng-hide="sortType == 'projection - actual_total'" class="fa fa-caret-down caret-bottom"></span>
+                      <span ng-show="sortType == 'projection - actual_total' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'projection - actual_total' && sortReverse" class="fa fa-caret-up"></span>
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="item in vm.budgets[0].budget_items">
+                <tr ng-repeat="item in vm.convertBudgetArray(vm.budgets[0].budget_items) | orderBy:sortType:sortReverse | filter:searchTerm">
                   <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item), vm.editChosenItem(item)]">
                     <div ng-hide="item.editing">{{item.item}}</div>
                     <input type="text" ng-show="item.editing" ng-model="item.item">
@@ -110,8 +142,8 @@
                     </div>
                     <input type="number" ng-show="item.editing" ng-model="item.projection">
                   </td>
-                  <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item), vm.modalShown = true]">{{vm.getTotals(item.actual) | currency}} </td>
-                  <td ng-class="{'danger-red': item.projection - vm.getTotals(item.actual) < 0}">{{item.projection - vm.getTotals(item.actual) | currency}}</td>
+                  <td class="cg-db-budget-editable" ng-click="[vm.chosenItem(item), vm.modalShown = true]">{{item.actual_total | currency}} </td>
+                  <td ng-class="{'danger-red': item.projection - vm.getTotals(item.actual) < 0}">{{item.projection - item.actual_total | currency}}</td>
                 </tr>
               </tbody>
             </table>

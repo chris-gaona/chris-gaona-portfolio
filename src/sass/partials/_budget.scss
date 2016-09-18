@@ -13,13 +13,18 @@
 .cg-db-budget-container {
   position: relative;
   left: 50%;
-  width: 295px;
-  margin-left: -147.5px;
+  width: 326px;
+  margin-left: -163px;
 }
 
-.cg-db-budget-sub {
+.cg-db-budget-sub-first, .cg-db-budget-sub {
   position: relative;
   display: inline-block;
+}
+
+.cg-db-budget-sub-first {
+  border-right: 3px solid #ddd;
+  padding-right: 2em;
 }
 
 .cg-db-budget-progress {
@@ -29,6 +34,7 @@
   font-size: 2em;
   width: 100%;
   text-align: center;
+  padding-right: 1em;
 }
 
 .cg-db-budget-progress-dollars {
@@ -83,6 +89,19 @@ th, td {
   text-align: left;
   padding: 5px;
   font-size: .8em;
+}
+
+th.table-title {
+  cursor: pointer;
+}
+
+.caret-top {
+  position: absolute;
+}
+
+.caret-bottom {
+  position: relative;
+  top: 4px;
 }
 
 .cg-db-budget-editable {
