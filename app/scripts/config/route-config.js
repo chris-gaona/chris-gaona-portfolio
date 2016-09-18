@@ -130,6 +130,9 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         budgets: ['DashboardService', function (DashboardService) {
           return DashboardService.getAll();
+        }],
+        current: ['DashboardService', function (DashboardService) {
+          return DashboardService.getCurrent();
         }]
       }
     })

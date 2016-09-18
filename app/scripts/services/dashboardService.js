@@ -3,7 +3,8 @@
 // creates main service function
 function dashboardService ($http, $log, AuthService, errorHandlerService, Upload) {
   var dashboardService = {
-    budgets: []
+    budgets: [],
+    current: []
   };
 
   // get budgets info from mongodb
@@ -13,6 +14,30 @@ function dashboardService ($http, $log, AuthService, errorHandlerService, Upload
     }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
+    });
+  };
+
+  // get an single budget
+  dashboardService.getCurrent = function (id) {
+    return $http.get('/api/current-budget').then(function successCallback (response) {
+      angular.copy(response.data, dashboardService.current);
+    }, function errorCallback (response) {
+      $log.error(response);
+      errorHandlerService.handleError(response);
+    });
+  };
+
+  // edit existing budget
+  dashboardService.edit = function (id, budget) {
+    return $http.put('/api/budget/edit/' + id, budget, {
+      headers: {Authorization: 'Bearer '+AuthService.getToken()}
+    });
+  };
+
+  // create a new budget
+  dashboardService.create = function (budget) {
+    return $http.post('/api/budget/new', budget, {
+      headers: {Authorization: 'Bearer '+AuthService.getToken()}
     });
   };
 

@@ -4,9 +4,13 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   var vm = this;
 
   // all projects from MainService
-  vm.budgets = DashboardService.budgets;
+  vm.allBudgets = DashboardService.budgets;
+  vm.budgets = DashboardService.current;
+  vm.currentBudget = vm.budgets[0].start_period;
+
 
   $log.log(vm.budgets);
+  $log.log(vm.allBudgets);
 
   vm.labels = ["January", "February", "March", "April", "May", "June"];
   vm.series = ['Projection', 'Actual'];
@@ -14,9 +18,6 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     [65, 59, 80, 81, 56, 55],
     [28, 48, 40, 19, 86, 27]
   ];
-  vm.onClick = function s(points, evt) {
-    console.log(points, evt);
-  };
 
   // // Simulate async data update
   // $timeout(function () {
@@ -66,6 +67,14 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     });
   };
 
+
+
+
+
+
+  //////NEW/////////
+  vm.modalShown = false;
+
   vm.getTotals = function (array) {
     var total = 0;
     for (var i = 0; i < array.length; i++) {
@@ -81,22 +90,6 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     }
     return total;
   };
-
-  vm.getTotalRemaining = function () {
-    var total = 0;
-    for (var i = 0; i < vm.budgets[0].budget_items.length; i++) {
-      total += (vm.budgets[0].budget_items[i].projection - vm.getTotals(vm.budgets[0].budget_items[i].actual));
-    }
-    return total;
-  };
-
-
-
-
-
-  vm.modalShown = false;
-
-  //////NEW/////////
 
   //convert budgets array using getTotals function
   vm.convertBudgetArray = function (array) {
