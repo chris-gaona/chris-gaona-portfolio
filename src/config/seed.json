@@ -43,9 +43,9 @@
     "09-11-2016": {
       "start_period": "=new Date(2016, 09, 11)",
       "end_period": "=new Date(2016, 09, 25)",
-      "current_cash": 1900,
-      "existing_cash": 22000,
-      "total_cash": 24000,
+      "current_cash": 1825.36,
+      "existing_cash": 20275,
+      "total_cash": 22352,
       "budget_items": [
         {
           "editing": false,
@@ -54,7 +54,7 @@
           "actual": [
             {
               "name": "Livermore Gas",
-              "amount": 25
+              "amount": 15
             },
             {
               "name": "Livermore Gas",
@@ -69,7 +69,7 @@
           "actual": [
             {
               "name": "Done 9/13",
-              "amount": 40
+              "amount": 20
             }
           ]
         },
@@ -80,7 +80,7 @@
           "actual": [
             {
               "name": "Safeway",
-              "amount": 50
+              "amount": 75
             },
             {
               "name": "Lowes Restaurant",
@@ -95,7 +95,7 @@
           "actual": [
             {
               "name": "Done 9/13",
-              "amount": 50
+              "amount": 20
             }
           ]
         },
@@ -110,7 +110,7 @@
             },
             {
               "name": "Petco",
-              "amount": 95
+              "amount": 85
             }
           ]
         },
@@ -121,7 +121,7 @@
           "actual": [
             {
               "name": "Done 9/13",
-              "amount": 20
+              "amount": 40
             }
           ]
         },
@@ -132,7 +132,7 @@
           "actual": [
             {
               "name": "Josiah's Covenant",
-              "amount": 150
+              "amount": 170
             }
           ]
         },
@@ -187,7 +187,7 @@
           "actual": [
             {
               "name": "Done 9/13",
-              "amount": 200
+              "amount": 250
             }
           ]
         }

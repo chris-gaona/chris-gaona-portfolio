@@ -70,7 +70,7 @@ router.get('/budgets', function (req, res, next) {
   getAll(req, res, next);
 });
 
-//get a single budget
+//get most recent budget
 router.get('/current-budget', function (req, res, next) {
   // utils.getAll(req, res, next);
   Budget.find(callback).limit(1).sort({"end_period":-1});
@@ -80,6 +80,11 @@ router.get('/current-budget', function (req, res, next) {
     console.log(budget);
     res.json(budget);
   }
+});
+
+//get most another single budget
+router.get('/budget/:id', function (req, res, next) {
+  res.json(req.budget);
 });
 
 //update a single budget

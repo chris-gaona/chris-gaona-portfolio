@@ -36,7 +36,7 @@
               Total Cash
             </p>
             <p class="total-cash">
-              {{vm.budgets[0].total_cash | currency}}
+              {{(vm.budgets[0].existing_cash + vm.current_cash) - vm.getTotalSpent() | currency}}
             </p>
           </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="col-xs-12 col-lg-6 col-xl-3 p-y-1">
           <div class="cg-db-budget-totals cg-db-budget-purple">
             <p>
-              Spent
+              Spent <span class="cg-db-budget-purple">{{(vm.getTotalSpent() / vm.budgets[0].current_cash) * 100 | number :0}}%</span>
             </p>
             <p class="current-cash">
               {{vm.getTotalSpent() | currency}}
@@ -63,7 +63,7 @@
         <div class="col-xs-12 col-lg-6 col-xl-3 p-y-1">
           <div class="cg-db-budget-totals cg-db-budget-light-blue">
             <p>
-              Saving
+              Saving <span class="cg-db-budget-light-blue">{{((vm.budgets[0].current_cash - vm.getTotalSpent()) / vm.budgets[0].current_cash) * 100 | number :0}}%</span>
             </p>
             <p class="current-cash">
               {{vm.budgets[0].current_cash - vm.getTotalSpent() | currency}}
@@ -73,10 +73,8 @@
         <div class="col-xs-12 col-xl-12 p-y-1">
           <div class="cg-db-budget-graph clearfix">
             <p class="cg-db-title text-uppercase">
-              Current Budget -
-              <select ng-model="vm.currentBudget" ng-options="budget.start_period as (budget.start_period | date: 'MMMM d, yyyy') for budget in vm.allBudgets">
-                <option value="">Select by period start</option>
-              </select>
+              Current Budget Start -
+              <select ng-model="vm.currentBudget" ng-options="budget.start_period as (budget.start_period | date: 'MMMM d, yyyy') for budget in vm.allBudgets" ng-change="vm.updateBudget()"></select>
             </p>
             <form>
               <div class="form-group">

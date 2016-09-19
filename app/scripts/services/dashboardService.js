@@ -17,14 +17,19 @@ function dashboardService ($http, $log, AuthService, errorHandlerService, Upload
     });
   };
 
-  // get an single budget
-  dashboardService.getCurrent = function (id) {
+  // get current budget
+  dashboardService.getCurrent = function () {
     return $http.get('/api/current-budget').then(function successCallback (response) {
       angular.copy(response.data, dashboardService.current);
     }, function errorCallback (response) {
       $log.error(response);
       errorHandlerService.handleError(response);
     });
+  };
+
+  // get a single budget
+  dashboardService.getOne = function (id) {
+    return $http.get('/api/budget/' + id);
   };
 
   // edit existing budget

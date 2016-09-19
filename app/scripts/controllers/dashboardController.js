@@ -8,6 +8,8 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   vm.budgets = DashboardService.current;
   vm.currentBudget = vm.budgets[0].start_period;
 
+  $log.log('Current Budget: ', vm.currentBudget);
+
 
   $log.log(vm.budgets);
   $log.log(vm.allBudgets);
@@ -71,9 +73,30 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
 
 
 
-
   //////NEW/////////
   vm.modalShown = false;
+
+  vm.updateBudget = function () {
+    $log.log('Current Budget: ', vm.currentBudget);
+    var requestedBudget;
+    for (var i = 0; i < vm.allBudgets.length; i++) {
+      if (vm.allBudgets[i].start_period === vm.currentBudget) {
+        $log.log(true);
+        requestedBudget = vm.allBudgets[i];
+      }
+    }
+
+    $log.log('Requested Budget :', requestedBudget);
+
+    DashboardService.getOne(requestedBudget._id).then(function successCallback (response) {
+      $log.log(response);
+      var budgetArray = [];
+      budgetArray.push(response.data);
+      vm.budgets = budgetArray;
+    }, function errorCallback (error) {
+      $log.error(error);
+    });
+  };
 
   vm.getTotals = function (array) {
     var total = 0;

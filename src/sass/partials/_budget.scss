@@ -52,6 +52,15 @@
   border: 1px solid #e5e5e5;
   border-radius: 5px;
   color: #fff;
+
+  span {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    padding: 10px 7px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+  }
 }
 
 .cg-db-budget-blue {
