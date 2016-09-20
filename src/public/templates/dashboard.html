@@ -1,6 +1,6 @@
 <div class="cg-dashboard-main container-fluid">
   <div class="row">
-    <div class="cg-dashboard-section">
+    <div class="cg-dashboard-section" ng-class="{'menu-visible': vm.menuVisible}">
       <div class="cg-dashboard-wrapper">
         <!-- <dashboard labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources"></dashboard> -->
         <h4>Dashboard</h4>
@@ -81,7 +81,7 @@
             <!-- <p>
               Graph showing saving over the past 6 months vs projection
             </p> -->
-            <canvas height="75" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels"
+            <canvas class="chart chart-line" height="95" chart-data="vm.data" chart-labels="vm.labels"
             chart-series="vm.series"></canvas>
           </div>
         </div>

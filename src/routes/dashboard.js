@@ -96,10 +96,14 @@ router.put('/budget/edit/:id', function (req, res, next) {
   });
 });
 
-//save a new budget item
+//create a new budget period
 router.post('/budget/new', function (req, res, next) {
   // utils.getAll(req, res, next);
+  req.budget.save(req.body, function (err, budget) {
+    if (err) return next(err);
 
+    res.sendStatus(201).json(budget);
+  })
 });
 
 module.exports = router;

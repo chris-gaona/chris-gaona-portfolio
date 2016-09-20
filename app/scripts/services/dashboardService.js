@@ -39,7 +39,7 @@ function dashboardService ($http, $log, AuthService, errorHandlerService) {
     });
   };
 
-  // create a new budget
+  // create a new budget period
   dashboardService.create = function (budget) {
     return $http.post('/api/budget/new', budget, {
       headers: {Authorization: 'Bearer '+AuthService.getToken()}

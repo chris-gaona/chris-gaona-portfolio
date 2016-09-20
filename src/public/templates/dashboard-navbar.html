@@ -1,18 +1,18 @@
 <div class="cg-main-fixed-wrapper"></div>
-<div class="cg-dashboard-container">
+<div class="cg-dashboard-header">
   <a href="/"><img class="logo" src="../images/logo.png" alt="logo" /></a>
   <p class="cg-dashboard-back-button" ui-sref="home">
     <span class="fa fa-long-arrow-left"></span>
      Home
   </p>
-  <span class="fa fa-bars cg-db-menu-button"></span>
+  <span class="fa fa-bars cg-db-menu-button" ng-click="vm.menuVisible = !vm.menuVisible"></span>
   <div class="cg-bell-container">
     <span class="fa fa-bell-o"></span><span class="cg-notifications">5</span>
   </div>
 </div>
 <div class="cg-dashboard-main container-fluid">
   <div class="row">
-    <div class="aside-menu">
+    <div class="aside-menu" ng-class="{'menu-visible': vm.menuVisible}">
       <div class="cg-db-user-container">
         <div class="cg-db-user-image"></div>
         <p class="text-muted">Welcome Chris!</p>
