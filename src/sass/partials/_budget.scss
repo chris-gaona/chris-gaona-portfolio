@@ -4,33 +4,27 @@
   border: 1px solid #e5e5e5;
   padding: .5em 1em 1em 1em;
   border-radius: 5px;
-}
 
-.cg-db-budget-container {
-  position: relative;
-  left: 50%;
-  width: 326px;
-  margin-left: -163px;
-}
-
-.cg-db-budget-sub-first, .cg-db-budget-sub {
-  position: relative;
-  display: inline-block;
-}
-
-.cg-db-budget-sub-first {
-  border-right: 3px solid #ddd;
-  padding-right: 2em;
+  select {
+    font-size: 1.2em;
+  }
 }
 
 .cg-db-budget-progress {
   position: absolute;
-  top: 42px;
-  left: 0;
+  top: 60px;
   font-size: 2em;
   width: 100%;
   text-align: center;
-  padding-right: 1em;
+}
+
+.cg-db-budget-sub {
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 170px;
+  height: auto;
+  margin-left: -85px;
 }
 
 .cg-db-budget-progress-dollars {
@@ -59,7 +53,12 @@
     top: -10px;
     padding: 10px 7px;
     border-radius: 50%;
-    border: 5px solid #fff;
+    background-color: #fff;
+    color: #666;
+  }
+
+  p {
+    margin: 0;
   }
 }
 
@@ -87,13 +86,14 @@
 table {
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 1em;
 }
 
 th, td {
   border: 1px solid #e5e5e5;
   text-align: left;
   padding: 5px;
-  font-size: .8em;
+  font-size: 1em;
 }
 
 th.table-title {

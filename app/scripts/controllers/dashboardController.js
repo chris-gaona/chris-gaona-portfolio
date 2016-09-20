@@ -1,6 +1,6 @@
 'use strict';
 
-function dashboardController ($log, $location, $window, $timeout, DashboardService) {
+function dashboardController ($log, $location, $window, $timeout, toastr, DashboardService, errorHandlerService) {
   var vm = this;
 
   // all projects from MainService
@@ -34,10 +34,7 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
   vm.uiConfig = {
     calendar:{
       height: 460,
-      editable: true,
-      header:{
-        left: 'month agendaWeek agendaDay'
-      }
+      editable: true
     }
   };
 
@@ -75,6 +72,19 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
 
   //////NEW/////////
   vm.modalShown = false;
+
+  vm.editBudget = function () {
+    DashboardService.edit(vm.budgets[0]._id, vm.budgets[0])
+    .then(function () {
+      vm.modalShown = false;
+      toastr.success('Updated your budget', 'Success!');
+    }, function (err) {
+      // else handle the error
+      errorHandlerService.handleError(err, displayValidationErrors);
+      // log the error to the console
+      $log.error('Error: ', err);
+    });
+  };
 
   vm.updateBudget = function () {
     $log.log('Current Budget: ', vm.currentBudget);
@@ -183,8 +193,15 @@ function dashboardController ($log, $location, $window, $timeout, DashboardServi
     	array.splice(i, 1);
     }
   };
+
+  // creates the callback function for errorHandlerService
+  function displayValidationErrors(validationErrors) {
+    vm.validationErrors = validationErrors.errors;
+    $log.log(vm.validationErrors);
+    vm.hasValidationErrors = true;
+  }
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('DashboardController', ['$log', '$location', '$window', '$timeout', 'DashboardService', dashboardController]);
+  ngModule.controller('DashboardController', ['$log', '$location', '$window', '$timeout', 'toastr', 'DashboardService', 'errorHandlerService', dashboardController]);
 };

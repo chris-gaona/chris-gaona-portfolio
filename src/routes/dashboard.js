@@ -77,12 +77,11 @@ router.get('/current-budget', function (req, res, next) {
   function callback (err, budget) {
     if (err) return next(err);
 
-    console.log(budget);
     res.json(budget);
   }
 });
 
-//get most another single budget
+//get a single budget
 router.get('/budget/:id', function (req, res, next) {
   res.json(req.budget);
 });
@@ -90,7 +89,11 @@ router.get('/budget/:id', function (req, res, next) {
 //update a single budget
 router.put('/budget/edit/:id', function (req, res, next) {
   // utils.getAll(req, res, next);
+  req.budget.update(req.body, function (err, budget) {
+    if (err) return next(err);
 
+    res.sendStatus(204);
+  });
 });
 
 //save a new budget item

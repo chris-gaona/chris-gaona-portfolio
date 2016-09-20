@@ -1,7 +1,7 @@
 'use strict';
 
 // creates main service function
-function dashboardService ($http, $log, AuthService, errorHandlerService, Upload) {
+function dashboardService ($http, $log, AuthService, errorHandlerService) {
   var dashboardService = {
     budgets: [],
     current: []
@@ -50,5 +50,5 @@ function dashboardService ($http, $log, AuthService, errorHandlerService, Upload
 }
 
 module.exports = function(ngModule) {
-  ngModule.factory('DashboardService', ['$http', '$log', 'AuthService', 'errorHandlerService', 'Upload', dashboardService]);
+  ngModule.factory('DashboardService', ['$http', '$log', 'AuthService', 'errorHandlerService', dashboardService]);
 };
