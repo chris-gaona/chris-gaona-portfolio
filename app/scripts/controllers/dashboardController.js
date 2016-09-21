@@ -14,12 +14,12 @@ function dashboardController ($log, $location, $window, $timeout, toastr, Dashbo
   $log.log(vm.budgets);
   $log.log(vm.allBudgets);
 
-  vm.labels = ["January", "February", "March", "April", "May", "June"];
-  vm.series = ['Projection', 'Actual'];
-  vm.data = [
-    [65, 59, 80, 81, 56, 55],
-    [28, 48, 40, 19, 86, 27]
-  ];
+  // vm.labels = ["January", "February", "March", "April", "May", "June"];
+  // vm.series = ['Projection', 'Actual'];
+  // vm.data = [
+  //   [65, 59, 80, 81, 56, 55],
+  //   [28, 48, 40, 19, 86, 27]
+  // ];
 
   // // Simulate async data update
   // $timeout(function () {
@@ -64,6 +64,51 @@ function dashboardController ($log, $location, $window, $timeout, toastr, Dashbo
         vm.preciseCurrentDollar = math.min(math.round(amount), vm.maxDollar);
       }
     });
+  };
+
+
+
+
+  vm.barChart = {
+    element: "graph",
+    data: [
+      {month: 'Mar', projection: 300, saved: 325},
+      {month: 'Apr', projection: 300, saved: 285},
+      {month: 'May', projection: 300, saved: 300},
+      {month: 'Jun', projection: 300, saved: 225},
+      {month: 'Jul', projection: 300, saved: 295.5},
+      {month: 'Aug', projection: 300, saved: 420}
+
+    ],
+    options: {
+      xkey: 'month',
+      ykeys: ['projection', 'saved'],
+      labels: ['Projection', 'Saved'],
+      resize: true,
+      hideHover: true
+    }
+  };
+
+  vm.smallChart = {
+    element: "graph",
+    data: [
+      {month: 'Mar', saved: 325},
+      {month: 'Apr', saved: 285},
+      {month: 'May', saved: 300},
+      {month: 'Jun', saved: 225},
+      {month: 'Jul', saved: 295.5},
+      {month: 'Aug', saved: 420}
+
+    ],
+    options: {
+      xkey: 'month',
+      ykeys: ['saved'],
+      labels: ['Saved'],
+      axes: false,
+      grid: false,
+      hideHover: true,
+      barColors: ["rgb(92, 184, 92)"]
+    }
   };
 
 

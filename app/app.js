@@ -22,7 +22,8 @@ var ngModule = angular.module('app', [
   'ngFileUpload',
   'chart.js',
   'ui.calendar',
-  'angular-svg-round-progressbar'
+  'angular-svg-round-progressbar',
+  'ng-morris-js'
 ]).run(function($rootScope, $state, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login
