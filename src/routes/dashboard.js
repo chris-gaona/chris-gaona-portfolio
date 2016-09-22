@@ -98,11 +98,12 @@ router.put('/budget/edit/:id', function (req, res, next) {
 
 //create a new budget period
 router.post('/budget/new', function (req, res, next) {
+  var budget = new Budget(req.body);
   // utils.getAll(req, res, next);
-  req.budget.save(req.body, function (err, budget) {
+  budget.save(function (err, budget) {
     if (err) return next(err);
 
-    res.sendStatus(201).json(budget);
+    res.status(201).json(budget);
   })
 });
 

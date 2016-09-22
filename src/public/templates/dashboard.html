@@ -81,8 +81,12 @@
             <!-- <p>
               Graph showing saving over the past 6 months vs projection
             </p> -->
-            <canvas class="chart chart-line" height="95" chart-data="vm.data" chart-labels="vm.labels"
-            chart-series="vm.series"></canvas>
+            <!-- <canvas class="chart chart-line" height="95" chart-data="vm.data" chart-labels="vm.labels"
+            chart-series="vm.series"></canvas> -->
+            <ng-morris-bar-chart id="graph"
+              chart-options="vm.barChart.options"
+              chart-data="vm.barChart.data">
+            </ng-morris-bar-chart>
           </div>
         </div>
         <div class="col-xs-12 col-xl-3 m-t-1">
@@ -115,7 +119,7 @@
             <p class="cg-db-title text-uppercase">
               Calendar
             </p>
-            <div ui-calendar="vm.uiConfig.calendar" ng-model="vm.eventSources"></div>
+            <!-- <div ui-calendar="vm.uiConfig.calendar" ng-model="vm.eventSources"></div> -->
           </div>
         </div>
         <div class="col-xs-12 col-xl-3 m-t-1">
@@ -141,7 +145,7 @@
               <p class="cg-db-activities-sub text-muted">
                 3 rounds for time
               </p>
-              <span class="cg-db-activities-time text-muted">1d</span>
+              <span class="cg-db-activities-time text-muted">50m</span>
             </div>
             <div class="cg-db-activities-container">
               <span class="fa fa-list-ul cg-db-new-task"></span>
@@ -151,7 +155,17 @@
               <p class="cg-db-activities-sub text-muted">
                 Walk the dog
               </p>
-              <span class="cg-db-activities-time text-muted">50m</span>
+              <span class="cg-db-activities-time text-muted">1d</span>
+            </div>
+            <div class="cg-db-activities-container">
+              <span class="fa fa-list-ul cg-db-new-task"></span>
+              <p class="cg-db-activities-title">
+                Task Completed
+              </p>
+              <p class="cg-db-activities-sub text-muted">
+                Take out the trash
+              </p>
+              <span class="cg-db-activities-time text-muted">2d</span>
             </div>
           </div>
         </div>

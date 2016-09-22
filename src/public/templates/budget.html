@@ -183,7 +183,41 @@
             <p class="cg-db-title text-uppercase">
               Other Actions
             </p>
-            <button class="d-block btn btn-primary m-b-2">Start New Period</button>
+            <button class="d-block btn btn-primary m-b-2" ng-click="vm.newBudget()">Start New Period</button>
+            <p class="m-b-1">
+              <a href="#" ng-click="vm.editBudgetMain = !vm.editBudgetMain">Edit Budget Info</a>
+              <form ng-show="vm.editBudgetMain">
+                <div class="form-group">
+                  <label>Start Period</label>
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    <input type="date" class="form-control m-t-0" ng-model="vm.start_period">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>End Period</label>
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    <input type="date" class="form-control m-t-0" ng-model="vm.end_period">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Current Cash</label>
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                    <input type="number" class="form-control m-t-0" ng-model="vm.current_cash">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Existing Cash</label>
+                  <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                    <input type="number" class="form-control m-t-0" ng-model="vm.existing_cash">
+                  </div>
+                </div>
+                <button class="btn btn-primary" ng-click="vm.editBudget()">Save</button>
+              </form>
+            </p>
             <p class="m-b-1">
               <a href="#">Subtract directly from savings</a>
             </p>

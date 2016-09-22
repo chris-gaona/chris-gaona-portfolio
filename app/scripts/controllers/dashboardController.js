@@ -1,6 +1,6 @@
 'use strict';
 
-function dashboardController ($log, $location, $window, $timeout, toastr, DashboardService, errorHandlerService) {
+function dashboardController ($log, $http, $location, $window, $timeout, toastr, DashboardService, errorHandlerService) {
   var vm = this;
 
   // all projects from MainService
@@ -8,35 +8,30 @@ function dashboardController ($log, $location, $window, $timeout, toastr, Dashbo
   vm.budgets = DashboardService.current;
   vm.currentBudget = vm.budgets[0].start_period;
 
+  vm.start_period = getDate(vm.budgets[0].start_period);
+  vm.end_period = getDate(vm.budgets[0].end_period);
+  vm.current_cash = vm.budgets[0].current_cash;
+  vm.existing_cash = vm.budgets[0].existing_cash;
+
   $log.log('Current Budget: ', vm.currentBudget);
 
 
   $log.log(vm.budgets);
   $log.log(vm.allBudgets);
 
-  // vm.labels = ["January", "February", "March", "April", "May", "June"];
-  // vm.series = ['Projection', 'Actual'];
-  // vm.data = [
-  //   [65, 59, 80, 81, 56, 55],
-  //   [28, 48, 40, 19, 86, 27]
-  // ];
 
-  // // Simulate async data update
-  // $timeout(function () {
-  //   vm.data = [
-  //     [28, 48, 40, 19, 86, 27, 90],
-  //     [65, 59, 80, 81, 56, 55, 40]
-  //   ];
-  // }, 3000);
-
-  vm.eventSources = [];
-
-  vm.uiConfig = {
-    calendar:{
-      height: 460,
-      editable: true
+  function getDate (date) {
+    var today;
+    // if there is a date parameter passed in, use that else just use today's date
+    if (date) {
+      return today = new Date(date);
+    } else {
+      return today = new Date();
     }
-  };
+  }
+
+
+
 
   vm.current = 27;
   vm.max = 100;
@@ -114,12 +109,57 @@ function dashboardController ($log, $location, $window, $timeout, toastr, Dashbo
 
 
 
-
+  vm.editBudgetMain = false;
   //////NEW/////////
   vm.modalShown = false;
 
+  vm.newBudget = function () {
+    // today's date
+    var today = new Date();
+    // today's date + 7 days
+    var addTwoWeeks = new Date();
+    addTwoWeeks.setDate(today.getDate() + 14);
+
+    var newBudgetObject = {};
+    newBudgetObject.start_period = today;
+    newBudgetObject.end_period = addTwoWeeks;
+    newBudgetObject.current_cash = 1853.25;
+    newBudgetObject.existing_cash = 24282;
+    newBudgetObject.budget_items = [{editing: false, item: "", projection: 0, actual: []}];
+
+
+    DashboardService.create(newBudgetObject)
+    .then(function (response) {
+      $log.log(response.data);
+      var budgetArray = [];
+      budgetArray.push(response.data);
+      vm.budgets = budgetArray;
+      vm.allBudgets.push({_id: response.data._id, end_period: response.data.end_period, start_period: response.data.start_period});
+      vm.currentBudget = response.data.start_period;
+
+      vm.start_period = getDate(response.data.start_period);
+      vm.end_period = getDate(response.data.end_period);
+      vm.current_cash = response.data.current_cash;
+      vm.existing_cash = response.data.existing_cash;
+      toastr.success('New budget created', 'Success!');
+    }, function (err) {
+      // else handle the error
+      errorHandlerService.handleError(err, displayValidationErrors);
+      // log the error to the console
+      $log.error('Error: ', err);
+    });
+  };
+
   vm.editBudget = function () {
-    DashboardService.edit(vm.budgets[0]._id, vm.budgets[0])
+    var newBudgetObject = {};
+    newBudgetObject._id = vm.budgets[0]._id;
+    newBudgetObject.start_period = new Date(vm.start_period);
+    newBudgetObject.end_period = new Date(vm.end_period);
+    newBudgetObject.current_cash = vm.current_cash;
+    newBudgetObject.existing_cash = vm.existing_cash;
+    newBudgetObject.budget_items = vm.budgets[0].budget_items;
+
+    DashboardService.edit(vm.budgets[0]._id, newBudgetObject)
     .then(function () {
       vm.modalShown = false;
       toastr.success('Updated your budget', 'Success!');
@@ -148,6 +188,11 @@ function dashboardController ($log, $location, $window, $timeout, toastr, Dashbo
       var budgetArray = [];
       budgetArray.push(response.data);
       vm.budgets = budgetArray;
+
+      vm.start_period = getDate(vm.budgets[0].start_period);
+      vm.end_period = getDate(vm.budgets[0].end_period);
+      vm.current_cash = vm.budgets[0].current_cash;
+      vm.existing_cash = vm.budgets[0].existing_cash;
     }, function errorCallback (error) {
       $log.error(error);
     });
@@ -248,5 +293,5 @@ function dashboardController ($log, $location, $window, $timeout, toastr, Dashbo
 }
 
 module.exports = function(ngModule) {
-  ngModule.controller('DashboardController', ['$log', '$location', '$window', '$timeout', 'toastr', 'DashboardService', 'errorHandlerService', dashboardController]);
+  ngModule.controller('DashboardController', ['$log', '$http', '$location', '$window', '$timeout', 'toastr', 'DashboardService', 'errorHandlerService', dashboardController]);
 };

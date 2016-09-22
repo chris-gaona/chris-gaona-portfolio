@@ -68,11 +68,9 @@
   }
 
   span.small-percentages {
-    position: absolute;
-    right: -15px;
-    top: -15px;
-    padding: 10px 7px;
-    border-radius: 50%;
+    position: relative;
+    padding: 1px 5px;
+    border-radius: 5px;
     background-color: #fff;
     color: #666;
     font-size: .8em;

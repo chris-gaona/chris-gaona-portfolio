@@ -15,18 +15,6 @@ var BudgetSchema = new mongoose.Schema({
   existing_cash: {
     type: Number
   },
-  total_cash: {
-    type: Number
-  },
-  actual_spent: {
-    type: Number
-  },
-  actual_saving: {
-    type: Number
-  },
-  actual_ending_cash: {
-    type: Number
-  },
   budget_items: [
     {
       editing: Boolean,

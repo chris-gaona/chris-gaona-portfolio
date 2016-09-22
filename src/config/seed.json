@@ -45,7 +45,6 @@
       "end_period": "=new Date(2016, 09, 25)",
       "current_cash": 1825.36,
       "existing_cash": 20275,
-      "total_cash": 22352,
       "budget_items": [
         {
           "editing": false,
@@ -198,7 +197,6 @@
       "end_period": "=new Date(2016, 10, 10)",
       "current_cash": 1900,
       "existing_cash": 22000,
-      "total_cash": 24000,
       "budget_items": [
         {
           "editing": false,
