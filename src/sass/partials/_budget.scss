@@ -102,9 +102,15 @@
   font-size: 1.5em;
 }
 
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 500px;
   margin-bottom: 1em;
 }
 
