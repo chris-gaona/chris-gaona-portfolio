@@ -1,6 +1,6 @@
 <div class="cg-dashboard-main container-fluid">
   <div class="row">
-    <div class="cg-dashboard-section">
+    <div class="cg-dashboard-section" ng-class="{'menu-visible': vm.menuVisible}">
       <div class="cg-dashboard-wrapper">
         <!-- <dashboard labels="vm.labels" series="vm.series" data="vm.data" config="vm.uiConfig" event-sources="vm.eventSources"></dashboard> -->
         <h4>Dashboard</h4>
@@ -11,10 +11,10 @@
             </p>
           </div>
           <div class="cg-db-section col-xs-8 cg-white">
-            <p class="text-uppercase">Remaining in Budget</p>
-            <h5>$982</h5>
-            <div class="text-xs-center" id="example-caption-4">25%</div>
-            <progress class="progress-blue" value="25" max="100" aria-describedby="example-caption-4"></progress>
+            <p class="text-uppercase">Saving</p>
+            <h5>{{vm.budgets[0].current_cash - vm.getTotalSpent() | currency}}</h5>
+            <div class="text-xs-center" id="example-caption-4">{{((vm.budgets[0].current_cash - vm.getTotalSpent()) / vm.budgets[0].current_cash) * 100 | number :0}}%</div>
+            <progress class="progress-blue" value="{{((vm.budgets[0].current_cash - vm.getTotalSpent()) / vm.budgets[0].current_cash) * 100 | number :0}}" max="100" aria-describedby="example-caption-4"></progress>
           </div>
         </div>
         <div class="col-xs-12 col-lg-6 col-xl-3 p-y-1">
@@ -35,7 +35,7 @@
               <!-- <div class="text-xs-center" id="example-caption-4">75%</div> -->
               <progress class="progress-green" value="75" max="100" aria-describedby="example-caption-4"></progress>
             </div>
-            <div class="col-xs-6 p-x-0">
+            <div class="col-xs-6 p-l-0">
               <h6>Deadlift</h6>
               <!-- <div class="text-xs-center" id="example-caption-4">75%</div> -->
               <progress class="progress-green" value="50" max="100" aria-describedby="example-caption-4"></progress>
@@ -81,8 +81,12 @@
             <!-- <p>
               Graph showing saving over the past 6 months vs projection
             </p> -->
-            <canvas height="75" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels"
-            chart-series="vm.series"></canvas>
+            <!-- <canvas class="chart chart-line" height="95" chart-data="vm.data" chart-labels="vm.labels"
+            chart-series="vm.series"></canvas> -->
+            <ng-morris-bar-chart id="graph"
+              chart-options="vm.barChart.options"
+              chart-data="vm.barChart.data">
+            </ng-morris-bar-chart>
           </div>
         </div>
         <div class="col-xs-12 col-xl-3 m-t-1">
@@ -115,7 +119,7 @@
             <p class="cg-db-title text-uppercase">
               Calendar
             </p>
-            <div ui-calendar="vm.uiConfig.calendar" ng-model="vm.eventSources"></div>
+            <!-- <div ui-calendar="vm.uiConfig.calendar" ng-model="vm.eventSources"></div> -->
           </div>
         </div>
         <div class="col-xs-12 col-xl-3 m-t-1">
@@ -141,7 +145,7 @@
               <p class="cg-db-activities-sub text-muted">
                 3 rounds for time
               </p>
-              <span class="cg-db-activities-time text-muted">1d</span>
+              <span class="cg-db-activities-time text-muted">50m</span>
             </div>
             <div class="cg-db-activities-container">
               <span class="fa fa-list-ul cg-db-new-task"></span>
@@ -151,7 +155,17 @@
               <p class="cg-db-activities-sub text-muted">
                 Walk the dog
               </p>
-              <span class="cg-db-activities-time text-muted">50m</span>
+              <span class="cg-db-activities-time text-muted">1d</span>
+            </div>
+            <div class="cg-db-activities-container">
+              <span class="fa fa-list-ul cg-db-new-task"></span>
+              <p class="cg-db-activities-title">
+                Task Completed
+              </p>
+              <p class="cg-db-activities-sub text-muted">
+                Take out the trash
+              </p>
+              <span class="cg-db-activities-time text-muted">2d</span>
             </div>
           </div>
         </div>

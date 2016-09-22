@@ -4,27 +4,41 @@
   border: 1px solid #e5e5e5;
   padding: .5em 1em 1em 1em;
   border-radius: 5px;
+
+  select {
+    font-size: 1.2em;
+  }
 }
 
-.cg-db-budget-container {
+#graph {
+  width: 100%;
+  height: 300px;
+}
+
+#small-graph {
   position: relative;
+  top: 0;
   left: 50%;
-  width: 295px;
-  margin-left: -147.5px;
-}
-
-.cg-db-budget-sub {
-  position: relative;
-  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin-left: -100px;
 }
 
 .cg-db-budget-progress {
   position: absolute;
-  top: 42px;
-  left: 0;
+  top: 60px;
   font-size: 2em;
   width: 100%;
   text-align: center;
+}
+
+.cg-db-budget-sub {
+  position: relative;
+  top: 40px;
+  left: 50%;
+  width: 170px;
+  height: 300px;
+  margin-left: -85px;
 }
 
 .cg-db-budget-progress-dollars {
@@ -38,4 +52,235 @@
 
 .round-progress-wrapper {
   display: inline-block;
+}
+
+.cg-db-budget-totals {
+  position: relative;
+  padding: 1em;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  color: #fff;
+
+  span.large-icons {
+    font-size: 3em;
+    position: absolute;
+    top: 20px;
+  }
+
+  span.small-percentages {
+    position: relative;
+    padding: 1px 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #666;
+    font-size: .8em;
+  }
+
+  p {
+    margin: 0;
+    text-align: right;
+  }
+}
+
+.cg-db-budget-blue {
+  background-color: #428bca;
+}
+
+.cg-db-budget-green {
+  background-color: #5cb85c;
+}
+
+.cg-db-budget-purple {
+  background-color: #5c5cb8;
+}
+
+.cg-db-budget-light-blue {
+  background-color: #5bc0de;
+}
+
+.cash-numbers {
+  font-size: 1.5em;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 500px;
+  margin-bottom: 1em;
+}
+
+th, td {
+  border: 1px solid #e5e5e5;
+  text-align: left;
+  padding: 5px;
+  font-size: 1em;
+}
+
+th.table-title {
+  cursor: pointer;
+}
+
+.caret-top {
+  position: absolute;
+}
+
+.caret-bottom {
+  position: relative;
+  top: 4px;
+}
+
+.cg-db-budget-editable {
+  cursor: pointer;
+}
+
+.cg-db-budget-info {
+
+
+  span {
+    font-size: 1.2em;
+    padding: 0 5px;
+  }
+}
+
+.cg-db-budget-form {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: .5em 2em 1em 2em;
+  border-radius: 5px;
+}
+
+form {
+  position: relative;
+  width: 100%;
+
+  label {
+    margin: 0;
+    padding: 0;
+    font-size: .8em;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    border: 1px solid #dde6e9;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  a {
+    margin-left: 1em;
+  }
+}
+
+.danger-red {
+  position: relative;
+  color: red;
+}
+
+.actual-input-container {
+  position: relative;
+  background-color: #f5f5f5;
+  padding: .5em 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+
+  p span {
+    cursor: pointer;
+  }
+}
+
+.cg-db-budget-count {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: #5cb85c;
+  padding: 0 8px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: .7em;
+}
+
+.cg-db-budget-previous {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: .5em 1em 1em 1em;
+  border-radius: 5px;
+}
+
+.button-warning {
+  margin-left: 1em;
+}
+
+///MODAL
+.cg-db-budget-modal {
+
+}
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f6f8f8;
+  border-radius: 5px;
+  box-shadow: 4px 4px 80px #000;
+  padding: 2em 0;
+}
+
+.ng-modal-dialog-content {
+  padding: 1em;
+
+  th, td {
+    border-bottom: 1px solid #ddd !important;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .cg-db-budget-th {
+    padding: 0 15px;
+  }
+}
+
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
 }
