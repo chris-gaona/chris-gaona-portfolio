@@ -5,5 +5,4 @@ module.exports = function(ngModule) {
   require('./projectController')(ngModule);
   require('./authController')(ngModule);
   require('./resumeController')(ngModule);
-  require('./dashboardController')(ngModule);
 };

@@ -22,8 +22,7 @@
     "mixitup": "^2.1.11",
     "animate.css": "^3.5.2",
     "jquery": "^3.1.0",
-    "angular-ui-calendar": "^1.0.2",
-    "ng-morris-js": "^0.3.5"
+    "angular-ui-calendar": "^1.0.2"
   },
   "resolutions": {
     "jquery": "^3.1.0"

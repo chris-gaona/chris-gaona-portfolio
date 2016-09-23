@@ -11,7 +11,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./models/Projects');
 require('./models/Users');
-require('./models/Budgets');
 var config = require('./config/database');
 
 require('./config/passport');
@@ -41,7 +40,6 @@ app.use(cookieParser());
 app.use('/', express.static('dist/public'));
 app.use('/api', routes.project);
 app.use('/api', routes.accomplishments);
-app.use('/api', routes.dashboard);
 app.use('/user', routes.users);
 app.use('/', routes.auth);
 

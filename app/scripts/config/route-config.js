@@ -3,17 +3,17 @@
 function config ($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('root', {
-      abstract: true,
-      views: {
-        'navbar': {
-          templateUrl: 'templates/navbar.html',
-          controller: '',
-        },
-        'footer': {
-          templateUrl: 'templates/footer.html',
-          controller: ''
-        }
-      }
+      abstract: true
+      // views: {
+      //   'navbar': {
+      //     templateUrl: 'templates/navbar.html',
+      //     controller: '',
+      //   },
+      //   'footer': {
+      //     templateUrl: 'templates/footer.html',
+      //     controller: ''
+      //   }
+      // }
     })
     .state('home', {
       parent: 'root',
@@ -104,47 +104,6 @@ function config ($stateProvider, $urlRouterProvider, $locationProvider) {
           templateUrl: 'templates/resume.html',
           controller: 'ResumeController',
           controllerAs: 'vm'
-        }
-      }
-    })
-    .state('root2', {
-      abstract: true,
-      views: {
-        'dashnavbar': {
-          templateUrl: 'templates/dashboard-navbar.html',
-          controller: '',
-        }
-      }
-    })
-    .state('dashboard', {
-      parent: 'root2',
-      url: '/dashboard',
-      views: {
-        'dashboard@': {
-          templateUrl: 'templates/dashboard.html',
-          controller: 'DashboardController',
-          controllerAs: 'vm',
-          requireLogin: true
-        }
-      },
-      resolve: {
-        budgets: ['DashboardService', function (DashboardService) {
-          return DashboardService.getAll();
-        }],
-        current: ['DashboardService', function (DashboardService) {
-          return DashboardService.getCurrent();
-        }]
-      }
-    })
-    .state('dashboard.budget', {
-      parent: 'root2',
-      url: '/budget',
-      views: {
-        'dashboard@': {
-          templateUrl: 'templates/budget.html',
-          controller: 'DashboardController',
-          controllerAs: 'vm',
-          requireLogin: true
         }
       }
     });

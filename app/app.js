@@ -9,8 +9,6 @@ require('angular-toastr');
 require('angularjs-datepicker');
 require('ngmap');
 require('ng-file-upload');
-require('chart.js');
-require('angular-svg-round-progressbar');
 
 var ngModule = angular.module('app', [
   'ui.router',
@@ -19,11 +17,7 @@ var ngModule = angular.module('app', [
   'toastr',
   '720kb.datepicker',
   'ngMap',
-  'ngFileUpload',
-  'chart.js',
-  'ui.calendar',
-  'angular-svg-round-progressbar',
-  'ng-morris-js'
+  'ngFileUpload'
 ]).run(function($rootScope, $state, AuthService) {
   // wire up the route change start handler
   // in order to determine if the requested route requires a user login
@@ -37,7 +31,7 @@ var ngModule = angular.module('app', [
     }
   });
 }).config(function ($uiViewScrollProvider) {
-  $uiViewScrollProvider.useAnchorScroll()
+  $uiViewScrollProvider.useAnchorScroll();
 // creates config for toastr
 }).config(function(toastrConfig) {
   angular.extend(toastrConfig, {
