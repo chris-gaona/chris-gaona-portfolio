@@ -51,7 +51,7 @@ function projectController ($stateParams, $location, $log, MainService, toastr, 
     projectObject.name = vm.name;
     projectObject.category = catArray;
     projectObject.image = vm.image;
-    projectObject.created_on = vm.created_on;
+    projectObject.created_on = new Date(vm.created_on);
     projectObject.link = vm.link;
     projectObject.github_link = vm.github_link;
     projectObject.comments = vm.comments;

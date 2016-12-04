@@ -5,18 +5,19 @@
       <div class="card-image-top cg-expand-image" ng-style="{'background-image': 'url(' + project.image + ')'}"></div>
       <div class="card-block">
         <a href="{{project.github_link}}" target="_blank" class="cg-github-repo">GitHub Repo</a>
+        <a ng-if="project.link" href="{{project.link}}" target="_blank" class="cg-live-link">Live Preview</a>
         <h4 class="card-title">{{project.name}}</h4>
-        <p class="card-text" ng-show="project.grade">
-          <span class="fa fa-check-circle"></span> {{project.grade}}
-        </p>
+        <!--<p class="card-text" ng-show="project.grade">-->
+          <!--<span class="fa fa-check-circle"></span> {{project.grade}}-->
+        <!--</p>-->
         <p class="card-text" ng-show="project.comments">
           <b><i>Project Description: </i></b>
           {{project.comments}}
         </p>
-        <p class="card-text" ng-show="project.treehouse_comments">
-          <b><i>Treehouse Professional Reviewer Comments: </i></b>
-          {{project.treehouse_comments}}
-        </p>
+        <!--<p class="card-text" ng-show="project.treehouse_comments">-->
+          <!--<b><i>Treehouse Professional Reviewer Comments: </i></b>-->
+          <!--{{project.treehouse_comments}}-->
+        <!--</p>-->
         <p class="card-text">
           <small class="text-muted">Created on: {{project.created_on | date: 'MMM d, yyyy'}}</small>
         </p>

@@ -136,28 +136,60 @@ span.fa-times {
 .card-title {
   margin-top: 30px;
 
-  @media (min-width: 700px) {
+  @media (min-width: 800px) {
     margin-top: 0;
   }
 }
 
 .cg-github-repo {
   position: relative;
-  top: 5px;
-  right: 5px;
+  display: block;
+  margin-bottom: 10px;
   padding: 10px 20px;
   border: 2px solid #fd7d5f;
   border-radius: 5px;
   color: #fd7d5f;
   text-decoration: none;
+  text-align: center;
   transition: all 0.3s;
 
-  @media (min-width: 700px) {
-    position: absolute;
+  @media (min-width: 400px) {
+    display: inline-block;
+  }
+
+  @media (min-width: 800px) {
+    float: right;
   }
 }
 
 .cg-github-repo:hover {
+  text-decoration: none;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.cg-live-link {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  border: 2px solid #0099ff;
+  border-radius: 5px;
+  color: #0099ff;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+
+  @media (min-width: 400px) {
+    display: inline-block;
+  }
+
+  @media (min-width: 800px) {
+    float: right;
+    margin-right: 5px;
+  }
+}
+
+.cg-live-link:hover {
   text-decoration: none;
   color: #666;
   transition: all 0.3s;
