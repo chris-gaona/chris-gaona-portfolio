@@ -19,6 +19,10 @@
           <!--{{project.treehouse_comments}}-->
         <!--</p>-->
         <p class="card-text">
+          <small>Tags: </small>
+          <small class="cg-tags" ng-repeat="tag in project.category">{{tag}}</small>
+        </p>
+        <p class="card-text">
           <small class="text-muted">Created on: {{project.created_on | date: 'MMM d, yyyy'}}</small>
         </p>
       </div>
