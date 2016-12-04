@@ -41,7 +41,7 @@ function projectController ($stateParams, $location, $log, MainService, toastr, 
   vm.saveProject = function () {
     var catArray;
     if (vm.category && vm.category.indexOf(',') > -1 && vm.category !== undefined) {
-      catArray = vm.category.replace(' ', '').split(',');
+      catArray = vm.category.split(', ');
     } else {
       catArray = vm.category;
     }
