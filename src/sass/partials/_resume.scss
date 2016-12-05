@@ -45,6 +45,10 @@ a {
   }
 }
 
+.projects-sub-container li {
+  list-style: none;
+}
+
 .link-container {
   position: relative;
   top: 0;
@@ -101,6 +105,14 @@ ul.work-container {
   }
 }
 
+.work-sub-container img {
+  float: left;
+  width: 300px;
+  height: auto;
+  margin: 0 10px 10px 0;
+  border-radius: 2px;
+}
+
 p.work-title {
   font-weight: bold;
   display: block;
@@ -128,4 +140,8 @@ ul {
 
 .education-small-text-print {
   display: none;
+}
+
+.project-text {
+
 }
