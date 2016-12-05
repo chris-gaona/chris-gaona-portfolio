@@ -19,43 +19,72 @@
      |
     <a href="#" ng-click="vm.printResume()">Print</a>
   </div>
-  <h5 class="resume-minor-title">Certifications</h5>
-    <p class="certification-title">
-      <img class="certification-image" src="images/treehouse.png" alt="treehouse image" />
-      Treehouse Full Stack JavaScript Techdegree <span class="text-muted text-sm">Issued Sept. 13, 2016</span>
-      <a href="https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/Full+Stack+JavaScript+Certificate.pdf" target="_blank">View</a>
-    </p>
+  <h5 class="resume-minor-title">Recent Projects</h5>
+    <ul class="work-container">
+        <li class="work-sub-container">
+            <p class="work-title">Budget Tracker</p>
+            <img src="https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/images/budget-tracker.png" alt="Chris Gaona Portfolio">
+            <p class="project-text">Many people don't have a way to easily track their weekly or monthly budgets, which is why I created
+                this simple budget tracker. It is built with Angular 2, TypeScript, NodeJS, Express, & Bootstrap 4. It has many tests
+                including unit tests, e2e tests, & server side tests. Easily track your budget by simply adding existing cash, current
+                income, and period start date. <span>View a live example <a href="#">here</a>.</span>
+            </p>
+            <div class="clearfix"></div>
+        </li>
+        <li class="work-sub-container">
+            <p class="work-title">Chris Gaona Portfolio</p>
+            <img src="https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/images/capstone-project.png" alt="Chris Gaona Portfolio">
+            <p class="project-text">My personal website showcasing all of the projects I have worked on, my resume, & my tweets.
+                You can easily view live examples of all my projects at <a href="#">http://www.chrisgaona.com</a>.
+                It is built with Angular 1, NodeJS, Express, & Bootstrap. It has many tests
+                including unit tests using Karma & Jasmine, & server side tests using Mocha & Chai. <span>View a live
+                    example <a href="#">here</a>.</span>
+            </p>
+            <div class="clearfix"></div>
+        </li>
+        <li class="work-sub-container">
+            <p class="work-title">Library Manager</p>
+            <img src="https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/images/library-manager.png" alt="Library Manager">
+            <p class="project-text">A Library Management System built with NodeJS, Express, Jade, & SQLite for a small library. The
+                librarian has been using a simple sqlite database and has been entering data in manually. The librarian
+                wanted a more intuitive way to handle the library's books, patrons and loans, which is why this app
+                was created. <span>View a live example <a href="#">here</a>.</span>
+            </p>
+            <div class="clearfix"></div>
+        </li>
+    </ul>
+
   <h5 class="resume-minor-title">Technical Skills</h5>
-  <ul class="tech-skills clearfix">
-    <li>Full Stack JavaScript</li>
-    <li>MEAN Stack</li>
-    <li>Angular</li>
-    <li>Angular 2</li>
-    <li>TypeScript</li>
-    <li>Mongodb</li>
-    <li>Mongoose</li>
-    <li>SQLite</li>
-    <li>Sequelize (ORM)</li>
-    <li>Express</li>
-    <li>NodeJS</li>
-    <li>HTML5</li>
-    <li>CSS, SASS, SCSS</li>
-    <li>jQuery</li>
-    <li>AJAX</li>
-    <li>CORS</li>
-    <li>Git (GitHub, Version Control)</li>
-    <li>Webpack</li>
-    <li>Browserify</li>
-    <li>NPM Scripts</li>
-    <li>Gulp</li>
-    <li>Karma / Jasmine</li>
-    <li>Protractor</li>
-    <li>Mocha / Chai</li>
-  </ul>
+    <ul class="tech-skills clearfix">
+        <li>Full Stack JavaScript</li>
+        <li>MEAN Stack</li>
+        <li>Angular</li>
+        <li>Angular 2</li>
+        <li>TypeScript</li>
+        <li>Mongodb</li>
+        <li>Mongoose</li>
+        <li>SQLite</li>
+        <li>Sequelize (ORM)</li>
+        <li>Express</li>
+        <li>NodeJS</li>
+        <li>HTML5</li>
+        <li>CSS, SASS, SCSS</li>
+        <li>jQuery</li>
+        <li>AJAX</li>
+        <li>CORS</li>
+        <li>Git (GitHub, Version Control)</li>
+        <li>Webpack</li>
+        <li>Browserify</li>
+        <li>NPM Scripts</li>
+        <li>Gulp</li>
+        <li>Karma / Jasmine</li>
+        <li>Protractor</li>
+        <li>Mocha / Chai</li>
+    </ul>
   <h5 class="resume-minor-title">Work Experience</h5>
   <ul class="work-container">
     <li class="work-sub-container">
-      <p class="work-title first-work">
+      <p class="work-title">
         IT Business Consultant Intermediate
       </p>
       <span class="company-name">Kaiser Permanente</span>
@@ -64,7 +93,6 @@
         <li>Successfully co-led the Analytics Portfolio Management track within Regional IT Operations (RITO) Analytics. Maintained a repository of analytic related initiatives across all Kaiser regions in order to effectively reduce variation and redundancy, while promoting awareness and the use of Kaiser standards</li>
         <li>Effectively analyzed and rationalized the initiative data obtained from the regions and found multiple synergistic opportunities</li>
         <li>Regularly updated and maintained multiple sharepoint sites under RITO Analytics</li>
-        <li>Maintained a MS Project Plan for the RITO Analytics track</li>
         <li>Generated monthly executive level reports based on our track’s goals and  accomplishments</li>
       </ul>
     </li>
@@ -77,7 +105,6 @@
       <ul>
         <li>Assisted the RITO Analytics Collaborative Council (ACC) group with weekly status reports to the PVO</li>
         <li>Assisted the NCAL BIO IT Governance Support team with various reports including the 2014 End of Year Report to the Regional Approval Council and other Executives. Managed a monthly NCAL Business Management Office self-reported goals report of the many projects tracked by our governance team</li>
-        <li>Traveled to various Kaiser Permanente Service Areas to interview Managers within the Service and Delivery group to produce a report for the RAC and other Executives</li>
       </ul>
     </li>
     <li class="work-sub-container">
@@ -92,53 +119,20 @@
         <li>Worked as a part of the Infrastructure Management Group in Design Review to analyze and approve server designs, applications, and deployment</li>
       </ul>
     </li>
-    <li class="work-sub-container">
-      <p class="work-title">
-        Operations Intern
-      </p>
-      <span class="company-name">Op-test</span>
-      <span class="work-dates">Feb. 2013 – April 2013 | Redding, CA</span>
-      <ul>
-        <li>Assisted operations manager with the logistics of moving all company operations to a new facility</li>
-        <li>Maintained the ability to organize and prioritize workload with various teams throughout the organization to meet deadlines</li>
-      </ul>
-    </li>
-    <li class="work-sub-container">
-      <p class="work-title">
-        Teacher’s Assistant
-      </p>
-      <span class="company-name">Simpson University</span>
-      <span class="work-dates">Sept. 2012 – April 2013 | Redding, CA</span>
-      <ul>
-        <li>Maintained strong written and oral communication skills</li>
-        <li>Successfully met deadlines while maintaining confidentiality of other students’ grades</li>
-      </ul>
-    </li>
+    <!--<li class="work-sub-container">-->
+      <!--<p class="work-title">-->
+        <!--Operations Intern-->
+      <!--</p>-->
+      <!--<span class="company-name">Op-test</span>-->
+      <!--<span class="work-dates">Feb. 2013 – April 2013 | Redding, CA</span>-->
+      <!--<ul>-->
+        <!--<li>Assisted operations manager with the logistics of moving all company operations to a new facility</li>-->
+        <!--<li>Maintained the ability to organize and prioritize workload with various teams throughout the organization to meet deadlines</li>-->
+      <!--</ul>-->
+    <!--</li>-->
   </ul>
   <h5 class="resume-minor-title">Education</h5>
   <ul class="work-container">
-    <li class="work-sub-container">
-      <p class="work-title first-work">
-        Treehouse Techdegree - Full Stack JavaScript
-      </p>
-      <p class="education-small-text education-anchor">
-        See a transcript of courses taken: <a href="https://teamtreehouse.com/chrisgaona" target="_blank">Check it out!</a> - Over 180 courses taken
-      </p>
-      <p class="education-small-text-print">
-        See a transcript of courses taken: https://teamtreehouse.com/chrisgaona - Over 180 courses taken
-      </p>
-    </li>
-    <li class="work-sub-container">
-      <p class="work-title">
-        Codeschool - Online platform to learn various coding languages
-      </p>
-      <p class="education-small-text education-anchor">
-        See a report card of courses taken: <a href="https://www.codeschool.com/users/thebeloved88" target="_blank">Check it out!</a>
-      </p>
-      <p class="education-small-text-print">
-        See a report card of courses taken: https://www.codeschool.com/users/thebeloved88
-      </p>
-    </li>
     <li class="work-sub-container">
       <p class="work-title">
         Simpson University, Redding, CA
@@ -157,4 +151,10 @@
       </p>
     </li>
   </ul>
+    <h5 class="resume-minor-title">Certifications</h5>
+    <p class="certification-title">
+        <img class="certification-image" src="images/treehouse.png" alt="treehouse image" />
+        Treehouse Full Stack JavaScript Techdegree <span class="text-muted text-sm">Issued Sept. 13, 2016</span>
+        <a href="https://s3-us-west-1.amazonaws.com/chrisgaonaportfolio/Full+Stack+JavaScript+Certificate.pdf" target="_blank">View</a>
+    </p>
 </div>
