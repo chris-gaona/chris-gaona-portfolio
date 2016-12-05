@@ -199,8 +199,14 @@ span.fa-times {
   color: #14aa13;
 }
 
+.cg-tag-title {
+  display: block;
+}
+
 .cg-tags {
+  float: left;
   margin-right: 5px;
+  margin-bottom: 2px;
   background-color: #666;
   color: #fff;
   padding: 2px 5px;
