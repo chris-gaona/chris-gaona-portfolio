@@ -282,8 +282,10 @@ span.fa-times {
 
 .controls li {
   padding: 10px 0;
+  width: 50%;
+  display: inline-block;
   background-color: #fff;
-  border-bottom: 2px solid #666;
+  border: 1px solid #000;
   font-size: 1em;
   text-align: center;
   list-style: none;
@@ -294,8 +296,12 @@ span.fa-times {
   }
 }
 
-.controls li:last-child {
-  border-bottom: none;
+.controls li:first-child {
+  width: 100%;
+}
+
+.cg-sort li {
+  width: 100%;
 }
 
 .cg-filter, .cg-sort {
@@ -307,15 +313,15 @@ span.fa-times {
   position: absolute;
   top: 20px;
   left: 12px;
-  width: 130px;
+  width: 300px;
   border: 3px solid #fd7d5f;
   border-radius: 5px;
   opacity: 0;
   transition: all 0.3s;
 
   @media (min-width: 350px) {
-    width: 180px;
-    left: -32px;
+    width: 300px;
+    left: 1px;
   }
 }
 
