@@ -3,7 +3,15 @@
 /************************/
 .cg-header {
   background-color: #0099ff;
+  background-image: url("/images/icons.png");
+  background-size: 800px;
   color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.cg-header-inner {
+  background: linear-gradient(to bottom, #0099ff 30%, transparent);
   padding: 5em 2em;
 
   @media (min-width: 500px) {
@@ -55,3 +63,8 @@ button.cg-github, button.cg-my-resume {
     font-size: 1.1em;
   }
 }
+
+//.icon {
+//  font-size: 1.3em;
+//  margin: 20px 34px;
+//}
