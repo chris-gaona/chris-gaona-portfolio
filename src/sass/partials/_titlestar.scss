@@ -37,8 +37,9 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #0099ff;
-  color: white;
+  background-color: #fff;
+  color: #0099ff;
+  border-radius: 50%;
 }
 
 hr.star-primary {
