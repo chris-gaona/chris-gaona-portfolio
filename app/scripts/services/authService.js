@@ -50,16 +50,12 @@ function authService($http, $window) {
   authService.register = function(user) {
     return $http.post('/register', user, {
       headers: {Authorization: 'Bearer '+authService.getToken()}
-    }).success(function(data){
-      authService.saveToken(data.token);
     });
   };
 
   // login function that posts a user to our /login route and saves the token returned
   authService.logIn = function(user) {
-    return $http.post('/login', user).success(function(data){
-      authService.saveToken(data.token);
-    });
+    return $http.post('/login', user);
   };
 
   //logout function that removes the user's token from localStorage, logging the user out.
