@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "start": "node ./bin/www",
-    "start:dev": "nodemon ./bin/www",
+    "dev": "nodemon ./bin/www",
     "bundle:dev": "mkdir -p dist/public/scripts && browserify app/app.js -o dist/public/scripts/portfolio.bundle.js --debug",
     "bundle": "mkdir -p dist/public/scripts && browserify app/app.js | uglifyjs > dist/public/scripts/portfolio.bundle.js",
     "lint": "jshint **",
