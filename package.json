@@ -4,7 +4,7 @@
   "description": "Chris Gaona Portfolio",
   "private": true,
   "engines": {
-    "node": "6.9.2"
+    "node": "6.10.1"
   },
   "scripts": {
     "postinstall": "npm run build",
