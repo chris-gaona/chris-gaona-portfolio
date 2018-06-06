@@ -29,25 +29,24 @@ function getTreehouse() {
 
 getTreehouse();
 
-// creates getCodeschool function
-function getCodeschool() {
-  // request codeschool url
-  request('https://www.codeschool.com/users/thebeloved88.json', function (err, response, body) {
-    if (err) return new Error(err);
+// // creates getCodeschool function
+// function getCodeschool() {
+//   // request codeschool url
+//   request('https://www.codeschool.com/users/thebeloved88.json', function (err, response, body) {
+//     if (err) return new Error(err);
 
-    // if response is good and there is no error
-    if (!err && response.statusCode == 200) {
-      // parse result
-      console.log('body', body)
-      var codeschool = JSON.parse(body);
+//     // if response is good and there is no error
+//     if (!err && response.statusCode == 200) {
+//       // parse result
+//       var codeschool = JSON.parse(body);
 
-      // cache the object and refresh every 3 days
-      cache.put('codeschool', codeschool, 259200000, function() {
-          getCodeschool();
-      }); // Time in ms
-    }
-  });
-}
+//       // cache the object and refresh every 3 days
+//       cache.put('codeschool', codeschool, 259200000, function() {
+//           getCodeschool();
+//       }); // Time in ms
+//     }
+//   });
+// }
 
 // getCodeschool();
 
