@@ -38,6 +38,7 @@ function getCodeschool() {
     // if response is good and there is no error
     if (!err && response.statusCode == 200) {
       // parse result
+      console.log('body', body)
       var codeschool = JSON.parse(body);
 
       // cache the object and refresh every 3 days
@@ -48,7 +49,7 @@ function getCodeschool() {
   });
 }
 
-getCodeschool();
+// getCodeschool();
 
 // creates getCodeschool function
 function getGitHub() {
